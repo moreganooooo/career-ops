@@ -35,9 +35,11 @@
 
 ## PDF Design
 
-- **Fonts**: DM Serif Display 400 (name 32pt, section headers 16pt) + Inter 300/600 (everything else)
-- **Fonts self-hosted**: `fonts/` — dm-serif-display-latin.woff2, dm-serif-display-latin-ext.woff2, inter-latin.woff2, inter-latin-ext.woff2
-- **Header**: name in DM Serif Display 32pt + tagline in Inter Light 14pt + contact row in Inter Light 10pt
+- **Fonts**: DM Serif Display 400 (name 32pt, section headers 16pt) + Space Grotesk 400/600 (everything else)
+- **Fonts self-hosted**: `fonts/` — dm-serif-display-latin.woff2, dm-serif-display-latin-ext.woff2, space-grotesk-latin.woff2, space-grotesk-latin-ext.woff2
+- **Do NOT use Inter** — it is a variable font and causes reversed/backwards text when copied from the PDF in Chromium/Playwright
+- **Header**: name in DM Serif Display 32pt + tagline in Space Grotesk 14pt + contact row in Space Grotesk 10pt
+- **Tagline**: written in UPPERCASE directly in the HTML source — do NOT use `text-transform: uppercase` in CSS (also causes reversed text in Chromium PDF)
 - **Section headers**: DM Serif Display 16pt black `#000000`, border-bottom `0.018cm solid #9aa3af`
 - **Body**: Inter Light (300) 10pt, color `#434343`, line-height 1.5
 - **Bold emphasis**: Inter 600, color `#000000` (via `<strong>`)
@@ -225,9 +227,11 @@ Callahan Creek (Now BarkleyOKRP) clients: Hill's Pet Nutrition, CommunityAmerica
 All bold, no italics, single line:
 ```html
 <div class="cert-item avoid-break">
-  <div class="cert-title">Email Marketing Software Certification | HubSpot | 2026</div>
+  <div class="cert-title"><strong>Email Marketing Software Certification</strong> | HubSpot | 2026</div>
 </div>
 ```
+
+Note: wrap only the cert name in `<strong>` — the pipe, institution, and year stay regular weight.
 
 Always include:
 - HubSpot Email Marketing Software Certification
@@ -400,7 +404,8 @@ Use the template at `templates/cv-template.html`. Replace all `{{...}}` placehol
 | `{{SECTION_SKILLS}}` | "Skills" |
 | `{{SKILLS}}` | Categorized HTML per skills format above — more rather than fewer |
 | `{{SECTION_EXPERIENCE}}` | "Work Experience" |
-| `{{EXPERIENCE}}` | HTML for all jobs per page layout, bullet count, and heading format rules |
+| `{{EXPERIENCE_PAGE1}}` | HTML for page 1 jobs only: Mercor, Treering, Inside Sales Team |
+| `{{EXPERIENCE_PAGE2}}` | HTML for page 2 jobs only: Element 8, VML, Callahan Creek — no section title wrapper needed |
 | `{{SECTION_CERTIFICATIONS}}` | "Training & Certifications" |
 | `{{CERTIFICATIONS}}` | HTML for cert entries per heading format rule |
 | `{{SECTION_EDUCATION}}` | "Education" |
