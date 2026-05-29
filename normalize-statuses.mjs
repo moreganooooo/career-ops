@@ -78,7 +78,7 @@ function normalizeStatus(raw) {
   if (['aplicado', 'enviada', 'aplicada', 'applied', 'sent'].includes(lower)) return { status: 'Applied' };
   if (['respondido'].includes(lower)) return { status: 'Responded' };
   if (['entrevista'].includes(lower)) return { status: 'Interview' };
-  if (['oferta'].includes(lower)) return { status: 'Offer' };
+  if (['offer'].includes(lower)) return { status: 'Offer' };
   if (['cerrada', 'descartada'].includes(lower)) return { status: 'Discarded' };
   if (['no aplicar', 'no_aplicar', 'skip'].includes(lower)) return { status: 'SKIP' };
 

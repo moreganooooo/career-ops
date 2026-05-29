@@ -1,4 +1,4 @@
-# Mode: contacto -- LinkedIn Power Move
+# Mode: contact -- LinkedIn Power Move
 
 1. **Identify targets** via WebSearch:
    - Hiring manager of the team

@@ -63,5 +63,5 @@ Dado mi perfil (read from cv.md and profile.yml for specific experience):
 - ¿Qué historia debería contar en la entrevista?
 ```
 
-Personalizar cada sección con el contexto específico de la oferta evaluada,
+Personalizar cada sección con el contexto específico de la offer evaluada,
 en el idioma resuelto en la sección **Language** de arriba (NO siempre español).
