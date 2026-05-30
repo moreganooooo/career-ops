@@ -31,15 +31,15 @@ const RELEASES_API = 'https://api.github.com/repos/santifer/career-ops/releases/
 const SYSTEM_PATHS = [
   'modes/_shared.md',
   'modes/_profile.template.md',
-  'modes/offer.md',
+  'modes/oferta.md',
   'modes/pdf.md',
   'modes/scan.md',
   'modes/batch.md',
   'modes/apply.md',
   'modes/auto-pipeline.md',
-  'modes/contact.md',
+  'modes/contacto.md',
   'modes/deep.md',
-  'modes/offers.md',
+  'modes/ofertas.md',
   'modes/pipeline.md',
   'modes/project.md',
   'modes/tracker.md',
@@ -62,9 +62,11 @@ const SYSTEM_PATHS = [
   'cv-sync-check.mjs',
   'update-system.mjs',
   'scan.mjs',
+  'providers/',
   'doctor.mjs',
   'check-liveness.mjs',
   'liveness-core.mjs',
+  'liveness-browser.mjs',
   'analyze-patterns.mjs',
   'followup-cadence.mjs',
   'gemini-eval.mjs',
@@ -284,7 +286,7 @@ async function apply() {
     // local v1.6.x SYSTEM_PATHS didn't include it, so `.agents/` was never
     // checked out while `.claude/skills/` was updated to symlink into it.
     // See: https://github.com/santifer/career-ops/issues/649
-    const BOOTSTRAP_PATHS = ['.agents/'];
+    const BOOTSTRAP_PATHS = ['.agents/', 'providers/', 'liveness-browser.mjs'];
     for (const path of BOOTSTRAP_PATHS) {
       if (SYSTEM_PATHS.includes(path)) continue; // already in main loop
       try {
