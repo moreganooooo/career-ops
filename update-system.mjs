@@ -54,7 +54,6 @@ const SYSTEM_PATHS = [
   'AGENTS.md',
   'GEMINI.md',
   'generate-pdf.mjs',
-  'generate-latex.mjs',
   'merge-tracker.mjs',
   'verify-pipeline.mjs',
   'dedup-tracker.mjs',
