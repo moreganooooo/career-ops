@@ -11,7 +11,7 @@
  *   node test-all.mjs --quick   # Skip dashboard build (faster)
  */
 
-import { execSync, execFileSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
@@ -31,10 +31,8 @@ function warn(msg) { console.log(`  ⚠️  ${msg}`); warnings++; }
 
 function run(cmd, args = [], opts = {}) {
   try {
-    if (Array.isArray(args) && args.length > 0) {
-      return execFileSync(cmd, args, { cwd: ROOT, encoding: 'utf-8', timeout: 30000, ...opts }).trim();
-    }
-    return execSync(cmd, { cwd: ROOT, encoding: 'utf-8', timeout: 30000, ...opts }).trim();
+    const safeArgs = Array.isArray(args) ? args : [];
+    return execFileSync(cmd, safeArgs, { cwd: ROOT, encoding: 'utf-8', timeout: 30000, ...opts }).trim();
   } catch (e) {
     return null;
   }
