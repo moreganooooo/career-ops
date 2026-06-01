@@ -141,7 +141,8 @@ try {
 
 if (!QUICK) {
   console.log('\n4. Dashboard build');
-  const goBuild = run('cd dashboard && go build -o /tmp/career-dashboard-test . 2>&1');
+  // Use a shell to run the compound command so execFileSync executes correctly
+  const goBuild = run('bash', ['-lc', 'cd dashboard && go build -o /tmp/career-dashboard-test . 2>&1']);
   if (goBuild !== null) {
     pass('Dashboard compiles');
   } else {
