@@ -1,150 +1,283 @@
 # Mode: job — Full A-G Evaluation
 
-When the candidate pastes a job (text or URL), ALWAYS deliver the 7 blocks (A-F evaluation + G legitimacy):
+When the candidate pastes a job (text or URL), ALWAYS deliver the 7 blocks (A-F evaluation + G legitimacy).
+
+This version is calibrated for Morgan Escott's search: remote individual-contributor roles across lifecycle/CRM/email marketing, content and brand writing, sales enablement, marketing operations, and adjacent cross-functional marketing work.
+
+## Candidate Context
+
+Before evaluating any job, keep these standing facts in mind:
+
+- Morgan has done substantial marketing, lifecycle, enablement, operations, onboarding, support-adjacent, and content work even when her formal title did not explicitly say so.
+- Demonstrated function matters more than exact title lineage.
+- HR or recruiter screening risk is real when titles do not map cleanly, so flag that honestly.
+- Remote compatibility matters a lot and should be treated as a major practical factor.
+- Being slightly overqualified is usually acceptable; being visibly underqualified on paper is the bigger risk.
+- Do not over-penalize roles just because they are not senior enough. The more important question is whether the role is plausible, winnable, and worth the effort.
 
 ## Step 0 — Archetype Detection
 
-Classify the job into one of the 6 archetypes (see `_shared.md`). If it is a hybrid, indicate the 2 closest ones. This determines:
-- Which proof points to prioritize in block B
-- How to rewrite the summary in block E
-- Which STAR stories to prepare in block F
+Classify the job into one of these archetypes. If it is hybrid, indicate the 2 closest.
+
+### Morgan archetypes
+
+- **Lifecycle / CRM / Email Marketing**
+- **Sales Enablement / Revenue Enablement**
+- **Content Strategy / Copywriting / Brand Voice**
+- **Marketing Operations / Campaign Operations / CRM Operations**
+- **Marketing Generalist / Coordinator / Cross-Functional Marketing**
+
+This determines:
+
+- Which proof points to prioritize in Block B
+- How to rewrite the summary in Block E
+- Which STAR stories to prepare in Block F
+- Which risks to emphasize in Block C
 
 ## Block A — Role Summary
 
-Table with:
+Create a concise table with:
+
 - Archetype detected
-- Domain (platform/agentic/LLMOps/ML/enterprise)
-- Function (build/consult/manage/deploy)
+- Functional lane
+- Department / team context
 - Seniority
-- Remote (full/hybrid/onsite)
-- Team size (if mentioned)
+- Remote status (full / hybrid / onsite / unclear)
+- Location constraints (if any)
+- Compensation (if shown)
 - TL;DR in 1 sentence
 
-## Block B — Match with CV
+Also include a short note:
 
-Read `cv.md`. Create a table with each JD requirement mapped to exact lines in the CV.
+- **Screening outlook:** likely easy screen / plausible but title-sensitive / high screen-out risk
 
-**Adapted to the archetype:**
-- If FDE → prioritize delivery speed and client-facing proof points
-- If SA → prioritize system design and integrations
-- If PM → prioritize product discovery and metrics
-- If LLMOps → prioritize evals, observability, pipelines
-- If Agentic → prioritize multi-agent, HITL, orchestration
-- If Transformation → prioritize change management, adoption, scaling
+## Block B — Match with CV / profile
 
-**Gaps** section with mitigation strategy for each. For each gap:
-1. Is it a hard blocker or a nice-to-have?
-2. Can the candidate demonstrate adjacent experience?
-3. Is there a portfolio project that covers this gap?
-4. Concrete mitigation plan (phrase for cover letter, quick project, etc.)
+Read the relevant profile source (`profile.yml`, `profile.md`, resume, or equivalent project file). Create a table mapping each meaningful JD requirement to Morgan's actual experience.
+
+Use columns like:
+
+- JD requirement
+- Matching evidence from profile / resume
+- Match strength (Strong / Partial / Weak / Missing)
+- Notes
+
+### Archetype-specific emphasis
+
+- **Lifecycle / CRM / Email Marketing** → prioritize segmentation, campaign building, automation logic, Outreach/Salesforce/CRM fluency, personalization, testing, reporting, and lifecycle thinking
+- **Sales Enablement / Revenue Enablement** → prioritize messaging systems, content libraries, training, sales-facing assets, cross-functional collaboration, process improvement, and adoption
+- **Content Strategy / Copywriting / Brand Voice** → prioritize writing quality, messaging systems, editorial judgment, storytelling, campaign copy, voice consistency, and audience empathy
+- **Marketing Operations / Campaign Operations / CRM Operations** → prioritize systems thinking, taxonomy, process design, QA, reporting, workflow logic, tool fluency, and operational discipline
+- **Marketing Generalist / Coordinator** → prioritize adaptability, campaign support, cross-functional execution, writing, organization, design fluency, and ability to own details
+
+### Gaps section
+
+For each real gap, assess:
+
+1. Hard blocker, moderate risk, or nice-to-have?
+2. Is it a title mismatch, skill mismatch, or industry mismatch?
+3. Can adjacent experience credibly cover the gap?
+4. Is the role still plausible for recruiter screening?
+5. What mitigation helps most: resume phrasing, cover-letter framing, portfolio example, or deprioritization?
+
+Be candid. Do not pretend a weak match is strong.
 
 ## Block C — Level and Strategy
 
-1. **Level detected** in the JD vs **candidate's natural level for that archetype**
-2. **"Sell senior without lying" plan**: specific phrases adapted to the archetype, concrete achievements to highlight, how to position founder experience as an advantage
-3. **"If they downlevel me" plan**: accept if compensation is fair, negotiate 6-month review, clear promotion criteria
+Evaluate:
 
-## Block D — Comp and Demand
+1. **Level detected in the JD**
+2. **Morgan's likely level for this kind of work**
+3. **Paper-risk level** based on title history, years, direct-tool match, and domain fit
 
-Use WebSearch for:
-- Current salaries for the role (Glassdoor, Levels.fyi, Blind)
-- Company's compensation reputation
-- Demand trend for the role
+### Level fit rubric
 
-Table with data and cited sources. If there is no data, state it instead of inventing.
+Use this framing instead of prestige-based ranking:
+
+- **5 = strong fit** — role aligns well with experience and should not trigger obvious screen-out risk
+- **4 = slight overqualification** — more senior than necessary, but still plausible and potentially advantageous
+- **3 = workable but title-sensitive** — actual experience maps, but recruiter may hesitate on title history or domain specificity
+- **2 = meaningful screen risk** — underqualified on paper or too many missing direct signals
+- **1 = poor fit** — likely screened out quickly
+
+### Strategy section
+
+Include:
+
+- **How to position the fit truthfully** — exact phrasing ideas for summary / cover letter / outreach
+- **How to address title mismatch without sounding defensive**
+- **Whether to lean into breadth or specialization**
+- **Whether to pursue, pursue selectively, or skip**
+
+Do **not** use founder framing or "sell senior without lying" language unless it actually applies. This file is not for startup-founder repositioning.
+
+## Block D — Comp and Practicality
+
+Use web research when needed for:
+
+- Current salary range for the role
+- Salary transparency on the posting, if any
+- Company compensation reputation, if credible public info exists
+- Any notable hiring or layoff context that materially affects effort prioritization
+
+If there is no data, say so instead of inventing.
+
+Then add a **Practicality note** that addresses:
+
+- Whether compensation seems likely to be viable
+- Whether remote/location terms work
+- Whether the effort-to-likelihood ratio seems favorable
 
 ## Block E — Customization Plan
 
-| # | Section | Current status | Proposed change | Why |
-|---|---------|---------------|------------------|---------|
-| 1 | Summary | ... | ... | ... |
-| ... | ... | ... | ... | ... |
+Create a table like this:
 
-Top 5 changes to CV + Top 5 changes to LinkedIn to maximize match.
+| # | Section | Current status | Proposed change | Why |
+|---|---------|---------------|-----------------|-----|
+| 1 | Summary | ... | ... | ... |
+
+Then include:
+
+- Top 5 resume changes
+- Top 5 LinkedIn changes
+- Optional cover-letter angle
+
+### Customization rules
+
+- Favor demonstrated function over exact title when appropriate
+- Mirror the JD language carefully, but do not fabricate experience
+- Reduce unnecessary emphasis on leadership if the role is IC-focused
+- Bring remote, systems, writing, CRM, campaign, enablement, or content strengths forward depending on archetype
+- If the role is coordinator/generalist level, do not overstuff the materials with overly senior positioning that could make Morgan look misaligned
 
 ## Block F — Interview Plan
 
-6-10 STAR+R stories mapped to JD requirements (STAR + **Reflection**):
+Create 6-10 STAR+R stories mapped to the JD.
 
-| # | JD Requirement | STAR+R Story | S | T | A | R | Reflection |
-|---|-----------------|-----------------|---|---|---|---|------------|
+| # | JD Requirement | Story | S | T | A | R | Reflection |
+|---|----------------|-------|---|---|---|---|------------|
 
-The **Reflection** column captures what was learned or what would be done differently. This signals seniority — junior candidates describe what happened, senior candidates extract lessons.
+The **Reflection** column matters. It should show judgment, growth, or what Morgan learned.
 
-**Story Bank:** If `interview-prep/story-bank.md` exists, check if any of these stories are already there. If not, append new ones. Over time this builds a reusable bank of 5-10 master stories that can be adapted to any interview question.
+### Story framing by archetype
 
-**Selected and framed according to the archetype:**
-- FDE → emphasize delivery speed and client-facing
-- SA → emphasize architectural decisions
-- PM → emphasize discovery and trade-offs
-- LLMOps → emphasize metrics, evals, production hardening
-- Agentic → emphasize orchestration, error handling, HITL
-- Transformation → emphasize adoption, organizational change
+- **Lifecycle / CRM / Email Marketing** → segmentation, sequence strategy, optimization, reporting, personalization, lifecycle design
+- **Sales Enablement / Revenue Enablement** → content systems, training, sales adoption, cross-functional coordination, message consistency
+- **Content Strategy / Copywriting / Brand Voice** → voice, editorial judgment, campaign writing, audience understanding, message architecture
+- **Marketing Operations / Campaign Operations / CRM Operations** → process design, QA, systems cleanup, logic, documentation, reporting
+- **Marketing Generalist / Coordinator** → organization, execution, cross-functional support, adaptability, project ownership
 
 Also include:
-- 1 recommended case study (which of their projects to present and how)
-- Red-flag questions and how to answer them (e.g., "why did you sell your company?", "do you have a team of reports?")
+
+- 1 recommended case study or portfolio example to emphasize
+- Likely red-flag questions
+- Calm answer strategy for each
+
+Common red-flag topics to watch for:
+
+- Why the titles don't fully match the work
+- Why this role if it seems slightly lower level
+- Career gap / time away
+- Whether Morgan wants management or an IC path
 
 ## Block G — Posting Legitimacy
 
-Analyze the job posting for signals that indicate whether this is a real, active opening. This helps the user prioritize their effort on opportunities most likely to result in a hiring process.
+Analyze whether the role looks real, active, and worth energy.
 
-**Ethical framing:** Present observations, not accusations. Every signal has legitimate explanations. The user decides how to weigh them.
+Present observations, not accusations.
 
-### Signals to analyze (in order):
+### Signals to analyze
 
-**1. Posting Freshness** (from Playwright snapshot, already captured in Step 0):
-- Date posted or "X days ago" -- extract from page
-- Apply button state (active / closed / missing / redirects to generic page)
-- If URL redirected to generic careers page, note it
+**1. Posting freshness**
 
-**2. Description Quality** (from JD text):
-- Does it name specific technologies, frameworks, tools?
-- Does it mention team size, reporting structure, or org context?
-- Are requirements realistic? (years of experience vs technology age)
-- Is there a clear scope for the first 6-12 months?
-- Is salary/compensation mentioned?
-- What ratio of the JD is role-specific vs generic boilerplate?
-- Any internal contradictions? (entry-level title + staff requirements, etc.)
+- Date posted or recency language
+- Apply button status
+- Whether the URL redirects strangely
 
-**3. Company Hiring Signals** (2-3 WebSearch queries, combine with Block D research):
-- Search: `"{company}" layoffs {year}` -- note date, scale, departments
-- Search: `"{company}" hiring freeze {year}` -- note any announcements
-- If layoffs found: are they in the same department as this role?
+**2. Description quality**
 
-**4. Reposting Detection** (from scan-history.tsv):
-- Check if company + similar role title appeared before with a different URL
-- Note how many times and over what period
+- Specific responsibilities vs generic boilerplate
+- Clear team or reporting context
+- Reasonable expectations
+- Realistic tool requirements
+- Salary transparency, if present
+- Contradictions or copy-paste weirdness
 
-**5. Role Market Context** (qualitative, no additional queries):
-- Is this a common role that typically fills in 4-6 weeks?
-- Does the role make sense for this company's business?
-- Is the seniority level one that legitimately takes longer to fill?
+**3. Company hiring context**
 
-### Output format:
+- Recent layoffs or hiring freeze news, if relevant
+- Whether the role type makes sense for the company
+- Whether the company appears to be actively hiring in multiple adjacent functions
 
-**Assessment:** One of three tiers:
-- **High Confidence** -- Multiple signals suggest a real, active opening
-- **Proceed with Caution** -- Mixed signals worth noting
-- **Suspicious** -- Multiple ghost job indicators, investigate before investing time
+**4. Reposting / churn clues**
 
-**Signals table:** Each signal observed with its finding and weight (Positive / Neutral / Concerning).
+- Evidence of repeated reposting
+- Similar role appearing repeatedly over time
 
-**Context Notes:** Any caveats (niche role, government job, evergreen position, etc.) that explain potentially concerning signals.
+**5. Practical credibility**
 
-### Edge case handling:
-- **Government/academic postings:** Longer timelines are standard. Adjust thresholds (60-90 days is normal).
-- **Evergreen/continuous hire postings:** If the JD explicitly says "ongoing" or "rolling," note it as context -- this is not a ghost job, it is a pipeline role.
-- **Niche/executive roles:** Staff+, VP, Director, or highly specialized roles legitimately stay open for months. Adjust age thresholds accordingly.
-- **Startup / pre-revenue:** Early-stage companies may have vague JDs because the role is genuinely undefined. Weight description vagueness less heavily.
-- **No date available:** If posting age cannot be determined and no other signals are concerning, default to "Proceed with Caution" with a note that limited data was available. NEVER default to "Suspicious" without evidence.
-- **Recruiter-sourced (no public posting):** Freshness signals unavailable. Note that active recruiter contact is itself a positive legitimacy signal.
+- Does this seem like a role that would genuinely exist right now?
+- Is it aligned with company size and business model?
+- Does it feel evergreen, backfill, or truly open?
+
+### Output format
+
+**Assessment:** one of
+
+- **High Confidence**
+- **Proceed with Caution**
+- **Suspicious**
+
+Then provide:
+
+- Signals table with Positive / Neutral / Concerning labels
+- Context notes
+- Recommendation on whether Morgan should invest full effort, medium effort, or low effort
+
+### Edge cases
+
+- Government / academic jobs can move slowly
+- Evergreen postings are not automatically fake
+- Niche or senior roles may stay open longer
+- Startups may write vaguer JDs
+- If no date is available, default to caution rather than paranoia
 
 ---
 
-## Post-evaluation
+## Match Scoring
 
-**ALWAYS** after generating blocks A-G:
+After Blocks A-G, calculate a weighted match score using this matrix.
+
+| Dimension | Weight | Criteria |
+|---|---:|---|
+| CV / profile match | 25% | 5 = direct and convincing match to core work; 3 = adjacent but title-sensitive; 1 = weak or largely missing |
+| North Star alignment | 20% | 5 = clear target lane; 3 = adjacent lane; 1 = far from desired direction |
+| Remote quality | 15% | 5 = fully remote and workable; 3 = hybrid but maybe manageable; 1 = onsite / incompatible |
+| Level fit | 15% | 5 = strong fit; 4 = slightly overqualified but plausible; 3 = workable but title-sensitive; 2 = meaningful screen risk; 1 = poor fit |
+| Estimated compensation | 10% | 5 = likely strong and viable; 3 = unclear or middling; 1 = likely too low |
+| Growth trajectory | 5% | 5 = useful path or strong skill-building; 1 = likely dead end |
+| Time-to-offer speed | 5% | 5 = likely quick process; 1 = likely slow / bureaucratic |
+| Tech / tool relevance | 3% | 5 = tools and systems line up well; 1 = little overlap |
+| Company reputation | 1% | 5 = positive reputation; 1 = serious red flags |
+| Cultural signals | 1% | 5 = promising; 1 = concerning |
+
+### Scoring guidance
+
+- Prioritize plausibility and screenability over prestige.
+- Do not over-reward famous companies.
+- Do not underweight remote constraints.
+- Do not bury title-risk inside vague prose; call it what it is.
+- If a role is strong in real function but weak in formal title lineage, that is usually a **3 or 4**, not an automatic fail.
+
+## Final Recommendation
+
+End with:
+
+- **Weighted score:** X/5
+- **Recommendation:** Strong pursue / Selective pursue / Low-priority pursue / Skip
+- **Why:** 2-4 sentences in plain language
+
+## Post-evaluation
 
 ### 1. Save report .md
 
@@ -164,20 +297,21 @@ Save full evaluation in `reports/{###}-{company-slug}-{YYYY-MM-DD}.md`.
 **Archetype:** {detected}
 **Score:** {X/5}
 **Legitimacy:** {High Confidence | Proceed with Caution | Suspicious}
+**Recommendation:** {Strong pursue | Selective pursue | Low-priority pursue | Skip}
 **PDF:** {path or pending}
 
----
+***
 
 ## A) Role Summary
 (full content of block A)
 
-## B) Match with CV
+## B) Match with CV / profile
 (full content of block B)
 
 ## C) Level and Strategy
 (full content of block C)
 
-## D) Comp and Demand
+## D) Comp and Practicality
 (full content of block D)
 
 ## E) Customization Plan
@@ -189,10 +323,7 @@ Save full evaluation in `reports/{###}-{company-slug}-{YYYY-MM-DD}.md`.
 ## G) Posting Legitimacy
 (full content of block G)
 
-## H) Draft Application Answers
-(only if score >= 4.5 — draft answers for the application form)
-
----
+***
 
 ## Keywords extracted
 (list of 15-20 keywords from the JD for ATS optimization)
@@ -200,15 +331,16 @@ Save full evaluation in `reports/{###}-{company-slug}-{YYYY-MM-DD}.md`.
 
 ### 2. Record in tracker
 
-**ALWAYS** record in `data/applications.md`:
+ALWAYS record in `data/applications.md`:
+
 - Next sequential number
 - Current date
 - Company
 - Role
-- Score: match average (1-5)
+- Score: weighted match score (1-5)
 - Status: `Evaluated`
-- PDF: ❌ (or ✅ if auto-pipeline generated PDF)
-- Report: link relative to the report .md (e.g., `[001](reports/001-company-2026-01-01.md)`)
+- PDF: ❌ (or ✅ if generated)
+- Report: relative link to the report
 
 **Tracker format:**
 

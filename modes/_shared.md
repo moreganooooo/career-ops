@@ -1,239 +1,278 @@
-# System Context -- career-ops
+<!--
+SHARED SYSTEM CONTEXT
+Keep personal details out of this file.
 
-<!-- ============================================================
-     THIS FILE IS AUTO-UPDATABLE. Don't put personal data here.
-     
-     Your customizations go in modes/_profile.md (never auto-updated).
-     This file contains system rules, scoring logic, and tool config
-     that improve with each career-ops release.
-     ============================================================ -->
+Candidate-specific targets, narrative, constraints, and preferences belong in:
+- config/profile.yml
+- modes/_profile.md
+- writing-style.md
+
+This file defines shared rules that multiple modes can rely on.
+-->
+
+# System Context — career-ops
 
 ## Sources of Truth
 
-| File | Path | When |
-|------|------|------|
-| cv.md | `cv.md` (project root) | ALWAYS |
-| article-digest.md | `article-digest.md` (if exists) | ALWAYS (detailed proof points) |
-| profile.yml | `config/profile.yml` | ALWAYS (candidate identity and targets) |
-| _profile.md | `modes/_profile.md` | ALWAYS (user archetypes, narrative, negotiation) |
-| writing-samples/ | `writing-samples/` | When generating candidate-facing text — check `_profile.md` for cached `## Writing Style` first; only scan files if absent |
-
-**RULE: NEVER hardcode metrics from proof points.** Read them from cv.md + article-digest.md at evaluation time.
-**RULE: For article/project metrics, article-digest.md takes precedence over cv.md.**
-**RULE: Read _profile.md AFTER this file. User customizations in _profile.md override defaults here.**
-
----
-
-## Scoring System
-
-The evaluation uses 6 blocks (A-F) with a global score of 1-5:
-
-| Dimension | What it measures |
-|-----------|-----------------|
-| Match con CV | Skills, experience, proof points alignment |
-| North Star alignment | How well the role fits the user's target archetypes (from _profile.md) |
-| Comp | Salary vs market (5=top quartile, 1=well below) |
-| Cultural signals | Company culture, growth, stability, remote policy |
-| Red flags | Blockers, warnings (negative adjustments) |
-| **Global** | Weighted average of above |
-
-**Score interpretation:**
-- 4.5+ → Strong match, recommend applying immediately
-- 4.0-4.4 → Good match, worth applying
-- 3.5-3.9 → Decent but not ideal, apply only if specific reason
-- Below 3.5 → Recommend against applying (see Ethical Use in AGENTS.md)
-
-## Posting Legitimacy (Block G)
-
-Block G assesses whether a posting is likely a real, active opening. It does NOT affect the 1-5 global score -- it is a separate qualitative assessment.
-
-**Three tiers:**
-- **High Confidence** -- Real, active opening (most signals positive)
-- **Proceed with Caution** -- Mixed signals, worth noting (some concerns)
-- **Suspicious** -- Multiple ghost indicators, user should investigate first
-
-**Key signals (weighted by reliability):**
-
-| Signal | Source | Reliability | Notes |
-|--------|--------|-------------|-------|
-| Posting age | Page snapshot | High | Under 30d=good, 30-60d=mixed, 60d+=concerning (adjusted for role type) |
-| Apply button active | Page snapshot | High | Direct observable fact |
-| Tech specificity in JD | JD text | Medium | Generic JDs correlate with ghost postings but also with poor writing |
-| Requirements realism | JD text | Medium | Contradictions are a strong signal, vagueness is weaker |
-| Recent layoff news | WebSearch | Medium | Must consider department, timing, and company size |
-| Reposting pattern | scan-history.tsv | Medium | Same role reposted 2+ times in 90 days is concerning |
-| Salary transparency | JD text | Low | Jurisdiction-dependent, many legitimate reasons to omit |
-| Role-company fit | Qualitative | Low | Subjective, use only as supporting signal |
-
-**Ethical framing (MANDATORY):**
-- This helps users prioritize time on real opportunities
-- NEVER present findings as accusations of dishonesty
-- Present signals and let the user decide
-- Always note legitimate explanations for concerning signals
-
-## Archetype Detection
-
-Classify every offer into one of these types (or hybrid of 2):
-
-| Archetype | Key signals in JD |
-|-----------|-------------------|
-| AI Platform / LLMOps | "observability", "evals", "pipelines", "monitoring", "reliability" |
-| Agentic / Automation | "agent", "HITL", "orchestration", "workflow", "multi-agent" |
-| Technical AI PM | "PRD", "roadmap", "discovery", "stakeholder", "product manager" |
-| AI Solutions Architect | "architecture", "enterprise", "integration", "design", "systems" |
-| AI Forward Deployed | "client-facing", "deploy", "prototype", "fast delivery", "field" |
-| AI Transformation | "change management", "adoption", "enablement", "transformation" |
-
-After detecting archetype, read `modes/_profile.md` for the user's specific framing and proof points for that archetype.
-
-## Global Rules
-
-### NEVER
-
-1. Invent experience or metrics
-2. Modify cv.md or portfolio files
-3. Submit applications on behalf of the candidate
-4. Share phone number in generated messages
-5. Recommend comp below market rate
-6. Generate a PDF without reading the JD first
-7. Use corporate-speak
-8. Ignore the tracker (every evaluated offer gets registered)
-
-### ALWAYS
-
-0. **Cover letter:** If the form allows it, ALWAYS include one. Same visual design as CV. JD quotes mapped to proof points. 1 page max.
-1. Read cv.md, _profile.md, and article-digest.md (if exists) before evaluating
-1b. **First evaluation of each session:** Run `node cv-sync-check.mjs`. If warnings, notify user.
-2. Detect the role archetype and adapt framing per _profile.md
-3. Cite exact lines from CV when matching
-4. Use WebSearch for comp and company data
-5. Register in tracker after evaluating
-6. Generate content in the language of the JD (EN default)
-7. Be direct and actionable -- no fluff
-8. Native tech English for generated text. Short sentences, action verbs, no passive voice.
-8b. Case study URLs in PDF Professional Summary (recruiter may only read this).
-9. **Tracker additions as TSV** -- NEVER edit applications.md directly. Write TSV in `batch/tracker-additions/`.
-10. **Include `**URL:**` in every report header.**
-
-### Tools
-
-| Tool | Use |
-|------|-----|
-| WebSearch | Comp research, trends, company culture, LinkedIn contacts, fallback for JDs |
-| WebFetch | Fallback for extracting JDs from static pages |
-| Playwright | Verify offers (browser_navigate + browser_snapshot). **NEVER 2+ agents with Playwright in parallel.** |
-| Read | cv.md, _profile.md, article-digest.md, cv-template.html |
-| Write | Temporary HTML for PDF, applications.md, reports .md |
-| Edit | Update tracker |
-| Canva MCP | Optional visual CV generation. Duplicate base design, edit text, export PDF. Requires `cv.canva_resume_design_id` in profile.yml. |
-| Bash | `node generate-pdf.mjs` |
-
-### Time-to-offer priority
-- Working demo + metrics > perfection
-- Apply sooner > learn more
-- 80/20 approach, timebox everything
-
----
-
-## Writing Style Calibration
-
-**Check `_profile.md` first.** If a `## Writing Style` section exists there, use it directly — do not re-scan the writing-samples files. Re-scanning is only needed when new samples are added or the user explicitly asks to recalibrate.
-
-**When to apply:** Before generating any text the user will send or publish — cover letters, LinkedIn outreach, application form answers, follow-up emails, executive summaries, profile blurbs. Does NOT apply to internal evaluation reports (A–F blocks, scores, analysis).
-
-**If no cached style in `_profile.md`:** Read all files in `writing-samples/`, **skipping any file named `README.md`**. If no user-provided samples are found, skip style calibration and gently note — once, without pressure — that adding a writing sample (e.g. a past cover letter, a LinkedIn About section, any professional writing) would help tailor outputs to their voice. If samples exist, extract the markers below and write the result to `_profile.md` under `## Writing Style` so future sessions skip this step.
-
-### What to extract
-
-**Tone & register**
-- Formal vs. conversational
-- Confident vs. hedging (watch for qualifiers like "I think", "perhaps", "somewhat")
-- Warm vs. transactional
-- Degree of self-promotion — does the user undersell, match, or lead with achievements?
-
-**Sentence structure**
-- Average sentence length — short and punchy or long and layered?
-- Use of fragments for emphasis
-- Clause nesting and complexity
-- How sentences open — subject-first, action-first, context-first?
-
-**Punctuation habits**
-- Em dashes, en dashes, or parentheses for asides?
-- Oxford comma or not?
-- Ellipses — used or avoided?
-- Exclamation marks — never, sparingly, or freely?
-- Semicolons vs. full stops to join related ideas
-
-**Vocabulary**
-- Technical density — how much jargon per paragraph?
-- Preferred synonyms (e.g. "built" vs. "developed" vs. "engineered")
-- Words or phrases the user reaches for repeatedly — keep them
-- Words that never appear — don't introduce them
-
-**Paragraph and structure patterns**
-- Paragraph length — one-liners or developed blocks?
-- Bullet-heavy or prose-heavy?
-- How ideas are sequenced — problem → solution, result-first, chronological?
-- Use of headers within longer pieces
-
-**Voice signatures**
-- First-person patterns — "I led", "we built", "our team"?
-- Active vs. passive ratio
-- Habitual openers and closers
-- Rhetorical moves — does the user ask questions, use contrast, tell micro-stories?
+| File | When | Purpose |
+|------|------|---------|
+| `cv.md` | Always | Core career history, achievements, dates, tools, and proof points |
+| `article-digest.md` | If present | Additional verified project/article/case-study proof points |
+| `config/profile.yml` | Always | Candidate constraints, targets, compensation, location, remote preferences |
+| `modes/_profile.md` | Always, after this file | Candidate-specific narrative, fit logic, archetypes, reframes, and strategy |
+| `writing-style.md` | When generating candidate-facing text | Tone, phrasing, voice rules, and wording preferences |
+| `reports/` | If present for this company/role | Prior evaluation context, legitimacy notes, objections, customization strategy |
+| `data/applications.md` | When tracking work | Application history and current status |
+| `data/pipeline.md` | When processing queued jobs | Pending URLs / jobs to evaluate |
 
 ### Rules
 
-- **Only extract what is demonstrably present.** Do not infer style from a single data point.
-- **Idiosyncratic choices are intentional.** Unconventional punctuation or phrasing is the user's voice — preserve it, do not correct it.
-- **If samples conflict**, weight the most recent or most similar-context file.
-- **If samples are sparse**, apply what can be reliably extracted and fall back to defaults for the rest.
-- **Style calibration applies to tone and structure only.** Do not import content, claims, or metrics from samples into CVs, reports, or evaluations.
-- **No verbatim copying or personal identifiers.** Store only abstract style descriptors (tone, structure, vocabulary preferences). Do not quote user sentences verbatim and do not retain personal identifiers (names, emails, phone numbers) from writing samples. "Preserve idiosyncratic choices" applies to stylistic traits only.
-
-### Persisting the extracted style
-
-After scanning (excluding any `README.md` files), write to `modes/_profile.md` only if at least one user-provided sample was found: find the existing `## Writing Style` section and replace the entire block up to the next `##` heading (or EOF) with the new content. If no `## Writing Style` section exists, append it. This ensures there is always exactly one canonical section. If no samples were found after filtering, do not write or modify the section.
-
-```markdown
-## Writing Style
-
-_Extracted from writing-samples/ on {date}. Re-run if new samples are added._
-
-**Tone:** {e.g. conversational, confident, no hedging qualifiers}
-**Sentence length:** {e.g. short and punchy, avg 12 words}
-**Openings:** {e.g. action-first, subject-first}
-**Punctuation:** {e.g. em dashes for asides, Oxford comma, no ellipses}
-**Vocabulary:** {e.g. prefers "built"/"ran"/"cut" over "developed"/"led"/"reduced"}
-**Structure:** {e.g. prose-heavy, result-first sequencing}
-**Voice:** {e.g. "I led", active voice dominant, no rhetorical questions}
-**Avoid:** {words or patterns absent from samples}
-```
+- Never hardcode metrics from memory. Read them from `cv.md` or `article-digest.md` at evaluation time.
+- If the same proof point appears in both files, prefer the more detailed and more recent verified source.
+- Read `modes/_profile.md` after this file. Candidate-specific rules override shared defaults.
+- Read `writing-style.md` before generating cover letters, form answers, outreach, summaries, or any user-facing text.
+- Internal evaluation reports may be plainer and more analytical than candidate-facing documents.
 
 ---
 
-## Professional Writing & ATS Compatibility
+## Shared Scoring Principles
 
-These rules apply to ALL generated text that ends up in candidate-facing documents: PDF summaries, bullets, cover letters, form answers, LinkedIn messages. They do NOT apply to internal evaluation reports.
+This file defines shared scoring principles only. Exact weights and output formats live in the individual mode files such as `offer.md`, `offers.md`, and related workflows.
+
+### Core dimensions
+
+Use these dimensions when evaluating role fit:
+
+1. **CV / evidence match**
+   - How directly the candidate’s demonstrated work maps to the job
+   - Prioritize real function and proof over exact title history
+
+2. **North Star alignment**
+   - How well the role fits the target role families in `modes/_profile.md`
+
+3. **Level fit**
+   - Evaluate screen risk, not prestige
+   - Slight overqualification is usually less risky than obvious underqualification
+
+4. **Remote / location fit**
+   - Treat location and remote constraints as real constraints, not “nice to have” preferences
+
+5. **Compensation**
+   - Compare to stated target or floor in `config/profile.yml` when available
+
+6. **Time-to-offer / process friction**
+   - Faster, cleaner hiring paths may deserve priority when the candidate needs income soon
+
+7. **Growth / usefulness**
+   - Consider whether the role builds useful momentum, even if it is not a forever role
+
+8. **Company / culture / reputation**
+   - Consider these, but do not over-weight them at the expense of realistic hiring odds unless `modes/_profile.md` says otherwise
+
+9. **Tool / stack relevance**
+   - Use when the role genuinely depends on a platform, workflow, or domain stack
+   - Do not over-penalize trainable tool gaps if the underlying function is strong
+
+10. **Blockers / risk**
+   - Identify hard blockers separately from softer concerns
+
+### Shared scoring rules
+
+- Always separate **title mismatch**, **skill mismatch**, and **screening risk**. They are not the same thing.
+- Use demonstrated function over formal title wherever possible.
+- Penalize likely underqualification more heavily than mild overqualification.
+- If a role is remote-incompatible or geographically impossible for the candidate, say so clearly.
+- If the role is a plausible stretch but still screenable, label it honestly as a stretch rather than a bad fit.
+- Legitimacy is a separate judgment from fit. A strong fit can still be a questionable posting.
+
+### Shared score interpretation
+
+- `4.5–5.0` = strong match, prioritize
+- `4.0–4.4` = good match, worth serious consideration
+- `3.5–3.9` = possible, but review the objections carefully
+- `Below 3.5` = usually not worth focused effort unless there is a strategic reason
+
+---
+
+## Posting Legitimacy
+
+Posting legitimacy is a separate qualitative assessment. It does **not** automatically change the fit score, but it should affect prioritization.
+
+### Tiers
+
+- **High Confidence** — multiple signals suggest a real, active opening
+- **Proceed with Caution** — mixed signals or missing data
+- **Suspicious** — multiple concerning signals suggest the role may not be active or worth the effort
+
+### Signals to review
+
+| Signal | Source | Reliability | Notes |
+|--------|--------|-------------|-------|
+| Posting age | Page snapshot / posting metadata | High | Recent is generally better, but role type matters |
+| Apply state | Page snapshot | High | Active button, dead link, redirect, or missing form |
+| Role specificity | JD text | Medium | Specific scope and tools are better than generic boilerplate |
+| Requirement realism | JD text | Medium | Contradictions can be meaningful |
+| Salary transparency | JD text / official page | Low | Helpful when present, not fatal when absent |
+| Recent layoffs / hiring freeze | External research | Medium | Must consider timing and department |
+| Reposting pattern | Scan history / prior records | Medium | Repeated reposting can be a warning sign |
+| Role-company fit | Qualitative review | Low | Use as support, not as the main reason |
+
+### Rules
+
+- Present observations, not accusations.
+- Never label a posting “fake” without evidence.
+- Always note legitimate explanations for concerns, especially for niche, government, academic, or slow-moving roles.
+- Every saved report should include `URL:` and `Legitimacy:` in the header.
+
+---
+
+## Role Family Detection
+
+Classify each role into the one or two closest role families. Use `modes/_profile.md` for the candidate-specific target ranking and narrative.
+
+### Common role families
+
+| Role family | Typical signals in title / JD |
+|-------------|-------------------------------|
+| Lifecycle / Email / CRM Marketing | lifecycle, retention, CRM, email, nurture, automation, segmentation |
+| Content / Copy / Messaging | copywriter, content strategist, messaging, campaign content, brand voice |
+| Sales Enablement / Training | enablement, onboarding, training, playbooks, collateral, readiness |
+| Marketing Operations / Revenue Operations | marketing ops, rev ops, systems, process, reporting, HubSpot, Salesforce |
+| Customer Success / Onboarding / Implementation | onboarding, customer success, adoption, implementation, account growth |
+| Operations / Admin / Process | coordinator, project support, documentation, workflow, scheduling, data hygiene |
+| SDR / BDR / Outbound Growth | SDR, BDR, prospecting, pipeline, qualification, outbound |
+| Marketing Generalist / Coordinator | coordinator, campaign support, cross-functional execution, general marketing support |
+
+### Detection rules
+
+- Choose the closest one or two families based on actual responsibilities, not just the title.
+- If the title is broad but the responsibilities are clear, trust the responsibilities.
+- If the title is narrow but the responsibilities are broad, note both.
+- Distinguish:
+  - `Title mismatch`
+  - `Skill mismatch`
+  - `Recruiter / HR screen risk`
+- A role can be a strong functional match and still have moderate screen risk.
+- Do not assume a nontraditional title means weak fit.
+
+---
+
+## Global Rules — NEVER
+
+1. Invent experience, metrics, tools, titles, or dates.
+2. Modify `cv.md`, portfolio files, or source documents to “improve” fit.
+3. Submit applications on behalf of the candidate without explicit instruction.
+4. Pretend a weak match is strong just to be encouraging.
+5. Treat culture / prestige as more important than realistic hiring odds unless the candidate explicitly says so.
+6. Penalize the candidate only because a formal title is missing when the underlying work is clearly there.
+7. Recommend remote-incompatible roles as strong targets when remote/location constraints are hard limits.
+8. Use robotic corporate-speak in candidate-facing text.
+9. Skip the tracker after meaningful evaluation or application work.
+10. Claim certainty where data is thin.
+
+---
+
+## Global Rules — ALWAYS
+
+1. Read `cv.md`, `config/profile.yml`, and `modes/_profile.md` before evaluating.
+2. Check for an existing company report before starting from scratch.
+3. Use exact proof points from the source files whenever possible.
+4. Tell the truth about gaps, blockers, and screen risk.
+5. Separate “can do the work” from “likely to get past HR.”
+6. Favor readable, recruiter-friendly positioning over cleverness.
+7. Use the language of the JD when generating candidate-facing text.
+8. Keep internal evaluations direct, specific, and low-fluff.
+9. Include `URL:` and `Legitimacy:` in saved evaluation headers.
+10. Keep tracker records and saved reports consistent with each other.
+
+---
+
+## Cover Letters and Candidate-Facing Materials
+
+- Do **not** assume every application needs a cover letter.
+- Generate a cover letter when:
+  - the user asks for one, or
+  - the application explicitly requests or strongly benefits from one
+- If a cover letter is created for a role, align it with the same positioning and tagline used for the resume / PDF for that role.
+- Candidate-facing materials should sound human, specific, and grounded — never templated.
+
+---
+
+## Writing Style
+
+### Source order
+
+1. `writing-style.md` if it exists
+2. Candidate-specific writing guidance in `modes/_profile.md`
+3. Recent user-provided writing samples, only if style guidance is missing or the user asks for recalibration
+
+### Rules
+
+- Use writing-style guidance for:
+  - cover letters
+  - application answers
+  - LinkedIn outreach
+  - follow-ups
+  - summaries the candidate may send to humans
+- Do **not** blindly apply that voice to internal evaluation reports
+- Preserve the candidate’s natural phrasing preferences where documented
+- Do not import facts or claims from writing samples unless they are verified elsewhere
+
+---
+
+## Professional Writing / ATS Compatibility
+
+### General rules
+
+- Prefer specifics over abstractions
+- Prefer clear verbs over padded phrasing
+- Use short-to-medium sentences
+- Vary openings and sentence rhythm
+- Name tools, systems, deliverables, audiences, and results when verified
 
 ### Avoid cliché phrases
-- "passionate about" / "results-oriented" / "proven track record"
-- "leveraged" (use "used" or name the tool)
-- "spearheaded" (use "led" or "ran")
-- "facilitated" (use "ran" or "set up")
-- "synergies" / "robust" / "seamless" / "cutting-edge" / "innovative"
-- "in today's fast-paced world"
-- "demonstrated ability to" / "best practices" (name the practice)
 
-### Unicode normalization for ATS
-`generate-pdf.mjs` automatically normalizes em-dashes, smart quotes, and zero-width characters to ASCII equivalents for maximum ATS compatibility. But avoid generating them in the first place.
+Avoid:
+- passionate about
+- results-oriented
+- dynamic professional
+- team player
+- go-getter
+- best-in-class
+- cutting-edge
+- seamless
+- leveraged
+- demonstrated ability to
+- in today’s fast-paced world
 
-### Vary sentence structure
-- Don't start every bullet with the same verb
-- Mix sentence lengths (short. Then longer with context. Short again.)
-- Don't always use "X, Y, and Z" — sometimes two items, sometimes four
+Prefer:
+- built
+- wrote
+- launched
+- improved
+- streamlined
+- mapped
+- trained
+- standardized
+- led
+- created
+- audited
+- supported
 
-### Prefer specifics over abstractions
-- "Cut p95 latency from 2.1s to 380ms" beats "improved performance"
-- "Postgres + pgvector for retrieval over 12k docs" beats "designed scalable RAG architecture"
-- Name tools, projects, and customers when allowed
+### ATS / readability rules
+
+- Keep punctuation clean and readable
+- Avoid ornate formatting in generated text
+- Avoid repeated bullet openers
+- Avoid inflated adjectives when a concrete fact would do the job better
+- When a metric is available and verified, use it
+
+---
+
+## Time and Effort Prioritization
+
+- Favor roles that are both credible matches and realistically attainable
+- When the candidate is under time or financial pressure, speed and screenability matter
+- It is acceptable to pursue a “good enough and likely” role over an “ideal but improbable” one
+- If a role is worth applying to only with heavy customization, say that plainly
+- If a role is not worth the effort, say so clearly and move on

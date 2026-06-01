@@ -124,6 +124,25 @@ async function generatePDF() {
     `file://$1.$2')`
   );
 
+  // Embed docs images as base64 data URIs (file:// img src is blocked by Chromium's null-origin policy when using setContent)
+  const docsDir = resolve(__dirname, 'docs');
+  const imgPattern = /src=['"]\.\/docs\/([^'"]+)['"]/g;
+  const imgMatches = [...html.matchAll(imgPattern)];
+  for (const match of imgMatches) {
+    const filename = match[1];
+    const ext = filename.split('.').pop().toLowerCase();
+    const mimeMap = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', svg: 'image/svg+xml', webp: 'image/webp' };
+    const mime = mimeMap[ext] || `image/${ext}`;
+    try {
+      const imgBuffer = await readFile(resolve(docsDir, filename));
+      const b64 = imgBuffer.toString('base64');
+      html = html.replace(match[0], `src='data:${mime};base64,${b64}'`);
+      console.log(`🖼️  Embedded ${filename} as base64 (${(imgBuffer.length / 1024).toFixed(1)} KB)`);
+    } catch (e) {
+      console.warn(`⚠️  Could not embed ${filename}: ${e.message}`);
+    }
+  }
+
   // Normalize text for ATS compatibility (issue #1)
   const normalized = normalizeTextForATS(html);
   html = normalized.html;

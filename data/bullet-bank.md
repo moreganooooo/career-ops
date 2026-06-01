@@ -61,8 +61,16 @@
 ---
 
 ## MERCOR
-*AI talent marketplace — current part-time/contractor role*
-*(Add your Mercor bullets here — 2 will be selected per application)*
+*AI talent marketplace — short-term contract, Aug 2025*
+*Full archive in bullet-bank-clean.csv. Always include 2 bullets. Select by JD archetype.*
+
+**Preferred for lifecycle/email/marketing ops roles:**
+- [ops] QA'd AI-generated marketing campaign builds and performance outputs, aligning evaluation criteria with best practices in HubSpot and Salesforce execution *(leads with Salesforce/HubSpot signal — strong for marketing ops roles)*
+- [ops] Evaluated AI-generated sales and marketing content for accuracy and alignment with industry standards, annotating conversational data to improve content quality
+
+**Preferred for enablement/content roles:**
+- [enablement] Collaborated asynchronously with leadership and subject matter experts to refine training datasets and improve system performance in campaign and territory analysis
+- [ops] Evaluated AI-generated sales and marketing outputs for accuracy and alignment with industry standards, annotating conversational data to improve content quality
 
 ---
 
@@ -74,6 +82,7 @@ sales leadership + content strategy role. 8 years, ~120 employees, $17M+ revenue
 ### Sales Enablement & Content Committee
 
 - [enablement] **Founded and chaired the Content Committee**, a cross-department body unifying Sales and Marketing — owned brand voice, QA processes, and a shared sequence library of 100+ assets for the full organization. *(still in use post-departure)*
+- [enablement] **Founded and chaired a Content Committee** to unify brand voice and content governance; built a scalable library of 129 Outreach sequences and 55 SDR personas, accelerating onboarding and ensuring consistent messaging. *(PREFERRED — "content governance" signals systems-builder; "scalable library" + "accelerating onboarding" are outcome-oriented; omit "Treering's" to keep bullet at 2 lines)*
 - [enablement] **Established Treering's Content Committee** to govern brand voice across Sales and Marketing, building and maintaining a 100+ asset sequence library still used after my departure.
 - [enablement content] **Built and owned Treering's complete content governance system** — Content Committee, brand voice guidelines, campaign QA process, and 100+ asset sequence library adopted org-wide.
 - [enablement] **Authored Treering's voice/tone guidelines** used as the team-wide standard; peers' sequences were held to my benchmark for quality and consistency.
@@ -81,6 +90,7 @@ sales leadership + content strategy role. 8 years, ~120 employees, $17M+ revenue
 - [content writing] **Personally authored 21 of 39 niche outreach sequences** in the org's sequence library, proofing all 39 including peers'; content is still in active rotation 4+ years later. *(verified: DF-0124)*
 - [content writing] **Wrote 4.5 years of the Treering sequence library** — authored 21/39 niche sequences, proofed the remainder, and maintained quality standards across all campaigns. *(verified: DF-0124)*
 - [enablement] **Developed and delivered monthly live + async SDR training** for 20+ employees on messaging, campaign strategy, QA, and Outreach.io best practices.
+- [enablement ops] **Built onboarding and training infrastructure for 20+ employees**, including live and async workshops on messaging, campaign strategy, and Outreach QA, and the SDR process map adopted into the official onboarding curriculum and still in use after departure. *(PREFERRED — "Built onboarding and training infrastructure" is systems-builder framing; "onboarding curriculum" is more senior than "training deck")*
 - [enablement mgmt] **Designed and launched a monthly SDR training program** for 20+ remote employees — combined live workshops and async documentation to transfer skills across time zones.
 - [enablement] **Built the official SDR new-hire onboarding infrastructure** — a multi-step process map website (escottmorgan.wixsite.com/processmap) referenced in the formal SDR training deck.
 - [ops enablement] **Created Treering's SDR Process Map** (escottmorgan.wixsite.com/processmap), an 8-step workflow website used as the primary new-hire training resource and referenced in the official SDR training deck.
@@ -104,6 +114,7 @@ sales leadership + content strategy role. 8 years, ~120 employees, $17M+ revenue
 - [ops] **Audited and re-prioritized 1,578 Hot Zone schools** across 50 states and Canada — built the data model, reporting, and outreach strategy from scratch.
 - [ops] **Managed 2,000+ account portfolio** — built custom Salesforce reports and dashboards to track territory health, prioritize outreach, and report to leadership.
 - [ops enablement] **Led selection and full implementation of Outreach.io** as the team's primary sequencing platform — managed CRM integration, data migration, and team-wide adoption training.
+- [ops enablement] **Deployed Outreach.io as the primary sequencing platform**, owning vendor evaluation, Salesforce CRM integration, data migration, and adoption training to build the team's outbound engagement infrastructure. *(PREFERRED — "outbound engagement infrastructure" is the outcome that signals systems-builder; always show the full cycle. See pdf.md → Morgan's Highest-Value Technical Differentiator.)*
 - [ops] **Created a dedicated research function from scratch** — designed role scope, reporting structure, success metrics, and integrated it into the SDR workflow.
 
 ### Revenue & Personal Performance
@@ -183,12 +194,12 @@ sales leadership + content strategy role. 8 years, ~120 employees, $17M+ revenue
 
 | Role | job-title line | job-meta line |
 |------|---------------|---------------|
-| Mercor | `AI Evaluation Consultant (AI/EdTech)` *(update title if different)* | `Mercor (~800 employees; $75M+ revenue) \| Short-Term Contract \| Remote \| 08/2025 – 08/2025` |
+| Mercor | `Sales/Marketing Strategy + QA Expert (AI Training)` | `Mercor (~800 employees; $75M+ revenue) \| Short-Term Contract \| Remote \| 08/2025 – 08/2025` |
 | Treering | `Senior Sales Development Lead (B2B/SaaS/EdTech)` | `Treering Yearbooks (~120 employees; $17M+ revenue) \| Remote \| 08/2016 – 08/2024` |
-| Inside Sales Team | `Business Development Representative (B2B/Outbound/Agency)` | `Inside Sales Team (Now Alleyoop) (~200 employees; B2B sales agency) \| Buffalo, NY \| 10/2015 – 08/2016` |
-| Element 8 / Strategy LLC | `Lead Graphic Designer (Design/Agency/Startup)` | `Element 8 → Strategy LLC (~10 employees; boutique studio) \| Lenexa, KS \| 01/2011 – 10/2011` |
+| Inside Sales Team | `ABM Specialist + Business Development Representative (Outbound/Agency)` | `Inside Sales Team (Now Alleyoop) (~150 employees; ~$21M revenue) \| Buffalo, NY \| 10/2015 – 08/2016` |
+| Element 8 / Strategy LLC | `Lead Graphic Designer (Design/Agency/Startup)` | `Element 8 + Strategy, LLC (~10–15 employees; ~$1M+ revenue) \| Lenexa, KS \| 01/2011 – 10/2011` |
 | VML | `Copywriting Intern (Agency/Digital/Brand)` | `VML (~600+ employees; ~$75M+ revenue) \| Kansas City, MO \| 05/2010 – 08/2010` |
-| Callahan Creek | `Copywriting Intern & Freelance Creative (Agency/Creative/Brand)` | `Callahan Creek (Now BarkleyOKRP) (~50 employees; regional agency) \| Lawrence, KS \| 05/2009 – 05/2010` |
+| Callahan Creek | `Copywriting Intern & Freelance Creative (Agency/Creative/Brand)` | `Callahan Creek (Now BarkleyOKRP) (~30 employees; ~$5M revenue) \| Lawrence, KS \| 05/2009 – 05/2010` |
 
 *Note: Inside Sales Team, Element 8/Strategy LLC, and Callahan Creek size/revenue are estimates — update if you have better data.*
 

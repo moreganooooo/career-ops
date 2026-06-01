@@ -1,248 +1,485 @@
-# Mode: interview-prep — Company-Specific Interview Intelligence
+# Mode: interview-prep — Company-Specific Interview Prep
 
-When the user asks to prep for an interview at a specific company+role, or when an evaluation scores 4.0+ and the user updates status to `Interview`, run this mode.
+When the user asks to prepare for an interview for a specific company and role, or when a tracked application moves to `Interview`, run this mode.
+
+This mode is designed for Morgan Escott’s target roles:
+- Lifecycle / CRM / Email Marketing
+- Sales Enablement / Revenue Enablement
+- Content Strategy / Copywriting / Brand Voice
+- Marketing Operations / Campaign Operations / CRM Operations
+- Marketing Generalist / Coordinator / Cross-Functional Marketing
+
+The goal is not generic interview advice. The goal is a company-aware, role-aware prep document that helps Morgan show up calm, specific, and believable.
+
+---
 
 ## Inputs
 
+Read these inputs when available:
+
 1. **Company name** and **role title** (required)
-2. **Evaluation report** in `reports/` (if exists) — read for archetype, gaps, matched proof points
-3. **Story bank** at `interview-prep/story-bank.md` — read for existing prepared stories
-4. **CV** at `cv.md` + `article-digest.md` — read for proof points
-5. **Profile** at `config/profile.yml` + `modes/_profile.md` — read for candidate context
+2. **Evaluation report** in `reports/` (if available)
+3. **Story bank** in `interview-prep/story-bank.md` (if available)
+4. **cv.md** and `article-digest.md` (if available)
+5. **config/profile.yml**
+6. **modes/_profile.md**
+7. **writing-style.md** for tone calibration when drafting spoken or written answer examples
 
-## Step 1 — Research
+If some files are missing, continue honestly with what is available.
 
-Run these WebSearch queries. Extract structured data, not summaries. Cite sources for every claim.
+---
 
-The first round of most processes is a recruiter / HR screen, not a technical panel — so research has to cover both. Group queries by the audience they inform:
+## Step 1 — Research the Interview Context
 
-**Recruiter / HR screen** (early-round fit, comp, logistics):
+Research the company, role, process, and likely interview focus.
 
-| Query | What to extract |
-|-------|-----------------|
-| `"{company} {role} salary" site:levels.fyi` and `"{company} {role} salary" site:glassdoor.com/Salary` (run both — `OR` inside a quoted phrase is taken literally by most engines) | Comp ranges (base / equity / bonus) by level |
-| `"{company} interview process site:glassdoor.com"` then manually filter retrieved reviews to those describing the recruiter / HR screen | Process timeline, screening criteria, common screening questions, recruiter behavior |
-| `"{company} site:teamblind.com" comp negotiation OR offer` | Candid comp/leverage details, what recruiters push back on |
-| `"{company} careers"` + `"{company} benefits"` | Official comp/benefits framing, work-auth/visa policy, location policy |
+Extract structured information, not vague summaries.
 
-**Hiring manager / leadership** (motivation, scope alignment, team fit):
+### Research priorities
 
-| Query | What to extract |
-|-------|-----------------|
-| `"{company} engineering blog"` and `"{company} {team} blog"` | Team's recent work, technical priorities, named challenges |
-| `"{company}" news OR launch OR roadmap` (last 12 months) | Recent milestones, public bets, hiring drivers |
-| `"{company} {role} interview process"` (general) | Hiring-manager round structure, what they evaluate, candidate write-ups |
+#### Recruiter / HR screen
+Focus on:
+- compensation framing
+- remote/location expectations
+- timeline
+- benefits
+- how the company describes the role publicly
+- any candidate-reported recruiter-screen questions
 
-**Peer / technical panel** (depth, collaboration, on-the-job realism):
+Suggested queries:
+- `"{company} {role} salary"`
+- `"{company} interview process glassdoor"`
+- `"{company} recruiter screen glassdoor"`
+- `"{company} careers"`
+- `"{company} benefits"`
+- `"{company} remote policy"`
 
-| Query | What to extract |
-|-------|-----------------|
-| `"{company} {role} interview questions site:glassdoor.com"` | Actual questions asked, difficulty rating, experience rating, number of rounds, offer/reject ratio |
-| `"{company} {role} interview site:leetcode.com/discuss"` | Specific coding/technical problems, system design topics, round structure |
-| `"{company} interview process site:teamblind.com"` then manually filter retrieved threads to those describing technical rounds | Hiring bar, recent technical interview data points |
+#### Hiring manager / team lead
+Focus on:
+- what problem this role is meant to solve
+- how the team talks about growth, brand, campaigns, customer experience, enablement, or operations
+- recent launches, campaigns, messaging changes, product moves, or hiring context
+- what success in the role likely looks like in the first 90 days
 
-If the company is small or obscure and yields few results, broaden: search for the role archetype at similar-stage companies, and note that intel is sparse. Do the recruiter-screen queries even when intel is sparse — comp/logistics data exists for almost every company.
+Suggested queries:
+- `"{company} {role} interview"`
+- `"{company} marketing team"`
+- `"{company} content marketing"`
+- `"{company} customer lifecycle"`
+- `"{company} enablement"`
+- `"{company} blog"`
+- `"{company} news"`
 
-**Do NOT fabricate questions.** If a source says "they asked about distributed systems," report that. Do not invent a specific distributed systems question. When generating likely questions from JD analysis, label them clearly as `[inferred from JD]` not sourced from candidates.
+#### Cross-functional peer / panel rounds
+Focus on:
+- work sample expectations
+- writing tests
+- campaign critique exercises
+- collaboration questions
+- process and execution expectations
+- candidate-reported interview questions for similar roles
 
-**Tag conventions** (don't mix them):
+Suggested queries:
+- `"{company} {role} interview questions"`
+- `"{company} writing test"`
+- `"{company} take home assignment"`
+- `"{company} glassdoor interview marketing"`
+- `"{company} glassdoor interview content"`
+- `"{company} glassdoor interview operations"`
 
-- `[inferred from JD]` — questions derived from the job description rather than a candidate report.
-- `[inferred]` — audience classifications (Step 2.5) made from round duration / position when `Conducted by` is unknown.
+### Research rules
+
+- Do not fabricate interview questions
+- If a source is thin, say so
+- If likely questions are inferred from the JD rather than reported by a candidate, tag them as `[inferred from JD]`
+- If the process is unclear, say “unknown — limited public interview data”
+
+---
 
 ## Step 2 — Process Overview
 
-```markdown
+Build a concise overview of the likely process.
+
+Use this format:
+
+```md
 ## Process Overview
-- **Rounds:** {N} rounds, ~{X} days end-to-end
-- **Format:** {e.g., recruiter screen → technical phone → take-home → onsite (4 rounds) → hiring manager}
-- **Difficulty:** {X}/5 (Glassdoor avg, N reviews)
-- **Positive experience rate:** {X}%
-- **Known quirks:** {e.g., "pair programming instead of whiteboard", "no LeetCode, all practical", "take-home is 4 hours"}
-- **Sources:** {links}
+- **Rounds:** {N or "unknown"}
+- **Format:** {example: recruiter screen → hiring manager → panel / work sample → final}
+- **Timeline:** {estimated days or "unknown"}
+- **Known interview signals:** {what candidates or company sources suggest}
+- **Confidence level:** {high / medium / low}
 ```
 
-If data is insufficient for any field, write "unknown — not enough data" rather than guessing.
+If public process data is sparse, infer carefully from company size, role level, and standard hiring patterns for this kind of role. Mark any inference clearly.
+
+---
 
 ## Step 2.5 — Audience Map
 
-Classify each round from Step 2 into exactly one audience. The audience drives what gets prioritized in Steps 4 and 7.
+Classify each likely round into one of these audiences.
 
-| Audience            | Typical round                                | Primary evaluation                                              |
-|---------------------|----------------------------------------------|-----------------------------------------------------------------|
-| `recruiter-screen`  | First call (15–30 min, recruiter / HR / TA)  | Fit gate: motivation, comp, location/visa, timeline             |
-| `hiring-manager`    | Manager / skip-level (30–45 min)             | Why this role, scope alignment, leadership signals              |
-| `peer-tech`         | IC technical (live coding, system design, take-home review) | Depth + collaboration on the actual stack                       |
-| `panel-mixed`       | Onsite / loop with multiple interviewer types in one block  | Cross-cuts the above                                            |
+| Audience | Typical round | Primary evaluation |
+|---|---|---|
+| `recruiter-screen` | Initial recruiter / talent call | Fit gate: motivation, compensation, location, timeline, high-level relevance |
+| `hiring-manager` | Manager interview | Why this role, scope fit, judgment, ownership, and role-specific relevance |
+| `peer-crossfunctional` | Peer or partner interview | Collaboration, communication, process, writing/campaign thinking, stakeholder fluency |
+| `work-sample` | Writing test, take-home, portfolio walkthrough, exercise | Quality of thinking, clarity, taste, structure, prioritization |
+| `panel-mixed` | Multi-interviewer loop | Cross-cutting consistency across all of the above |
 
-If `Conducted by` is unknown for a round, infer cautiously from duration, position, and any signals from the JD or job posting. Common patterns:
+### Audience mapping rules
 
-- Round 1, short (15–30 min) → almost always `recruiter-screen`.
-- Round 2 — **do not default**. Many companies put a peer-led technical phone screen here, others put the hiring manager. Prefer `peer-tech` if the round is described as "technical screen" or has a coding/system-design component; prefer `hiring-manager` if it's described as a manager / skip-level / leadership conversation; otherwise mark as `panel-mixed [inferred]` and prep both packs.
-- Deep technical block (live coding, system design, take-home review) → `peer-tech`.
-- Onsite / loop with multiple back-to-back rounds → `panel-mixed`.
+- First short call is usually `recruiter-screen`
+- A 30–60 minute conversation with the person this role reports to is usually `hiring-manager`
+- Interviews with sales, marketing, content, rev ops, or customer-facing partners are usually `peer-crossfunctional`
+- Any writing assignment, campaign critique, messaging exercise, onboarding plan, or portfolio review is `work-sample`
+- Multi-round loops with mixed interviewers are `panel-mixed`
 
-Mark inferred audiences with `[inferred]` and keep going — sparse intel is normal early in research.
+If the exact audience is unclear, label it `[inferred]`.
 
-```markdown
-## Audience Map
-- **Round 1** (recruiter screen, 30 min) → `recruiter-screen`
-- **Round 2** (technical phone screen, 60 min) → `peer-tech`
-- **Round 3** (hiring manager call, 45 min) → `hiring-manager`
-- **Round 4** (onsite loop, 4× 45 min) → `panel-mixed`
-- ...
-```
-
-The example above shows a typical pattern but is not a default. Classify each round from the actual research above — round 2 in particular is often `peer-tech`, not `hiring-manager`.
+---
 
 ## Step 3 — Round-by-Round Breakdown
 
-For each round discovered in research:
+For each round or likely round, document:
 
-```markdown
+```md
 ### Round {N}: {Type} — audience: `{audience}`
-- **Duration:** {X} min
-- **Conducted by:** {peer / manager / skip-level / recruiter — if known}
-- **What they evaluate:** {specific skills or traits}
-- **Reported questions:**
-  - {question} — [source: Glassdoor (URL/date)]
-  - {question} — [source: Blind (URL/date)]
-- **How to prepare:** {1-2 concrete actions, audience-appropriate — see Step 4 for the full per-audience pack}
+- **Duration:** {X min or unknown}
+- **Likely interviewer:** {recruiter / manager / peer / cross-functional partner / panel}
+- **What they are evaluating:** {specific traits or capabilities}
+- **Reported or likely questions:**
+  - {question} — [source] or [inferred from JD]
+- **How to prepare:** {1-3 concrete actions}
 ```
 
-If round structure is unknown, state that and provide the best available intel on what types of rounds to expect based on company size, stage, and role level.
+If the real process is unknown, provide the most likely sequence and say that it is inferred.
 
-## Step 4 — Likely Questions (per audience)
+---
 
-Group all discovered and inferred questions by the audience that asks them, not by question type. Within each audience, draft candidate-specific answers using `cv.md`, `article-digest.md`, `config/profile.yml`, and `modes/_profile.md`. **Never fabricate questions** — sourced questions must cite, inferred questions must be tagged `[inferred from JD]`.
+## Step 4 — Likely Questions by Audience
 
-If any of those profile files are missing, incomplete, or out-of-date, note the gap inline (e.g. "comp target unknown — defer to recruiter band") and proceed with what's available rather than blocking the prep. The mode's value is partial-but-honest output, not perfect-or-nothing.
+Group questions by who is asking them.
 
-### Audience: `recruiter-screen`
+Use `cv.md`, `article-digest.md`, `config/profile.yml`, `modes/_profile.md`, and `writing-style.md` to draft answer guidance.
 
-The recruiter is screening for fit, not testing skill. Wrong-foot answers (vague comp, fuzzy motivation, missing logistics) end the process before any technical signal is collected. Cover at minimum:
+Never fabricate sourced questions. Tag inferred ones correctly.
 
-- **"Walk me through your CV / why are you looking?"** — 60–90s narrative anchored to `modes/_profile.md` narrative + the role's archetype.
-- **Comp expectation** — concrete range pulled from Step 1 Levels.fyi/Glassdoor data, anchored to `config/profile.yml` `compensation.target`. Note the leverage hand: if comp data is thin or the candidate has no competing offer, recommend deferring with a clean script ("I'm calibrating to market for {level}, can you share the band for this role?").
-- **Why this company** — 2–3 sentences referencing public signals from Step 1 (recent launch, named values, team work). Avoid generic praise.
-- **Location / remote / visa** — answer derived from `config/profile.yml` location policy and the role's posted policy. Flag deal-breakers from `modes/_profile.md` so the recruiter can route correctly.
-- **Timeline / availability / notice period** — numbers, not vibes.
-- **Other processes in flight** — recommended framing only; never push the candidate to lie.
-- **Background red flags** — gaps, transitions, unusual elements from `cv.md` + `_profile.md`. Honest, specific, forward-looking framing — never defensive.
+---
 
-### Audience: `hiring-manager`
+## Audience: recruiter-screen
 
-The HM is screening for motivation + scope fit. They've already trusted the recruiter's logistics gate; they care whether you'd own the work. Cover at minimum:
+The recruiter is screening for plausibility, clarity, and logistics.
 
-- **"Why this role, why now?"** — connect candidate's last 1–2 roles + `_profile.md` narrative to the team's named challenge from Step 1.
-- **"What would your first 90 days look like here?"** — derived from JD scope + the team's recent work (engineering blog, public roadmap).
-- **Leadership / collaboration questions** — map to `interview-prep/story-bank.md`.
-- **Sharp questions to ask back** — 2–3 tied to a specific recent thing the team shipped or wrote about, not generic "what's the team like".
+Cover at minimum:
 
-### Audience: `peer-tech`
+- **Walk me through your background**
+  - Build a 60–90 second narrative
+  - Explain the arc from journalism / agency creative / design into sales-floor campaign systems, CRM work, enablement, and marketing-adjacent execution
+  - Keep it coherent and recruiter-friendly
 
-This is where the original Technical / Role-Specific buckets live. Peers are evaluating depth and collaboration on the actual stack.
+- **Why this role?**
+  - Tie the role to one of Morgan’s target lanes
+  - Explain fit without overselling titles that were never held
 
-- **Technical questions** (system design, coding, architecture, domain) — for each: the question, source, and what a strong answer looks like for this candidate specifically (reference CV proof points).
-- **Role-specific questions** tied to the JD archetype — for each: the question, why they're likely asking it (which JD requirement it maps to), and the candidate's best angle.
-- **Reverse questions** — about on-call, code review culture, deployment cadence, what surprised them when they joined.
+- **Why this company?**
+  - Use something real from the company’s mission, audience, or current work
+  - Avoid generic praise
 
-### Audience: `panel-mixed`
+- **Compensation**
+  - Anchor to `config/profile.yml` if available
+  - If market data is unclear, recommend a defer-to-band script
 
-Onsite loops and mixed panels rarely give the candidate time to context-switch — preparation has to be pre-routed. For each panel slot:
+- **Remote / location**
+  - Be clear and calm
+  - Remote compatibility matters; do not be fuzzy here
 
-- **If the interviewer is named in the schedule**, do a quick LinkedIn/blog look-up and tag them to one of the three audiences (recruiter / HM / peer-tech). Then pull from that audience's pack.
-- **If the slot is unlabeled**, prep all three packs but cap each to 3–5 highest-priority items so the candidate isn't drowning in notes.
-- **Hand-off discipline**: tell the candidate explicitly what NOT to repeat verbatim across slots (e.g. the same proof point told identically twice signals scripted answers; vary the angle).
-- **Energy management**: 4-hour onsites burn out less-experienced candidates first. Flag the slot most likely to test depth (usually peer-tech) and reserve the candidate's freshest material for it.
+- **Timeline / availability**
+  - Give a simple, direct answer
+
+- **Title mismatch / background questions**
+  - Prepare clear language for:
+    - no formal marketing title
+    - long-term gap
+    - why the work maps even when the title does not
+
+### Recruiter-screen answer rules
+
+- Keep answers concise
+- Use recruiter-readable language
+- Separate title history from functional experience
+- Sound grounded, not defensive
+
+---
+
+## Audience: hiring-manager
+
+The hiring manager is evaluating whether Morgan can actually own the work.
+
+Cover at minimum:
+
+- **Why this role, why now?**
+- **What part of this work are you strongest in?**
+- **How would you approach your first 30 / 60 / 90 days?**
+- **Tell me about a campaign / content / enablement / operations project you owned**
+- **How do you balance strategy and execution?**
+- **How do you work cross-functionally?**
+- **How do you measure success?**
+- **Why does your title history look different from this role?**
+- **Why are you open to a role that may be less senior on paper?**
+
+### Hiring-manager prep rules
+
+- Prioritize examples that show judgment and ownership
+- Use the archetype-specific reframes from `modes/_profile.md`
+- Be explicit about outcomes, not just tasks
+- Show that Morgan can think clearly, write clearly, and operate without hand-holding
+
+---
+
+## Audience: peer-crossfunctional
+
+These interviews often come from adjacent teams:
+- sales
+- marketing
+- customer success
+- rev ops
+- content
+- product marketing
+- operations partners
+
+They are often evaluating ease of collaboration as much as raw skill.
+
+Cover at minimum:
+
+- **How do you gather context before creating something?**
+- **How do you handle unclear input or conflicting stakeholder requests?**
+- **How do you maintain voice consistency across teams or assets?**
+- **How do you decide what to prioritize?**
+- **Tell me about a time you improved a process**
+- **Tell me about a time you trained, aligned, or enabled other people**
+- **How do you handle feedback or disagreement?**
+- **How do you translate messy business needs into something usable?**
+
+### Peer-crossfunctional prep rules
+
+- Use examples that show calmness, structure, and trust-building
+- Show Morgan as someone who makes chaos clearer
+- Favor specific examples over abstract “collaborative” claims
+
+---
+
+## Audience: work-sample
+
+For Morgan’s target roles, work samples may include:
+- writing test
+- campaign audit
+- messaging rewrite
+- lifecycle critique
+- enablement asset review
+- onboarding plan
+- portfolio walkthrough
+- “How would you approach this scenario?” exercise
+
+### Prep for work-sample rounds
+
+For each likely exercise, prepare:
+
+1. **What they are really testing**
+   - writing quality
+   - clarity of reasoning
+   - audience awareness
+   - prioritization
+   - structure
+   - judgment
+   - process maturity
+
+2. **How to approach it**
+   - clarify the goal
+   - define the audience
+   - identify constraints
+   - organize the answer clearly
+   - show reasoning, not just conclusions
+   - avoid trying to do everything at once
+
+3. **Common traps**
+   - over-answering
+   - giving strategy with no execution detail
+   - giving execution detail with no strategic point
+   - missing the audience
+   - sounding generic
+   - ignoring stated constraints
+
+### Work-sample-specific guidance
+
+- If it is a writing test, emphasize clarity, voice, structure, and audience fit
+- If it is a lifecycle / email exercise, emphasize segmentation, intent, timing, and measurement
+- If it is an enablement exercise, emphasize usefulness, adoption, and sales reality
+- If it is an operations exercise, emphasize process logic, QA, reporting, and maintainability
+- If it is a portfolio walkthrough, prepare concise framing for each sample: context, goal, choices, outcome, and what Morgan would refine now
+
+---
+
+## Audience: panel-mixed
+
+For mixed panels, prep a tighter version of each audience pack.
+
+### Panel rules
+
+- Prepare one consistent narrative that works across all interviewers
+- Avoid repeating the exact same proof point the exact same way
+- Vary the angle:
+  - recruiter hears the clean narrative
+  - manager hears the ownership and judgment
+  - peer hears the collaboration and execution detail
+- Stay consistent on compensation, remote constraints, timeline, and motivation
+
+---
 
 ## Step 5 — Story Bank Mapping
 
-Run this mapping **per audience pack** from Step 4 — same story can map differently to a recruiter prompt vs a peer-tech behavioral question, and a single un-segmented table risks cross-audience drift.
+Map likely questions to the best existing stories from `interview-prep/story-bank.md`.
 
-| # | Audience | Likely question/topic | Best story from story-bank.md | Fit | Gap? |
-|---|----------|----------------------|-------------------------------|-----|------|
-| 1 | recruiter-screen | ... | [Story Title] | strong/partial/none | |
-| 2 | hiring-manager | ... | [Story Title] | strong/partial/none | |
-| 3 | peer-tech | ... | [Story Title] | strong/partial/none | |
+Use this format:
 
-- **strong**: story directly answers the question
-- **partial**: story is adjacent, needs reframing
-- **none**: no existing story — flag for the user
+| # | Audience | Likely question/topic | Best story | Fit | Gap? |
+|---|---|---|---|---|---|
+| 1 | recruiter-screen | background / fit | {story} | strong / partial / none | |
+| 2 | hiring-manager | campaign ownership | {story} | strong / partial / none | |
+| 3 | peer-crossfunctional | feedback / alignment | {story} | strong / partial / none | |
+| 4 | work-sample | writing judgment | {story} | strong / partial / none | |
 
-For each gap, suggest: "You need a story about {topic}. Consider: {specific experience from cv.md that could become a STAR+R story}."
+### Mapping rules
 
-If the user wants to draft missing stories, help them build STAR+R format and append to `interview-prep/story-bank.md`.
+- `strong` = directly fits
+- `partial` = usable but needs reframing
+- `none` = no prepared story yet
 
-## Step 6 — Technical Prep Checklist
+For each gap, suggest a story Morgan should build next from real experience.
 
-Based on what the company actually tests, not generic advice:
+---
 
-```markdown
-- [ ] {topic} — why: "{evidence from research}"
-- [ ] {topic} — why: "{their blog/product suggests this matters}"
-- [ ] {topic} — why: "{asked in N/M recent Glassdoor reviews}"
-```
+## Step 6 — Prep Checklist
 
-Prioritize by frequency and relevance to the role. Max 10 items.
+Create a focused checklist with no more than 10 items.
 
-## Step 7 — Company Signals (per audience)
+Examples:
+- [ ] Tighten 90-second background story
+- [ ] Prepare title-mismatch answer
+- [ ] Prepare gap explanation
+- [ ] Rehearse compensation deferral script
+- [ ] Choose 2 strongest lifecycle examples
+- [ ] Choose 2 strongest enablement examples
+- [ ] Prepare one writing-sample framework
+- [ ] Review recent company messaging / campaign language
+- [ ] Prepare 3 smart questions for the hiring manager
+- [ ] Pull one portfolio sample for discussion
 
-Things to say, do, and avoid — segmented by who's listening. The same fact can be a strength to a peer engineer and a yellow flag to a recruiter; framing matters.
+Only include items that actually matter for this role.
 
-### To the recruiter / HR screen
+---
 
-- **What to volunteer**: motivation, location/visa fit, timeline, why this company.
-- **What NOT to volunteer**: hard comp number when leverage is uncertain (defer to band); ongoing process details; opinions on the company's recent layoffs / press.
-- **Vocabulary**: official company language for benefits and policies (from careers page).
-- **Red flags they screen for**: visa surprises, comp mismatch, "looking everywhere" energy.
+## Step 7 — Company Signals by Audience
+
+Summarize what to emphasize, what to avoid, and what vocabulary to mirror.
+
+### To the recruiter
+- Lead with fit, clarity, remote compatibility, and clean narrative
+- Avoid rambling, over-explaining, or sounding scattered
+- Do not apologize for nontraditional titles
 
 ### To the hiring manager
+- Lead with judgment, ownership, outcomes, and relevant work patterns
+- Show thoughtfulness and practical execution
+- Avoid sounding generic or too polished to be real
 
-- **What to lead with**: connection between candidate narrative (`_profile.md`) and a named team challenge from Step 1.
-- **Vocabulary to use**: terms the company uses internally — shows homework (e.g., Stripe says "increase the GDP of the internet", Anthropic says "safety" not "alignment").
-- **Sharp questions to ask back**: 2–3 tied to recent news / blog posts from Step 1.
+### To peers / cross-functional partners
+- Lead with communication, usefulness, follow-through, and ability to make their work easier
+- Show how Morgan handles ambiguity without becoming chaotic
+- Avoid abstract “I’m collaborative” language without evidence
 
-### To the peer / technical panel
-
-- **What to lead with**: stack-relevant proof points from `cv.md` / `article-digest.md`.
-- **Things to avoid**: anti-patterns flagged in Glassdoor / Blind reviews specific to this company.
-- **Reverse questions**: on-call rotation, code review norms, deployment cadence, what surprised them when they joined.
+### To work-sample reviewers
+- Show structure
+- Show reasoning
+- Make choices and explain them
+- Do not try to impress by doing everything at once
 
 ### To a mixed panel
+- Keep one steady story throughout
+- Stay consistent
+- Adjust detail level to the room
 
-- **What to lead with**: a single 2-sentence framing that lands for all three audiences — usually narrative + named team challenge — then let each interviewer steer.
-- **What NOT to repeat**: same proof point told identically across slots; instead, vary the angle (recruiter hears the headline number, HM hears the team-impact framing, peer-tech hears the technical detail).
-- **Vocabulary**: keep recruiter-friendly language (impact, scope) when leadership is in the room; switch to peer-language (architecture, trade-offs, on-call) when only ICs are.
-- **What to avoid**: contradicting yourself across slots about comp, timeline, or what excites you. Interviewers compare notes.
+---
+
+## Step 8 — Questions to Ask Them
+
+Prepare role-appropriate questions.
+
+### Good question categories
+
+- What does success look like in the first 90 days?
+- What is hardest about this role right now?
+- Where does this role sit in relation to adjacent teams?
+- What kinds of work tend to create the most impact here?
+- How do feedback and decision-making usually work on this team?
+- For writing/content roles: how do you think about voice, review process, and editorial judgment?
+- For lifecycle/email roles: how do you think about segmentation, experimentation, and performance?
+- For enablement roles: how do you measure usefulness and adoption?
+- For operations roles: how do you balance speed, QA, and maintainability?
+
+Avoid generic questions that could be asked anywhere unless time is very limited.
+
+---
 
 ## Output
 
-Save the full report to `interview-prep/{company-slug}-{role-slug}.md` with this header:
+Save the report to:
 
-```markdown
-# Interview Intel: {Company} — {Role}
+`interview-prep/{company-slug}-{role-slug}.md`
 
-**URL:** {job posting URL or company careers URL, or "N/A" if recruiter-sourced}
-**Legitimacy:** {tier copied from the evaluation report's Block G, or "unknown" if no report exists}
-**Report:** {link to evaluation report if exists, or "N/A"}
-**Researched:** {YYYY-MM-DD}
-**Sources:** {N} Glassdoor reviews, {N} Blind posts, {N} other
-**Audiences covered:** {recruiter-screen, hiring-manager, peer-tech, panel-mixed}
+Use this header:
+
+```md
+# Interview Prep: {Company} — {Role}
+
+**URL:** {job posting URL or company careers URL, or "N/A"}
+**Legitimacy:** {tier from evaluation report, or "unknown"}
+**Report:** {evaluation report path or "N/A"}
+**Prepared:** {YYYY-MM-DD}
+**Likely audiences:** {recruiter-screen, hiring-manager, peer-crossfunctional, work-sample, panel-mixed}
+**Confidence:** {high / medium / low}
 ```
 
-## Post-Research
+Suggested body structure:
 
-After delivering the report:
+```md
+## Process Overview
+## Audience Map
+## Round-by-Round Breakdown
+## Likely Questions
+## Story Bank Mapping
+## Prep Checklist
+## Company Signals
+## Questions to Ask Them
+```
 
-1. Ask the user if they want to draft stories for any gaps found in Step 5
-2. If they have a scheduled interview date, note it: "Your interview is in {X} days. Want me to set a reminder to review this prep?"
-3. Suggest running `deep` mode if the company research in Step 1 was thin — deep mode covers strategy, culture, and competitive landscape in more depth
+---
+
+## Post-Prep
+
+After delivering the prep:
+1. Ask whether Morgan wants to draft missing stories from any identified gaps
+2. If an interview date is known, note how many days remain
+3. Suggest a mock interview if the round seems especially title-sensitive, writing-heavy, or high-stakes
+
+---
 
 ## Rules
 
-- **NEVER invent interview questions and attribute them to sources.** Inferred questions must be labeled `[inferred from JD]`.
-- **NEVER fabricate Glassdoor ratings or statistics.** If the data isn't there, say so.
-- **Cite everything.** Every question, every stat, every claim gets a source or an `[inferred]` tag.
-- Generate in the language of the JD (EN default).
-- Be direct. This is a working prep document, not a pep talk.
+- Never invent candidate-reported questions
+- Mark inferred questions clearly
+- Never fabricate salary data or process stats
+- Be direct and useful
+- This is a prep document, not a pep talk
+- Keep Morgan’s actual target lanes in mind
+- Do not default to engineering-interview assumptions

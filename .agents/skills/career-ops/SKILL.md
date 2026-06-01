@@ -3,7 +3,7 @@ name: career-ops
 description: AI job search command center -- evaluate offers, generate CVs, scan portals, track applications
 arguments: mode # Claude Code specific
 user-invocable: true
-argument-hint: "[scan | deep | pdf | oferta | ofertas | apply | batch | tracker | pipeline | contacto | training | project | interview-prep | update]"
+argument-hint: "[scan | deep | pdf | coverletter | oferta | ofertas | apply | batch | tracker | pipeline | contacto | training | project | interview-prep | update]"
 license: MIT
 ---
 
@@ -23,6 +23,7 @@ Determine the mode from `$mode`:
 | `deep` | `deep` |
 | `interview-prep` | `interview-prep` |
 | `pdf` | `pdf` |
+| `coverletter` | `coverletter` |
 | `training` | `training` |
 | `project` | `project` |
 | `tracker` | `tracker` |
@@ -56,6 +57,7 @@ Available commands:
   /career-ops deep      → Deep research prompt about company
   /career-ops interview-prep → Generate company-specific interview prep doc
   /career-ops pdf       → PDF only, ATS-optimized CV
+  /career-ops coverletter → Cover letter: research + write + PDF
   /career-ops training  → Evaluate course/cert against North Star
   /career-ops project   → Evaluate portfolio project idea
   /career-ops tracker   → Application status overview
@@ -79,7 +81,7 @@ After determining the mode, load the necessary files before executing:
 ### Modes that require `_shared.md` + their mode file:
 Read `modes/_shared.md` + `modes/{mode}.md`
 
-Applies to: `auto-pipeline`, `oferta`, `ofertas`, `pdf`, `contacto`, `apply`, `pipeline`, `scan`, `batch`
+Applies to: `auto-pipeline`, `oferta`, `ofertas`, `pdf`, `coverletter`, `contacto`, `apply`, `pipeline`, `scan`, `batch`
 
 ### Standalone modes (only their mode file):
 Read `modes/{mode}.md`
