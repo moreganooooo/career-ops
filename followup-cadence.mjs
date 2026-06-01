@@ -39,19 +39,17 @@ const CADENCE = {
   interview_thankyou: 1,
 };
 
-// --- Status normalization (mirrors verify-pipeline.mjs) ---
+// --- Status normalization (English-only aliases) ---
 const ALIASES = {
-  'evaluada': 'evaluated', 'condicional': 'evaluated', 'hold': 'evaluated',
-  'evaluar': 'evaluated', 'verificar': 'evaluated',
-  'aplicado': 'applied', 'enviada': 'applied', 'aplicada': 'applied',
+  'evaluated': 'evaluated', 'conditional': 'evaluated', 'hold': 'evaluated', 'evaluate': 'evaluated', 'verify': 'evaluated',
   'applied': 'applied', 'sent': 'applied',
-  'respondido': 'responded',
-  'entrevista': 'interview',
-  'oferta': 'offer',
-  'rechazado': 'rejected', 'rechazada': 'rejected',
-  'descartado': 'discarded', 'descartada': 'discarded',
-  'cerrada': 'discarded', 'cancelada': 'discarded',
-  'no aplicar': 'skip', 'no_aplicar': 'skip', 'monitor': 'skip', 'geo blocker': 'skip',
+  'responded': 'responded',
+  'interview': 'interview',
+  'offer': 'offer',
+  'rejected': 'rejected',
+  'discarded': 'discarded', 'closed': 'discarded', 'cancelled': 'discarded',
+  'skip': 'skip', 'monitor': 'skip', 'geo blocker': 'skip',
+  'duplicate': 'discarded', 'dup': 'discarded', 'repost': 'discarded',
 };
 
 const ACTIONABLE_STATUSES = ['applied', 'responded', 'interview'];

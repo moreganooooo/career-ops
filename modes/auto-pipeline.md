@@ -345,7 +345,7 @@ Examples:
 
 ## Guardrails
 
-- Do not reference `oferta` or old legacy modes
+- Do not reference `offer` or old legacy modes
 - Do not use irrelevant AI / founder / engineering sample language
 - Do not over-penalize nontraditional titles when the work clearly maps
 - Do not oversell weak roles
