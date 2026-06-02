@@ -1368,7 +1368,7 @@ tracked_companies:
 - name: Pearson
   careers_url: https://pearson.jobs
   scan_method: websearch
-  scan_query: '"pearson" site:pearson.wd5.myworkdayjobs.com OR site:pearson.jobs marketing OR email OR content OR enablement remote
+  scan_query: site:pearson.wd5.myworkdayjobs.com OR site:pearson.jobs marketing OR email OR content OR enablement remote
   notes: "Global EdTech and publishing giant. Frequent remote marketing and communications roles."
   enabled: true
 
