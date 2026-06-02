@@ -34,37 +34,65 @@ function enqueue(fn) {
 }
 
 // Domains that never contain direct job postings — aggregators, content sites,
-// listicles, review sites, social networks, etc.
+// listicles, review sites, social networks, freelance platforms, etc.
+// When a new aggregator slips through, add it here.
 const BLOCKED_DOMAINS = new Set([
-  'linkedin.com', 'indeed.com', 'glassdoor.com', 'ziprecruiter.com',
-  'monster.com', 'careerbuilder.com', 'simplyhired.com', 'salary.com',
-  'payscale.com', 'builtin.com', 'builtinnyc.com', 'builtinboston.com',
-  'builtinchicago.com', 'builtinla.com', 'builtinsf.com', 'builtinaustin.com',
+  // Social / professional networks
+  'linkedin.com', 'twitter.com', 'x.com', 'facebook.com',
+  'instagram.com', 'youtube.com', 'tiktok.com', 'reddit.com', 'quora.com',
+
+  // Major job boards / aggregators
+  'indeed.com', 'glassdoor.com', 'ziprecruiter.com', 'monster.com',
+  'careerbuilder.com', 'simplyhired.com', 'dice.com', 'theladders.com',
+  'snagajob.com', 'usajobs.gov', 'clearancejobs.com',
+
+  // Salary / review sites
+  'salary.com', 'payscale.com', 'levels.fyi',
+
+  // Remote-specific aggregators
+  'flexjobs.com', 'remote.co', 'weworkremotely.com', 'remoteok.com',
+  'remoterocketship.com', 'dailyremote.com', 'virtualvocations.com',
+  'justremote.co', 'workingnomads.com', 'nodesk.co', 'remotefront.com',
+  'jobspresso.co', 'remotive.com', 'remotehub.com', 'remoteleaf.com',
+  'remoteco.io', 'workremotely.io',
+
+  // Tech / startup job boards
+  'himalayas.app', 'wellfound.com', 'angel.co', 'builtin.com',
+  'builtinnyc.com', 'builtinboston.com', 'builtinchicago.com',
+  'builtinla.com', 'builtinsf.com', 'builtinaustin.com',
   'builtinseattle.com', 'builtincolorado.com',
+  'startup.jobs', 'workatastartup.com',
+
+  // AI / smart aggregators
+  'lensa.com', 'lensa.ai', 'jobright.ai', 'jobright.io',
+  'tarta.ai', 'talentify.io', 'jobgether.com',
+
+  // General aggregators
+  'jobleads.com', 'jobleads.de', 'jooble.org', 'jobsora.com',
+  'neuvoo.com', 'trovit.com', 'adzuna.com', 'jobrapido.com',
+  'joblist.com', 'getwork.com', 'careerjet.com', 'jobserve.com',
+  'jobspider.com', 'jobvertise.com', 'jobs2careers.com',
+  'brightcrowd.com', 'jobcase.com', 'recruit.net',
+  'jobberman.com', 'jobillico.com', 'workopolis.com',
+  'kickstartremote.com', 'jobomas.com', 'jobatus.com',
+
+  // Freelance platforms
+  'upwork.com', 'freelancer.com', 'fiverr.com', 'toptal.com', 'guru.com',
+
+  // Sector-specific boards that surface other companies\' listings
+  'edtechjobs.io', 'edtech.com', 'edjoin.org',
+
+  // Content / media sites
   'crunchbase.com', 'pitchbook.com', 'techcrunch.com', 'forbes.com',
   'businessinsider.com', 'fastcompany.com', 'inc.com', 'wired.com',
-  'medium.com', 'substack.com', 'hubspot.com', 'salesforce.com',
+  'medium.com', 'substack.com', 'wikipedia.org', 'wikihow.com',
+
+  // Software / review sites sometimes indexed for job content
   'g2.com', 'capterra.com', 'trustpilot.com', 'yelp.com',
-  'reddit.com', 'quora.com', 'twitter.com', 'x.com', 'facebook.com',
-  'youtube.com', 'tiktok.com', 'instagram.com',
-  'wikipedia.org', 'wikihow.com',
-  // Job aggregators / boards that surface other companies' jobs
-  'flexjobs.com', 'remote.co', 'weworkremotely.com', 'remoteok.com',
-  'himalayas.app', 'wellfound.com', 'angel.co',
-  'kickstartremote.com', 'jobleads.com', 'jobleads.de', 'jooble.org',
-  'jobgether.com', 'talentify.io', 'jobsora.com', 'neuvoo.com',
-  'trovit.com', 'adzuna.com', 'jobrapido.com', 'joblist.com',
-  'lensa.com', 'lensa.ai',
-  'jobright.ai', 'jobright.io',
-  'getwork.com', 'careerjet.com', 'jobserve.com', 'jobsearch.com',
-  'jobspider.com', 'jobvertise.com', 'jobsxl.com', 'jobs2careers.com',
-  'smartjobboard.com', 'jobboardfire.com',
-  'tarta.ai', 'brightcrowd.com', 'jobcase.com',
-  'workopolis.com', 'eluta.ca', 'jobillico.com',
-  'recruit.net', 'jobomas.com', 'jobatus.com',
-  'snagajob.com', 'hotjobs.com', 'theladders.com',
-  'dice.com', 'clearancejobs.com', 'usajobs.gov',
-  'neighborhoods.com', // surfaced in Curriculum Associates results
+  'hubspot.com', 'salesforce.com',
+
+  // Specific false-positive domains caught in earlier runs
+  'neighborhoods.com',
 ]);
 
 // URL path segments that strongly indicate a real job posting page.
@@ -87,8 +115,6 @@ const CONTENT_PATH_SIGNALS = [
 ];
 
 // Title patterns that indicate an aggregator surfacing another company's job.
-// e.g. "Email Marketing Specialist at Snap Finance" or
-//      "Remote Email Specialist job at Easy HR Group | Lensa"
 const AGGREGATOR_TITLE_PATTERNS = [
   /\bjob at\b/i,
   /\bjobs at\b/i,
@@ -103,7 +129,13 @@ const AGGREGATOR_TITLE_PATTERNS = [
   /\bAdzuna\b/i,
   /\bNeuvoo\b/i,
   /\bJobgether\b/i,
-  /\bSnap Finance\b/i, // specific aggregator noise from earlier runs
+  /\bRemote Rocketship\b/i,
+  /\bDailyRemote\b/i,
+  /\bVirtual Vocations\b/i,
+  // Category/listing pages masquerading as job postings
+  /^Remote \w+ Jobs?$/i,           // "Remote Email Marketing Jobs"
+  /^\d+\s+\w+ Jobs?$/i,            // "297 Marketing Jobs"
+  /\ud83d\udde8|\ud83e\udde8|\u{1F9E8}/u, // emoji flags common in spam titles
 ];
 
 /**
