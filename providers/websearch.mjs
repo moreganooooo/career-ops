@@ -23,7 +23,10 @@ export default {
   id: 'websearch',
 
   detect(entry) {
-    if (entry.scanmethod === 'websearch' && entry.scanquery) {
+    const { scanmethod, scanquery } =
+      /** @type {{ scanmethod?: string, scanquery?: string }} */ (entry);
+
+    if (scanmethod === 'websearch' && scanquery) {
       return { url: BRAVE_API_URL };
     }
     return null;
@@ -37,7 +40,7 @@ export default {
       );
     }
 
-    const query = entry.scanquery;
+    const query = /** @type {{ scanquery?: string }} */ (entry).scanquery;
     if (!query) throw new Error(`websearch: no scanquery defined for ${entry.name}`);
 
     const params = new URLSearchParams({
@@ -64,7 +67,8 @@ export default {
     }
 
     const json = await response.json();
-    const results = json?.web?.results || [];
+    /** @type {Array<{url: string, title: string, description?: string, extra_snippets?: string[]}>} */
+    const results = /** @type {Array<{url: string, title: string, description?: string, extra_snippets?: string[]}>} */ (json?.web?.results || []);
 
     return results
       .filter(r => r.url && r.title)
@@ -79,6 +83,11 @@ export default {
 
 // Strip the company name and common job board suffixes from result titles
 // so the title filter works cleanly against just the role name.
+/**
+ * @param {string} raw
+ * @param {string} companyName
+ * @returns {string}
+ */
 function cleanTitle(raw, companyName) {
   return raw
     .replace(new RegExp(`\\s*[-|]\\s*${escapeRegex(companyName)}.*$`, 'i'), '')
@@ -88,6 +97,10 @@ function cleanTitle(raw, companyName) {
 
 // Best-effort location extraction from the result snippet.
 // Looks for common patterns like "Remote", "New York, NY", "US", etc.
+/**
+ * @param {string} snippet
+ * @returns {string}
+ */
 function extractLocation(snippet) {
   const remoteMatch = snippet.match(/\b(remote|fully remote|work from anywhere)\b/i);
   if (remoteMatch) return 'Remote';
@@ -95,6 +108,10 @@ function extractLocation(snippet) {
   return locMatch?.[1] || '';
 }
 
+/**
+ * @param {string} str
+ * @returns {string}
+ */
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
