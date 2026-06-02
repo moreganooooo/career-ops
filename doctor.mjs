@@ -91,15 +91,16 @@ function checkProfile() {
 }
 
 function checkPortals() {
-  if (existsSync(join(projectRoot, 'portals.yml'))) {
-    return { pass: true, label: 'portals.yml found' };
+  const portalsFile = process.env.CAREER_OPS_PORTALS || 'portals.yml';
+  if (existsSync(join(projectRoot, portalsFile))) {
+    return { pass: true, label: `${portalsFile} found` };
   }
   return {
     pass: false,
-    label: 'portals.yml not found',
+    label: `${portalsFile} not found`,
     fix: [
-      'Run: cp templates/portals.example.yml portals.yml',
-      'Then customize with your target companies',
+      `Create or point CAREER_OPS_PORTALS to your portal config`,
+      `Current default expects: ${portalsFile}`,
     ],
   };
 }
