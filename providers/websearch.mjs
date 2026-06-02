@@ -18,6 +18,84 @@
 const BRAVE_API_URL = 'https://api.search.brave.com/res/v1/web/search';
 const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
 
+// Domains that never contain job postings — content sites, aggregators,
+// listicles, review sites, social networks, etc.
+const BLOCKED_DOMAINS = new Set([
+  'linkedin.com', 'indeed.com', 'glassdoor.com', 'ziprecruiter.com',
+  'monster.com', 'careerbuilder.com', 'simplyhired.com', 'salary.com',
+  'payscale.com', 'builtin.com', 'builtinnyc.com', 'builtinboston.com',
+  'builtinchicago.com', 'builtinla.com', 'builtinsf.com', 'builtinaustin.com',
+  'builtinseattle.com', 'builtincolorado.com',
+  'crunchbase.com', 'pitchbook.com', 'techcrunch.com', 'forbes.com',
+  'businessinsider.com', 'fastcompany.com', 'inc.com', 'wired.com',
+  'medium.com', 'substack.com', 'hubspot.com', 'salesforce.com',
+  'g2.com', 'capterra.com', 'trustpilot.com', 'yelp.com',
+  'reddit.com', 'quora.com', 'twitter.com', 'x.com', 'facebook.com',
+  'youtube.com', 'tiktok.com', 'instagram.com',
+  'wikipedia.org', 'wikihow.com',
+  'flexjobs.com', 'remote.co', 'weworkremotely.com', 'remoteok.com',
+  'himalayas.app', 'wellfound.com', 'angel.co',
+]);
+
+// URL path segments that strongly indicate a real job posting page.
+const JOB_PATH_SIGNALS = [
+  '/job', '/jobs', '/career', '/careers', '/opening', '/openings',
+  '/position', '/positions', '/apply', '/application', '/listing',
+  '/vacancy', '/vacancies', '/hire', '/hiring', '/work-with-us',
+  '/work_with_us', '/join', '/join-us', '/join_us', '/opportunities',
+];
+
+// URL path segments that strongly indicate non-job content.
+const CONTENT_PATH_SIGNALS = [
+  '/blog', '/news', '/article', '/articles', '/post', '/posts',
+  '/guide', '/guides', '/resource', '/resources', '/learn',
+  '/tutorial', '/tutorials', '/review', '/reviews', '/report',
+  '/reports', '/podcast', '/webinar', '/ebook', '/whitepaper',
+  '/press', '/media', '/about', '/pricing', '/product', '/features',
+  '/solutions', '/customers', '/case-study', '/case_study',
+  '/best-', '/top-', '/how-to', '/what-is',
+];
+
+/**
+ * Returns true if the URL looks like a real job posting.
+ * Logic:
+ *   1. Blocked domain → reject immediately
+ *   2. Has a content path signal → reject (listicle/article)
+ *   3. Has a job path signal → accept
+ *   4. Neither signal → accept (e.g. careers.company.com/ with no path)
+ *
+ * @param {string} rawUrl
+ * @returns {boolean}
+ */
+function isJobUrl(rawUrl) {
+  let parsed;
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    return false; // malformed URL
+  }
+
+  // Strip leading 'www.' for domain matching
+  const domain = parsed.hostname.replace(/^www\./, '');
+
+  // 1. Blocked domain check (exact + subdomain)
+  if (BLOCKED_DOMAINS.has(domain)) return false;
+  for (const blocked of BLOCKED_DOMAINS) {
+    if (domain.endsWith('.' + blocked)) return false;
+  }
+
+  const path = parsed.pathname.toLowerCase();
+
+  // 2. Content path signals — reject listicles and editorial content
+  if (CONTENT_PATH_SIGNALS.some(s => path.includes(s))) return false;
+
+  // 3. Job path signals — accept job-looking URLs
+  if (JOB_PATH_SIGNALS.some(s => path.includes(s))) return true;
+
+  // 4. No strong signal either way — pass through
+  return true;
+}
+
 /** @type {Provider} */
 export default {
   id: 'websearch',
@@ -66,11 +144,10 @@ export default {
     }
 
     const json = await response.json();
-    /** @type {Array<{url: string, title: string, description?: string, extra_snippets?: string[]}>} */
     const results = /** @type {any[]} */ (json?.web?.results || []);
 
     return results
-      .filter(r => r.url && r.title)
+      .filter(r => r.url && r.title && isJobUrl(r.url))
       .map(r => ({
         title: cleanTitle(r.title, entry.name),
         url: r.url,
