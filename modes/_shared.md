@@ -25,6 +25,12 @@ This file defines shared rules that multiple modes can rely on.
 | `data/applications.md` | When tracking work | Application history and current status |
 | `data/pipeline.md` | When processing queued jobs | Pending URLs / jobs to evaluate |
 
+### Notes on file naming
+
+- `modes/_profile.md` is the **live, gitignored candidate file**. It is never committed to the repository and will not appear in the file tree. This is intentional — it contains personal information.
+- `modes/_profile.template.md` is the **committed template** used for onboarding new users. Do not confuse these two files.
+- If `modes/_profile.md` does not exist, copy it from `modes/_profile.template.md` and populate it with the candidate's information.
+
 ### Rules
 
 - Never hardcode metrics from memory. Read them from `cv.md` or `article-digest.md` at evaluation time.
@@ -37,14 +43,14 @@ This file defines shared rules that multiple modes can rely on.
 
 ## Shared Scoring Principles
 
-This file defines shared scoring principles only. Exact weights and output formats live in the individual mode files such as `offer.md`, `offers.md`, and related workflows.
+This file defines shared scoring principles and dimensions only. **Exact weights, dimension definitions, and score band thresholds live in the individual mode files** (`offer.md`, `offers.md`, and related workflows). When there is any conflict between this file and a mode file, the mode file wins.
 
 ### Core dimensions
 
 Use these dimensions when evaluating role fit:
 
 1. **CV / evidence match**
-   - How directly the candidate’s demonstrated work maps to the job
+   - How directly the candidate's demonstrated work maps to the job
    - Prioritize real function and proof over exact title history
 
 2. **North Star alignment**
@@ -55,7 +61,7 @@ Use these dimensions when evaluating role fit:
    - Slight overqualification is usually less risky than obvious underqualification
 
 4. **Remote / location fit**
-   - Treat location and remote constraints as real constraints, not “nice to have” preferences
+   - Treat location and remote constraints as real constraints, not "nice to have" preferences
 
 5. **Compensation**
    - Compare to stated target or floor in `config/profile.yml` when available
@@ -74,7 +80,7 @@ Use these dimensions when evaluating role fit:
    - Do not over-penalize trainable tool gaps if the underlying function is strong
 
 10. **Blockers / risk**
-   - Identify hard blockers separately from softer concerns
+    - Identify hard blockers separately from softer concerns
 
 ### Shared scoring rules
 
@@ -85,7 +91,9 @@ Use these dimensions when evaluating role fit:
 - If the role is a plausible stretch but still screenable, label it honestly as a stretch rather than a bad fit.
 - Legitimacy is a separate judgment from fit. A strong fit can still be a questionable posting.
 
-### Shared score interpretation
+### Shared score interpretation (reference only)
+
+The bands below are a general reference. **Always defer to the score bands defined in the active mode file** (`offer.md` or `offers.md`), which are calibrated for this candidate's specific situation.
 
 - `4.5–5.0` = strong match, prioritize
 - `4.0–4.4` = good match, worth serious consideration
@@ -120,7 +128,7 @@ Posting legitimacy is a separate qualitative assessment. It does **not** automat
 ### Rules
 
 - Present observations, not accusations.
-- Never label a posting “fake” without evidence.
+- Never label a posting "fake" without evidence.
 - Always note legitimate explanations for concerns, especially for niche, government, academic, or slow-moving roles.
 - Every saved report should include `URL:` and `Legitimacy:` in the header.
 
@@ -160,7 +168,7 @@ Classify each role into the one or two closest role families. Use `modes/_profil
 ## Global Rules — NEVER
 
 1. Invent experience, metrics, tools, titles, or dates.
-2. Modify `cv.md`, portfolio files, or source documents to “improve” fit.
+2. Modify `cv.md`, portfolio files, or source documents to "improve" fit.
 3. Submit applications on behalf of the candidate without explicit instruction.
 4. Pretend a weak match is strong just to be encouraging.
 5. Treat culture / prestige as more important than realistic hiring odds unless the candidate explicitly says so.
@@ -178,7 +186,7 @@ Classify each role into the one or two closest role families. Use `modes/_profil
 2. Check for an existing company report before starting from scratch.
 3. Use exact proof points from the source files whenever possible.
 4. Tell the truth about gaps, blockers, and screen risk.
-5. Separate “can do the work” from “likely to get past HR.”
+5. Separate "can do the work" from "likely to get past HR."
 6. Favor readable, recruiter-friendly positioning over cleverness.
 7. Use the language of the JD when generating candidate-facing text.
 8. Keep internal evaluations direct, specific, and low-fluff.
@@ -215,7 +223,7 @@ Classify each role into the one or two closest role families. Use `modes/_profil
   - follow-ups
   - summaries the candidate may send to humans
 - Do **not** blindly apply that voice to internal evaluation reports
-- Preserve the candidate’s natural phrasing preferences where documented
+- Preserve the candidate's natural phrasing preferences where documented
 - Do not import facts or claims from writing samples unless they are verified elsewhere
 
 ---
@@ -243,7 +251,7 @@ Avoid:
 - seamless
 - leveraged
 - demonstrated ability to
-- in today’s fast-paced world
+- in today's fast-paced world
 
 Prefer:
 - built
@@ -273,6 +281,6 @@ Prefer:
 
 - Favor roles that are both credible matches and realistically attainable
 - When the candidate is under time or financial pressure, speed and screenability matter
-- It is acceptable to pursue a “good enough and likely” role over an “ideal but improbable” one
+- It is acceptable to pursue a "good enough and likely" role over an "ideal but improbable" one
 - If a role is worth applying to only with heavy customization, say that plainly
 - If a role is not worth the effort, say so clearly and move on

@@ -1,12 +1,12 @@
-# Career-Ops -- AI Job Search Pipeline
+# Career-Ops — AI Job Search Pipeline
 
-## Origin
+## About This Setup
 
-This system was built and used by [santifer](https://santifer.io) to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. The archetypes, scoring logic, negotiation scripts, and proof point structure all reflect his specific career search in AI/automation roles.
+This system has been personalized for Morgan Escott's job search. The archetypes, scoring logic, writing style, and proof point structure reflect her specific background across email/lifecycle marketing, sales enablement, content and copywriting, marketing operations, and customer success-adjacent work.
 
-The portfolio that goes with this system is also open source: [cv-santiago](https://github.com/santifer/cv-santiago).
+The system is built on [career-ops](https://github.com/santifer/career-ops) by santifer, adapted here for Morgan's candidate profile, priorities, and voice.
 
-**It will work out of the box, but it's designed to be made yours.** If the archetypes don't match your career, the modes are in the wrong language, or the scoring doesn't fit your priorities -- just ask. You (AI Agent) can edit the user's files. The user says "change the archetypes to data engineering roles" and you do it. That's the whole point.
+**It is designed to be made yours.** If the archetypes don't match your career, the scoring doesn't fit your priorities, or the writing style feels off — just ask. The AI can edit these files directly. That's the whole point.
 
 ## Data Contract (CRITICAL)
 
@@ -123,7 +123,7 @@ If `config/profile.yml` is missing, copy from `config/profile.example.yml` and t
 >
 > - Your full name and email
 > - Your location and timezone
-> - What roles are you targeting? (e.g., 'Senior Backend Engineer', 'AI Product Manager')
+> - What roles are you targeting? (e.g., 'Email Marketing Manager', 'Sales Enablement Specialist')
 > - Your salary target range
 >
 > I'll set everything up for you."
@@ -133,7 +133,7 @@ Fill in `config/profile.yml` with their answers. For archetypes and targeting na
 #### Step 3: Portals (recommended)
 
 If `portals.yml` is missing:
-> "I'll set up the job scanner with 45+ pre-configured companies. Want me to customize the search keywords for your target roles?"
+> "I'll set up the job scanner with pre-configured companies. Want me to customize the search keywords for your target roles?"
 
 Copy `templates/portals.example.yml` → `portals.yml`. If they gave target roles in Step 2, update `title_filter.positive` to match.
 
@@ -156,7 +156,7 @@ After the basics are set up, proactively ask for more context. The more you know
 >
 > - What makes you unique? What's your 'superpower' that other candidates don't have?
 > - What kind of work excites you? What drains you?
-> - Any deal-breakers? (e.g., no on-site, no startups under 20 people, no Java shops)
+> - Any deal-breakers? (e.g., no on-site, no startups under 20 people)
 > - Your best professional achievement — the one you'd lead with in an interview
 > - Any projects, articles, or case studies you've published?
 >
@@ -172,26 +172,23 @@ Once all files exist, confirm:
 > "You're all set! You can now:
 >
 > - Paste a job URL to evaluate it
-> - Run `/career-ops scan` (or `/career-ops-scan` if using OpenCode) to search portals
+> - Run `/career-ops scan` to search portals
 > - Run `/career-ops` to see all commands
 >
-> Everything is customizable — just ask me to change anything.
->
-> Tip: Having a personal portfolio dramatically improves your job search. If you don't have one yet, the author's portfolio is also open source: github.com/santifer/cv-santiago — feel free to fork it and make it yours."
+> Everything is customizable — just ask me to change anything."
 
 Then suggest automation:
 > "Want me to scan for new offers automatically? I can set up a recurring scan every few days so you don't miss anything. Just say 'scan every 3 days' and I'll configure it."
 
-If the user accepts, use the `/loop` or `/schedule` skill (if available) to set up a recurring `/career-ops scan` (or `/career-ops-scan` if using OpenCode). If those aren't available, suggest adding a cron job or remind them to run `/career-ops scan` (or `/career-ops-scan` if using OpenCode) periodically.
+If the user accepts, use the `/loop` or `/schedule` skill (if available) to set up a recurring `/career-ops scan`. If those aren't available, suggest adding a cron job or remind them to run `/career-ops scan` periodically.
 
 ### Personalization
 
-This system is designed to be customized by YOU (AI Agent). When the user asks you to change archetypes, translate modes, adjust scoring, add companies, or modify negotiation scripts -- do it directly. You read the same files you use, so you know exactly what to edit.
+This system is designed to be customized by YOU (AI Agent). When the user asks you to change archetypes, adjust scoring, add companies, or modify scripts — do it directly. You read the same files you use, so you know exactly what to edit.
 
 **Common customization requests:**
 
-- "Change the archetypes to [backend/frontend/data/devops] roles" → edit `modes/_profile.md` or `config/profile.yml`
-- "Translate the modes to English" → edit all files in `modes/`
+- "Change the archetypes to [different roles]" → edit `modes/_profile.md` or `config/profile.yml`
 - "Add these companies to my portals" → edit `portals.yml`
 - "Update my profile" → edit `config/profile.yml`
 - "Change the CV template design" → edit `templates/cv-template.html`
@@ -201,36 +198,12 @@ This system is designed to be customized by YOU (AI Agent). When the user asks y
 
 Default modes are in `modes/` (English). Additional language-specific modes are available:
 
-- **German (DACH market):** `modes/de/` — native German translations with DACH-specific vocabulary (13. Monatsgehalt, Probezeit, Kündigungsfrist, AGG, Tarifvertrag, etc.). Includes `_shared.md`, `angebot.md` (evaluation), `bewerben.md` (apply), `pipeline.md`.
-- **French (Francophone market):** `modes/fr/` — native French translations with France/Belgium/Switzerland/Luxembourg-specific vocabulary (CDI/CDD, convention collective SYNTEC, RTT, mutuelle, prévoyance, 13e mois, intéressement/participation, titres-restaurant, CSE, portage salarial, etc.). Includes `_shared.md`, `offre.md` (evaluation), `postuler.md` (apply), `pipeline.md`.
-- **Japanese (Japan market):** `modes/ja/` — native Japanese translations with Japan-specific vocabulary (正社員, 業務委託, 賞与, 退職金, みなし残業, 年俸制, 36協定, 通勤手当, 住宅手当, etc.). Includes `_shared.md`, `kyujin.md` (evaluation), `oubo.md` (apply), `pipeline.md`.
-- **Turkish (Turkey market):** `modes/tr/` — native Turkish translations with Turkey-specific vocabulary (SGK, kıdem tazminatı, ihbar süresi, brüt/net maaş, AGİ, BES, yemek kartı, yol yardımı, TÜFE zammı, etc.). Includes `_shared.md`, `is-ilani.md` (evaluation), `basvuru.md` (apply), `pipeline.md`.
+- **German (DACH market):** `modes/de/` — native German translations with DACH-specific vocabulary.
+- **French (Francophone market):** `modes/fr/` — native French translations with France/Belgium/Switzerland/Luxembourg-specific vocabulary.
+- **Japanese (Japan market):** `modes/ja/` — native Japanese translations with Japan-specific vocabulary.
+- **Turkish (Turkey market):** `modes/tr/` — native Turkish translations with Turkey-specific vocabulary.
 
-**When to use German modes:** If the user is targeting German-language job postings, lives in DACH, or asks for German output. Either:
-
-1. User says "use German modes" → read from `modes/de/` instead of `modes/`
-2. User sets `language.modes_dir: modes/de` in `config/profile.yml` → always use German modes
-3. You detect a German JD → suggest switching to German modes
-
-**When to use French modes:** If the user is targeting French-language job postings, lives in France/Belgium/Switzerland/Luxembourg/Quebec, or asks for French output. Either:
-
-1. User says "use French modes" → read from `modes/fr/` instead of `modes/`
-2. User sets `language.modes_dir: modes/fr` in `config/profile.yml` → always use French modes
-3. You detect a French JD → suggest switching to French modes
-
-**When to use Japanese modes:** If the user is targeting Japanese-language job postings, lives in Japan, or asks for Japanese output. Either:
-
-1. User says "use Japanese modes" → read from `modes/ja/` instead of `modes/`
-2. User sets `language.modes_dir: modes/ja` in `config/profile.yml` → always use Japanese modes
-3. You detect a Japanese JD → suggest switching to Japanese modes
-
-**When to use Turkish modes:** If the user is targeting Turkish-language job postings, lives in Turkey, or asks for Turkish output. Either:
-
-1. User says "use Turkish modes" → read from `modes/tr/` instead of `modes/`
-2. User sets `language.modes_dir: modes/tr` in `config/profile.yml` → always use Turkish modes
-3. You detect a Turkish JD → suggest switching to Turkish modes
-
-**When NOT to:** If the user applies to English-language roles, even at French, German, Japanese, or Turkish companies, use the default English modes — *unless* the user has explicitly requested another mode in this conversation, or `language.modes_dir` is set in `config/profile.yml` (the explicit user preference always wins over JD-language detection).
+**When NOT to:** If the user applies to English-language roles, use the default English modes — *unless* the user has explicitly requested another mode in this conversation, or `language.modes_dir` is set in `config/profile.yml` (the explicit user preference always wins over JD-language detection).
 
 ### Skill Modes
 
@@ -243,6 +216,7 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 | Asks for company research | `deep` |
 | Preps for interview at specific company | `interview-prep` |
 | Wants to generate CV/PDF | `pdf` |
+| Asks to generate a cover letter | `coverletter` |
 | Evaluates a course/cert | `training` |
 | Evaluates portfolio project | `project` |
 | Asks about application status | `tracker` |
@@ -258,22 +232,22 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 
 - `cv.md` in project root is the canonical CV
 - `article-digest.md` has detailed proof points (optional)
-- **NEVER hardcode metrics** -- read them from these files at evaluation time
+- **NEVER hardcode metrics** — read them from these files at evaluation time
 
 ---
 
-## Ethical Use -- CRITICAL
+## Ethical Use — CRITICAL
 
-**This system is designed for quality, not quantity.** The goal is to help the user find and apply to roles where there is a genuine match -- not to spam companies with mass applications.
+**This system is designed for quality, not quantity.** The goal is to help the user find and apply to roles where there is a genuine match — not to spam companies with mass applications.
 
-- **NEVER submit an application without the user reviewing it first.** Fill forms, draft answers, generate PDFs -- but always STOP before clicking Submit/Send/Apply. The user makes the final call.
+- **NEVER submit an application without the user reviewing it first.** Fill forms, draft answers, generate PDFs — but always STOP before clicking Submit/Send/Apply. The user makes the final call.
 - **Strongly discourage low-fit applications.** If a score is below 4.0/5, explicitly recommend against applying. The user's time and the recruiter's time are both valuable. Only proceed if the user has a specific reason to override the score.
 - **Quality over speed.** A well-targeted application to 5 companies beats a generic blast to 50. Guide the user toward fewer, better applications.
 - **Respect recruiters' time.** Every application a human reads costs someone's attention. Only send what's worth reading.
 
 ---
 
-## Offer Verification -- MANDATORY
+## Offer Verification — MANDATORY
 
 **NEVER trust WebSearch/WebFetch to verify if an offer is still active.** ALWAYS use Playwright:
 
@@ -292,14 +266,6 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 - **Dependabot** monitors npm, Go modules, and GitHub Actions for security updates
 - **Contributing process**: issue first → discussion → PR with linked issue → CI passes → maintainer review → merge
 
-## Community and Governance
-
-- **Code of Conduct**: Contributor Covenant 2.1 with enforcement actions (see `CODE_OF_CONDUCT.md`)
-- **Governance**: BDFL model with contributor ladder — Participant → Contributor → Triager → Reviewer → Maintainer (see `GOVERNANCE.md`)
-- **Security**: private vulnerability reporting via email (see `SECURITY.md`)
-- **Support**: help questions go to Discord/Discussions, not issues (see `SUPPORT.md`)
-- **Discord**: <https://discord.gg/8pRpHETxa4>
-
 ## Headless / Batch Mode
 
 When spawning headless workers for batch processing, use the appropriate command for your CLI:
@@ -315,7 +281,7 @@ When spawning headless workers for batch processing, use the appropriate command
 
 ## Stack and Conventions
 
-- Node.js (mjs modules), Playwright (PDF + scraping), YAML (config), HTML/CSS (template), Markdown (data), Canva MCP (optional visual CV)
+- Node.js (mjs modules), Playwright (PDF + scraping), YAML (config), HTML/CSS (template), Markdown (data)
 - Scripts in `.mjs`, configuration in YAML
 - Output in `output/` (gitignored), Reports in `reports/`
 - JDs in `jds/` (referenced as `local:jds/{file}` in pipeline.md)
@@ -332,23 +298,23 @@ Write one TSV file per evaluation to `batch/tracker-additions/{num}-{company-slu
 {num}\t{date}\t{company}\t{role}\t{status}\t{score}/5\t{pdf_emoji}\t[{num}](reports/{num}-{slug}-{date}.md)\t{note}
 ```
 
-**Column order (IMPORTANT -- status BEFORE score):**
+**Column order (IMPORTANT — status BEFORE score):**
 
-1. `num` -- sequential number (integer)
-2. `date` -- YYYY-MM-DD
-3. `company` -- short company name
-4. `role` -- job title
-5. `status` -- canonical status (e.g., `Evaluated`)
-6. `score` -- format `X.X/5` (e.g., `4.2/5`)
-7. `pdf` -- `✅` or `❌`
-8. `report` -- markdown link `[num](reports/...)`
-9. `notes` -- one-line summary
+1. `num` — sequential number (integer)
+2. `date` — YYYY-MM-DD
+3. `company` — short company name
+4. `role` — job title
+5. `status` — canonical status (e.g., `Evaluated`)
+6. `score` — format `X.X/5` (e.g., `4.2/5`)
+7. `pdf` — `✅` or `❌`
+8. `report` — markdown link `[num](reports/...)`
+9. `notes` — one-line summary
 
 **Note:** In applications.md, score comes BEFORE status. The merge script handles this column swap automatically.
 
 ### Pipeline Integrity
 
-1. **NEVER edit applications.md to ADD new entries** -- Write TSV in `batch/tracker-additions/` and `merge-tracker.mjs` handles the merge.
+1. **NEVER edit applications.md to ADD new entries** — Write TSV in `batch/tracker-additions/` and `merge-tracker.mjs` handles the merge.
 2. **YES you can edit applications.md to UPDATE status/notes of existing entries.**
 3. All reports MUST include `**URL:**` in the header (between Score and PDF). Include `**Legitimacy:** {tier}` (see Block G in `modes/offer.md`).
 4. All statuses MUST be canonical (see `templates/states.yml`).
