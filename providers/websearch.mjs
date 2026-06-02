@@ -33,7 +33,7 @@ function enqueue(fn) {
   return next;
 }
 
-// Domains that never contain job postings — content sites, aggregators,
+// Domains that never contain direct job postings — aggregators, content sites,
 // listicles, review sites, social networks, etc.
 const BLOCKED_DOMAINS = new Set([
   'linkedin.com', 'indeed.com', 'glassdoor.com', 'ziprecruiter.com',
@@ -48,11 +48,23 @@ const BLOCKED_DOMAINS = new Set([
   'reddit.com', 'quora.com', 'twitter.com', 'x.com', 'facebook.com',
   'youtube.com', 'tiktok.com', 'instagram.com',
   'wikipedia.org', 'wikihow.com',
+  // Job aggregators / boards that surface other companies' jobs
   'flexjobs.com', 'remote.co', 'weworkremotely.com', 'remoteok.com',
   'himalayas.app', 'wellfound.com', 'angel.co',
   'kickstartremote.com', 'jobleads.com', 'jobleads.de', 'jooble.org',
   'jobgether.com', 'talentify.io', 'jobsora.com', 'neuvoo.com',
   'trovit.com', 'adzuna.com', 'jobrapido.com', 'joblist.com',
+  'lensa.com', 'lensa.ai',
+  'jobright.ai', 'jobright.io',
+  'getwork.com', 'careerjet.com', 'jobserve.com', 'jobsearch.com',
+  'jobspider.com', 'jobvertise.com', 'jobsxl.com', 'jobs2careers.com',
+  'smartjobboard.com', 'jobboardfire.com',
+  'tarta.ai', 'brightcrowd.com', 'jobcase.com',
+  'workopolis.com', 'eluta.ca', 'jobillico.com',
+  'recruit.net', 'jobomas.com', 'jobatus.com',
+  'snagajob.com', 'hotjobs.com', 'theladders.com',
+  'dice.com', 'clearancejobs.com', 'usajobs.gov',
+  'neighborhoods.com', // surfaced in Curriculum Associates results
 ]);
 
 // URL path segments that strongly indicate a real job posting page.
@@ -73,6 +85,35 @@ const CONTENT_PATH_SIGNALS = [
   '/solutions', '/customers', '/case-study', '/case_study',
   '/best-', '/top-', '/how-to', '/what-is',
 ];
+
+// Title patterns that indicate an aggregator surfacing another company's job.
+// e.g. "Email Marketing Specialist at Snap Finance" or
+//      "Remote Email Specialist job at Easy HR Group | Lensa"
+const AGGREGATOR_TITLE_PATTERNS = [
+  /\bjob at\b/i,
+  /\bjobs at\b/i,
+  /\bposition at\b/i,
+  /\bopening at\b/i,
+  /\bvia\s+lensa\b/i,
+  /\|\s*lensa\s*$/i,
+  /\blensa\b/i,
+  /\bJobright\b/i,
+  /\bTalentify\b/i,
+  /\bJooble\b/i,
+  /\bAdzuna\b/i,
+  /\bNeuvoo\b/i,
+  /\bJobgether\b/i,
+  /\bSnap Finance\b/i, // specific aggregator noise from earlier runs
+];
+
+/**
+ * Returns true if the title looks like a direct company job (not aggregator noise).
+ * @param {string} title
+ * @returns {boolean}
+ */
+function isDirectJobTitle(title) {
+  return !AGGREGATOR_TITLE_PATTERNS.some(pattern => pattern.test(title));
+}
 
 /**
  * Returns true if the URL looks like a real job posting.
@@ -152,7 +193,7 @@ export default {
     const results = /** @type {any[]} */ (json?.web?.results || []);
 
     return results
-      .filter(r => r.url && r.title && isJobUrl(r.url))
+      .filter(r => r.url && r.title && isJobUrl(r.url) && isDirectJobTitle(r.title))
       .map(r => ({
         title: cleanTitle(r.title, entry.name),
         url: r.url,
