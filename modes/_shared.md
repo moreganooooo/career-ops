@@ -28,8 +28,7 @@ This file defines shared rules that multiple modes can rely on.
 ### Notes on file naming
 
 - `modes/_profile.md` is the **live, gitignored candidate file**. It is never committed to the repository and will not appear in the file tree. This is intentional — it contains personal information.
-- `modes/_profile.template.md` is the **committed template** used for onboarding new users. Do not confuse these two files.
-- If `modes/_profile.md` does not exist, copy it from `modes/_profile.template.md` and populate it with the candidate's information.
+- If `modes/_profile.md` does not exist, the system is not yet set up. Stop and ask the user to provide their profile information before proceeding.
 
 ### Rules
 

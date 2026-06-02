@@ -96,10 +96,10 @@ AI-powered, CLI-agnostic job search automation: pipeline tracking, offer evaluat
 
 1. Does `cv.md` exist?
 2. Does `config/profile.yml` exist (not just profile.example.yml)?
-3. Does `modes/_profile.md` exist (not just _profile.template.md)?
+3. Does `modes/_profile.md` exist?
 4. Does `portals.yml` exist (not just templates/portals.example.yml)?
 
-If `modes/_profile.md` is missing, copy from `modes/_profile.template.md` silently. This is the user's customization file — it will never be overwritten by updates.
+If `modes/_profile.md` is missing, the system is not yet set up. Do not proceed — enter onboarding mode and ask the user to provide their profile information.
 
 **If ANY of these is missing, enter onboarding mode.** Do NOT proceed with evaluations, scans, or any other mode until the basics are in place. Guide the user step by step:
 
