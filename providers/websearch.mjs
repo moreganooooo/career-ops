@@ -132,8 +132,13 @@ const AGGREGATOR_TITLE_PATTERNS = [
   /\bRemote Rocketship\b/i,
   /\bDailyRemote\b/i,
   /\bVirtual Vocations\b/i,
+  // "[Remote Job]" bracket tag used by aggregators
+  /\[Remote Job\]/i,
+  /\[Remote\]/i,
+  // "@CompanyName" at-mention format used by aggregators
+  /@[A-Z][a-zA-Z\s]+$/,
   // Category/listing pages masquerading as job postings
-  /^Remote \w+ Jobs?$/i,           // "Remote Email Marketing Jobs"
+  /^Remote \w[\w\s]* Jobs?$/i,     // "Remote Email Marketing Jobs"
   /^\d+\s+\w+ Jobs?$/i,            // "297 Marketing Jobs"
   /\ud83d\udde8|\ud83e\udde8|\u{1F9E8}/u, // emoji flags common in spam titles
 ];
