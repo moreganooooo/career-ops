@@ -18,18 +18,19 @@
 const BRAVE_API_URL = 'https://api.search.brave.com/res/v1/web/search';
 const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
 
-// Brave free tier: 1 request/second. We use a shared global queue so that
-// even when scan.mjs runs websearch fetches in parallel, they serialize
-// through this bottleneck and stay within the rate limit.
-let lastRequestTime = 0;
-const RATE_LIMIT_MS = 1100; // 1.1s — slight buffer over the 1 req/sec limit
+// True sequential queue — each request waits for the previous one to fully
+// complete before starting, then adds a 1.1s gap. This guarantees we never
+// exceed Brave's free tier 1 req/sec limit regardless of scan.mjs concurrency.
+const RATE_LIMIT_MS = 1100;
+let queue = Promise.resolve();
 
-async function rateLimitedFetch(url, options) {
-  const now = Date.now();
-  const wait = RATE_LIMIT_MS - (now - lastRequestTime);
-  if (wait > 0) await new Promise(r => setTimeout(r, wait));
-  lastRequestTime = Date.now();
-  return fetch(url, options);
+function enqueue(fn) {
+  const next = queue.then(() => fn()).then(
+    result => new Promise(resolve => setTimeout(() => resolve(result), RATE_LIMIT_MS)),
+    err    => new Promise((_, reject) => setTimeout(() => reject(err),  RATE_LIMIT_MS)),
+  );
+  queue = next.then(() => {}, () => {}); // keep queue moving even on error
+  return next;
 }
 
 // Domains that never contain job postings — content sites, aggregators,
@@ -49,6 +50,9 @@ const BLOCKED_DOMAINS = new Set([
   'wikipedia.org', 'wikihow.com',
   'flexjobs.com', 'remote.co', 'weworkremotely.com', 'remoteok.com',
   'himalayas.app', 'wellfound.com', 'angel.co',
+  'kickstartremote.com', 'jobleads.com', 'jobleads.de', 'jooble.org',
+  'jobgether.com', 'talentify.io', 'jobsora.com', 'neuvoo.com',
+  'trovit.com', 'adzuna.com', 'jobrapido.com', 'joblist.com',
 ]);
 
 // URL path segments that strongly indicate a real job posting page.
@@ -129,21 +133,22 @@ export default {
       freshness: 'pm',  // past month — keeps results recent
     });
 
-    const response = await rateLimitedFetch(`${BRAVE_API_URL}?${params}`, {
-      headers: {
-        'Accept': 'application/json',
-        'Accept-Encoding': 'gzip',
-        'X-Subscription-Token': BRAVE_API_KEY,
-      },
+    const json = await enqueue(async () => {
+      const response = await fetch(`${BRAVE_API_URL}?${params}`, {
+        headers: {
+          'Accept': 'application/json',
+          'Accept-Encoding': 'gzip',
+          'X-Subscription-Token': BRAVE_API_KEY,
+        },
+      });
+      if (!response.ok) {
+        throw new Error(
+          `websearch: Brave API error ${response.status} for "${entry.name}" — ${await response.text()}`
+        );
+      }
+      return response.json();
     });
 
-    if (!response.ok) {
-      throw new Error(
-        `websearch: Brave API error ${response.status} for "${entry.name}" — ${await response.text()}`
-      );
-    }
-
-    const json = await response.json();
     const results = /** @type {any[]} */ (json?.web?.results || []);
 
     return results
