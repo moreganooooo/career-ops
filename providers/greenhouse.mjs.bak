@@ -26,7 +26,7 @@ function assertGreenhouseUrl(url) {
 
 function resolveApiUrl(entry) {
   if (entry.api) {
-    try { assertGreenhouseUrl(entry.api); } catch { return null; }
+    assertGreenhouseUrl(entry.api);
     return entry.api;
   }
   const url = entry.careers_url || '';
