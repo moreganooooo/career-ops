@@ -1,8 +1,8 @@
 // @ts-check
 /** @typedef {import('./_types.js').Provider} Provider */
 
-// Brave Search provider — handles entries with `scanmethod: websearch`.
-// Fires the entry's `scanquery` at the Brave Web Search API and extracts
+// Brave Search provider — handles entries with `scan_method: websearch`.
+// Fires the entry's `scan_query` at the Brave Web Search API and extracts
 // job listings from the results.
 //
 // Required env var: BRAVE_API_KEY
@@ -23,10 +23,9 @@ export default {
   id: 'websearch',
 
   detect(entry) {
-    const { scanmethod, scanquery } =
-      /** @type {{ scanmethod?: string, scanquery?: string }} */ (entry);
-
-    if (scanmethod === 'websearch' && scanquery) {
+    const scan_method = /** @type {any} */ (entry).scan_method;
+    const scan_query  = /** @type {any} */ (entry).scan_query;
+    if (scan_method === 'websearch' && scan_query) {
       return { url: BRAVE_API_URL };
     }
     return null;
@@ -40,8 +39,8 @@ export default {
       );
     }
 
-    const query = /** @type {{ scanquery?: string }} */ (entry).scanquery;
-    if (!query) throw new Error(`websearch: no scanquery defined for ${entry.name}`);
+    const query = /** @type {any} */ (entry).scan_query;
+    if (!query) throw new Error(`websearch: no scan_query defined for ${entry.name}`);
 
     const params = new URLSearchParams({
       q: query,
@@ -68,7 +67,7 @@ export default {
 
     const json = await response.json();
     /** @type {Array<{url: string, title: string, description?: string, extra_snippets?: string[]}>} */
-    const results = /** @type {Array<{url: string, title: string, description?: string, extra_snippets?: string[]}>} */ (json?.web?.results || []);
+    const results = /** @type {any[]} */ (json?.web?.results || []);
 
     return results
       .filter(r => r.url && r.title)
