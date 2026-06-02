@@ -6,7 +6,7 @@
 // job listings from the results.
 //
 // Required env var: BRAVE_API_KEY
-// Free tier: https://api.search.brave.com (2,000 queries/month)
+// Free tier: https://api.search.brave.com (2,000 queries/month, 1 req/sec)
 //
 // Each result is returned in the standard provider format:
 //   { title, url, company, location }
@@ -17,6 +17,20 @@
 
 const BRAVE_API_URL = 'https://api.search.brave.com/res/v1/web/search';
 const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
+
+// Brave free tier: 1 request/second. We use a shared global queue so that
+// even when scan.mjs runs websearch fetches in parallel, they serialize
+// through this bottleneck and stay within the rate limit.
+let lastRequestTime = 0;
+const RATE_LIMIT_MS = 1100; // 1.1s — slight buffer over the 1 req/sec limit
+
+async function rateLimitedFetch(url, options) {
+  const now = Date.now();
+  const wait = RATE_LIMIT_MS - (now - lastRequestTime);
+  if (wait > 0) await new Promise(r => setTimeout(r, wait));
+  lastRequestTime = Date.now();
+  return fetch(url, options);
+}
 
 // Domains that never contain job postings — content sites, aggregators,
 // listicles, review sites, social networks, etc.
@@ -58,12 +72,6 @@ const CONTENT_PATH_SIGNALS = [
 
 /**
  * Returns true if the URL looks like a real job posting.
- * Logic:
- *   1. Blocked domain → reject immediately
- *   2. Has a content path signal → reject (listicle/article)
- *   3. Has a job path signal → accept
- *   4. Neither signal → accept (e.g. careers.company.com/ with no path)
- *
  * @param {string} rawUrl
  * @returns {boolean}
  */
@@ -72,27 +80,19 @@ function isJobUrl(rawUrl) {
   try {
     parsed = new URL(rawUrl);
   } catch {
-    return false; // malformed URL
+    return false;
   }
 
-  // Strip leading 'www.' for domain matching
   const domain = parsed.hostname.replace(/^www\./, '');
 
-  // 1. Blocked domain check (exact + subdomain)
   if (BLOCKED_DOMAINS.has(domain)) return false;
   for (const blocked of BLOCKED_DOMAINS) {
     if (domain.endsWith('.' + blocked)) return false;
   }
 
   const path = parsed.pathname.toLowerCase();
-
-  // 2. Content path signals — reject listicles and editorial content
   if (CONTENT_PATH_SIGNALS.some(s => path.includes(s))) return false;
-
-  // 3. Job path signals — accept job-looking URLs
   if (JOB_PATH_SIGNALS.some(s => path.includes(s))) return true;
-
-  // 4. No strong signal either way — pass through
   return true;
 }
 
@@ -129,7 +129,7 @@ export default {
       freshness: 'pm',  // past month — keeps results recent
     });
 
-    const response = await fetch(`${BRAVE_API_URL}?${params}`, {
+    const response = await rateLimitedFetch(`${BRAVE_API_URL}?${params}`, {
       headers: {
         'Accept': 'application/json',
         'Accept-Encoding': 'gzip',
@@ -157,8 +157,6 @@ export default {
   },
 };
 
-// Strip the company name and common job board suffixes from result titles
-// so the title filter works cleanly against just the role name.
 /**
  * @param {string} raw
  * @param {string} companyName
@@ -171,8 +169,6 @@ function cleanTitle(raw, companyName) {
     .trim();
 }
 
-// Best-effort location extraction from the result snippet.
-// Looks for common patterns like "Remote", "New York, NY", "US", etc.
 /**
  * @param {string} snippet
  * @returns {string}
