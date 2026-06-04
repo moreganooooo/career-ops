@@ -1354,27 +1354,29 @@ tracked_companies:
 # =========================================================
 
 - name: Chegg
-  careers_url: https://chegg.wd5.myworkdayjobs.com/en-US/Chegg_Careers
+  careers_url: https://osv-chegg.wd5.myworkdayjobs.com/en-US/Chegg
   scan_method: workday
-  notes: "EdTech / homework help platform. Workday ATS — upgraded from websearch 2026-06-04."
+  notes: "EdTech / homework help platform. Workday ATS — upgraded from websearch 2026-06-04. Tenant prefix is osv-chegg, board is /Chegg."
   enabled: true
 
 - name: Pearson
-  careers_url: https://pearson.wd5.myworkdayjobs.com/en-US/Pearson_Careers
-  scan_method: workday
-  notes: "Global EdTech and publishing giant. Workday ATS — upgraded from websearch 2026-06-04."
+  careers_url: https://pearson.jobs
+  scan_method: websearch
+  scan_query: 'site:pearson.jobs OR site:hccz.fa.em3.oraclecloud.com "marketing" OR "email" OR "content" OR "enablement" OR "communications" remote'
+  notes: "Global EdTech. Confirmed Oracle HCM ATS (oraclecloud.com) — not Workday. Websearch only."
   enabled: true
 
 - name: Scholastic
-  careers_url: https://scholastic.wd5.myworkdayjobs.com/en-US/SCHOLASTIC
+  careers_url: https://scholastic.wd5.myworkdayjobs.com/en-US/External
   scan_method: workday
   notes: "Children's publishing and EdTech. Workday ATS — upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Nielsen
-  careers_url: https://nielsen.wd1.myworkdayjobs.com/en-US/NielsenCareers
-  scan_method: workday
-  notes: "Media measurement and data analytics. Workday ATS — upgraded from websearch 2026-06-04."
+  careers_url: https://jobs.smartrecruiters.com/TheNielsenCompany
+  scan_method: websearch
+  scan_query: 'site:jobs.smartrecruiters.com/TheNielsenCompany "marketing" OR "email" OR "content" OR "communications" OR "enablement" remote'
+  notes: "Media measurement. Confirmed SmartRecruiters ATS — not Workday. Websearch only."
   enabled: true
 
 - name: College Board
