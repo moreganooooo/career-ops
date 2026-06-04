@@ -70,6 +70,7 @@ title_filter:
     - "Sales Readiness"
     - "Enablement Coordinator"
     - "Sales Support"
+    - "Sales Productivity Specialist"
 
     # Content & Copy
     - "Content Strategist"
@@ -110,6 +111,7 @@ title_filter:
     - "Drip"
     - "Automation Specialist"
     - "Journey"
+    - "Customer Journey Specialist"
 
     # Sales Enablement / Enablement adjacent
     - "Marketing Enablement"
@@ -132,6 +134,7 @@ title_filter:
     - "Marketing Technology"
     - "MarTech"
     - "Revenue Operations Coordinator"
+    - "Revenue Operations Specialist"
     - "RevOps Coordinator"
     - "Sales Operations"
     - "GTM Operations"
@@ -142,18 +145,23 @@ title_filter:
     - "ESP Specialist"
     - "CRM Administrator"
     - "Marketing Ops"
+    - "Marketing Automation Coordinator"
 
     # Implementation / Onboarding / Customer Success
     - "Implementation Specialist"
     - "Implementation Manager"
     - "Implementation Coordinator"
+    - "Implementation Analyst"
     - "Onboarding Manager"
     - "Onboarding Coordinator"
+    - "Onboarding Specialist"
     - "Customer Onboarding"
     - "Client Onboarding"
+    - "Client Onboarding Specialist"
     - "Customer Success Manager"
     - "Customer Success Specialist"
     - "Customer Success Associate"
+    - "User Success Specialist"
     - "Client Success"
     - "Account Manager"
     - "Account Coordinator"
@@ -211,6 +219,21 @@ title_filter:
     - "Recruiter"
     - "HR Manager"
     - "Salesforce Admin"
+
+    # Customer Service / Support false positives
+    - "Customer Service Representative"
+    - "CSR"
+    - "Call Center"
+    - "Help Desk"
+    - "Tier 1 Support"
+    - "Technical Support Representative"
+    - "Inbound Calls"
+
+    # Sales / outbound false positives
+    - "Cold Calling"
+    - "BDR"
+    - "SDR"
+    - "Sales Development Representative"
 
     # Non-US geographic qualifiers in title
     - "EMEA"
@@ -280,7 +303,6 @@ title_filter:
     - "CRM Developer"
     - "Database Administrator"
     - "Marketo Admin"
-    - "Pardot"
 
 seniority_boost:
   - "Senior"
@@ -290,130 +312,191 @@ seniority_boost:
 # =========================================================
 # -- Search queries --
 # PHILOSOPHY: Wide categorical net. title_filter handles precision.
+# To avoid the 32-term limit, heavy job boards are split into two parallel sweeps.
 # =========================================================
 search_queries:
 
   # ATS Platform Sweeps
-  - name: "Greenhouse — marketing + lifecycle + enablement + implementation remote"
-    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+  - name: "Greenhouse — Marketing & Enablement remote"
+    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement) remote -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Ashby — marketing + lifecycle + enablement + implementation remote"
-    query: "site:jobs.ashbyhq.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+  - name: "Greenhouse — Onboarding & Success remote"
+    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (implementation OR onboarding OR \"customer success\" OR adoption OR retention) remote -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Lever — marketing + lifecycle + enablement + implementation remote"
-    query: "site:jobs.lever.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+  - name: "Ashby — Marketing & Enablement remote"
+    query: "site:jobs.ashbyhq.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement) remote -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Workable — marketing + lifecycle + enablement + implementation remote"
-    query: "site:apply.workable.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+  - name: "Ashby — Onboarding & Success remote"
+    query: "site:jobs.ashbyhq.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Lever — Marketing & Enablement remote"
+    query: "site:jobs.lever.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Lever — Onboarding & Success remote"
+    query: "site:jobs.lever.co (implementation OR onboarding OR \"customer success\" OR adoption OR retention) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Workable — Marketing & Enablement remote"
+    query: "site:apply.workable.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Workable — Onboarding & Success remote"
+    query: "site:apply.workable.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention) remote -engineer -developer -recruiter"
     enabled: true
 
   # Remote-First Job Boards
-  - name: "We Work Remotely — marketing + enablement + implementation"
-    query: "site:weworkremotely.com (marketing OR campaign OR lifecycle OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+  - name: "We Work Remotely — Marketing & Enablement"
+    query: "site:weworkremotely.com (marketing OR campaign OR lifecycle OR email OR CRM OR content OR enablement OR communications) -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Remote OK — marketing + enablement + implementation"
-    query: "site:remoteok.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+  - name: "We Work Remotely — Onboarding & Success"
+    query: "site:weworkremotely.com (implementation OR onboarding OR \"customer success\" OR retention) -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Himalayas — marketing + enablement + implementation remote"
-    query: "site:himalayas.app (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+  - name: "Remote OK — Marketing & Enablement"
+    query: "site:remoteok.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Remote.co — marketing + enablement + implementation"
-    query: "site:remote.co/remote-jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+  - name: "Remote OK — Onboarding & Success"
+    query: "site:remoteok.com (implementation OR onboarding OR \"customer success\" OR retention) -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Remotive — marketing + enablement + implementation"
-    query: "site:remotive.com/remote-jobs/marketing (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+  - name: "Himalayas — Marketing & Enablement remote"
+    query: "site:himalayas.app (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) remote -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Just Remote — marketing + enablement + implementation"
-    query: "site:justremote.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR implementation OR onboarding OR 'customer success') -engineer -developer -recruiter"
+  - name: "Himalayas — Onboarding & Success remote"
+    query: "site:himalayas.app (implementation OR onboarding OR \"customer success\" OR retention) remote -engineer -developer -recruiter"
     enabled: true
 
-  - name: "Working Nomads — marketing + enablement remote"
-    query: "site:workingnomads.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+  - name: "Remote.co — Marketing & Enablement"
+    query: "site:remote.co/remote-jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Remote.co — Onboarding & Success"
+    query: "site:remote.co/remote-jobs (implementation OR onboarding OR \"customer success\" OR retention) -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Remotive — Marketing & Enablement"
+    query: "site:remotive.com/remote-jobs/marketing (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Remotive — Onboarding & Success"
+    query: "site:remotive.com/remote-jobs/marketing (implementation OR onboarding OR \"customer success\" OR retention) -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Just Remote — Marketing & Enablement"
+    query: "site:justremote.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement) -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Just Remote — Onboarding & Success"
+    query: "site:justremote.co (implementation OR onboarding OR \"customer success\") -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Working Nomads — Marketing & Enablement remote"
+    query: "site:workingnomads.com (marketing OR lifecycle OR email OR content OR enablement OR communications) remote -engineer -developer"
+    enabled: true
+
+  - name: "Working Nomads — Onboarding & Success remote"
+    query: "site:workingnomads.com (implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "NoDesk — marketing + enablement + implementation"
-    query: "site:nodesk.co/remote-jobs/marketing (marketing OR lifecycle OR email OR CRM OR content OR enablement OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer"
+    query: "site:nodesk.co/remote-jobs/marketing (marketing OR lifecycle OR email OR CRM OR content OR enablement OR implementation OR onboarding OR \"customer success\" OR retention) -engineer -developer"
     enabled: true
 
   - name: "RemoteFront — marketing + enablement remote"
-    query: "site:remotefront.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    query: "site:remotefront.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   # Startup & Tech-Focused Boards
-  - name: "Wellfound — marketing + enablement + implementation remote"
-    query: "site:wellfound.com/jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+  - name: "Wellfound — Marketing & Enablement remote"
+    query: "site:wellfound.com/jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) remote -engineer -developer -recruiter"
     enabled: true
 
-  - name: "YC / Work at a Startup — marketing + enablement + implementation remote"
-    query: "site:workatastartup.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+  - name: "Wellfound — Onboarding & Success remote"
+    query: "site:wellfound.com/jobs (implementation OR onboarding OR \"customer success\" OR retention) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "YC / Work at a Startup — Marketing & Enablement remote"
+    query: "site:workatastartup.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "YC / Work at a Startup — Onboarding & Success remote"
+    query: "site:workatastartup.com (implementation OR onboarding OR \"customer success\" OR retention) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "MKT1 — B2B startup marketing broad sweep"
-    query: "site:jobs.mkt1.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') -engineer -developer"
+    query: "site:jobs.mkt1.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR \"customer success\") -engineer -developer"
     enabled: true
 
   - name: "Startup.jobs — marketing + enablement + implementation remote"
-    query: "site:startup.jobs (marketing OR lifecycle OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications) remote -engineer -developer"
+    query: "site:startup.jobs (marketing OR lifecycle OR email OR content OR enablement OR implementation OR onboarding OR \"customer success\" OR communications) remote -engineer -developer"
     enabled: true
 
   - name: "Hey Marketers — startup marketing broad sweep"
-    query: "site:heymarketers.com (marketing OR lifecycle OR email OR content OR enablement OR campaign OR CRM OR communications OR 'customer success') -engineer -developer"
+    query: "site:heymarketers.com (marketing OR lifecycle OR email OR content OR enablement OR campaign OR CRM OR communications OR \"customer success\") -engineer -developer"
     enabled: true
 
   - name: "Midwest Startups — marketing + enablement"
-    query: "site:jobs.midweststartups.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR 'customer success') -engineer -developer"
+    query: "site:jobs.midweststartups.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR \"customer success\") -engineer -developer"
     enabled: true
 
   # Mainstream Aggregators
-  - name: "Built In — marketing + enablement + implementation remote"
-    query: "site:builtin.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+  - name: "Built In — Marketing & Enablement remote"
+    query: "site:builtin.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) remote -engineer -developer -recruiter"
     enabled: true
     notes: "Also surfaces company list pages (Top EdTech Companies Hiring Remote, etc.)."
 
-  - name: "ZipRecruiter — marketing + enablement + implementation remote"
-    query: "site:ziprecruiter.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+  - name: "Built In — Onboarding & Success remote"
+    query: "site:builtin.com (implementation OR onboarding OR \"customer success\" OR retention) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "ZipRecruiter — Marketing & Enablement remote"
+    query: "site:ziprecruiter.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "ZipRecruiter — Onboarding & Success remote"
+    query: "site:ziprecruiter.com (implementation OR onboarding OR \"customer success\" OR retention) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "FlexJobs — marketing + enablement + implementation remote"
-    query: "site:flexjobs.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    query: "site:flexjobs.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "MarketingHire — marketing + enablement broad sweep"
-    query: "site:marketinghire.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR campaign OR CRM OR 'customer success') remote -engineer -developer"
+    query: "site:marketinghire.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR campaign OR CRM OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "AMA Job Board — marketing + comms + enablement remote"
-    query: "site:jobs.ama.org (marketing OR communications OR email OR content OR enablement OR campaign OR lifecycle OR 'customer success' OR implementation) remote -engineer -developer"
+    query: "site:jobs.ama.org (marketing OR communications OR email OR content OR enablement OR campaign OR lifecycle OR \"customer success\" OR implementation) remote -engineer -developer"
     enabled: true
 
   - name: "Authentic Jobs — content + marketing + enablement remote"
-    query: "site:authenticjobs.com (marketing OR content OR copywriting OR communications OR enablement OR email OR lifecycle OR campaign OR 'customer success') remote -engineer -developer"
+    query: "site:authenticjobs.com (marketing OR content OR copywriting OR communications OR enablement OR email OR lifecycle OR campaign OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "Jobspresso — marketing + enablement + implementation remote"
-    query: "site:jobspresso.co (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    query: "site:jobspresso.co (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   # Diversity & Mission-Adjacent Platforms
   - name: "The Mom Project — marketing + enablement + implementation remote"
-    query: "site:themomproject.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    query: "site:themomproject.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "PowerToFly — marketing + enablement + implementation remote"
-    query: "site:powertofly.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    query: "site:powertofly.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   # Nonprofit / Cause-Driven Boards
   - name: "Idealist — marketing + comms + enablement + implementation remote"
-    query: "site:idealist.org (marketing OR communications OR email OR content OR enablement OR campaign OR lifecycle OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    query: "site:idealist.org (marketing OR communications OR email OR content OR enablement OR campaign OR lifecycle OR implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "NonprofitJobs — marketing + communications + implementation remote"
@@ -425,7 +508,7 @@ search_queries:
     enabled: true
 
   - name: "WorkForGood — marketing + comms + implementation remote"
-    query: "site:work4good.org (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR campaign OR 'customer success') remote -engineer -developer"
+    query: "site:work4good.org (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR campaign OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "ExecSearches — nonprofit marketing + comms remote"
@@ -433,7 +516,7 @@ search_queries:
     enabled: true
 
   - name: "Tech Jobs for Good — social impact marketing + enablement + implementation"
-    query: "site:techjobsforgood.com (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR campaign OR lifecycle) remote -engineer -developer"
+    query: "site:techjobsforgood.com (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR \"customer success\" OR campaign OR lifecycle) remote -engineer -developer"
     enabled: true
 
   # Progressive / Democracy / Civic Tech
@@ -442,7 +525,7 @@ search_queries:
     enabled: true
 
   - name: "Matt's List — progressive digital + marketing"
-    query: "site:mattslist.org (marketing OR communications OR digital OR email OR content OR enablement OR campaign OR implementation OR 'customer success') remote -engineer -developer"
+    query: "site:mattslist.org (marketing OR communications OR digital OR email OR content OR enablement OR campaign OR implementation OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "Progressive Data Jobs — data-driven organizing + marketing"
@@ -451,50 +534,50 @@ search_queries:
 
   # EdTech / Education Sector
   - name: "EdSurge Jobs — marketing + enablement + implementation remote"
-    query: "site:edsurge.com/jobs (marketing OR content OR enablement OR email OR communications OR implementation OR onboarding OR 'customer success' OR lifecycle OR campaign) remote -engineer -developer"
+    query: "site:edsurge.com/jobs (marketing OR content OR enablement OR email OR communications OR implementation OR onboarding OR \"customer success\" OR lifecycle OR campaign) remote -engineer -developer"
     enabled: true
 
   - name: "EdTechJobs.io — marketing + enablement + implementation"
-    query: "site:edtechjobs.io (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote -engineer -developer"
+    query: "site:edtechjobs.io (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR lifecycle) remote -engineer -developer"
     enabled: true
 
   - name: "Himalayas — Remote K-12 / EdTech companies list"
-    query: "site:himalayas.app/companies 'Top remote K 12 Education companies'"
+    query: "site:himalayas.app/companies \"Top remote K 12 Education companies\""
     enabled: true
 
   - name: "Built In — EdTech companies hiring remote (collection)"
-    query: "site:builtin.com 'Top Edtech Companies Hiring Remote' OR 'Edtech Companies Hiring Remote'"
+    query: "site:builtin.com \"Top Edtech Companies Hiring Remote\" OR \"Edtech Companies Hiring Remote\""
     enabled: true
 
   # Animal Welfare / Pet Industry Boards
   - name: "HumanePro — animal welfare marketing + comms + implementation"
-    query: "site:humanepro.org/jobs (marketing OR communications OR email OR content OR digital OR enablement OR implementation OR onboarding OR 'customer success' OR campaign) remote -engineer -developer"
+    query: "site:humanepro.org/jobs (marketing OR communications OR email OR content OR digital OR enablement OR implementation OR onboarding OR \"customer success\" OR campaign) remote -engineer -developer"
     enabled: true
 
   - name: "NACA — animal care marketing + community + implementation"
-    query: "site:nacanet.org/career-center-job-board (communications OR marketing OR 'community engagement' OR education OR content OR implementation OR onboarding) remote -engineer -developer"
+    query: "site:nacanet.org/career-center-job-board (communications OR marketing OR \"community engagement\" OR education OR content OR implementation OR onboarding) remote -engineer -developer"
     enabled: true
 
   - name: "Animal People — pet + animal marketing broad sweep"
-    query: "site:animalpeoplerecruitment.com (marketing OR communications OR email OR content OR enablement OR implementation OR 'customer success' OR campaign) remote -engineer -developer"
+    query: "site:animalpeoplerecruitment.com (marketing OR communications OR email OR content OR enablement OR implementation OR \"customer success\" OR campaign) remote -engineer -developer"
     enabled: true
 
   - name: "The VET Recruiter — animal health marketing + sales support"
-    query: "site:thevetrecruiter.com 'Animal Health' (marketing OR sales OR enablement OR content OR communications OR implementation OR 'customer success') remote"
+    query: "site:thevetrecruiter.com \"Animal Health\" (marketing OR sales OR enablement OR content OR communications OR implementation OR \"customer success\") remote"
     enabled: true
 
   # Mental Health / Telehealth
   - name: "Behavioral Health Jobs — telehealth marketing + implementation remote"
-    query: "site:behavioralhealthjobs.com (marketing OR communications OR content OR email OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote -engineer -developer"
+    query: "site:behavioralhealthjobs.com (marketing OR communications OR content OR email OR enablement OR implementation OR onboarding OR \"customer success\" OR lifecycle) remote -engineer -developer"
     enabled: true
 
   - name: "Rock Health — digital health marketing + enablement + implementation remote"
-    query: "site:rockhealth.com/jobs (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer"
+    query: "site:rockhealth.com/jobs (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR \"customer success\" OR retention) remote -engineer -developer"
     enabled: true
 
   # Sustainability & Climate
   - name: "Climatebase — climate tech marketing + enablement + implementation remote"
-    query: "site:climatebase.org (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success' OR campaign) remote -engineer -developer -recruiter"
+    query: "site:climatebase.org (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR \"customer success\" OR campaign) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Green Jobs Board — environmental marketing + comms remote"
@@ -502,20 +585,20 @@ search_queries:
     enabled: true
 
   - name: "Remote Climate Jobs — remote-first climate marketing + implementation"
-    query: "site:remoteclimatejobs.com (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success') -engineer -developer"
+    query: "site:remoteclimatejobs.com (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR \"customer success\") -engineer -developer"
     enabled: true
 
   # Cannabis Job Boards
   - name: "Vangst — cannabis marketing + enablement + implementation remote"
-    query: "site:vangst.com (marketing OR content OR CRM OR brand OR enablement OR email OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    query: "site:vangst.com (marketing OR content OR CRM OR brand OR enablement OR email OR communications OR implementation OR onboarding OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "Herb Career — cannabis marketing + enablement remote"
-    query: "site:herb.career (marketing OR content OR brand OR email OR enablement OR communications OR implementation OR 'customer success') remote -engineer -developer"
+    query: "site:herb.career (marketing OR content OR brand OR email OR enablement OR communications OR implementation OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "CareersInCannabis — marketing + comms + implementation remote"
-    query: "site:careersincannabis.com (marketing OR communications OR content OR email OR enablement OR implementation OR onboarding OR 'customer success' OR brand) remote -engineer -developer"
+    query: "site:careersincannabis.com (marketing OR communications OR content OR email OR enablement OR implementation OR onboarding OR \"customer success\" OR brand) remote -engineer -developer"
     enabled: true
 
   - name: "Marijuana Jobs — cannabis marketing + implementation remote"
@@ -523,37 +606,37 @@ search_queries:
     enabled: true
 
   - name: "Inweed — cannabis marketing + brand + enablement remote"
-    query: "site:inweed.io (marketing OR brand OR digital OR content OR email OR enablement OR implementation OR 'customer success') remote -engineer -developer"
+    query: "site:inweed.io (marketing OR brand OR digital OR content OR email OR enablement OR implementation OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "FlowerHire — cannabis corporate marketing + enablement remote"
-    query: "site:flowerhire.com (marketing OR communications OR brand OR content OR email OR enablement OR implementation OR 'customer success') remote -engineer -developer"
+    query: "site:flowerhire.com (marketing OR communications OR brand OR content OR email OR enablement OR implementation OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   # Government & Public Sector
   - name: "USAJOBS — federal marketing + communications + implementation remote"
-    query: "site:usajobs.gov (marketing OR communications OR 'public affairs' OR 'digital communications' OR content OR outreach OR implementation OR 'customer success') remote -engineer -developer"
+    query: "site:usajobs.gov (marketing OR communications OR \"public affairs\" OR \"digital communications\" OR content OR outreach OR implementation OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   # Websearch Fallbacks — EdTech
   - name: "Teaching Strategies — all roles remote"
-    query: "site:teaching-strategies.pinpointhq.com (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote"
+    query: "site:teaching-strategies.pinpointhq.com (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR lifecycle) remote"
     enabled: true
 
   - name: "PowerSchool — all roles remote"
-    query: "site:careers-powerschool.icims.com (marketing OR email OR enablement OR content OR implementation OR onboarding OR 'customer success' OR communications OR lifecycle) remote"
+    query: "site:careers-powerschool.icims.com (marketing OR email OR enablement OR content OR implementation OR onboarding OR \"customer success\" OR communications OR lifecycle) remote"
     enabled: true
 
   - name: "Waterford.org — all roles remote"
-    query: "(\"waterford.org\" OR \"waterford education\" OR \"waterford reading academy\") (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote jobs"
+    query: "(\"waterford.org\" OR \"waterford education\" OR \"waterford reading academy\") (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR lifecycle) remote jobs"
     enabled: true
 
   - name: "Imagine Learning — all roles remote"
-    query: "\"imagine learning\" (marketing OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications OR lifecycle) remote jobs"
+    query: "\"imagine learning\" (marketing OR email OR content OR enablement OR implementation OR onboarding OR \"customer success\" OR communications OR lifecycle) remote jobs"
     enabled: true
 
   - name: "Achieve3000 (McGraw-Hill) — all roles remote"
-    query: "site:careers.mheducation.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications OR lifecycle) remote"
+    query: "site:careers.mheducation.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR \"customer success\" OR communications OR lifecycle) remote"
     enabled: true
 
   # Websearch Fallbacks — Animal Welfare / Pet
@@ -570,19 +653,19 @@ search_queries:
     enabled: true
 
   - name: "Chewy — all roles remote"
-    query: "site:careers.chewy.com (marketing OR email OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success') remote"
+    query: "site:careers.chewy.com (marketing OR email OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR \"customer success\") remote"
     enabled: true
 
   - name: "Rover — all roles remote"
-    query: "site:rover.com/careers (marketing OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success' OR campaign) remote"
+    query: "site:rover.com/careers (marketing OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR \"customer success\" OR campaign) remote"
     enabled: true
 
   - name: "Hill's Pet Nutrition — all roles remote"
-    query: "site:jobs.colgate.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications) remote"
+    query: "site:jobs.colgate.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR \"customer success\" OR communications) remote"
     enabled: true
 
   - name: "Embark Veterinary — all roles remote"
-    query: "(\"embark veterinary\" OR \"embarkvet\") (marketing OR content OR lifecycle OR email OR enablement OR implementation OR onboarding OR 'customer success') remote jobs"
+    query: "(\"embark veterinary\" OR \"embarkvet\") (marketing OR content OR lifecycle OR email OR enablement OR implementation OR onboarding OR \"customer success\") remote jobs"
     enabled: true
 
   # Websearch Fallbacks — Nonprofit
@@ -604,30 +687,30 @@ search_queries:
 
   # Websearch Fallbacks — Mental Health
   - name: "Brightside Health — all roles remote"
-    query: "\"Brightside Health\" (marketing OR content OR growth OR implementation OR onboarding OR 'customer success' OR lifecycle OR enablement) remote jobs"
+    query: "\"Brightside Health\" (marketing OR content OR growth OR implementation OR onboarding OR \"customer success\" OR lifecycle OR enablement) remote jobs"
     enabled: true
 
   # Websearch Fallbacks — Cannabis
   - name: "Leafly — all roles remote"
-    query: "site:leafly.com/info/jobs (marketing OR email OR content OR brand OR enablement OR implementation OR onboarding OR 'customer success' OR communications) remote"
+    query: "site:leafly.com/info/jobs (marketing OR email OR content OR brand OR enablement OR implementation OR onboarding OR \"customer success\" OR communications) remote"
     enabled: true
 
   - name: "Wurk — all roles remote"
-    query: "site:enjoywurk.com (marketing OR 'customer marketing' OR content OR enablement OR implementation OR onboarding OR 'customer success') remote"
+    query: "site:enjoywurk.com (marketing OR \"customer marketing\" OR content OR enablement OR implementation OR onboarding OR \"customer success\") remote"
     enabled: true
 
   # Websearch Fallbacks — Sales / Email Platforms
   - name: "Mailchimp / Intuit — all roles remote"
-    query: "site:jobs.intuit.com (email OR marketing OR content OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle OR communications) remote"
+    query: "site:jobs.intuit.com (email OR marketing OR content OR enablement OR implementation OR onboarding OR \"customer success\" OR lifecycle OR communications) remote"
     enabled: true
 
   # Websearch Fallbacks — Analytics / Data
   - name: "Nielsen — all roles remote"
-    query: "site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote"
+    query: "site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR lifecycle) remote"
     enabled: true
 
   - name: "Pearson — all roles remote"
-    query: "site:pearson.jobs (marketing OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote"
+    query: "site:pearson.jobs (marketing OR email OR content OR enablement OR communications OR implementation OR onboarding OR \"customer success\") remote"
     enabled: true
 
 # =========================================================
