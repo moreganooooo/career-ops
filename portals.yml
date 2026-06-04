@@ -825,9 +825,10 @@ tracked_companies:
   enabled: true
 
 - name: Panorama Education
-  careers_url: https://boards.greenhouse.io/panoramaed
-  api: https://boards-api.greenhouse.io/v1/boards/panoramaed/jobs
-  notes: "Reverted to Greenhouse ATS from Workable."
+  careers_url: https://apply.workable.com/panorama-education/
+  scan_method: websearch
+  scan_query: 'site:apply.workable.com/panorama-education/j/ (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote'
+  notes: "Workable API restricted; switched to targeted websearch."
   enabled: true
 
 - name: Curriculum Associates (i-Ready)
