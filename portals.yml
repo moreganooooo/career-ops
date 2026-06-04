@@ -728,6 +728,11 @@ tracked_companies:
   api: https://boards-api.greenhouse.io/v1/boards/duolingo/jobs
   enabled: true
 
+- name: Outschool
+  careers_url: https://job-boards.greenhouse.io/outschool
+  api: https://boards-api.greenhouse.io/v1/boards/outschool/jobs
+  enabled: true
+
 - name: Khan Academy
   careers_url: https://boards.greenhouse.io/khanacademy
   api: https://boards-api.greenhouse.io/v1/boards/khanacademy/jobs
@@ -741,14 +746,14 @@ tracked_companies:
 - name: Teaching Strategies
   careers_url: https://teaching-strategies.pinpointhq.com/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:teaching-strategies.pinpointhq.com (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote'
   notes: "Pinpoint ATS — no provider built yet. Websearch fallback until pinpoint.mjs ships."
   enabled: false
 
 - name: IXL Learning
-  careers_url: https://www.ixl.com/company/jobs
-  api: https://boards-api.greenhouse.io/v1/boards/ixllearning/jobs
+  careers_url: https://boards.greenhouse.io/ixl
+  api: https://boards-api.greenhouse.io/v1/boards/ixl/jobs
+  notes: "Slug updated to unified enterprise board 'ixl'."
   enabled: true
 
 - name: Newsela
@@ -773,8 +778,8 @@ tracked_companies:
   enabled: true
 
 - name: ClassDojo
-  careers_url: https://jobs.ashbyhq.com/classdojo
-  api: https://api.ashbyhq.com/posting-api/job-board/classdojo
+  careers_url: https://jobs.ashbyhq.com/ClassDojo
+  api: https://api.ashbyhq.com/posting-api/job-board/ClassDojo
   enabled: true
 
 - name: Age of Learning (ABCmouse)
@@ -809,7 +814,6 @@ tracked_companies:
 - name: PowerSchool
   careers_url: https://careers-powerschool.icims.com/jobs/intro
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:careers-powerschool.icims.com (marketing OR email OR enablement OR content OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote'
   notes: "iCIMS ATS — no icims provider built yet. Websearch fallback."
   enabled: false
@@ -836,7 +840,6 @@ tracked_companies:
 - name: Waterford.org
   careers_url: https://www.paycomonline.net/v4/ats/web.php/portal/331B479E8FD113A8751AEE3AC103ABFD/jobs
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'waterford.org OR "waterford education" OR "waterford reading academy" (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote jobs'
   notes: "Paycom ATS — no public API. Websearch only."
   enabled: false
@@ -844,7 +847,6 @@ tracked_companies:
 - name: Imagine Learning
   careers_url: https://www.imaginelearning.com/about/careers/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '"imagine learning" (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs'
   notes: "Jobvite ATS — no direct API. Websearch only."
   enabled: false
@@ -858,7 +860,6 @@ tracked_companies:
 - name: Discovery Education
   careers_url: https://www.discoveryeducation.com/careers/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:discoveryeducation.com/careers OR "discovery education" (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote jobs'
   notes: "Workable slug discoveryed returned 404 2026-06-04 — switched to websearch."
   enabled: false
@@ -876,20 +877,18 @@ tracked_companies:
 - name: Achieve3000 (McGraw-Hill)
   careers_url: https://careers.mheducation.com/jobs/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:careers.mheducation.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote'
   notes: "Acquired by McGraw-Hill. iCIMS ATS — no direct provider. Keyword filter essential."
   enabled: false
 
 - name: Varsity Tutors / Nerdy
-  careers_url: https://www.nerdy.com/careers
+  careers_url: https://boards.greenhouse.io/nerdy
   api: https://boards-api.greenhouse.io/v1/boards/nerdy/jobs
   enabled: true
 
 - name: SchooLinks
   careers_url: https://www.schoolinks.com/careers
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '"schoolinks" (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote jobs'
   notes: "Workable slug schoolinks returned 404 2026-06-04 — switched to websearch."
   enabled: false
@@ -913,7 +912,6 @@ tracked_companies:
 - name: Humane Society of the United States
   careers_url: https://www.humanesociety.org/careers
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '"humane society of the united states" (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR community OR campaign) remote jobs'
   enabled: false
 
@@ -926,7 +924,6 @@ tracked_companies:
 - name: American Humane
   careers_url: https://americanhumane.applytojob.com/apply
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '"american humane" (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR campaign) remote jobs'
   notes: "ApplyToJob ATS — no direct provider."
   enabled: false
@@ -934,14 +931,22 @@ tracked_companies:
 - name: North Shore Animal League
   careers_url: https://www.animalleague.org/who-we-are/careers/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:animalleague.org/who-we-are/careers (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR campaign) remote'
   enabled: false
+
+- name: Modern Animal
+  careers_url: https://boards.greenhouse.io/modernanimal
+  api: https://boards-api.greenhouse.io/v1/boards/modernanimal/jobs
+  enabled: true
+
+- name: Bond Vet
+  careers_url: https://boards.greenhouse.io/bondvet
+  api: https://boards-api.greenhouse.io/v1/boards/bondvet/jobs
+  enabled: true
 
 - name: Chewy
   careers_url: https://careers.chewy.com/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:careers.chewy.com (marketing OR email OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR "customer success") remote'
   notes: "Large pet e-commerce. Custom ATS — websearch only."
   enabled: false
@@ -949,7 +954,6 @@ tracked_companies:
 - name: Rover
   careers_url: https://www.rover.com/careers
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:rover.com/careers (marketing OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR "customer success" OR campaign) remote'
   notes: "Pet care marketplace. Custom careers page — websearch only."
   enabled: false
@@ -969,7 +973,6 @@ tracked_companies:
 - name: Hill's Pet Nutrition
   careers_url: https://jobs.colgate.com/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:jobs.colgate.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications) remote'
   notes: "Owned by Colgate-Palmolive. Oracle HCM ATS. Morgan's Callahan Creek client."
   enabled: false
@@ -977,12 +980,11 @@ tracked_companies:
 - name: Petco
   careers_url: https://www.petco.com/shop/en/petcostore/content/careers
   scan_method: websearch
-  # ai_agent: enabled: false — Workday URL returned HTML not JSON (Petco.wd1 tenant misconfigured or URL changed). AI agents may navigate careers_url directly to find current ATS.
   scan_query: '"petco" (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs -"store manager" -"groomer" -"vet tech"'
   notes: "Workday wd1 tenant returned HTML not JSON 2026-06-04 — needs manual URL verification. Switched to websearch."
   enabled: false
 
-- name: BarkBox / BARK
+- name: BARK (BarkBox)
   careers_url: https://boards.greenhouse.io/bark
   api: https://boards-api.greenhouse.io/v1/boards/bark/jobs
   enabled: true
@@ -996,7 +998,6 @@ tracked_companies:
 - name: Embark Veterinary
   careers_url: https://embarkvet.applytojob.com/apply
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '("embark veterinary" OR "embarkvet") (marketing OR content OR lifecycle OR email OR enablement OR implementation OR onboarding OR "customer success") remote jobs'
   notes: "ApplyToJob ATS — no direct provider. Dog genetics + wellness."
   enabled: false
@@ -1004,7 +1005,6 @@ tracked_companies:
 - name: Fi Smart Dog Collar
   careers_url: https://www.tryfi.com
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:tryfi.com OR site:jobs.lever.co/fi (marketing OR content OR enablement OR implementation OR onboarding OR "customer success") remote'
   notes: "Dog tech; crossover between CX enablement and content."
   enabled: false
@@ -1039,7 +1039,6 @@ tracked_companies:
 - name: World Wildlife Fund
   careers_url: https://careers-wwfus.icims.com/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:careers-wwfus.icims.com (marketing OR email OR communications OR content OR enablement OR implementation OR onboarding OR campaign OR donor) remote'
   notes: "iCIMS ATS — no direct provider. Websearch only."
   enabled: false
@@ -1047,7 +1046,6 @@ tracked_companies:
 - name: The Nature Conservancy
   careers_url: https://careers.tnc.org/us/en/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:careers.tnc.org (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR campaign OR donor) remote'
   notes: "Phenom-powered board, JS-heavy. Websearch only."
   enabled: false
@@ -1055,7 +1053,6 @@ tracked_companies:
 - name: Feeding America
   careers_url: https://www.feedingamerica.org/about-us/careers
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '"feeding america" (marketing OR email OR communications OR content OR enablement OR implementation OR onboarding OR campaign OR donor) remote jobs'
   notes: "Custom careers page — websearch only."
   enabled: false
@@ -1086,7 +1083,6 @@ tracked_companies:
 - name: PBS
   careers_url: https://vhr-pbs.wd115.myworkdayjobs.com/PBSCareers
   scan_method: websearch
-  # ai_agent: enabled: false — Workday wd115 tenant blocks headless Playwright (30s timeout). AI agents may navigate careers_url directly.
   scan_query: '"PBS" (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR audience OR campaign) remote jobs'
   notes: "Workday ATS (wd115 tenant). Playwright timeout known issue — JS-heavy page. Switched to websearch 2026-06-04."
   enabled: false
@@ -1119,7 +1115,7 @@ tracked_companies:
   enabled: true
 
 - name: Spring Health
-  careers_url: https://www.springhealth.com/careers
+  careers_url: https://job-boards.greenhouse.io/springhealth66
   api: https://boards-api.greenhouse.io/v1/boards/springhealth66/jobs
   notes: "upgraded from websearch 2026-06-04."
   enabled: true
@@ -1136,7 +1132,7 @@ tracked_companies:
   enabled: true
 
 - name: Talkspace
-  careers_url: https://www.talkspace.com/careers
+  careers_url: https://boards.greenhouse.io/talkspace
   api: https://boards-api.greenhouse.io/v1/boards/talkspace/jobs
   notes: "Virtual therapy platform; fully remote org, strong mission around access to care."
   enabled: true
@@ -1150,7 +1146,6 @@ tracked_companies:
 - name: Brightside Health
   careers_url: https://www.brightside.com
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '(site:brightside.com OR "Brightside Health") (marketing OR content OR growth OR implementation OR onboarding OR "customer success" OR lifecycle OR enablement) remote jobs'
   notes: "Virtual mental health care. Custom site — websearch only."
   enabled: false
@@ -1185,10 +1180,34 @@ tracked_companies:
   notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
   enabled: true
 
+- name: Octave
+  careers_url: https://boards.greenhouse.io/octave
+  api: https://boards-api.greenhouse.io/v1/boards/octave/jobs
+  enabled: true
+
+- name: Brave Health
+  careers_url: https://jobs.ashbyhq.com/bravehealth
+  api: https://api.ashbyhq.com/posting-api/job-board/bravehealth
+  enabled: true
+
+- name: Equip
+  careers_url: https://jobs.ashbyhq.com/equip
+  api: https://api.ashbyhq.com/posting-api/job-board/equip
+  enabled: true
+
+- name: Sailor Health
+  careers_url: https://jobs.ashbyhq.com/sailorhealth
+  api: https://api.ashbyhq.com/posting-api/job-board/sailorhealth
+  enabled: true
+
+- name: FamilyWell
+  careers_url: https://boards.greenhouse.io/familywell
+  api: https://boards-api.greenhouse.io/v1/boards/familywell/jobs
+  enabled: true
+
 - name: ADHD Coaching Network
   careers_url: https://adhdcoaching.com
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:adhdcoaching.com (jobs OR hiring OR marketing) remote'
   notes: "ADHD coaching network; niche/long-shot but relevant to neurodivergence-focused mission spaces."
   enabled: false
@@ -1200,7 +1219,6 @@ tracked_companies:
 - name: Leafly
   careers_url: https://www.leafly.com/info/jobs
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:leafly.com/info/jobs (marketing OR email OR content OR brand OR enablement OR implementation OR onboarding OR "customer success" OR communications) remote'
   notes: "Morgan applied previously. Cannabis marketplace with B2B + B2C marketing needs."
   enabled: false
@@ -1223,10 +1241,24 @@ tracked_companies:
   notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug thedutchie. Morgan applied previously."
   enabled: true
 
+- name: Sweed (SweedPOS)
+  careers_url: https://jobs.ashbyhq.com/sweedpos.com
+  api: https://api.ashbyhq.com/posting-api/job-board/sweedpos.com
+  enabled: true
+
+- name: LeafLink
+  careers_url: https://boards.greenhouse.io/leaflink
+  api: https://boards-api.greenhouse.io/v1/boards/leaflink/jobs
+  enabled: true
+
+- name: Flowhub
+  careers_url: https://jobs.ashbyhq.com/flowhub
+  api: https://api.ashbyhq.com/posting-api/job-board/flowhub
+  enabled: true
+
 - name: Wurk
   careers_url: https://enjoywurk.com
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:enjoywurk.com (marketing OR "customer marketing" OR content OR enablement OR implementation OR onboarding OR "customer success") remote'
   notes: "HR/HCM platform for cannabis industry. Custom site — websearch only."
   enabled: false
@@ -1234,7 +1266,6 @@ tracked_companies:
 - name: CannaSite
   careers_url: https://cannasite.com/careers/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:cannasite.com/careers (marketing OR content OR communications OR implementation OR onboarding) remote'
   notes: "Remote digital marketing agency serving cannabis brands."
   enabled: false
@@ -1279,7 +1310,6 @@ tracked_companies:
 - name: Mailchimp / Intuit
   careers_url: https://jobs.intuit.com
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:jobs.intuit.com (email OR marketing OR content OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle OR communications) remote'
   notes: "Oracle HCM ATS (jobs.intuit.com) — no direct provider. Websearch only."
   enabled: false
@@ -1338,10 +1368,9 @@ tracked_companies:
   enabled: true
 
 - name: Zapier
-  careers_url: https://zapier.com/jobs
-  provider: ashby
+  careers_url: https://jobs.ashbyhq.com/zapier
   api: https://api.ashbyhq.com/posting-api/job-board/zapier
-  notes: "Fully async remote. Explicit provider: ashby to bypass detect()."
+  notes: "Fully async remote. Standardized Ashby config endpoints."
   enabled: true
 
 - name: Automattic (WordPress / Tumblr)
@@ -1353,7 +1382,6 @@ tracked_companies:
 - name: Doist (Todoist / Twist)
   careers_url: https://doist.com/jobs
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '"doist" OR "todoist" (marketing OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote jobs'
   notes: "Workable slug doist returned 404 2026-06-04 — switched to websearch. Async-first culture."
   enabled: false
@@ -1379,7 +1407,6 @@ tracked_companies:
 - name: Basecamp / 37signals
   careers_url: https://37signals.com/jobs
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: '"37signals" OR "basecamp" (marketing OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote jobs'
   notes: "Workable slug 37signals returned 404 2026-06-04 — switched to websearch. Opinionated async culture."
   enabled: false
@@ -1391,7 +1418,6 @@ tracked_companies:
 - name: The Mom Project
   careers_url: https://themomproject.com/careers
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:themomproject.com/careers (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote'
   notes: "Morgan placed through here previously. Custom careers page — websearch only."
   enabled: false
@@ -1399,7 +1425,6 @@ tracked_companies:
 - name: PowerToFly
   careers_url: https://powertofly.com/jobs/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:powertofly.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote'
   enabled: false
 
@@ -1407,21 +1432,56 @@ tracked_companies:
 # B2B SaaS (Remote-friendly, Mission-adjacent)
 # =========================================================
 
-- name: Ceros
-  careers_url: https://boards.greenhouse.io/ceros
-  api: https://boards-api.greenhouse.io/v1/boards/ceros/jobs
-  notes: "Morgan applied previously. upgraded from websearch 2026-06-04."
+- name: Airtable
+  careers_url: https://job-boards.greenhouse.io/airtable
+  api: https://boards-api.greenhouse.io/v1/boards/airtable/jobs
+  notes: "Standardized to job-boards subsystem architecture."
   enabled: true
 
 - name: Notion
   careers_url: https://jobs.ashbyhq.com/notion
   api: https://api.ashbyhq.com/posting-api/job-board/notion
-  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
-- name: Airtable
-  careers_url: https://boards.greenhouse.io/airtable
-  api: https://boards-api.greenhouse.io/v1/boards/airtable/jobs
+- name: Linear
+  careers_url: https://jobs.ashbyhq.com/linear
+  api: https://api.ashbyhq.com/posting-api/job-board/linear
+  enabled: true
+
+- name: Attentive
+  careers_url: https://job-boards.greenhouse.io/attentive
+  api: https://boards-api.greenhouse.io/v1/boards/attentive/jobs
+  enabled: true
+
+- name: LaunchDarkly
+  careers_url: https://job-boards.greenhouse.io/launchdarkly
+  api: https://boards-api.greenhouse.io/v1/boards/launchdarkly/jobs
+  enabled: true
+
+- name: Coda
+  careers_url: https://boards.greenhouse.io/coda
+  api: https://boards-api.greenhouse.io/v1/boards/coda/jobs
+  enabled: true
+
+- name: Anthropic
+  careers_url: https://jobs.lever.co/anthropic
+  api: https://api.lever.co/v0/postings/anthropic?mode=json
+  enabled: true
+
+- name: Figma
+  careers_url: https://jobs.lever.co/figma
+  api: https://api.lever.co/v0/postings/figma?mode=json
+  enabled: true
+
+- name: Stripe
+  careers_url: https://boards.greenhouse.io/stripe
+  api: https://boards-api.greenhouse.io/v1/boards/stripe/jobs
+  enabled: true
+
+- name: Ceros
+  careers_url: https://boards.greenhouse.io/ceros
+  api: https://boards-api.greenhouse.io/v1/boards/ceros/jobs
+  notes: "Morgan applied previously. upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Miro
@@ -1478,7 +1538,6 @@ tracked_companies:
 - name: Pearson
   careers_url: https://pearson.jobs
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:pearson.jobs (marketing OR email OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote'
   notes: "Oracle HCM ATS — not Workday. Websearch only."
   enabled: false
@@ -1492,7 +1551,6 @@ tracked_companies:
 - name: Nielsen
   careers_url: https://www.nielsen.com/careers/
   scan_method: websearch
-  # ai_agent: enabled: false due to Brave API quota limits (2000/mo free plan). AI agents may search careers_url directly.
   scan_query: 'site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote'
   notes: "Media measurement. SmartRecruiters ATS — websearch via SmartRecruiters URL since no smartrecruiters.mjs provider yet."
   enabled: false
