@@ -288,832 +288,1090 @@ seniority_boost:
 
 # =========================================================
 # -- Search queries --
-#
-# PHILOSOPHY: Queries cast a wide categorical net.
-# Exact-title precision is handled downstream by title_filter.positive.
-# Each query uses broad role-category terms + hard negatives for obvious
-# noise (engineer, developer, recruiter). One query per board where possible.
-#
-# CATEGORIES COVERED:
-#   marketing · lifecycle · campaign · email · CRM · content · communications
-#   enablement · sales support · revenue ops (lite) · implementation
-#   onboarding · customer success · customer education · adoption
+# PHILOSOPHY: Wide categorical net. title_filter handles precision.
 # =========================================================
 search_queries:
 
-# =========================================================
-# ATS Platform Sweeps (Greenhouse / Ashby / Lever / Workable)
-# These boards host hundreds of companies — wide queries surface the most.
-# title_filter does the pruning after results are fetched.
-# =========================================================
+  # ATS Platform Sweeps
+  - name: "Greenhouse — marketing + lifecycle + enablement + implementation remote"
+    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-- name: Greenhouse — marketing + lifecycle + enablement + implementation remote
-  query: >-
-    (site:boards.greenhouse.io OR site:job-boards.greenhouse.io)
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    communications OR enablement OR implementation OR onboarding OR
-    "customer success" OR "customer education" OR adoption OR retention)
-    remote -engineer -developer -recruiter -"paid media" -"paid search"
-  enabled: true
+  - name: "Ashby — marketing + lifecycle + enablement + implementation remote"
+    query: "site:jobs.ashbyhq.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-- name: Ashby — marketing + lifecycle + enablement + implementation remote
-  query: >-
-    site:jobs.ashbyhq.com
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    communications OR enablement OR implementation OR onboarding OR
-    "customer success" OR adoption OR retention)
-    remote -engineer -developer -recruiter -"paid media" -"paid search"
-  enabled: true
+  - name: "Lever — marketing + lifecycle + enablement + implementation remote"
+    query: "site:jobs.lever.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-- name: Lever — marketing + lifecycle + enablement + implementation remote
-  query: >-
-    site:jobs.lever.co
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    communications OR enablement OR implementation OR onboarding OR
-    "customer success" OR adoption OR retention)
-    remote -engineer -developer -recruiter -"paid media" -"paid search"
-  enabled: true
+  - name: "Workable — marketing + lifecycle + enablement + implementation remote"
+    query: "site:apply.workable.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR adoption OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-- name: Workable — marketing + lifecycle + enablement + implementation remote
-  query: >-
-    site:apply.workable.com
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    communications OR enablement OR implementation OR onboarding OR
-    "customer success" OR adoption OR retention)
-    remote -engineer -developer -recruiter
-  enabled: true
+  # Remote-First Job Boards
+  - name: "We Work Remotely — marketing + enablement + implementation"
+    query: "site:weworkremotely.com (marketing OR campaign OR lifecycle OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+    enabled: true
 
-# =========================================================
-# Remote-First Job Boards
-# Wide sweeps — these boards pre-filter for remote so no remote keyword needed.
-# =========================================================
+  - name: "Remote OK — marketing + enablement + implementation"
+    query: "site:remoteok.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+    enabled: true
 
-- name: We Work Remotely — marketing + enablement + implementation
-  query: >-
-    site:weworkremotely.com
-    (marketing OR campaign OR lifecycle OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    -engineer -developer -recruiter
-  enabled: true
+  - name: "Himalayas — marketing + enablement + implementation remote"
+    query: "site:himalayas.app (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-- name: Remote OK — marketing + enablement + implementation
-  query: >-
-    site:remoteok.com
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    -engineer -developer -recruiter
-  enabled: true
+  - name: "Remote.co — marketing + enablement + implementation"
+    query: "site:remote.co/remote-jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+    enabled: true
 
-- name: Himalayas — marketing + enablement + implementation remote
-  query: >-
-    site:himalayas.app
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    remote -engineer -developer -recruiter
-  enabled: true
+  - name: "Remotive — marketing + enablement + implementation"
+    query: "site:remotive.com/remote-jobs/marketing (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer -recruiter"
+    enabled: true
 
-- name: Remote.co — marketing + enablement + implementation
-  query: >-
-    site:remote.co/remote-jobs
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    -engineer -developer -recruiter
-  enabled: true
+  - name: "Just Remote — marketing + enablement + implementation"
+    query: "site:justremote.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR implementation OR onboarding OR 'customer success') -engineer -developer -recruiter"
+    enabled: true
 
-- name: Remotive — marketing + enablement + implementation
-  query: >-
-    site:remotive.com/remote-jobs/marketing
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    -engineer -developer -recruiter
-  enabled: true
+  - name: "Working Nomads — marketing + enablement remote"
+    query: "site:workingnomads.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: Just Remote — marketing + enablement + implementation
-  query: >-
-    site:justremote.co
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR implementation OR onboarding OR "customer success")
-    -engineer -developer -recruiter
-  enabled: true
+  - name: "NoDesk — marketing + enablement + implementation"
+    query: "site:nodesk.co/remote-jobs/marketing (marketing OR lifecycle OR email OR CRM OR content OR enablement OR implementation OR onboarding OR 'customer success' OR retention) -engineer -developer"
+    enabled: true
 
-- name: Working Nomads — marketing + enablement remote
-  query: >-
-    site:workingnomads.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  - name: "RemoteFront — marketing + enablement remote"
+    query: "site:remotefront.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: NoDesk — marketing + enablement + implementation
-  query: >-
-    site:nodesk.co/remote-jobs/marketing
-    (marketing OR lifecycle OR email OR CRM OR content OR enablement OR
-    implementation OR onboarding OR "customer success" OR retention)
-    -engineer -developer
-  enabled: true
+  # Startup & Tech-Focused Boards
+  - name: "Wellfound — marketing + enablement + implementation remote"
+    query: "site:wellfound.com/jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-- name: RemoteFront — marketing + enablement remote
-  query: >-
-    site:remotefront.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  - name: "YC / Work at a Startup — marketing + enablement + implementation remote"
+    query: "site:workatastartup.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-# =========================================================
-# Startup & Tech-Focused Boards
-# =========================================================
+  - name: "MKT1 — B2B startup marketing broad sweep"
+    query: "site:jobs.mkt1.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') -engineer -developer"
+    enabled: true
 
-- name: Wellfound — marketing + enablement + implementation remote
-  query: >-
-    site:wellfound.com/jobs
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    remote -engineer -developer -recruiter
-  enabled: true
+  - name: "Startup.jobs — marketing + enablement + implementation remote"
+    query: "site:startup.jobs (marketing OR lifecycle OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications) remote -engineer -developer"
+    enabled: true
 
-- name: YC / Work at a Startup — marketing + enablement + implementation remote
-  query: >-
-    site:workatastartup.com
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    remote -engineer -developer -recruiter
-  enabled: true
+  - name: "Hey Marketers — startup marketing broad sweep"
+    query: "site:heymarketers.com (marketing OR lifecycle OR email OR content OR enablement OR campaign OR CRM OR communications OR 'customer success') -engineer -developer"
+    enabled: true
 
-- name: MKT1 — B2B startup marketing broad sweep
-  query: >-
-    site:jobs.mkt1.co
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success")
-    -engineer -developer
-  enabled: true
+  - name: "Midwest Startups — marketing + enablement"
+    query: "site:jobs.midweststartups.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR 'customer success') -engineer -developer"
+    enabled: true
 
-- name: Startup.jobs — marketing + enablement + implementation remote
-  query: >-
-    site:startup.jobs
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    implementation OR onboarding OR "customer success" OR communications)
-    remote -engineer -developer
-  enabled: true
+  # Mainstream Aggregators
+  - name: "Built In — marketing + enablement + implementation remote"
+    query: "site:builtin.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+    enabled: true
+    notes: "Also surfaces company list pages (Top EdTech Companies Hiring Remote, etc.)."
 
-- name: Hey Marketers — startup marketing broad sweep
-  query: >-
-    site:heymarketers.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    campaign OR CRM OR communications OR "customer success")
-    -engineer -developer
-  enabled: true
+  - name: "ZipRecruiter — marketing + enablement + implementation remote"
+    query: "site:ziprecruiter.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer -recruiter"
+    enabled: true
 
-- name: Midwest Startups — marketing + enablement
-  query: >-
-    site:jobs.midweststartups.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR implementation OR "customer success")
-    -engineer -developer
-  enabled: true
+  - name: "FlexJobs — marketing + enablement + implementation remote"
+    query: "site:flexjobs.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-# =========================================================
-# Mainstream Aggregators
-# =========================================================
+  - name: "MarketingHire — marketing + enablement broad sweep"
+    query: "site:marketinghire.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR campaign OR CRM OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: Built In — marketing + enablement + implementation remote
-  query: >-
-    site:builtin.com
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    remote -engineer -developer -recruiter -"paid search"
-  enabled: true
-  notes: "Also surfaces company list pages (Top EdTech Companies Hiring Remote, etc.)."
+  - name: "AMA Job Board — marketing + comms + enablement remote"
+    query: "site:jobs.ama.org (marketing OR communications OR email OR content OR enablement OR campaign OR lifecycle OR 'customer success' OR implementation) remote -engineer -developer"
+    enabled: true
 
-- name: ZipRecruiter — marketing + enablement + implementation remote
-  query: >-
-    site:ziprecruiter.com
-    (marketing OR lifecycle OR campaign OR email OR CRM OR content OR
-    enablement OR communications OR implementation OR onboarding OR
-    "customer success" OR retention)
-    remote -engineer -developer -recruiter
-  enabled: true
-  notes: "ZipRecruiter Publisher API (ZipSearch) available for direct integration when ready."
+  - name: "Authentic Jobs — content + marketing + enablement remote"
+    query: "site:authenticjobs.com (marketing OR content OR copywriting OR communications OR enablement OR email OR lifecycle OR campaign OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: FlexJobs — marketing + enablement + implementation remote
-  query: >-
-    site:flexjobs.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  - name: "Jobspresso — marketing + enablement + implementation remote"
+    query: "site:jobspresso.co (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: MarketingHire — marketing + enablement broad sweep
-  query: >-
-    site:marketinghire.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR campaign OR CRM OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  # Diversity & Mission-Adjacent Platforms
+  - name: "The Mom Project — marketing + enablement + implementation remote"
+    query: "site:themomproject.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: AMA Job Board — marketing + comms + enablement remote
-  query: >-
-    site:jobs.ama.org
-    (marketing OR communications OR email OR content OR enablement OR
-    campaign OR lifecycle OR "customer success" OR implementation)
-    remote -engineer -developer
-  enabled: true
+  - name: "PowerToFly — marketing + enablement + implementation remote"
+    query: "site:powertofly.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: Authentic Jobs — content + marketing + enablement remote
-  query: >-
-    site:authenticjobs.com
-    (marketing OR content OR copywriting OR communications OR enablement OR
-    email OR lifecycle OR campaign OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  # Nonprofit / Cause-Driven Boards
+  - name: "Idealist — marketing + comms + enablement + implementation remote"
+    query: "site:idealist.org (marketing OR communications OR email OR content OR enablement OR campaign OR lifecycle OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: Jobspresso — marketing + enablement + implementation remote
-  query: >-
-    site:jobspresso.co
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  - name: "NonprofitJobs — marketing + communications + implementation remote"
+    query: "site:nonprofitjobs.org (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR donor OR fundraising) remote -engineer -developer"
+    enabled: true
 
-# =========================================================
-# Diversity & Mission-Adjacent Platforms
-# =========================================================
+  - name: "GreaterGoodJobs — marketing + comms remote"
+    query: "site:greatergoodjobs.org (marketing OR communications OR email OR content OR campaign OR enablement OR implementation OR community) remote -engineer -developer"
+    enabled: true
 
-- name: The Mom Project — marketing + enablement + implementation remote
-  query: >-
-    site:themomproject.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  - name: "WorkForGood — marketing + comms + implementation remote"
+    query: "site:work4good.org (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR campaign OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: PowerToFly — marketing + enablement + implementation remote
-  query: >-
-    site:powertofly.com
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    communications OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  - name: "ExecSearches — nonprofit marketing + comms remote"
+    query: "site:execsearches.com (marketing OR communications OR email OR content OR enablement OR campaign OR donor OR implementation) remote -engineer -developer"
+    enabled: true
 
-# =========================================================
-# Nonprofit / Cause-Driven Boards
-# =========================================================
+  - name: "Tech Jobs for Good — social impact marketing + enablement + implementation"
+    query: "site:techjobsforgood.com (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR campaign OR lifecycle) remote -engineer -developer"
+    enabled: true
 
-- name: Idealist — marketing + comms + enablement + implementation remote
-  query: >-
-    site:idealist.org
-    (marketing OR communications OR email OR content OR enablement OR
-    campaign OR lifecycle OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  # Progressive / Democracy / Civic Tech
+  - name: "GAIN Power — progressive campaigns + nonprofit marketing"
+    query: "site:gainpower.org/jobs (marketing OR communications OR email OR content OR digital OR enablement OR campaign OR lifecycle OR implementation) remote -engineer -developer"
+    enabled: true
 
-- name: NonprofitJobs — marketing + communications + implementation remote
-  query: >-
-    site:nonprofitjobs.org
-    (marketing OR communications OR email OR content OR enablement OR
-    implementation OR onboarding OR "donor" OR fundraising)
-    remote -engineer -developer
-  enabled: true
+  - name: "Matt's List — progressive digital + marketing"
+    query: "site:mattslist.org (marketing OR communications OR digital OR email OR content OR enablement OR campaign OR implementation OR 'customer success') remote -engineer -developer"
+    enabled: true
 
-- name: GreaterGoodJobs — marketing + comms remote
-  query: >-
-    site:greatergoodjobs.org
-    (marketing OR communications OR email OR content OR campaign OR
-    enablement OR implementation OR "community")
-    remote -engineer -developer
-  enabled: true
+  - name: "Progressive Data Jobs — data-driven organizing + marketing"
+    query: "site:progressivedatajobs.org (marketing OR communications OR digital OR email OR content OR enablement OR campaign OR implementation) remote -engineer -developer"
+    enabled: true
 
-- name: WorkForGood — marketing + comms + implementation remote
-  query: >-
-    site:work4good.org
-    (marketing OR email OR content OR communications OR enablement OR
-    implementation OR onboarding OR campaign OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  # EdTech / Education Sector
+  - name: "EdSurge Jobs — marketing + enablement + implementation remote"
+    query: "site:edsurge.com/jobs (marketing OR content OR enablement OR email OR communications OR implementation OR onboarding OR 'customer success' OR lifecycle OR campaign) remote -engineer -developer"
+    enabled: true
 
-- name: ExecSearches — nonprofit marketing + comms remote
-  query: >-
-    site:execsearches.com
-    (marketing OR communications OR email OR content OR enablement OR
-    campaign OR "donor" OR implementation)
-    remote nonprofit OR foundation OR education -engineer -developer
-  enabled: true
+  - name: "EdTechJobs.io — marketing + enablement + implementation"
+    query: "site:edtechjobs.io (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote -engineer -developer"
+    enabled: true
 
-- name: Tech Jobs for Good — social impact marketing + enablement + implementation
-  query: >-
-    site:techjobsforgood.com
-    (marketing OR communications OR email OR content OR enablement OR
-    implementation OR onboarding OR "customer success" OR campaign OR lifecycle)
-    remote -engineer -developer
-  enabled: true
-  notes: "Covers democracy, environment, health, and education verticals."
+  - name: "Himalayas — Remote K-12 / EdTech companies list"
+    query: "site:himalayas.app/companies 'Top remote K 12 Education companies'"
+    enabled: true
 
-# =========================================================
-# Progressive / Democracy / Civic Tech
-# =========================================================
+  - name: "Built In — EdTech companies hiring remote (collection)"
+    query: "site:builtin.com 'Top Edtech Companies Hiring Remote' OR 'Edtech Companies Hiring Remote'"
+    enabled: true
 
-- name: GAIN Power — progressive campaigns + nonprofit marketing
-  query: >-
-    site:gainpower.org/jobs
-    (marketing OR communications OR email OR content OR digital OR
-    enablement OR campaign OR lifecycle OR implementation)
-    remote -engineer -developer
-  enabled: true
+  # Animal Welfare / Pet Industry Boards
+  - name: "HumanePro — animal welfare marketing + comms + implementation"
+    query: "site:humanepro.org/jobs (marketing OR communications OR email OR content OR digital OR enablement OR implementation OR onboarding OR 'customer success' OR campaign) remote -engineer -developer"
+    enabled: true
 
-- name: Matt's List — progressive digital + marketing
-  query: >-
-    site:mattslist.org
-    (marketing OR communications OR digital OR email OR content OR
-    enablement OR campaign OR implementation OR "customer success")
-    remote -engineer -developer
-  enabled: true
+  - name: "NACA — animal care marketing + community + implementation"
+    query: "site:nacanet.org/career-center-job-board (communications OR marketing OR 'community engagement' OR education OR content OR implementation OR onboarding) remote -engineer -developer"
+    enabled: true
 
-- name: Progressive Data Jobs — data-driven organizing + marketing
-  query: >-
-    site:progressivedatajobs.org
-    (marketing OR communications OR digital OR email OR content OR
-    enablement OR campaign OR implementation)
-    remote -engineer -developer
-  enabled: true
+  - name: "Animal People — pet + animal marketing broad sweep"
+    query: "site:animalpeoplerecruitment.com (marketing OR communications OR email OR content OR enablement OR implementation OR 'customer success' OR campaign) remote -engineer -developer"
+    enabled: true
+
+  - name: "The VET Recruiter — animal health marketing + sales support"
+    query: "site:thevetrecruiter.com 'Animal Health' (marketing OR sales OR enablement OR content OR communications OR implementation OR 'customer success') remote"
+    enabled: true
+
+  # Mental Health / Telehealth
+  - name: "Behavioral Health Jobs — telehealth marketing + implementation remote"
+    query: "site:behavioralhealthjobs.com (marketing OR communications OR content OR email OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote -engineer -developer"
+    enabled: true
+
+  - name: "Rock Health — digital health marketing + enablement + implementation remote"
+    query: "site:rockhealth.com/jobs (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success' OR retention) remote -engineer -developer"
+    enabled: true
+
+  # Sustainability & Climate
+  - name: "Climatebase — climate tech marketing + enablement + implementation remote"
+    query: "site:climatebase.org (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success' OR campaign) remote -engineer -developer -recruiter"
+    enabled: true
+
+  - name: "Green Jobs Board — environmental marketing + comms remote"
+    query: "site:greenjobsboard.us (marketing OR communications OR content OR email OR enablement OR implementation OR onboarding OR campaign) remote -engineer -developer"
+    enabled: true
+
+  - name: "Remote Climate Jobs — remote-first climate marketing + implementation"
+    query: "site:remoteclimatejobs.com (marketing OR communications OR email OR content OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success') -engineer -developer"
+    enabled: true
+
+  # Cannabis Job Boards
+  - name: "Vangst — cannabis marketing + enablement + implementation remote"
+    query: "site:vangst.com (marketing OR content OR CRM OR brand OR enablement OR email OR communications OR implementation OR onboarding OR 'customer success') remote -engineer -developer"
+    enabled: true
+
+  - name: "Herb Career — cannabis marketing + enablement remote"
+    query: "site:herb.career (marketing OR content OR brand OR email OR enablement OR communications OR implementation OR 'customer success') remote -engineer -developer"
+    enabled: true
+
+  - name: "CareersInCannabis — marketing + comms + implementation remote"
+    query: "site:careersincannabis.com (marketing OR communications OR content OR email OR enablement OR implementation OR onboarding OR 'customer success' OR brand) remote -engineer -developer"
+    enabled: true
+
+  - name: "Marijuana Jobs — cannabis marketing + implementation remote"
+    query: "site:marijuanajobscannabiscareers.com (marketing OR content OR communications OR email OR enablement OR implementation OR onboarding) remote -engineer -developer"
+    enabled: true
+
+  - name: "Inweed — cannabis marketing + brand + enablement remote"
+    query: "site:inweed.io (marketing OR brand OR digital OR content OR email OR enablement OR implementation OR 'customer success') remote -engineer -developer"
+    enabled: true
+
+  - name: "FlowerHire — cannabis corporate marketing + enablement remote"
+    query: "site:flowerhire.com (marketing OR communications OR brand OR content OR email OR enablement OR implementation OR 'customer success') remote -engineer -developer"
+    enabled: true
+
+  # Government & Public Sector
+  - name: "USAJOBS — federal marketing + communications + implementation remote"
+    query: "site:usajobs.gov (marketing OR communications OR 'public affairs' OR 'digital communications' OR content OR outreach OR implementation OR 'customer success') remote -engineer -developer"
+    enabled: true
+
+  # Websearch Fallbacks — EdTech
+  - name: "Teaching Strategies — all roles remote"
+    query: "site:teaching-strategies.pinpointhq.com (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote"
+    enabled: true
+
+  - name: "PowerSchool — all roles remote"
+    query: "site:careers-powerschool.icims.com (marketing OR email OR enablement OR content OR implementation OR onboarding OR 'customer success' OR communications OR lifecycle) remote"
+    enabled: true
+
+  - name: "Waterford.org — all roles remote"
+    query: "(\"waterford.org\" OR \"waterford education\" OR \"waterford reading academy\") (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote jobs"
+    enabled: true
+
+  - name: "Imagine Learning — all roles remote"
+    query: "\"imagine learning\" (marketing OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications OR lifecycle) remote jobs"
+    enabled: true
+
+  - name: "Achieve3000 (McGraw-Hill) — all roles remote"
+    query: "site:careers.mheducation.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications OR lifecycle) remote"
+    enabled: true
+
+  # Websearch Fallbacks — Animal Welfare / Pet
+  - name: "Humane Society of the United States — all roles remote"
+    query: "\"humane society of the united states\" (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR community OR campaign) remote jobs"
+    enabled: true
+
+  - name: "American Humane — all roles remote"
+    query: "\"american humane\" (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR campaign) remote jobs"
+    enabled: true
+
+  - name: "North Shore Animal League — all roles remote"
+    query: "site:animalleague.org/who-we-are/careers (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR campaign) remote"
+    enabled: true
+
+  - name: "Chewy — all roles remote"
+    query: "site:careers.chewy.com (marketing OR email OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success') remote"
+    enabled: true
+
+  - name: "Rover — all roles remote"
+    query: "site:rover.com/careers (marketing OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR 'customer success' OR campaign) remote"
+    enabled: true
+
+  - name: "Hill's Pet Nutrition — all roles remote"
+    query: "site:jobs.colgate.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR 'customer success' OR communications) remote"
+    enabled: true
+
+  - name: "Embark Veterinary — all roles remote"
+    query: "(\"embark veterinary\" OR \"embarkvet\") (marketing OR content OR lifecycle OR email OR enablement OR implementation OR onboarding OR 'customer success') remote jobs"
+    enabled: true
+
+  # Websearch Fallbacks — Nonprofit
+  - name: "World Wildlife Fund — all roles remote"
+    query: "site:careers-wwfus.icims.com (marketing OR email OR communications OR content OR enablement OR implementation OR onboarding OR campaign OR donor) remote"
+    enabled: true
+
+  - name: "The Nature Conservancy — all roles remote"
+    query: "site:careers.tnc.org (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR campaign OR donor) remote"
+    enabled: true
+
+  - name: "Feeding America — all roles remote"
+    query: "\"feeding america\" (marketing OR email OR communications OR content OR enablement OR implementation OR onboarding OR campaign OR donor) remote jobs"
+    enabled: true
+
+  - name: "PBS — all roles remote"
+    query: "\"PBS\" (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR audience OR campaign) remote jobs"
+    enabled: true
+
+  # Websearch Fallbacks — Mental Health
+  - name: "Brightside Health — all roles remote"
+    query: "\"Brightside Health\" (marketing OR content OR growth OR implementation OR onboarding OR 'customer success' OR lifecycle OR enablement) remote jobs"
+    enabled: true
+
+  # Websearch Fallbacks — Cannabis
+  - name: "Leafly — all roles remote"
+    query: "site:leafly.com/info/jobs (marketing OR email OR content OR brand OR enablement OR implementation OR onboarding OR 'customer success' OR communications) remote"
+    enabled: true
+
+  - name: "Wurk — all roles remote"
+    query: "site:enjoywurk.com (marketing OR 'customer marketing' OR content OR enablement OR implementation OR onboarding OR 'customer success') remote"
+    enabled: true
+
+  # Websearch Fallbacks — Sales / Email Platforms
+  - name: "Mailchimp / Intuit — all roles remote"
+    query: "site:jobs.intuit.com (email OR marketing OR content OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle OR communications) remote"
+    enabled: true
+
+  # Websearch Fallbacks — Analytics / Data
+  - name: "Nielsen — all roles remote"
+    query: "site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR 'customer success' OR lifecycle) remote"
+    enabled: true
+
+  - name: "Pearson — all roles remote"
+    query: "site:pearson.jobs (marketing OR email OR content OR enablement OR communications OR implementation OR onboarding OR 'customer success') remote"
+    enabled: true
 
 # =========================================================
-# EdTech / Education Sector
+# Tracked companies
 # =========================================================
 
-- name: EdSurge Jobs — marketing + enablement + implementation remote
-  query: >-
-    site:edsurge.com/jobs
-    (marketing OR content OR enablement OR email OR communications OR
-    implementation OR onboarding OR "customer success" OR lifecycle OR campaign)
-    remote -engineer -developer
-  enabled: true
-
-- name: EdTechJobs.io — marketing + enablement + implementation
-  query: >-
-    site:edtechjobs.io
-    (marketing OR email OR content OR communications OR enablement OR
-    implementation OR onboarding OR "customer success" OR lifecycle)
-    remote -engineer -developer
-  enabled: true
-
-- name: Himalayas — Remote K-12 / EdTech companies list
-  query: site:himalayas.app/companies "Top remote K 12 Education companies"
-  enabled: true
-  notes: "Collection page — surfaces company lists, not individual jobs."
-
-- name: Built In — EdTech companies hiring remote (collection)
-  query: site:builtin.com "Top Edtech Companies Hiring Remote" OR "Edtech Companies Hiring Remote"
-  enabled: true
-  notes: "Collection page — surfaces company lists, not individual jobs."
+tracked_companies:
 
 # =========================================================
-# Animal Welfare / Pet Industry Boards
+# EdTech / K-12 Education (Morgan's native ecosystem)
 # =========================================================
 
-- name: HumanePro — animal welfare marketing + comms + implementation
-  query: >-
-    site:humanepro.org/jobs
-    (marketing OR communications OR email OR content OR digital OR
-    enablement OR implementation OR onboarding OR "customer success" OR campaign)
-    remote -engineer -developer
+- name: Duolingo
+  careers_url: https://boards.greenhouse.io/duolingo
+  api: https://boards-api.greenhouse.io/v1/boards/duolingo/jobs
   enabled: true
 
-- name: NACA — animal care marketing + community + implementation
-  query: >-
-    site:nacanet.org/career-center-job-board
-    (communications OR marketing OR "community engagement" OR education OR
-    content OR implementation OR onboarding)
-    remote -engineer -developer
+- name: Khan Academy
+  careers_url: https://boards.greenhouse.io/khanacademy
+  api: https://boards-api.greenhouse.io/v1/boards/khanacademy/jobs
   enabled: true
 
-- name: Animal People — pet + animal marketing broad sweep
-  query: >-
-    site:animalpeoplerecruitment.com
-    (marketing OR communications OR email OR content OR enablement OR
-    implementation OR "customer success" OR campaign)
-    remote -engineer -developer
+- name: Coursera
+  careers_url: https://boards.greenhouse.io/coursera
+  api: https://boards-api.greenhouse.io/v1/boards/coursera/jobs
   enabled: true
 
-- name: The VET Recruiter — animal health marketing + sales support
-  query: >-
-    site:thevetrecruiter.com
-    ("Animal Health" marketing OR sales OR enablement OR content OR
-    communications OR implementation OR "customer success")
-    remote
+- name: Teaching Strategies
+  careers_url: https://teaching-strategies.pinpointhq.com/
+  scan_method: websearch
+  scan_query: 'site:teaching-strategies.pinpointhq.com (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote'
+  notes: "Pinpoint ATS — no provider built yet. Websearch fallback until pinpoint.mjs ships."
+  enabled: true
+
+- name: IXL Learning
+  careers_url: https://www.ixl.com/company/jobs
+  api: https://boards-api.greenhouse.io/v1/boards/ixllearning/jobs
+  enabled: true
+
+- name: Newsela
+  careers_url: https://boards.greenhouse.io/newsela
+  api: https://boards-api.greenhouse.io/v1/boards/newsela/jobs
+  enabled: true
+
+- name: Renaissance Learning
+  careers_url: https://www.renaissance.com/careers/
+  api: https://boards-api.greenhouse.io/v1/boards/renaissancelearning-nam/jobs
+  enabled: true
+
+- name: Seesaw
+  careers_url: https://boards.greenhouse.io/seesaw
+  api: https://boards-api.greenhouse.io/v1/boards/seesaw/jobs
+  enabled: true
+
+- name: Instructure (Canvas LMS)
+  careers_url: https://www.instructure.com/about/careers
+  api: https://boards-api.greenhouse.io/v1/boards/instructure/jobs
+  enabled: true
+
+- name: ClassDojo
+  careers_url: https://jobs.ashbyhq.com/classdojo
+  api: https://api.ashbyhq.com/posting-api/job-board/classdojo
+  enabled: true
+
+- name: Age of Learning (ABCmouse)
+  careers_url: https://jobs.lever.co/aofl
+  api: https://api.lever.co/v0/postings/aofl?mode=json
+  notes: "upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: MagicSchool AI
+  careers_url: https://jobs.ashbyhq.com/magicschool
+  api: https://api.ashbyhq.com/posting-api/job-board/magicschool
+  notes: "Morgan applied previously. AI-powered teacher tools."
+  enabled: true
+
+- name: Quizlet
+  careers_url: https://jobs.lever.co/quizlet-2
+  api: https://api.lever.co/v0/postings/quizlet-2?mode=json
+  notes: "upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: GoGuardian
+  careers_url: https://boards.greenhouse.io/goguardian
+  api: https://boards-api.greenhouse.io/v1/boards/goguardian/jobs
+  enabled: true
+
+- name: Amplify
+  careers_url: https://amplify.com/careers/
+  api: https://boards-api.greenhouse.io/v1/boards/amplify/jobs
+  enabled: true
+
+- name: PowerSchool
+  careers_url: https://careers-powerschool.icims.com/jobs/intro
+  scan_method: websearch
+  scan_query: 'site:careers-powerschool.icims.com (marketing OR email OR enablement OR content OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote'
+  notes: "iCIMS ATS — no icims provider built yet. Websearch fallback."
+  enabled: true
+
+- name: Turnitin
+  careers_url: https://careers.smartrecruiters.com/turnitinllc
+  api: https://api.smartrecruiters.com/v1/companies/turnitinllc/postings
+  notes: "upgraded from websearch 2026-06-04. SmartRecruiters API confirmed."
+  enabled: true
+
+- name: Panorama Education
+  careers_url: https://boards.greenhouse.io/panoramaeducation
+  api: https://boards-api.greenhouse.io/v1/boards/panoramaeducation/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
+  enabled: true
+
+- name: Curriculum Associates (i-Ready)
+  careers_url: https://curriculumassociates.wd5.myworkdayjobs.com/External
+  scan_method: workday
+  notes: "Workday ATS — upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: Waterford.org
+  careers_url: https://www.paycomonline.net/v4/ats/web.php/portal/331B479E8FD113A8751AEE3AC103ABFD/jobs
+  scan_method: websearch
+  scan_query: 'waterford.org OR "waterford education" OR "waterford reading academy" (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote jobs'
+  notes: "Paycom ATS — no public API. Websearch only."
+  enabled: true
+
+- name: Imagine Learning
+  careers_url: https://www.imaginelearning.com/about/careers/
+  scan_method: websearch
+  scan_query: '"imagine learning" (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs'
+  notes: "Jobvite ATS — no direct API. Websearch only."
+  enabled: true
+
+- name: Nearpod
+  careers_url: https://job-boards.greenhouse.io/renaissancelearning-nam
+  api: https://boards-api.greenhouse.io/v1/boards/renaissancelearning-nam/jobs
+  notes: "Acquired by Renaissance Learning. Add keyword filter — board covers full org."
+  enabled: true
+
+- name: Discovery Education
+  careers_url: https://apply.workable.com/discoveryed/
+  api: https://apply.workable.com/api/v3/accounts/discoveryed/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS with direct API."
+  enabled: true
+
+- name: SchoolStatus
+  careers_url: https://boards.greenhouse.io/schoolstatus
+  api: https://boards-api.greenhouse.io/v1/boards/schoolstatus/jobs
+  enabled: true
+
+- name: Brainly
+  careers_url: https://jobs.ashbyhq.com/brainly
+  api: https://api.ashbyhq.com/posting-api/job-board/brainly
+  enabled: true
+
+- name: Achieve3000 (McGraw-Hill)
+  careers_url: https://careers.mheducation.com/jobs/
+  scan_method: websearch
+  scan_query: 'site:careers.mheducation.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote'
+  notes: "Acquired by McGraw-Hill. iCIMS ATS — no direct provider. Keyword filter essential."
+  enabled: true
+
+- name: Varsity Tutors / Nerdy
+  careers_url: https://www.nerdy.com/careers
+  api: https://boards-api.greenhouse.io/v1/boards/nerdy/jobs
+  enabled: true
+
+- name: SchooLinks
+  careers_url: https://apply.workable.com/schoolinks/
+  api: https://apply.workable.com/api/v3/accounts/schoolinks/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS with direct API."
+  enabled: true
+
+- name: Literati
+  careers_url: https://jobs.ashbyhq.com/literati
+  api: https://api.ashbyhq.com/posting-api/job-board/literati
+  notes: "Children's book subscription with mission-driven brand."
   enabled: true
 
 # =========================================================
-# Mental Health / Telehealth
+# Animal Welfare / Humane Society / Pet Care
 # =========================================================
 
-- name: Behavioral Health Jobs — telehealth marketing + implementation remote
-  query: >-
-    site:behavioralhealthjobs.com
-    (marketing OR communications OR content OR email OR enablement OR
-    implementation OR onboarding OR "customer success" OR lifecycle)
-    remote -engineer -developer
+- name: ASPCA
+  careers_url: https://aspca.wd1.myworkdayjobs.com/ASPCAWebsite
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd1 tenant)."
   enabled: true
 
-- name: Rock Health — digital health marketing + enablement + implementation remote
-  query: >-
-    site:rockhealth.com/jobs
-    (marketing OR communications OR email OR content OR lifecycle OR
-    enablement OR implementation OR onboarding OR "customer success" OR retention)
-    remote -engineer -developer
-  enabled: true
-  notes: "Portfolio-style board covering Rock Health-backed digital health companies."
-
-# =========================================================
-# Sustainability & Climate
-# =========================================================
-
-- name: Climatebase — climate tech marketing + enablement + implementation remote
-  query: >-
-    site:climatebase.org
-    (marketing OR communications OR email OR content OR lifecycle OR
-    enablement OR implementation OR onboarding OR "customer success" OR campaign)
-    remote -engineer -developer -recruiter
-  enabled: true
-  notes: "Infinite scroll — Playwright scraper needed for full coverage."
-
-- name: Green Jobs Board — environmental marketing + comms remote
-  query: >-
-    site:greenjobsboard.us
-    (marketing OR communications OR content OR email OR enablement OR
-    implementation OR onboarding OR campaign)
-    remote -engineer -developer
+- name: Humane Society of the United States
+  careers_url: https://www.humanesociety.org/careers
+  scan_method: websearch
+  scan_query: '"humane society of the united states" (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR community OR campaign) remote jobs'
   enabled: true
 
-- name: Remote Climate Jobs — remote-first climate marketing + implementation
-  query: >-
-    site:remoteclimatejobs.com
-    (marketing OR communications OR email OR content OR lifecycle OR
-    enablement OR implementation OR onboarding OR "customer success")
-    -engineer -developer
-  enabled: true
-  notes: "Remote-first filter already applied by the board itself."
-
-# =========================================================
-# Cannabis Job Boards
-# =========================================================
-
-- name: Vangst — cannabis marketing + enablement + implementation remote
-  query: >-
-    site:vangst.com
-    (marketing OR content OR CRM OR brand OR enablement OR email OR
-    communications OR implementation OR onboarding OR "customer success")
-    remote -engineer -developer
+- name: Best Friends Animal Society
+  careers_url: https://bestfriends.wd1.myworkdayjobs.com/bestfriendscareers
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd1 tenant)."
   enabled: true
 
-- name: Herb Career — cannabis marketing + enablement remote
-  query: >-
-    site:herb.career
-    (marketing OR content OR brand OR email OR enablement OR
-    communications OR implementation OR "customer success")
-    remote -engineer -developer
-  enabled: true
-
-- name: CareersInCannabis — marketing + comms + implementation remote
-  query: >-
-    site:careersincannabis.com
-    (marketing OR communications OR content OR email OR enablement OR
-    implementation OR onboarding OR "customer success" OR brand)
-    remote -engineer -developer
-  enabled: true
-
-- name: Marijuana Jobs — cannabis marketing + implementation remote
-  query: >-
-    site:marijuanajobscannabiscareers.com
-    (marketing OR content OR communications OR email OR enablement OR
-    implementation OR onboarding)
-    remote -engineer -developer
-  enabled: true
-
-- name: Inweed — cannabis marketing + brand + enablement remote
-  query: >-
-    site:inweed.io
-    (marketing OR brand OR digital OR content OR email OR enablement OR
-    implementation OR "customer success")
-    remote -engineer -developer
-  enabled: true
-
-- name: FlowerHire — cannabis corporate marketing + enablement remote
-  query: >-
-    site:flowerhire.com
-    (marketing OR communications OR brand OR content OR email OR enablement OR
-    implementation OR "customer success")
-    remote -engineer -developer
-  enabled: true
-  notes: "Executive and corporate cannabis roles."
-
-# =========================================================
-# Government & Public Sector
-# =========================================================
-
-- name: USAJOBS — federal marketing + communications + implementation remote
-  query: >-
-    site:usajobs.gov
-    (marketing OR communications OR "public affairs" OR "digital communications" OR
-    content OR outreach OR implementation OR "customer success")
-    remote -engineer -developer
-  enabled: true
-  notes: "Public REST API available at developer.usajobs.gov — no auth required for read access."
-
-# =========================================================
-# Websearch Fallbacks for specific tracked companies
-# (These are companies where no direct ATS API exists.)
-# Query scope is intentionally wide — title_filter handles precision.
-# =========================================================
-
-# -- EdTech websearch fallbacks --
-
-- name: Teaching Strategies — all roles remote
-  query: >-
-    site:teaching-strategies.pinpointhq.com
-    (marketing OR email OR content OR communications OR enablement OR
-    implementation OR onboarding OR "customer success" OR lifecycle)
-    remote
-  enabled: true
-  notes: "Pinpoint ATS — no provider built yet."
-
-- name: PowerSchool — all roles remote
-  query: >-
-    site:careers-powerschool.icims.com
-    (marketing OR email OR enablement OR content OR implementation OR
-    onboarding OR "customer success" OR communications OR lifecycle)
-    remote
-  enabled: true
-  notes: "iCIMS ATS — no provider built yet."
-
-- name: Waterford.org — all roles remote
-  query: >-
-    ("waterford.org" OR "waterford education" OR "waterford reading academy")
-    (marketing OR email OR content OR communications OR enablement OR
-    implementation OR onboarding OR "customer success" OR lifecycle)
-    remote jobs
-  enabled: true
-  notes: "Paycom ATS — no public API."
-
-- name: Imagine Learning — all roles remote
-  query: >-
-    "imagine learning"
-    (marketing OR email OR content OR enablement OR implementation OR
-    onboarding OR "customer success" OR communications OR lifecycle)
-    remote jobs
-  enabled: true
-  notes: "Jobvite ATS — no direct API."
-
-- name: Achieve3000 (McGraw-Hill) — all roles remote
-  query: >-
-    site:careers.mheducation.com
-    (marketing OR email OR content OR enablement OR implementation OR
-    onboarding OR "customer success" OR communications OR lifecycle)
-    remote
-  enabled: true
-  notes: "iCIMS ATS via McGraw-Hill. Keyword filter essential."
-
-# -- Animal welfare / pet websearch fallbacks --
-
-- name: Humane Society of the United States — all roles remote
-  query: >-
-    "humane society of the united states"
-    (marketing OR communications OR email OR content OR enablement OR
-    implementation OR onboarding OR "community" OR campaign)
-    remote jobs
-  enabled: true
-
-- name: American Humane — all roles remote
-  query: >-
-    "american humane"
-    (marketing OR communications OR email OR content OR enablement OR
-    implementation OR onboarding OR campaign)
-    remote jobs
-  enabled: true
+- name: American Humane
+  careers_url: https://americanhumane.applytojob.com/apply
+  scan_method: websearch
+  scan_query: '"american humane" (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR campaign) remote jobs'
   notes: "ApplyToJob ATS — no direct provider."
-
-- name: North Shore Animal League — all roles remote
-  query: >-
-    site:animalleague.org/who-we-are/careers
-    (marketing OR communications OR email OR content OR enablement OR
-    implementation OR onboarding OR campaign)
-    remote
   enabled: true
 
-- name: Chewy — all roles remote
-  query: >-
-    "chewy" (site:careers.chewy.com OR "chewy careers")
-    (marketing OR email OR content OR communications OR lifecycle OR
-    enablement OR implementation OR onboarding OR "customer success")
-    remote
-  enabled: true
-  notes: "Custom ATS — websearch only."
-
-- name: Rover — all roles remote
-  query: >-
-    site:rover.com/careers
-    (marketing OR content OR communications OR lifecycle OR enablement OR
-    implementation OR onboarding OR "customer success" OR campaign)
-    remote
+- name: North Shore Animal League
+  careers_url: https://www.animalleague.org/who-we-are/careers/
+  scan_method: websearch
+  scan_query: 'site:animalleague.org/who-we-are/careers (marketing OR communications OR email OR content OR enablement OR implementation OR onboarding OR campaign) remote'
   enabled: true
 
-- name: Hill's Pet Nutrition — all roles remote
-  query: >-
-    ("hill's pet nutrition" OR "hills pet" OR site:jobs.colgate.com)
-    (marketing OR email OR content OR enablement OR implementation OR
-    onboarding OR "customer success" OR communications)
-    remote jobs
-  enabled: true
-  notes: "Oracle HCM ATS via Colgate-Palmolive."
-
-- name: Embark Veterinary — all roles remote
-  query: >-
-    ("embark veterinary" OR "embarkvet" OR site:embarkvet.applytojob.com)
-    (marketing OR content OR lifecycle OR email OR enablement OR
-    implementation OR onboarding OR "customer success")
-    remote jobs
-  enabled: true
-  notes: "ApplyToJob ATS — no direct provider."
-
-# -- Nonprofit websearch fallbacks --
-
-- name: World Wildlife Fund — all roles remote
-  query: >-
-    site:careers-wwfus.icims.com
-    (marketing OR email OR communications OR content OR enablement OR
-    implementation OR onboarding OR campaign OR "donor")
-    remote
-  enabled: true
-  notes: "iCIMS ATS — no direct provider."
-
-- name: The Nature Conservancy — all roles remote
-  query: >-
-    site:careers.tnc.org
-    (marketing OR email OR content OR communications OR enablement OR
-    implementation OR onboarding OR campaign OR "donor")
-    remote
-  enabled: true
-  notes: "Phenom-powered board, JS-heavy."
-
-- name: Feeding America — all roles remote
-  query: >-
-    "feeding america"
-    (marketing OR email OR communications OR content OR enablement OR
-    implementation OR onboarding OR campaign OR "donor")
-    remote jobs
+- name: Chewy
+  careers_url: https://careers.chewy.com/
+  scan_method: websearch
+  scan_query: 'site:careers.chewy.com (marketing OR email OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR "customer success") remote'
+  notes: "Large pet e-commerce. Custom ATS — websearch only."
   enabled: true
 
-- name: PBS — all roles remote
-  query: >-
-    "PBS" ("marketing" OR "email" OR "content" OR "communications" OR
-    "enablement" OR "implementation" OR "onboarding" OR "audience" OR "campaign")
-    remote jobs -"PBS Kids" -teacher -classroom
-  enabled: true
-  notes: "Workday ATS confirmed but scan_method: workday handles direct. This is a Google backup."
-
-# -- Mental health websearch fallbacks --
-
-- name: BetterHelp — all roles remote
-  query: >-
-    "BetterHelp" ("remote" "marketing" OR "performance marketing" OR "brand" OR
-    "lifecycle" OR "implementation" OR "onboarding" OR "customer success")
-  enabled: true
-  notes: "Greenhouse API now confirmed — this query is a belt-and-suspenders backup."
-
-- name: Brightside Health — all roles remote
-  query: >-
-    (site:brightside.com OR "Brightside Health")
-    ("careers" OR "jobs")
-    (marketing OR content OR growth OR implementation OR onboarding OR
-    "customer success" OR lifecycle OR enablement)
-    remote
+- name: Rover
+  careers_url: https://www.rover.com/careers
+  scan_method: websearch
+  scan_query: 'site:rover.com/careers (marketing OR content OR communications OR lifecycle OR enablement OR implementation OR onboarding OR "customer success" OR campaign) remote'
+  notes: "Pet care marketplace. Custom careers page — websearch only."
   enabled: true
 
-- name: Alma — all roles remote
-  query: >-
-    "Alma" (site:helloalma.com/careers OR site:boards.greenhouse.io/alma)
-    (marketing OR lifecycle OR email OR content OR enablement OR
-    implementation OR onboarding OR "customer success")
-    remote
-  enabled: true
-  notes: "Greenhouse API confirmed — this is a backup query."
-
-- name: SonderMind — all roles remote
-  query: >-
-    (site:sondermind.com OR site:jobs.ashbyhq.com/sondermind)
-    (marketing OR content OR growth OR community OR enablement OR
-    implementation OR onboarding OR "customer success" OR lifecycle)
-    remote
-  enabled: true
-  notes: "Ashby API confirmed — backup query."
-
-- name: Rula — all roles remote
-  query: >-
-    (site:rula.com OR site:jobs.ashbyhq.com/rula)
-    (marketing OR social OR brand OR content OR enablement OR
-    implementation OR onboarding OR "customer success" OR lifecycle)
-    remote
-  enabled: true
-  notes: "Ashby API confirmed — backup query."
-
-# -- Cannabis websearch fallbacks --
-
-- name: Leafly — all roles remote
-  query: >-
-    site:leafly.com/info/jobs
-    (marketing OR email OR content OR brand OR enablement OR
-    implementation OR onboarding OR "customer success" OR communications)
-    remote
+- name: The Farmer's Dog
+  careers_url: https://boards.greenhouse.io/thefarmersdog
+  api: https://boards-api.greenhouse.io/v1/boards/thefarmersdog/jobs
+  notes: "Fresh pet food startup with mission-driven brand."
   enabled: true
 
-- name: Weedmaps — all roles remote
-  query: >-
-    (site:weedmaps.com/careers OR site:job-boards.greenhouse.io/weedmaps77)
-    (marketing OR social OR brand OR content OR enablement OR
-    implementation OR onboarding OR "customer success" OR communications)
-    remote
-  enabled: true
-  notes: "Greenhouse API confirmed — backup query."
-
-- name: Dutchie — all roles remote
-  query: >-
-    (site:dutchie.com OR site:job-boards.greenhouse.io/thedutchie)
-    (marketing OR "customer marketing" OR content OR enablement OR
-    implementation OR onboarding OR "customer success" OR communications)
-    remote
-  enabled: true
-  notes: "Greenhouse API confirmed — backup query."
-
-- name: Wurk — all roles remote
-  query: >-
-    (site:enjoywurk.com OR "wurk" cannabis)
-    (marketing OR "customer marketing" OR content OR enablement OR
-    implementation OR onboarding OR "customer success")
-    remote
+- name: Ollie
+  careers_url: https://jobs.lever.co/myollie
+  api: https://api.lever.co/v0/postings/myollie?mode=json
+  notes: "Mission-driven fresh pet food brand. Morgan applied previously. upgraded from websearch 2026-06-04."
   enabled: true
 
-# -- Sales enablement / email platform websearch fallbacks --
-
-- name: Mailchimp / Intuit — all roles remote
-  query: >-
-    site:jobs.intuit.com
-    ("email marketing" OR content OR enablement OR implementation OR
-    onboarding OR "customer success" OR lifecycle OR communications)
-    remote
-  enabled: true
-  notes: "Oracle HCM ATS — no direct provider."
-
-- name: Seismic — all roles remote
-  query: >-
-    (site:seismic.com/careers OR site:jobs.ashbyhq.com/seismic-change.com)
-    (marketing OR content OR enablement OR implementation OR onboarding OR
-    "customer success" OR communications OR lifecycle)
-    remote
-  enabled: true
-  notes: "Ashby API confirmed — backup query."
-
-- name: Gong — all roles remote
-  query: >-
-    (site:gong.io/careers OR site:boards.greenhouse.io/gongio)
-    (marketing OR content OR enablement OR implementation OR onboarding OR
-    "customer success" OR communications OR lifecycle OR campaign)
-    remote
-  enabled: true
-  notes: "Greenhouse API confirmed — backup query."
-
-# -- B2B SaaS / async-first websearch fallbacks --
-
-- name: Hill's Pet Nutrition (Colgate) — all roles remote
-  query: >-
-    site:jobs.colgate.com
-    (marketing OR email OR content OR enablement OR implementation OR
-    onboarding OR "customer success" OR communications OR lifecycle)
-    remote
+- name: Hill's Pet Nutrition
+  careers_url: https://jobs.colgate.com/
+  scan_method: websearch
+  scan_query: 'site:jobs.colgate.com (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications) remote'
+  notes: "Owned by Colgate-Palmolive. Oracle HCM ATS. Morgan's Callahan Creek client."
   enabled: true
 
-- name: Pearson — all roles remote
-  query: >-
-    (site:pearson.jobs OR site:hccz.fa.em3.oraclecloud.com)
-    (marketing OR email OR content OR enablement OR communications OR
-    implementation OR onboarding OR "customer success")
-    remote
+- name: Petco
+  careers_url: https://petco.wd1.myworkdayjobs.com/External
+  scan_method: workday
+  notes: "Confirmed Workday ATS (wd1 tenant). Fixed from broken Greenhouse slug 2026-06-04."
   enabled: true
-  notes: "Oracle HCM ATS — not Workday."
 
-- name: Nielsen — all roles remote
-  query: >-
-    site:jobs.smartrecruiters.com/TheNielsenCompany
-    (marketing OR email OR content OR communications OR enablement OR
-    implementation OR onboarding OR "customer success" OR lifecycle)
-    remote
+- name: BarkBox / BARK
+  careers_url: https://boards.greenhouse.io/bark
+  api: https://boards-api.greenhouse.io/v1/boards/bark/jobs
   enabled: true
-  notes: "SmartRecruiters ATS — no smartrecruiters.mjs provider yet."
 
+- name: Trupanion
+  careers_url: https://careers.smartrecruiters.com/trupanion1
+  api: https://api.smartrecruiters.com/v1/companies/trupanion1/postings
+  notes: "upgraded from websearch 2026-06-04. SmartRecruiters API confirmed. Pet insurance."
+  enabled: true
+
+- name: Embark Veterinary
+  careers_url: https://embarkvet.applytojob.com/apply
+  scan_method: websearch
+  scan_query: '("embark veterinary" OR "embarkvet") (marketing OR content OR lifecycle OR email OR enablement OR implementation OR onboarding OR "customer success") remote jobs'
+  notes: "ApplyToJob ATS — no direct provider. Dog genetics + wellness."
+  enabled: true
+
+- name: Fi Smart Dog Collar
+  careers_url: https://www.tryfi.com
+  scan_method: websearch
+  scan_query: 'site:tryfi.com OR site:jobs.lever.co/fi (marketing OR content OR enablement OR implementation OR onboarding OR "customer success") remote'
+  notes: "Dog tech; crossover between CX enablement and content."
+  enabled: true
+
+# =========================================================
+# Nonprofit / Mission-Driven / Cause Organizations
+# =========================================================
+
+- name: ACLU
+  careers_url: https://boards.greenhouse.io/aclu
+  api: https://boards-api.greenhouse.io/v1/boards/aclu/jobs
+  enabled: true
+
+- name: Planned Parenthood
+  careers_url: https://jobs.lever.co/ppfa
+  api: https://api.lever.co/v0/postings/ppfa?mode=json
+  notes: "Fixed from broken Greenhouse slug 2026-06-04. Confirmed Lever ATS at jobs.lever.co/ppfa."
+  enabled: true
+
+- name: Environmental Defense Fund
+  careers_url: https://osv-edf.wd5.myworkdayjobs.com/en-US/EDF_External_Careers
+  scan_method: workday
+  notes: "Workday ATS — upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: National Audubon Society
+  careers_url: https://audubon.wd503.myworkdayjobs.com/Audubon
+  scan_method: workday
+  notes: "Workday ATS — upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: World Wildlife Fund
+  careers_url: https://careers-wwfus.icims.com/
+  scan_method: websearch
+  scan_query: 'site:careers-wwfus.icims.com (marketing OR email OR communications OR content OR enablement OR implementation OR onboarding OR campaign OR donor) remote'
+  notes: "iCIMS ATS — no direct provider. Websearch only."
+  enabled: true
+
+- name: The Nature Conservancy
+  careers_url: https://careers.tnc.org/us/en/
+  scan_method: websearch
+  scan_query: 'site:careers.tnc.org (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR campaign OR donor) remote'
+  notes: "Phenom-powered board, JS-heavy. Websearch only."
+  enabled: true
+
+- name: Feeding America
+  careers_url: https://www.feedingamerica.org/about-us/careers
+  scan_method: websearch
+  scan_query: '"feeding america" (marketing OR email OR communications OR content OR enablement OR implementation OR onboarding OR campaign OR donor) remote jobs'
+  notes: "Custom careers page — websearch only."
+  enabled: true
+
+- name: American Cancer Society
+  careers_url: https://acs.wd5.myworkdayjobs.com/ACSCareers
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd5 tenant)."
+  enabled: true
+
+- name: Wikimedia Foundation
+  careers_url: https://boards.greenhouse.io/wikimedia
+  api: https://boards-api.greenhouse.io/v1/boards/wikimedia/jobs
+  enabled: true
+
+- name: Mozilla
+  careers_url: https://boards.greenhouse.io/mozilla
+  api: https://boards-api.greenhouse.io/v1/boards/mozilla/jobs
+  notes: "Privacy-first mission. Morgan applied previously, strong brand/mission fit."
+  enabled: true
+
+- name: NPR / National Public Media
+  careers_url: https://boards.greenhouse.io/npr
+  api: https://boards-api.greenhouse.io/v1/boards/npr/jobs
+  enabled: true
+
+- name: PBS
+  careers_url: https://vhr-pbs.wd115.myworkdayjobs.com/PBSCareers
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd115 tenant)."
+  enabled: true
+
+# =========================================================
+# Mental Health / Wellness
+# =========================================================
+
+- name: Headway
+  careers_url: https://boards.greenhouse.io/headway
+  api: https://boards-api.greenhouse.io/v1/boards/headway/jobs
+  notes: "Mental health marketplace. Morgan applied previously. Strong mission fit."
+  enabled: true
+
+- name: Calm
+  careers_url: https://boards.greenhouse.io/calm
+  api: https://boards-api.greenhouse.io/v1/boards/calm/jobs
+  enabled: true
+
+- name: Headspace
+  careers_url: https://job-boards.greenhouse.io/hs
+  api: https://boards-api.greenhouse.io/v1/boards/hs/jobs
+  notes: "Fixed from broken Greenhouse slug 2026-06-04. Confirmed slug is 'hs'."
+  enabled: true
+
+- name: Lyra Health
+  careers_url: https://jobs.ashbyhq.com/lyrahealth
+  api: https://api.ashbyhq.com/posting-api/job-board/lyrahealth
+  notes: "Mental health marketplace. Morgan applied previously. Strong mission fit."
+  enabled: true
+
+- name: Spring Health
+  careers_url: https://www.springhealth.com/careers
+  api: https://boards-api.greenhouse.io/v1/boards/springhealth66/jobs
+  notes: "upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: Modern Health
+  careers_url: https://boards.greenhouse.io/modernhealth
+  api: https://boards-api.greenhouse.io/v1/boards/modernhealth/jobs
+  enabled: true
+
+- name: Noom
+  careers_url: https://www.noom.com/careers/job-listings/
+  api: https://boards-api.greenhouse.io/v1/boards/noom/jobs
+  enabled: true
+
+- name: Talkspace
+  careers_url: https://www.talkspace.com/careers
+  api: https://boards-api.greenhouse.io/v1/boards/talkspace/jobs
+  notes: "Virtual therapy platform; fully remote org, strong mission around access to care."
+  enabled: true
+
+- name: BetterHelp
+  careers_url: https://boards.greenhouse.io/betterhelp
+  api: https://boards-api.greenhouse.io/v1/boards/betterhelp/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
+  enabled: true
+
+- name: Brightside Health
+  careers_url: https://www.brightside.com
+  scan_method: websearch
+  scan_query: '(site:brightside.com OR "Brightside Health") (marketing OR content OR growth OR implementation OR onboarding OR "customer success" OR lifecycle OR enablement) remote jobs'
+  notes: "Virtual mental health care. Custom site — websearch only."
+  enabled: true
+
+- name: Alma
+  careers_url: https://boards.greenhouse.io/alma
+  api: https://boards-api.greenhouse.io/v1/boards/alma/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
+  enabled: true
+
+- name: SonderMind
+  careers_url: https://jobs.ashbyhq.com/sondermind
+  api: https://api.ashbyhq.com/posting-api/job-board/sondermind
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug."
+  enabled: true
+
+- name: Rula
+  careers_url: https://jobs.ashbyhq.com/rula
+  api: https://api.ashbyhq.com/posting-api/job-board/rula
+  notes: "upgraded from websearch 2026-06-04. Morgan applied previously."
+  enabled: true
+
+- name: Grow Therapy
+  careers_url: https://job-boards.greenhouse.io/growtherapy
+  api: https://boards-api.greenhouse.io/v1/boards/growtherapy/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
+  enabled: true
+
+- name: Two Chairs
+  careers_url: https://boards.greenhouse.io/twochairs
+  api: https://boards-api.greenhouse.io/v1/boards/twochairs/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
+  enabled: true
+
+- name: ADHD Coaching Network
+  careers_url: https://adhdcoaching.com
+  scan_method: websearch
+  scan_query: 'site:adhdcoaching.com (jobs OR hiring OR marketing) remote'
+  notes: "ADHD coaching network; niche/long-shot but relevant to neurodivergence-focused mission spaces."
+  enabled: true
+
+# =========================================================
+# Cannabis / Cannabis Tech
+# =========================================================
+
+- name: Leafly
+  careers_url: https://www.leafly.com/info/jobs
+  scan_method: websearch
+  scan_query: 'site:leafly.com/info/jobs (marketing OR email OR content OR brand OR enablement OR implementation OR onboarding OR "customer success" OR communications) remote'
+  notes: "Morgan applied previously. Cannabis marketplace with B2B + B2C marketing needs."
+  enabled: true
+
+- name: Weedmaps
+  careers_url: https://job-boards.greenhouse.io/weedmaps77
+  api: https://boards-api.greenhouse.io/v1/boards/weedmaps77/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug weedmaps77."
+  enabled: true
+
+- name: Jane Technologies
+  careers_url: https://jobs.ashbyhq.com/jane
+  api: https://api.ashbyhq.com/posting-api/job-board/jane
+  notes: "Cannabis e-commerce platform."
+  enabled: true
+
+- name: Dutchie
+  careers_url: https://job-boards.greenhouse.io/thedutchie
+  api: https://boards-api.greenhouse.io/v1/boards/thedutchie/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug thedutchie. Morgan applied previously."
+  enabled: true
+
+- name: Wurk
+  careers_url: https://enjoywurk.com
+  scan_method: websearch
+  scan_query: 'site:enjoywurk.com (marketing OR "customer marketing" OR content OR enablement OR implementation OR onboarding OR "customer success") remote'
+  notes: "HR/HCM platform for cannabis industry. Custom site — websearch only."
+  enabled: true
+
+- name: CannaSite
+  careers_url: https://cannasite.com/careers/
+  scan_method: websearch
+  scan_query: 'site:cannasite.com/careers (marketing OR content OR communications OR implementation OR onboarding) remote'
+  notes: "Remote digital marketing agency serving cannabis brands."
+  enabled: true
+
+- name: Nabis
+  careers_url: https://boards.greenhouse.io/nabis
+  api: https://boards-api.greenhouse.io/v1/boards/nabis/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug. Cannabis wholesale platform."
+  enabled: true
+
+# =========================================================
+# Email / Marketing Platform companies
+# =========================================================
+
+- name: HubSpot
+  careers_url: https://boards.greenhouse.io/hubspot
+  api: https://boards-api.greenhouse.io/v1/boards/hubspot/jobs
+  enabled: true
+
+- name: Klaviyo
+  careers_url: https://boards.greenhouse.io/klaviyo
+  api: https://boards-api.greenhouse.io/v1/boards/klaviyo/jobs
+  enabled: true
+
+- name: ActiveCampaign
+  careers_url: https://jobs.lever.co/activecampaign
+  api: https://api.lever.co/v0/postings/activecampaign?mode=json
+  notes: "upgraded from websearch 2026-06-04. Confirmed Lever ATS."
+  enabled: true
+
+- name: Outreach
+  careers_url: https://jobs.lever.co/outreach
+  api: https://api.lever.co/v0/postings/outreach?mode=json
+  notes: "Morgan used Outreach.io for ~8 years, strong product familiarity."
+  enabled: true
+
+- name: Salesloft
+  careers_url: https://boards.greenhouse.io/salesloft
+  api: https://boards-api.greenhouse.io/v1/boards/salesloft/jobs
+  enabled: true
+
+- name: Mailchimp / Intuit
+  careers_url: https://jobs.intuit.com
+  scan_method: websearch
+  scan_query: 'site:jobs.intuit.com (email OR marketing OR content OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle OR communications) remote'
+  notes: "Oracle HCM ATS (jobs.intuit.com) — no direct provider. Websearch only."
+  enabled: true
+
+- name: Constant Contact
+  careers_url: https://boards.greenhouse.io/constantcontact
+  api: https://boards-api.greenhouse.io/v1/boards/constantcontact/jobs
+  enabled: true
+
+- name: Brevo (Sendinblue)
+  careers_url: https://jobs.lever.co/brevo
+  api: https://api.lever.co/v0/postings/brevo?mode=json
+  notes: "upgraded from websearch 2026-06-04."
+  enabled: true
+
+# =========================================================
+# Sales Enablement Platforms
+# =========================================================
+
+- name: Highspot
+  careers_url: https://jobs.lever.co/highspot
+  api: https://api.lever.co/v0/postings/highspot?mode=json
+  notes: "Sales enablement platform, deep product alignment with Morgan's work. upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: Seismic
+  careers_url: https://jobs.ashbyhq.com/seismic-change.com
+  api: https://api.ashbyhq.com/posting-api/job-board/seismic-change.com
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug seismic-change.com."
+  enabled: true
+
+- name: Gong
+  careers_url: https://boards.greenhouse.io/gongio
+  api: https://boards-api.greenhouse.io/v1/boards/gongio/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug gongio."
+  enabled: true
+
+- name: Showpad
+  careers_url: https://boards.greenhouse.io/showpad
+  api: https://boards-api.greenhouse.io/v1/boards/showpad/jobs
+  enabled: true
+
+- name: Mindtickle
+  careers_url: https://jobs.lever.co/mindtickle
+  api: https://api.lever.co/v0/postings/mindtickle?mode=json
+  enabled: true
+
+# =========================================================
+# Fully Remote / Async-First Companies
+# =========================================================
+
+- name: Buffer
+  careers_url: https://jobs.ashbyhq.com/buffer
+  api: https://api.ashbyhq.com/posting-api/job-board/buffer
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug. Fully remote, strong writing culture."
+  enabled: true
+
+- name: Zapier
+  careers_url: https://zapier.com/jobs
+  provider: ashby
+  api: https://api.ashbyhq.com/posting-api/job-board/zapier
+  notes: "Fully async remote. Explicit provider: ashby to bypass detect()."
+  enabled: true
+
+- name: Automattic (WordPress / Tumblr)
+  careers_url: https://boards.greenhouse.io/automatticcareers
+  api: https://boards-api.greenhouse.io/v1/boards/automatticcareers/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug automatticcareers. Fully distributed."
+  enabled: true
+
+- name: Doist (Todoist / Twist)
+  careers_url: https://apply.workable.com/doist/
+  api: https://apply.workable.com/api/v3/accounts/doist/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS. Async-first culture."
+  enabled: true
+
+- name: GitLab
+  careers_url: https://boards.greenhouse.io/gitlab
+  api: https://boards-api.greenhouse.io/v1/boards/gitlab/jobs
+  notes: "Fully remote. Has enablement and marketing roles."
+  enabled: true
+
+- name: Help Scout
+  careers_url: https://jobs.ashbyhq.com/helpscout
+  api: https://api.ashbyhq.com/posting-api/job-board/helpscout
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug. Fully remote, strong writing culture."
+  enabled: true
+
+- name: Remote.com
+  careers_url: https://boards.greenhouse.io/remotecom
+  api: https://boards-api.greenhouse.io/v1/boards/remotecom/jobs
+  notes: "Fully remote company, sells remote work to other companies."
+  enabled: true
+
+- name: Basecamp / 37signals
+  careers_url: https://apply.workable.com/37signals/
+  api: https://apply.workable.com/api/v3/accounts/37signals/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS. Opinionated async culture."
+  enabled: true
+
+# =========================================================
+# Staffing / Flexible Work Platforms
+# =========================================================
+
+- name: The Mom Project
+  careers_url: https://themomproject.com/careers
+  scan_method: websearch
+  scan_query: 'site:themomproject.com/careers (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote'
+  notes: "Morgan placed through here previously. Custom careers page — websearch only."
+  enabled: true
+
+- name: PowerToFly
+  careers_url: https://powertofly.com/jobs/
+  scan_method: websearch
+  scan_query: 'site:powertofly.com (marketing OR lifecycle OR email OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote'
+  enabled: true
+
+# =========================================================
+# B2B SaaS (Remote-friendly, Mission-adjacent)
+# =========================================================
+
+- name: Ceros
+  careers_url: https://boards.greenhouse.io/ceros
+  api: https://boards-api.greenhouse.io/v1/boards/ceros/jobs
+  notes: "Morgan applied previously. upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: Notion
+  careers_url: https://jobs.ashbyhq.com/notion
+  api: https://api.ashbyhq.com/posting-api/job-board/notion
+  notes: "upgraded from websearch 2026-06-04."
+  enabled: true
+
+- name: Airtable
+  careers_url: https://boards.greenhouse.io/airtable
+  api: https://boards-api.greenhouse.io/v1/boards/airtable/jobs
+  enabled: true
+
+- name: Miro
+  careers_url: https://miro.com/careers/open-positions/
+  provider: ashby
+  api: https://api.ashbyhq.com/posting-api/job-board/miro
+  notes: "Explicit provider: ashby to bypass detect()."
+  enabled: true
+
+- name: Loom (Atlassian)
+  careers_url: https://jobs.ashbyhq.com/loom
+  api: https://api.ashbyhq.com/posting-api/job-board/loom
+  enabled: true
+
+- name: Asana
+  careers_url: https://boards.greenhouse.io/asana
+  api: https://boards-api.greenhouse.io/v1/boards/asana/jobs
+  enabled: true
+
+- name: Monday.com
+  careers_url: https://jobs.ashbyhq.com/monday.com
+  api: https://api.ashbyhq.com/posting-api/job-board/monday.com
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug monday.com."
+  enabled: true
+
+- name: Guild Education
+  careers_url: https://boards.greenhouse.io/guild
+  api: https://boards-api.greenhouse.io/v1/boards/guild/jobs
+  notes: "Morgan applied previously. Education + workforce development mission."
+  enabled: true
+
+- name: Ipsy / BFA Industries
+  careers_url: https://job-boards.greenhouse.io/personalizedbeautydiscoveryincdbaipsy
+  api: https://boards-api.greenhouse.io/v1/boards/personalizedbeautydiscoveryincdbaipsy/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug. Morgan applied previously."
+  enabled: true
+
+- name: Hims & Hers
+  careers_url: https://jobs.ashbyhq.com/hims-and-hers
+  api: https://api.ashbyhq.com/posting-api/job-board/hims-and-hers
+  notes: "upgraded from websearch 2026-06-04."
+  enabled: true
+
+# =========================================================
+# Workday Enterprise
+# =========================================================
+
+- name: Chegg
+  careers_url: https://osv-chegg.wd5.myworkdayjobs.com/en-US/Chegg
+  scan_method: workday
+  notes: "EdTech / homework help platform. Workday ATS."
+  enabled: true
+
+- name: Pearson
+  careers_url: https://pearson.jobs
+  scan_method: websearch
+  scan_query: 'site:pearson.jobs (marketing OR email OR content OR enablement OR communications OR implementation OR onboarding OR "customer success") remote'
+  notes: "Oracle HCM ATS — not Workday. Websearch only."
+  enabled: true
+
+- name: Scholastic
+  careers_url: https://scholastic.wd5.myworkdayjobs.com/en-US/External
+  scan_method: workday
+  notes: "Children's publishing and EdTech. Workday ATS."
+  enabled: true
+
+- name: Nielsen
+  careers_url: https://www.nielsen.com/careers/
+  scan_method: websearch
+  scan_query: 'site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR lifecycle) remote'
+  notes: "Media measurement. SmartRecruiters ATS — websearch via SmartRecruiters URL since no smartrecruiters.mjs provider yet."
+  enabled: true
+
+- name: College Board
+  careers_url: https://collegeboard.wd1.myworkdayjobs.com/en-US/careers
+  scan_method: workday
+  notes: "Nonprofit EdTech org (SAT, AP programs). Workday ATS."
+  enabled: true
