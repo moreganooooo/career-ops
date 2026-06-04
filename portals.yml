@@ -6,14 +6,17 @@
 # -- Location filter --
 location_filter:
   allow:
+    - "Virtual"
     - "Remote"
     - "Fully Remote"
+    - "100% Remote"
     - "Remote - US"
     - "Remote, United States"
     - "United States"
     - "USA"
     - "Anywhere"
     - "US"
+    - "United States of America"
     - "" # empty = unspecified location, let through
   block:
     - "On-site"
@@ -66,8 +69,8 @@ title_filter:
     - "Sales Content"
     - "Sales Readiness"
     - "Enablement Coordinator"
-    - "Field Enablement"
-    - "Go-to-Market Enablement"
+    - "Sales Support"
+
 
     # Content & Copy
     - "Content Strategist"
@@ -122,19 +125,21 @@ title_filter:
     - "Messaging Strategist"
 
     # CRM / junior ops / GTM-adjacent
+    - "Junior Salesforce"
     - "CRM Coordinator"
     - "Marketing Systems"
     - "Marketing Technology"
     - "MarTech"
     - "Revenue Operations Coordinator"
     - "RevOps Coordinator"
-    - "Sales Operations Coordinator"
+    - "Sales Operations"
     - "GTM Operations"
     - "GTM Coordinator"
     - "Funnel Optimization"
     - "Pipeline Marketing"
     - "Marketing Platform"
     - "ESP Specialist"
+    - "Implementation"
 
     # Content / nonprofit / proposal / comms adjacent
     - "Partnership Marketing"
@@ -174,12 +179,6 @@ title_filter:
     - "Recruiter"
     - "HR Manager"
     - "Salesforce Admin"
-    - "Community Manager"
-    - "Community Coordinator"
-    - "CRM Administrator"
-    - "CRM Analyst"
-    - "Sales Coordinator"
-    - "Marketing Manager"
 
     # Non-US geographic qualifiers in title
     - "EMEA"
@@ -237,9 +236,9 @@ title_filter:
     - "L&D"
     - "Compensation"
 
-    # Broad marketing-manager noise
-    - "Field Marketing Manager"
-    - "Event Marketing Manager"
+    # Broad marketing noise
+    - "Field Marketing"
+    - "Event Marketing"
 
     # Deep technical CRM / RevOps / Salesforce roles
     - "Revenue Operations Manager"
