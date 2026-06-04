@@ -402,6 +402,7 @@ async function main() {
   // 3. Resolve a provider for each enabled company
   const targets = [];
   let skippedCount = 0;
+  const skippedNames = [];
   const resolveErrors = [];
   for (const company of companies) {
     if (!company || typeof company !== 'object') continue;
@@ -412,13 +413,16 @@ async function main() {
     }
     if (filterCompany && !company.name.toLowerCase().includes(filterCompany)) continue;
     const resolved = resolveProvider(company, providers);
-    if (!resolved) { skippedCount++; continue; }
+    if (!resolved) { skippedCount++; skippedNames.push(company.name); continue; }
     if (resolved.error) { resolveErrors.push({ company: company.name, error: resolved.error }); continue; }
     targets.push({ ...company, _provider: resolved.provider });
   }
 
   const localParserCount = targets.filter(t => t._provider.id === 'local-parser').length;
   console.log(`Scanning ${targets.length} companies via providers (${localParserCount} local parser; ${skippedCount} skipped — no provider matched)`);
+  if (skippedNames.length > 0) {
+    console.log(`Skipped companies: ${skippedNames.join(', ')}`);
+  }
   if (dryRun) console.log('(dry run — no files will be written)\n');
 
   // 4. Load dedup sets
