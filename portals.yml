@@ -684,12 +684,10 @@ tracked_companies:
   enabled: true
 
 - name: Instructure (Canvas LMS)
-  careers_url: https://www.instructure.com/about/careers
-  scan_method: websearch
-  # ai_agent: enabled: false — Greenhouse slug unconfirmed (tried 'instructure', 'instructurecareers', both 404). AI agents may navigate careers_url to find current ATS and real slug.
-  scan_query: '"instructure" OR "canvas lms" (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs'
-  notes: "Greenhouse slug unconfirmed 2026-06-04 — needs manual verification at instructure.com/about/careers."
-  enabled: false
+  careers_url: https://jobs.ashbyhq.com/instructure
+  api: https://api.ashbyhq.com/posting-api/job-board/instructure
+  notes: "Confirmed Ashby ATS 2026-06-04. Slug verified manually at jobs.ashbyhq.com/instructure."
+  enabled: true
 
 - name: ClassDojo
   careers_url: https://jobs.ashbyhq.com/classdojo
@@ -720,12 +718,10 @@ tracked_companies:
   enabled: true
 
 - name: Amplify
-  careers_url: https://amplify.com/careers/
-  scan_method: websearch
-  # ai_agent: enabled: false — Greenhouse slug unconfirmed (tried 'amplify', 'amplifyeducation', both 404). AI agents may navigate careers_url to find current ATS and real slug.
-  scan_query: '"amplify" education (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs'
-  notes: "Greenhouse slug unconfirmed 2026-06-04 — needs manual verification at amplify.com/careers."
-  enabled: false
+  careers_url: https://amplify.wd1.myworkdayjobs.com/Amplify_Careers
+  scan_method: workday
+  notes: "Confirmed Workday ATS 2026-06-04. Slug verified manually at amplify.wd1.myworkdayjobs.com/Amplify_Careers."
+  enabled: true
 
 - name: PowerSchool
   careers_url: https://careers-powerschool.icims.com/jobs/intro
@@ -742,12 +738,11 @@ tracked_companies:
   enabled: true
 
 - name: Panorama Education
-  careers_url: https://www.panoramaed.com/careers
-  scan_method: websearch
-  # ai_agent: enabled: false — Greenhouse slug unconfirmed (tried 'panoramaeducation', 'panoramaed', both 404). AI agents may navigate careers_url to find current ATS and real slug.
-  scan_query: '"panorama education" (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs'
-  notes: "Greenhouse slug unconfirmed 2026-06-04 — needs manual verification at panoramaed.com/careers."
-  enabled: false
+  careers_url: https://apply.workable.com/panorama-education/
+  scan_method: workable
+  api: https://apply.workable.com/api/v1/widget/jobs?company=panorama-education
+  notes: "Confirmed Workable ATS 2026-06-04. Slug verified manually at apply.workable.com/panorama-education."
+  enabled: true
 
 - name: Curriculum Associates (i-Ready)
   careers_url: https://curriculumassociates.wd5.myworkdayjobs.com/External
@@ -1000,12 +995,10 @@ tracked_companies:
   enabled: true
 
 - name: NPR / National Public Media
-  careers_url: https://www.npr.org/about-npr/181953728/work-at-npr
-  scan_method: websearch
-  # ai_agent: enabled: false — Greenhouse slug unconfirmed (tried 'npr', 'nationalpublicmedia', both 404). AI agents may navigate careers_url to find current ATS and real slug.
-  scan_query: '"NPR" OR "National Public Media" (marketing OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR audience) remote jobs'
-  notes: "Greenhouse slug unconfirmed 2026-06-04 — needs manual verification at npr.org/work."
-  enabled: false
+  careers_url: https://job-boards.greenhouse.io/nationalpublicradioinc
+  api: https://boards-api.greenhouse.io/v1/boards/nationalpublicradioinc/jobs
+  notes: "Confirmed Greenhouse slug 2026-06-04: nationalpublicradioinc. Verified manually at job-boards.greenhouse.io/nationalpublicradioinc."
+  enabled: true
 
 - name: PBS
   careers_url: https://vhr-pbs.wd115.myworkdayjobs.com/PBSCareers
@@ -1054,12 +1047,10 @@ tracked_companies:
   enabled: true
 
 - name: Noom
-  careers_url: https://www.noom.com/careers/job-listings/
-  scan_method: websearch
-  # ai_agent: enabled: false — Greenhouse slug unconfirmed (tried 'noom', 'noom2', both 404). AI agents may navigate careers_url to find current ATS and real slug.
-  scan_query: '"noom" (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs'
-  notes: "Greenhouse slug unconfirmed 2026-06-04 — needs manual verification at noom.com/careers."
-  enabled: false
+  careers_url: https://boards.greenhouse.io/noomgrowth
+  api: https://boards-api.greenhouse.io/v1/boards/noomgrowth/jobs
+  notes: "Confirmed Greenhouse slug 2026-06-04: noomgrowth. Previous attempts 'noom' and 'noom2' both 404'd."
+  enabled: true
 
 - name: Talkspace
   careers_url: https://www.talkspace.com/careers
@@ -1100,12 +1091,10 @@ tracked_companies:
   enabled: true
 
 - name: Grow Therapy
-  careers_url: https://www.growtherapy.com/careers
-  scan_method: websearch
-  # ai_agent: enabled: false — Greenhouse slug unconfirmed (tried 'growtherapy', 'grow-therapy', both 404). AI agents may navigate careers_url to find current ATS and real slug.
-  scan_query: '"grow therapy" (marketing OR email OR content OR enablement OR implementation OR onboarding OR "customer success" OR communications OR lifecycle) remote jobs'
-  notes: "Greenhouse slug unconfirmed 2026-06-04 — needs manual verification at growtherapy.com/careers."
-  enabled: false
+  careers_url: https://jobs.ashbyhq.com/grow-therapy
+  api: https://api.ashbyhq.com/posting-api/job-board/grow-therapy
+  notes: "Confirmed Ashby ATS 2026-06-04. Slug verified manually at jobs.ashbyhq.com/grow-therapy."
+  enabled: true
 
 - name: Two Chairs
   careers_url: https://boards.greenhouse.io/twochairs
