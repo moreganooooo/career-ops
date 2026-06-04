@@ -751,9 +751,9 @@ tracked_companies:
   enabled: false
 
 - name: IXL Learning
-  careers_url: https://boards.greenhouse.io/ixl
-  api: https://boards-api.greenhouse.io/v1/boards/ixl/jobs
-  notes: "Slug updated to unified enterprise board 'ixl'."
+  careers_url: https://boards.greenhouse.io/ixllearning
+  api: https://boards-api.greenhouse.io/v1/boards/ixllearning/jobs
+  notes: "Reverted to legacy ixllearning slug."
   enabled: true
 
 - name: Newsela
@@ -825,10 +825,9 @@ tracked_companies:
   enabled: true
 
 - name: Panorama Education
-  careers_url: https://apply.workable.com/panorama-education/
-  scan_method: workable
-  api: https://apply.workable.com/api/v1/widget/jobs?company=panorama-education
-  notes: "Confirmed Workable ATS 2026-06-04. Slug verified manually at apply.workable.com/panorama-education."
+  careers_url: https://boards.greenhouse.io/panoramaed
+  api: https://boards-api.greenhouse.io/v1/boards/panoramaed/jobs
+  notes: "Reverted to Greenhouse ATS from Workable."
   enabled: true
 
 - name: Curriculum Associates (i-Ready)
@@ -1458,19 +1457,22 @@ tracked_companies:
   api: https://boards-api.greenhouse.io/v1/boards/launchdarkly/jobs
   enabled: true
 
-- name: Coda
-  careers_url: https://boards.greenhouse.io/coda
-  api: https://boards-api.greenhouse.io/v1/boards/coda/jobs
+- name: Coda (Superhuman)
+  careers_url: https://jobs.ashbyhq.com/Superhuman%20Platform%20Inc
+  api: https://api.ashbyhq.com/posting-api/job-board/Superhuman%20Platform%20Inc
+  notes: "Coda acquired by Superhuman; jobs now hosted on Superhuman's Ashby board."
   enabled: true
 
 - name: Anthropic
-  careers_url: https://jobs.lever.co/anthropic
-  api: https://api.lever.co/v0/postings/anthropic?mode=json
+  careers_url: https://boards.greenhouse.io/anthropic
+  api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+  notes: "Migrated from Lever to Greenhouse."
   enabled: true
 
 - name: Figma
-  careers_url: https://jobs.lever.co/figma
-  api: https://api.lever.co/v0/postings/figma?mode=json
+  careers_url: https://boards.greenhouse.io/figma
+  api: https://boards-api.greenhouse.io/v1/boards/figma/jobs
+  notes: "Migrated from Lever to Greenhouse."
   enabled: true
 
 - name: Stripe
