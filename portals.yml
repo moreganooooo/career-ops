@@ -1,6 +1,6 @@
 # Portal Scanner Configuration — Morgan Escott
 # Target: Email/Lifecycle Marketing · Sales Enablement · B2B Content Strategy
-# Updated: 2026-06-02
+# Updated: 2026-06-04
 # Requirements: Remote only, US-based, IC roles.
 
 # -- Location filter --
@@ -653,9 +653,10 @@ tracked_companies:
   enabled: true
 
 - name: Teaching Strategies
-  careers_url: https://boards.greenhouse.io/teachingstrategies
-  scan_method: websearch
-  scan_query: '"teaching strategies" "marketing" OR "content" OR "email" OR "enablement" remote jobs'
+  careers_url: https://teaching-strategies.pinpointhq.com/en/postings/
+  api: https://teaching-strategies.pinpointhq.com/en/postings/
+  scan_method: pinpoint
+  notes: "Pinpoint ATS — no public JSON API. Scrape careers_url directly. upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: IXL Learning
@@ -689,9 +690,9 @@ tracked_companies:
   enabled: true
 
 - name: Age of Learning (ABCmouse)
-  careers_url: https://www.ageoflearning.com/careers/
-  scan_method: websearch
-  scan_query: '"age of learning" "marketing" OR "email" OR "content" OR "enablement" remote jobs'
+  careers_url: https://jobs.lever.co/aofl
+  api: https://api.lever.co/v0/postings/aofl?mode=json
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: MagicSchool AI
@@ -702,8 +703,8 @@ tracked_companies:
 
 - name: Quizlet
   careers_url: https://jobs.lever.co/quizlet-2
-  scan_method: websearch
-  scan_query: 'site:jobs.lever.co/quizlet-2 "marketing" OR "email" OR "content" OR "communications" remote'
+  api: https://api.lever.co/v0/postings/quizlet-2?mode=json
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: GoGuardian
@@ -788,9 +789,9 @@ tracked_companies:
   enabled: true
 
 - name: SchooLinks
-  careers_url: https://www.schoolinks.com
-  scan_method: websearch
-  scan_query: 'site:schoolinks.com "careers" OR "jobs" "marketing" OR "content" OR "communications" remote'
+  careers_url: https://apply.workable.com/schoolinks/
+  api: https://apply.workable.com/api/v3/accounts/schoolinks/jobs
+  notes: "Workable ATS. upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Literati
@@ -855,9 +856,8 @@ tracked_companies:
 
 - name: Ollie
   careers_url: https://jobs.lever.co/myollie
-  scan_method: websearch
-  scan_query: 'site:jobs.lever.co/myollie "marketing" OR "lifecycle" OR "email" OR "content" OR "communications" remote'
-  notes: "Mission-driven fresh pet food brand. Morgan applied previously."
+  api: https://api.lever.co/v0/postings/myollie?mode=json
+  notes: "Mission-driven fresh pet food brand. Morgan applied previously. upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Hill's Pet Nutrition
@@ -869,8 +869,8 @@ tracked_companies:
 
 - name: Petco
   careers_url: https://boards.greenhouse.io/petco
-  scan_method: websearch
-  scan_query: 'site:boards.greenhouse.io/petco OR petco.com/careers "marketing" OR "email" OR "content" OR "enablement" remote'
+  api: https://boards-api.greenhouse.io/v1/boards/petco/jobs
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: BarkBox / BARK
@@ -910,8 +910,8 @@ tracked_companies:
 
 - name: Planned Parenthood
   careers_url: https://boards.greenhouse.io/plannedparenthood
-  scan_method: websearch
-  scan_query: '"planned parenthood" "marketing" OR "email" OR "content" OR "communications" remote jobs'
+  api: https://boards-api.greenhouse.io/v1/boards/plannedparenthood/jobs
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Environmental Defense Fund
@@ -990,8 +990,8 @@ tracked_companies:
 
 - name: Headspace
   careers_url: https://boards.greenhouse.io/headspace
-  scan_method: websearch
-  scan_query: 'site:boards.greenhouse.io/headspace OR headspace.com/careers "marketing" OR "email" OR "content" OR "enablement" remote'
+  api: https://boards-api.greenhouse.io/v1/boards/headspace/jobs
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Lyra Health
@@ -1002,8 +1002,8 @@ tracked_companies:
 
 - name: Spring Health
   careers_url: https://www.springhealth.com/careers
-  scan_method: websearch
-  scan_query: 'site:springhealth.com/careers OR site:job-boards.greenhouse.io/springhealth66 "marketing" OR "member growth marketing" OR "content" remote'
+  api: https://boards-api.greenhouse.io/v1/boards/springhealth66/jobs
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Modern Health
@@ -1173,8 +1173,8 @@ tracked_companies:
 
 - name: Brevo (Sendinblue)
   careers_url: https://jobs.lever.co/brevo
-  scan_method: websearch
-  scan_query: site:jobs.lever.co/brevo marketing OR email OR content OR enablement remote
+  api: https://api.lever.co/v0/postings/brevo?mode=json
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 # =========================================================
@@ -1183,9 +1183,8 @@ tracked_companies:
 
 - name: Highspot
   careers_url: https://jobs.lever.co/highspot
-  scan_method: websearch
-  scan_query: 'site:jobs.lever.co/highspot "marketing" OR "enablement" OR "content" OR "communications" remote'
-  notes: "Sales enablement platform, deep product alignment with Morgan's work."
+  api: https://api.lever.co/v0/postings/highspot?mode=json
+  notes: "Sales enablement platform, deep product alignment with Morgan's work. upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Seismic
@@ -1223,9 +1222,8 @@ tracked_companies:
 
 - name: Zapier
   careers_url: https://zapier.com/jobs
-  scan_method: websearch
-  scan_query: 'site:zapier.com/jobs OR site:jobs.ashbyhq.com/zapier "marketing" OR "content" OR "email" OR "enablement" remote'
-  notes: "Fully async remote. Marketing and enablement roles."
+  api: https://api.ashbyhq.com/posting-api/job-board/zapier
+  notes: "Fully async remote. upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Automattic (WordPress / Tumblr)
@@ -1291,15 +1289,14 @@ tracked_companies:
 
 - name: Ceros
   careers_url: https://boards.greenhouse.io/ceros
-  scan_method: websearch
-  scan_query: 'site:boards.greenhouse.io/ceros OR ceros.com/careers "marketing" OR "email" OR "content" OR "enablement" remote'
-  notes: "Morgan applied previously."
+  api: https://boards-api.greenhouse.io/v1/boards/ceros/jobs
+  notes: "Morgan applied previously. upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Notion
   careers_url: https://jobs.ashbyhq.com/notion
-  scan_method: websearch
-  scan_query: 'site:jobs.ashbyhq.com/notion "marketing" OR "content" OR "email" OR "communications" remote'
+  api: https://api.ashbyhq.com/posting-api/job-board/notion
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Airtable
@@ -1309,8 +1306,8 @@ tracked_companies:
 
 - name: Miro
   careers_url: https://miro.com/careers/open-positions/
-  scan_method: websearch
-  scan_query: 'site:miro.com/careers/open-positions "marketing" OR "content" OR "email" OR "enablement" remote'
+  api: https://api.ashbyhq.com/posting-api/job-board/miro
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Loom (Atlassian)
@@ -1325,8 +1322,8 @@ tracked_companies:
 
 - name: Monday.com
   careers_url: https://boards.greenhouse.io/mondaydotcom
-  scan_method: websearch
-  scan_query: 'site:boards.greenhouse.io/mondaydotcom "marketing" OR "email" OR "enablement" OR "content" remote'
+  api: https://boards-api.greenhouse.io/v1/boards/mondaydotcom/jobs
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Guild Education
@@ -1344,8 +1341,8 @@ tracked_companies:
 
 - name: Hims & Hers
   careers_url: https://jobs.ashbyhq.com/hims-and-hers
-  scan_method: websearch
-  scan_query: 'site:jobs.ashbyhq.com/hims-and-hers "marketing" OR "email" OR "content" OR "communications" remote'
+  api: https://api.ashbyhq.com/posting-api/job-board/hims-and-hers
+  notes: "upgraded from websearch 2026-06-04."
   enabled: true
 
 # =========================================================
