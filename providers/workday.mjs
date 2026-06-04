@@ -84,6 +84,8 @@ export default {
       // Navigate to the board — this triggers the XHR call automatically
       await page.goto(baseUrl, { waitUntil: 'networkidle', timeout: 30_000 });
 
+      await page.screenshot({ path: 'workday-debug.png' });
+
       const data = await intercepted;
 
       // Workday JSON shape: { jobPostings: [{ title, locationsText, externalPath, ... }] }
