@@ -41,7 +41,7 @@ export default {
     const baseUrl = resolveBaseUrl(entry);
     if (!baseUrl) throw new Error(`workday: cannot derive board URL for ${entry.name}`);
 
-    let chromium, Browser;
+    let chromium;
     try {
       ({ chromium } = await import('playwright'));
     } catch {
@@ -55,8 +55,11 @@ export default {
     const jobs = [];
 
     try {
+    
       const page = await browser.newPage();
-
+      await page.setExtraHTTPHeaders({
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+      });
       // Intercept the internal Workday searchJobs XHR response
       const intercepted = new Promise((resolve, reject) => {
         const timer = setTimeout(
@@ -79,7 +82,7 @@ export default {
       });
 
       // Navigate to the board — this triggers the XHR call automatically
-      await page.goto(baseUrl, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+      await page.goto(baseUrl, { waitUntil: 'networkidle', timeout: 30_000 });
 
       const data = await intercepted;
 
