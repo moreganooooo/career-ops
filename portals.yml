@@ -737,8 +737,8 @@ tracked_companies:
 
 - name: Curriculum Associates (i-Ready)
   careers_url: https://curriculumassociates.wd5.myworkdayjobs.com/External
-  scan_method: websearch
-  scan_query: site:curriculumassociates.wd5.myworkdayjobs.com marketing OR email OR content OR enablement remote
+  scan_method: workday
+  notes: "Workday ATS — upgraded from websearch 2026-06-04. Playwright XHR intercept via providers/workday.mjs."
   enabled: true
 
 - name: Waterford.org
@@ -916,14 +916,14 @@ tracked_companies:
 
 - name: Environmental Defense Fund
   careers_url: https://osv-edf.wd5.myworkdayjobs.com/en-US/EDF_External_Careers
-  scan_method: websearch
-  scan_query: site:osv-edf.wd5.myworkdayjobs.com marketing OR email OR communications OR content remote
+  scan_method: workday
+  notes: "Workday ATS — upgraded from websearch 2026-06-04. Playwright XHR intercept via providers/workday.mjs."
   enabled: true
 
 - name: National Audubon Society
   careers_url: https://audubon.wd503.myworkdayjobs.com/Audubon
-  scan_method: websearch
-  scan_query: site:audubon.wd503.myworkdayjobs.com marketing OR email OR content OR communications remote
+  scan_method: workday
+  notes: "Workday ATS — upgraded from websearch 2026-06-04. Playwright XHR intercept via providers/workday.mjs."
   enabled: true
 
 - name: World Wildlife Fund
@@ -1347,44 +1347,38 @@ tracked_companies:
 
 # =========================================================
 # Workday Enterprise
-# Notes: These companies use myworkdayjobs.com. Workday is a
-# POST-based SPA — standard GET requests return no job data.
-# All entries use scan_method: websearch as the safe default
-# until a Playwright-based workday scraper is implemented.
-# Tenant URLs verified as of 2026-06-02.
+# Notes: These companies use myworkdayjobs.com.
+# All entries upgraded to scan_method: workday as of 2026-06-04.
+# Playwright XHR intercept via providers/workday.mjs.
+# Requires: npm install playwright && npx playwright install chromium
 # =========================================================
 
 - name: Chegg
   careers_url: https://chegg.wd5.myworkdayjobs.com/en-US/Chegg_Careers
-  scan_method: websearch
-  scan_query: site:chegg.wd5.myworkdayjobs.com marketing OR email OR content OR enablement OR communications remote
-  notes: "EdTech / homework help platform. Strong content and lifecycle marketing history."
+  scan_method: workday
+  notes: "EdTech / homework help platform. Workday ATS — upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Pearson
-  careers_url: https://pearson.jobs
-  scan_method: websearch
-  scan_query: site:pearson.wd5.myworkdayjobs.com OR site:pearson.jobs marketing OR email OR content OR enablement remote
-  notes: "Global EdTech and publishing giant. Frequent remote marketing and communications roles."
+  careers_url: https://pearson.wd5.myworkdayjobs.com/en-US/Pearson_Careers
+  scan_method: workday
+  notes: "Global EdTech and publishing giant. Workday ATS — upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Scholastic
   careers_url: https://scholastic.wd5.myworkdayjobs.com/en-US/SCHOLASTIC
-  scan_method: websearch
-  scan_query: site:scholastic.wd5.myworkdayjobs.com marketing OR email OR content OR communications OR enablement remote
-  notes: "Children's publishing and EdTech. Strong content and email marketing roles historically."
+  scan_method: workday
+  notes: "Children's publishing and EdTech. Workday ATS — upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: Nielsen
   careers_url: https://nielsen.wd1.myworkdayjobs.com/en-US/NielsenCareers
-  scan_method: websearch
-  scan_query: site:nielsen.wd1.myworkdayjobs.com marketing OR email OR content OR communications OR enablement remote
-  notes: "Media measurement and data analytics. B2B content and sales enablement roles."
+  scan_method: workday
+  notes: "Media measurement and data analytics. Workday ATS — upgraded from websearch 2026-06-04."
   enabled: true
 
 - name: College Board
   careers_url: https://collegeboard.wd1.myworkdayjobs.com/en-US/careers
-  scan_method: websearch
-  scan_query: site:collegeboard.wd1.myworkdayjobs.com marketing OR email OR content OR communications remote
-  notes: "Nonprofit EdTech org (SAT, AP programs). Mission-driven with strong comms and marketing needs."
+  scan_method: workday
+  notes: "Nonprofit EdTech org (SAT, AP programs). Workday ATS — upgraded from websearch 2026-06-04."
   enabled: true
