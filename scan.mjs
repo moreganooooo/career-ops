@@ -7,7 +7,7 @@
  * exports a default object with:
  *   - id: string — matched against `provider:` in portals.yml
  *   - detect(entry): {url}|null — optional auto-detection from careers_url
- *   - fetch(entry, ctx): [{title,url,company,location}] — required
+ *   - fetch(entry, ctx): [{title,url,company,location,posted_at?}] — required
  *
  * Files prefixed with _ are shared helpers (e.g. _http.mjs) and are never
  * loaded as providers. Adding a new HTTP/API source = drop a *.mjs into
@@ -20,11 +20,14 @@
  *
  * Zero Claude API tokens — pure HTTP + JSON.
  *
+ * Liveness verification runs by default via Playwright (headless Chromium).
+ * Use --no-verify to skip it (faster, but ghost listings may slip through).
+ *
  * Usage:
- *   node scan.mjs                  # scan all enabled companies
+ *   node scan.mjs                  # scan all companies (verify on by default)
+ *   node scan.mjs --no-verify      # skip Playwright liveness checks
  *   node scan.mjs --dry-run        # preview without writing files
  *   node scan.mjs --company Cohere # scan a single company
- *   node scan.mjs --verify         # Playwright-check each new URL; drop expired postings
  */
 
 import { readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
@@ -262,11 +265,11 @@ function appendToScanHistory(offers, date, status = 'added') {
   // can record verify outcomes (`skipped_expired`, etc.) without the legacy
   // `(expired)` suffix in `source`.
   if (!existsSync(SCAN_HISTORY_PATH)) {
-    writeFileSync(SCAN_HISTORY_PATH, 'url\tfirst_seen\tportal\ttitle\tcompany\tstatus\tlocation\n', 'utf-8');
+    writeFileSync(SCAN_HISTORY_PATH, 'url\tfirst_seen\tportal\ttitle\tcompany\tstatus\tlocation\tposted_at\n', 'utf-8');
   }
 
   const lines = offers.map(o =>
-    `${o.url}\t${date}\t${o.source}\t${o.title}\t${o.company}\t${status}\t${o.location || ''}`
+    `${o.url}\t${date}\t${o.source}\t${o.title}\t${o.company}\t${status}\t${o.location || ''}\t${o.posted_at || ''}`
   ).join('\n') + '\n';
 
   appendFileSync(SCAN_HISTORY_PATH, lines, 'utf-8');
@@ -301,7 +304,7 @@ async function verifyOffers(offers) {
     ({ checkUrlLiveness } = await import('./liveness-browser.mjs'));
   } catch (err) {
     throw new Error(
-      `--verify requires Playwright with Chromium (run "npx playwright install chromium"): ${err.message}`,
+      `liveness verification requires Playwright with Chromium (run "npx playwright install chromium"): ${err.message}`,
       { cause: err },
     );
   }
@@ -311,7 +314,7 @@ async function verifyOffers(offers) {
     browser = await chromium.launch({ headless: true });
   } catch (err) {
     throw new Error(
-      `--verify could not launch Chromium (run "npx playwright install chromium" or re-run without --verify): ${err.message}`,
+      `could not launch Chromium (run "npx playwright install chromium" or use --no-verify): ${err.message}`,
       { cause: err },
     );
   }
@@ -320,8 +323,8 @@ async function verifyOffers(offers) {
   //   verified  → active pages and transient nav errors (retry next scan)
   //   expired   → classifier-confirmed dead postings (HTTP 4xx, redirect markers,
   //               body patterns, listing pages, insufficient content)
-  //   dropped   → page loaded but classifier saw no Apply control. --verify is an
-  //               opt-in stricter filter; keeping these defeats the purpose.
+  //   dropped   → page loaded but classifier saw no Apply control. Default-on
+  //               verify means these are filtered out before pipeline.md.
   //   invalid   → up-front URL guard rejections (malformed / non-http / private)
   const verified = [];
   const expired = [];
@@ -337,19 +340,12 @@ async function verifyOffers(offers) {
         expired.push({ ...offer, reason });
         console.log(`  ❌ expired   ${offer.company} | ${offer.title} (${reason})`);
       } else if (result === 'uncertain' && GUARD_CODES.has(code)) {
-        // Guard failures are permanent (not transient like a timeout) — record them
-        // separately so they don't end up in pipeline.md but DO appear in scan-history
-        // with a precise status, dedup-blocking them on subsequent scans.
         invalid.push({ ...offer, code, reason });
         console.log(`  ⛔ invalid   ${offer.company} | ${offer.title} (${reason})`);
       } else if (result === 'uncertain' && code === 'no_apply_control') {
-        // Page loaded but classifier could not find an Apply control. Treat like
-        // expired for routing — drop from pipeline AND record in scan-history so
-        // we don't burn a verify cycle on the same URL next scan.
         dropped.push({ ...offer, reason });
         console.log(`  ⚠️ no-apply  ${offer.company} | ${offer.title} (${reason})`);
       } else {
-        // 'active' or 'uncertain' due to navigation_error (transient — retry next scan)
         verified.push(offer);
         const icon = result === 'active' ? '✅' : '⚠️';
         console.log(`  ${icon} ${result.padEnd(9)} ${offer.company} | ${offer.title}`);
@@ -362,22 +358,20 @@ async function verifyOffers(offers) {
   return { verified, expired, dropped, invalid };
 }
 
-// Stable codes from liveness-browser's up-front URL guard. Routing dispatches
-// on these codes (not on regex over reason strings) so wording can change
-// without breaking the pipeline.
+// Stable codes from liveness-browser's up-front URL guard.
 const GUARD_CODES = new Set(['invalid_url', 'unsupported_protocol', 'blocked_host']);
 
-// guardStatusFor maps a guard code to the canonical scan-history status string.
 function guardStatusFor(code) {
   if (code === 'blocked_host') return 'skipped_blocked_host';
-  // invalid_url and unsupported_protocol both surface as malformed input
   return 'skipped_invalid_url';
 }
 
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
-  const verify = args.includes('--verify');
+  // --verify is ON by default. Pass --no-verify to skip Playwright checks.
+  const noVerify = args.includes('--no-verify');
+  const verify = !noVerify;
   const companyFlag = args.indexOf('--company');
   const filterCompany = companyFlag !== -1 ? args[companyFlag + 1]?.toLowerCase() : null;
 
@@ -423,6 +417,7 @@ async function main() {
   if (skippedNames.length > 0) {
     console.log(`Skipped companies: ${skippedNames.join(', ')}`);
   }
+  if (noVerify) console.log('⚠️  Liveness verification disabled (--no-verify). Ghost listings may slip through.');
   if (dryRun) console.log('(dry run — no files will be written)\n');
 
   // 4. Load dedup sets
@@ -493,7 +488,7 @@ async function main() {
 
   await parallelFetch(tasks, CONCURRENCY);
 
-  // 5.5. Optional liveness verification — drop expired and guard-rejected postings
+  // 5.5. Liveness verification — on by default, skip with --no-verify
   let verifiedOffers = newOffers;
   let expiredOffers = [];
   let droppedOffers = [];
@@ -505,6 +500,8 @@ async function main() {
     expiredOffers = result.expired;
     droppedOffers = result.dropped;
     invalidOffers = result.invalid;
+  } else if (verify && newOffers.length === 0) {
+    // Nothing to verify — skip Playwright startup entirely
   }
 
   // 6. Write results
@@ -515,16 +512,10 @@ async function main() {
   if (!dryRun && expiredOffers.length > 0) {
     appendToScanHistory(expiredOffers, date, 'skipped_expired');
   }
-  // Pages that loaded but had no Apply control: record so we don't re-verify
-  // them next scan, but never let them reach pipeline.md.
   if (!dryRun && droppedOffers.length > 0) {
     appendToScanHistory(droppedOffers, date, 'skipped_no_apply_control');
   }
-  // Guard-rejected URLs (invalid / unsupported protocol / blocked host) are
-  // recorded with a precise status so subsequent scans dedup-skip them via
-  // loadSeenUrls, but they never reach pipeline.md.
   if (!dryRun && invalidOffers.length > 0) {
-    // Group by code so the TSV reflects the actual reason category.
     const byStatus = new Map();
     for (const o of invalidOffers) {
       const status = guardStatusFor(o.code);
