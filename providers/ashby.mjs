@@ -3,8 +3,11 @@
 
 // Ashby provider — hits the public posting-api endpoint.
 // Auto-detects from careers_url pattern `https://jobs.ashbyhq.com/<slug>`.
+// Falls back to entry.api if careers_url uses a custom domain (e.g. Zapier, Miro).
 
 function resolveApiUrl(entry) {
+  // Prefer explicit api field — handles custom-domain careers pages
+  if (entry.api) return entry.api;
   const url = entry.careers_url || '';
   const match = url.match(/jobs\.ashbyhq\.com\/([^/?#]+)/);
   if (!match) return null;
