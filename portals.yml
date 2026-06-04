@@ -317,6 +317,10 @@ seniority_boost:
 search_queries:
 
   # ATS Platform Sweeps
+  - name: "Greenhouse — Onboarding & Implementation Sweep"
+    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (onboarding OR implementation OR \"customer success\" OR \"client services\" OR \"solutions consultant\") remote -engineer -developer -recruiter"
+    enabled: true
+  
   - name: "Greenhouse — Marketing & Enablement remote"
     query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement) remote -engineer -developer -recruiter"
     enabled: true
