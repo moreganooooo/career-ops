@@ -293,7 +293,7 @@ search_queries:
   enabled: true
 
 - name: Lever — Sales Enablement remote
-  query: 'site:jobs.lever.co "Sales Enablement" OR "Enablement Specialist" OR "Sales Content" remote'
+  query: 'site:jobs.lever.co "salary Enablement" OR "Enablement Specialist" OR "Sales Content" remote'
   enabled: true
 
 - name: All portals — Enablement roles
@@ -654,9 +654,9 @@ tracked_companies:
 
 - name: Teaching Strategies
   careers_url: https://teaching-strategies.pinpointhq.com/en/postings/
-  api: https://teaching-strategies.pinpointhq.com/en/postings/
-  scan_method: pinpoint
-  notes: "Pinpoint ATS — no public JSON API. Scrape careers_url directly. upgraded from websearch 2026-06-04."
+  scan_method: websearch
+  scan_query: 'site:teaching-strategies.pinpointhq.com "marketing" OR "email" OR "content" OR "communications" remote'
+  notes: "Pinpoint ATS — no provider built yet. Websearch fallback until pinpoint.mjs ships."
   enabled: true
 
 - name: IXL Learning
@@ -790,8 +790,9 @@ tracked_companies:
 
 - name: SchooLinks
   careers_url: https://apply.workable.com/schoolinks/
-  api: https://apply.workable.com/api/v3/accounts/schoolinks/jobs
-  notes: "Workable ATS. upgraded from websearch 2026-06-04."
+  scan_method: websearch
+  scan_query: 'site:apply.workable.com/schoolinks "marketing" OR "email" OR "content" OR "enablement" remote'
+  notes: "Workable ATS — no workable provider built yet. Websearch fallback until workable.mjs ships."
   enabled: true
 
 - name: Literati
@@ -1222,8 +1223,9 @@ tracked_companies:
 
 - name: Zapier
   careers_url: https://zapier.com/jobs
+  provider: ashby
   api: https://api.ashbyhq.com/posting-api/job-board/zapier
-  notes: "Fully async remote. upgraded from websearch 2026-06-04."
+  notes: "Fully async remote. Explicit provider: ashby to bypass detect() which requires ashbyhq.com in careers_url."
   enabled: true
 
 - name: Automattic (WordPress / Tumblr)
@@ -1306,8 +1308,9 @@ tracked_companies:
 
 - name: Miro
   careers_url: https://miro.com/careers/open-positions/
+  provider: ashby
   api: https://api.ashbyhq.com/posting-api/job-board/miro
-  notes: "upgraded from websearch 2026-06-04."
+  notes: "Explicit provider: ashby to bypass detect() which requires ashbyhq.com in careers_url."
   enabled: true
 
 - name: Loom (Atlassian)
