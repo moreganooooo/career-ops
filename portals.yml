@@ -653,7 +653,7 @@ tracked_companies:
   enabled: true
 
 - name: Teaching Strategies
-  careers_url: https://teaching-strategies.pinpointhq.com/en/postings/
+  careers_url: https://teaching-strategies.pinpointhq.com/
   scan_method: websearch
   scan_query: 'site:teaching-strategies.pinpointhq.com "marketing" OR "email" OR "content" OR "communications" remote'
   notes: "Pinpoint ATS — no provider built yet. Websearch fallback until pinpoint.mjs ships."
@@ -671,7 +671,7 @@ tracked_companies:
 
 - name: Renaissance Learning
   careers_url: https://www.renaissance.com/careers/
-  api: https://boards-api.greenhouse.io/v1/boards/newsela/jobs
+  api: https://boards-api.greenhouse.io/v1/boards/renaissancelearning-nam/jobs
   enabled: true
 
 - name: Seesaw
@@ -681,7 +681,7 @@ tracked_companies:
 
 - name: Instructure (Canvas LMS)
   careers_url: https://www.instructure.com/about/careers
-  api: https://boards-api.greenhouse.io/v1/boards/seesaw/jobs
+  api: https://boards-api.greenhouse.io/v1/boards/instructure/jobs
   enabled: true
 
 - name: ClassDojo
@@ -714,25 +714,26 @@ tracked_companies:
 
 - name: Amplify
   careers_url: https://amplify.com/careers/
-  api: https://boards-api.greenhouse.io/v1/boards/goguardian/jobs
+  api: https://boards-api.greenhouse.io/v1/boards/amplify/jobs
   enabled: true
 
 - name: PowerSchool
-  careers_url: https://careers-powerschool.icims.com/jobs/search
+  careers_url: https://careers-powerschool.icims.com/jobs/intro
   scan_method: websearch
   scan_query: site:careers-powerschool.icims.com marketing OR email OR enablement OR content remote
+  notes: "iCIMS ATS — no icims provider built yet. Websearch fallback."
   enabled: true
 
 - name: Turnitin
   careers_url: https://careers.smartrecruiters.com/turnitinllc
-  scan_method: websearch
-  scan_query: 'site:careers.smartrecruiters.com/turnitinllc "marketing" OR "email" OR "content" OR "communications" remote'
+  api: https://api.smartrecruiters.com/v1/companies/turnitinllc/postings
+  notes: "upgraded from websearch 2026-06-04. SmartRecruiters API confirmed."
   enabled: true
 
 - name: Panorama Education
-  careers_url: https://www.panoramaed.com/about/careers
-  scan_method: websearch
-  scan_query: 'site:panoramaed.com/about/careers "marketing" OR "email" OR "content" OR "communications" OR "lifecycle" remote'
+  careers_url: https://boards.greenhouse.io/panoramaeducation
+  api: https://boards-api.greenhouse.io/v1/boards/panoramaeducation/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
   enabled: true
 
 - name: Curriculum Associates (i-Ready)
@@ -742,28 +743,29 @@ tracked_companies:
   enabled: true
 
 - name: Waterford.org
-  careers_url: https://www.paycomonline.net/v4/ats/web.php/portal/331B479E8FD113A8751AEE3AC103ABFD/career-page
+  careers_url: https://www.paycomonline.net/v4/ats/web.php/portal/331B479E8FD113A8751AEE3AC103ABFD/jobs
   scan_method: websearch
   scan_query: waterford.org OR waterford education marketing OR email OR content OR communications remote jobs
-  notes: Paycom has no public API. Websearch only.
+  notes: "Paycom ATS — no public API. Websearch only."
   enabled: true
 
 - name: Imagine Learning
-  careers_url: https://jobs.jobvite.com/imagine-learning
+  careers_url: https://www.imaginelearning.com/about/careers/
   scan_method: websearch
-  scan_query: site:jobs.jobvite.com/imagine-learning marketing OR email OR content OR enablement remote
+  scan_query: '"imagine learning" "marketing" OR "email" OR "content" OR "enablement" remote jobs'
+  notes: "Jobvite ATS — no direct API. Websearch only."
   enabled: true
 
 - name: Nearpod
   careers_url: https://job-boards.greenhouse.io/renaissancelearning-nam
   api: https://boards-api.greenhouse.io/v1/boards/renaissancelearning-nam/jobs
-  notes: Acquired by Renaissance Learning. Add keyword filter — board covers full org.
+  notes: "Acquired by Renaissance Learning. Add keyword filter — board covers full org."
   enabled: true
 
 - name: Discovery Education
-  careers_url: https://jobs.dayforcehcm.com/en-US/discoveryed/CANDIDATEPORTAL
-  scan_method: websearch
-  scan_query: site:jobs.dayforcehcm.com/en-US/discoveryed marketing OR email OR content OR enablement remote
+  careers_url: https://apply.workable.com/discoveryed/
+  api: https://apply.workable.com/api/v3/accounts/discoveryed/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS with direct API."
   enabled: true
 
 - name: SchoolStatus
@@ -776,11 +778,11 @@ tracked_companies:
   api: https://api.ashbyhq.com/posting-api/job-board/brainly
   enabled: true
 
-- name: Achieve3000
-  careers_url: https://careers-mheducation.icims.com/jobs
+- name: Achieve3000 (McGraw-Hill)
+  careers_url: https://careers.mheducation.com/jobs/
   scan_method: websearch
-  scan_query: site:careers-mheducation.icims.com achieve3000 OR "achieve 3000" marketing OR email OR content remote
-  notes: Acquired by McGraw-Hill. Keyword filter essential.
+  scan_query: site:careers.mheducation.com "achieve3000" OR "achieve 3000" OR marketing OR email OR content remote
+  notes: "Acquired by McGraw-Hill. iCIMS ATS — no direct provider. Keyword filter essential."
   enabled: true
 
 - name: Varsity Tutors / Nerdy
@@ -790,9 +792,8 @@ tracked_companies:
 
 - name: SchooLinks
   careers_url: https://apply.workable.com/schoolinks/
-  scan_method: websearch
-  scan_query: 'site:apply.workable.com/schoolinks "marketing" OR "email" OR "content" OR "enablement" remote'
-  notes: "Workable ATS — no workable provider built yet. Websearch fallback until workable.mjs ships."
+  api: https://apply.workable.com/api/v3/accounts/schoolinks/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS with direct API."
   enabled: true
 
 - name: Literati
@@ -806,9 +807,9 @@ tracked_companies:
 # =========================================================
 
 - name: ASPCA
-  careers_url: https://www.aspca.org/about-us/careers
-  scan_method: websearch
-  scan_query: 'site:aspca.org/about-us/careers OR "aspca jobs" "marketing" OR "email" OR "content" OR "communications" remote'
+  careers_url: https://aspca.wd1.myworkdayjobs.com/ASPCAWebsite
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd1 tenant)."
   enabled: true
 
 - name: Humane Society of the United States
@@ -818,15 +819,16 @@ tracked_companies:
   enabled: true
 
 - name: Best Friends Animal Society
-  careers_url: https://bestfriends.org/jobs
-  scan_method: websearch
-  scan_query: 'site:bestfriends.org/jobs "marketing" OR "communications" OR "email" OR "content" remote'
+  careers_url: https://bestfriends.wd1.myworkdayjobs.com/bestfriendscareers
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd1 tenant)."
   enabled: true
 
 - name: American Humane
-  careers_url: https://americanhumane.org/about/careers/
+  careers_url: https://americanhumane.applytojob.com/apply
   scan_method: websearch
   scan_query: '"american humane" "marketing" OR "communications" OR "email" OR "content" remote jobs'
+  notes: "ApplyToJob ATS — no direct provider. Websearch only."
   enabled: true
 
 - name: North Shore Animal League
@@ -836,17 +838,17 @@ tracked_companies:
   enabled: true
 
 - name: Chewy
-  careers_url: https://careers.chewy.com/us/en/corporate-careers
+  careers_url: https://careers.chewy.com/
   scan_method: websearch
-  scan_query: 'site:careers.chewy.com/us/en/corporate-careers "marketing" OR "email" OR "content" OR "communications" remote'
-  notes: "Large pet e-commerce. Has email marketing and content roles."
+  scan_query: '"chewy" "careers" "marketing" OR "email" OR "content" OR "communications" OR "lifecycle" remote'
+  notes: "Large pet e-commerce. Custom ATS — websearch only."
   enabled: true
 
 - name: Rover
   careers_url: https://www.rover.com/careers
   scan_method: websearch
   scan_query: 'site:rover.com/careers "marketing" OR "content" OR "communications" OR "lifecycle" remote'
-  notes: "Pet care marketplace."
+  notes: "Pet care marketplace. Custom careers page — websearch only."
   enabled: true
 
 - name: The Farmer's Dog
@@ -862,10 +864,10 @@ tracked_companies:
   enabled: true
 
 - name: Hill's Pet Nutrition
-  careers_url: https://www.hillspet.com/careers
+  careers_url: https://jobs.colgate.com/
   scan_method: websearch
-  scan_query: '"hill''s pet nutrition" "marketing" OR "email" OR "content" OR "enablement" remote jobs'
-  notes: "Morgan's Callahan Creek client. Brand familiarity is an asset."
+  scan_query: '"hill''s pet nutrition" OR "hills pet" "marketing" OR "email" OR "content" OR "enablement" remote jobs'
+  notes: "Owned by Colgate-Palmolive. Oracle HCM ATS (jobs.colgate.com) — no direct provider. Morgan's Callahan Creek client."
   enabled: true
 
 - name: Petco
@@ -880,17 +882,16 @@ tracked_companies:
   enabled: true
 
 - name: Trupanion
-  careers_url: https://careers.smartrecruiters.com/Trupanion1
-  scan_method: websearch
-  scan_query: 'site:smartrecruiters.com/Trupanion1 OR site:flexjobs.com "Trupanion" "marketing" OR "content" OR "lifecycle" OR "CRM" remote'
-  notes: "Pet insurance; recurring revenue model maps well to lifecycle marketing."
+  careers_url: https://careers.smartrecruiters.com/trupanion1
+  api: https://api.smartrecruiters.com/v1/companies/trupanion1/postings
+  notes: "upgraded from websearch 2026-06-04. SmartRecruiters API confirmed. Pet insurance."
   enabled: true
 
 - name: Embark Veterinary
-  careers_url: https://embarkvet.com
+  careers_url: https://embarkvet.applytojob.com/apply
   scan_method: websearch
-  scan_query: 'site:embarkvet.com "careers" OR "jobs" "marketing" OR "content" OR "lifecycle" remote'
-  notes: "Dog genetics + wellness; strong story for email/content roles."
+  scan_query: '"embark veterinary" OR "embarkvet" "careers" OR "jobs" "marketing" OR "content" OR "lifecycle" remote'
+  notes: "ApplyToJob ATS — no direct provider. Dog genetics + wellness."
   enabled: true
 
 - name: Fi Smart Dog Collar
@@ -928,28 +929,30 @@ tracked_companies:
   enabled: true
 
 - name: World Wildlife Fund
-  careers_url: https://careers-wwfus.icims.com/jobs
+  careers_url: https://careers-wwfus.icims.com/
   scan_method: websearch
   scan_query: site:careers-wwfus.icims.com marketing OR email OR communications OR content remote
+  notes: "iCIMS ATS — no direct provider. Websearch only."
   enabled: true
 
 - name: The Nature Conservancy
-  careers_url: https://careers.tnc.org/us/en/job/
+  careers_url: https://careers.tnc.org/us/en/
   scan_method: websearch
   scan_query: site:careers.tnc.org marketing OR email OR content OR communications remote
-  notes: Phenom-powered board, JS-heavy. Websearch only.
+  notes: "Phenom-powered board, JS-heavy. Websearch only."
   enabled: true
 
 - name: Feeding America
-  careers_url: https://jobs.jobvite.com/feedingamerica
+  careers_url: https://www.feedingamerica.org/about-us/careers
   scan_method: websearch
-  scan_query: site:jobs.jobvite.com/feedingamerica marketing OR email OR communications OR content remote
+  scan_query: '"feeding america" "marketing" OR "email" OR "communications" OR "content" remote jobs'
+  notes: "Custom careers page — websearch only."
   enabled: true
 
 - name: American Cancer Society
-  careers_url: https://jobs.cancer.org
-  scan_method: websearch
-  scan_query: 'site:jobs.cancer.org "marketing" OR "email" OR "content" OR "communications" remote'
+  careers_url: https://acs.wd5.myworkdayjobs.com/ACSCareers
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd5 tenant)."
   enabled: true
 
 - name: Wikimedia Foundation
@@ -965,13 +968,13 @@ tracked_companies:
 
 - name: NPR / National Public Media
   careers_url: https://boards.greenhouse.io/npr
-  api: https://boards-api.greenhouse.io/v1/boards/wikimedia/jobs
+  api: https://boards-api.greenhouse.io/v1/boards/npr/jobs
   enabled: true
 
 - name: PBS
-  careers_url: https://www.pbs.org/about/careers/
-  scan_method: websearch
-  scan_query: '"pbs" "marketing" OR "email" OR "content" OR "communications" OR "enablement" remote jobs'
+  careers_url: https://vhr-pbs.wd115.myworkdayjobs.com/PBSCareers
+  scan_method: workday
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workday ATS (wd115 tenant)."
   enabled: true
 
 # =========================================================
@@ -1014,7 +1017,7 @@ tracked_companies:
 
 - name: Noom
   careers_url: https://www.noom.com/careers/job-listings/
-  api: https://boards-api.greenhouse.io/v1/boards/modernhealth/jobs
+  api: https://boards-api.greenhouse.io/v1/boards/noom/jobs
   enabled: true
 
 - name: Talkspace
@@ -1024,52 +1027,46 @@ tracked_companies:
   enabled: true
 
 - name: BetterHelp
-  careers_url: https://www.betterhelp.com
-  scan_method: websearch
-  scan_query: '"BetterHelp" "remote" "marketing" OR "performance marketing" OR "brand" OR "lifecycle"'
-  notes: "World's largest online therapy service; frequent remote marketing roles."
+  careers_url: https://boards.greenhouse.io/betterhelp
+  api: https://boards-api.greenhouse.io/v1/boards/betterhelp/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
   enabled: true
 
 - name: Brightside Health
   careers_url: https://www.brightside.com
   scan_method: websearch
   scan_query: 'site:brightside.com OR "Brightside Health" "careers" OR "jobs" "marketing" OR "content" OR "growth" remote'
-  notes: "Virtual mental health care for depression and anxiety; strong telehealth focus."
+  notes: "Virtual mental health care. Custom site — websearch only."
   enabled: true
 
 - name: Alma
-  careers_url: https://helloalma.com/careers
-  scan_method: websearch
-  scan_query: 'site:helloalma.com/careers "marketing" OR "lifecycle" OR "email" OR "content" remote'
-  notes: "Provider-first mental health marketplace; lifecycle and provider marketing roles."
+  careers_url: https://boards.greenhouse.io/alma
+  api: https://boards-api.greenhouse.io/v1/boards/alma/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
   enabled: true
 
 - name: SonderMind
-  careers_url: https://sondermind.com
-  scan_method: websearch
-  scan_query: 'site:sondermind.com "careers" OR "jobs" "marketing" OR "content" OR "growth" OR "community" remote'
-  notes: "Behavioral health marketplace; mix of tech and provider ecosystem."
+  careers_url: https://jobs.ashbyhq.com/sondermind
+  api: https://api.ashbyhq.com/posting-api/job-board/sondermind
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug."
   enabled: true
 
 - name: Rula
-  careers_url: https://www.rula.com
-  scan_method: websearch
-  scan_query: 'site:rula.com "careers" OR "jobs" "marketing" OR "social" OR "brand partnerships" OR "content" remote'
-  notes: "Virtual mental health company. Morgan applied previously. Noted for social/brand marketing roles."
+  careers_url: https://jobs.ashbyhq.com/rula
+  api: https://api.ashbyhq.com/posting-api/job-board/rula
+  notes: "upgraded from websearch 2026-06-04. Morgan applied previously."
   enabled: true
 
 - name: Grow Therapy
-  careers_url: https://www.growtherapy.com
-  scan_method: websearch
-  scan_query: 'site:growtherapy.com "careers" OR "jobs" "marketing" OR "lifecycle" OR "provider marketing" remote'
-  notes: "Insurance-integrated therapy marketplace; lifecycle and provider marketing roles."
+  careers_url: https://job-boards.greenhouse.io/growtherapy
+  api: https://boards-api.greenhouse.io/v1/boards/growtherapy/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
   enabled: true
 
 - name: Two Chairs
-  careers_url: https://www.twochairs.com/careers
-  scan_method: websearch
-  scan_query: 'site:twochairs.com/careers "marketing" OR "brand" OR "content" OR "community" remote'
-  notes: "Hybrid and virtual therapy clinics; fewer roles but high mission alignment."
+  careers_url: https://boards.greenhouse.io/twochairs
+  api: https://boards-api.greenhouse.io/v1/boards/twochairs/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug."
   enabled: true
 
 - name: ADHD Coaching Network
@@ -1091,9 +1088,9 @@ tracked_companies:
   enabled: true
 
 - name: Weedmaps
-  careers_url: https://weedmaps.com/careers
-  scan_method: websearch
-  scan_query: 'site:weedmaps.com/careers "remote" "marketing" OR "social" OR "brand" OR "content"'
+  careers_url: https://job-boards.greenhouse.io/weedmaps77
+  api: https://boards-api.greenhouse.io/v1/boards/weedmaps77/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug weedmaps77."
   enabled: true
 
 - name: Jane Technologies
@@ -1103,17 +1100,16 @@ tracked_companies:
   enabled: true
 
 - name: Dutchie
-  careers_url: https://dutchie.com
-  scan_method: websearch
-  scan_query: 'site:dutchie.com "careers" OR "jobs" "marketing" OR "customer marketing" OR "content" remote'
-  notes: "Morgan applied previously. Cannabis POS and commerce platform."
+  careers_url: https://job-boards.greenhouse.io/thedutchie
+  api: https://boards-api.greenhouse.io/v1/boards/thedutchie/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug thedutchie. Morgan applied previously."
   enabled: true
 
 - name: Wurk
   careers_url: https://enjoywurk.com
   scan_method: websearch
   scan_query: 'site:enjoywurk.com "careers" OR "jobs" "marketing" OR "customer marketing" OR "content" remote'
-  notes: "HR/HCM platform purpose-built for the cannabis industry."
+  notes: "HR/HCM platform for cannabis industry. Custom site — websearch only."
   enabled: true
 
 - name: CannaSite
@@ -1124,10 +1120,9 @@ tracked_companies:
   enabled: true
 
 - name: Nabis
-  careers_url: https://www.getnabis.com
-  scan_method: websearch
-  scan_query: 'site:getnabis.com "careers" OR "jobs" "marketing" OR "content" OR "communications" remote'
-  notes: "Cannabis wholesale platform."
+  careers_url: https://boards.greenhouse.io/nabis
+  api: https://boards-api.greenhouse.io/v1/boards/nabis/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug. Cannabis wholesale platform."
   enabled: true
 
 # =========================================================
@@ -1145,9 +1140,9 @@ tracked_companies:
   enabled: true
 
 - name: ActiveCampaign
-  careers_url: https://www.activecampaign.com/careers/job-listings
-  scan_method: websearch
-  scan_query: 'site:activecampaign.com/careers "marketing" OR "email" OR "content" OR "enablement" remote'
+  careers_url: https://jobs.lever.co/activecampaign
+  api: https://api.lever.co/v0/postings/activecampaign?mode=json
+  notes: "upgraded from websearch 2026-06-04. Confirmed Lever ATS."
   enabled: true
 
 - name: Outreach
@@ -1165,6 +1160,7 @@ tracked_companies:
   careers_url: https://jobs.intuit.com
   scan_method: websearch
   scan_query: 'site:jobs.intuit.com "email marketing" OR "content" OR "enablement" remote'
+  notes: "Oracle HCM ATS (jobs.intuit.com) — no direct provider. Websearch only."
   enabled: true
 
 - name: Constant Contact
@@ -1189,15 +1185,15 @@ tracked_companies:
   enabled: true
 
 - name: Seismic
-  careers_url: https://www.seismic.com/careers/job-listings/
-  scan_method: websearch
-  scan_query: 'site:seismic.com/careers/job-listings "marketing" OR "content" OR "enablement" OR "communications" remote'
+  careers_url: https://jobs.ashbyhq.com/seismic-change.com
+  api: https://api.ashbyhq.com/posting-api/job-board/seismic-change.com
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug seismic-change.com."
   enabled: true
 
 - name: Gong
-  careers_url: https://www.gong.io/careers
-  scan_method: websearch
-  scan_query: 'site:gong.io/careers OR site:job-boards.greenhouse.io/gongio "marketing" OR "content" OR "enablement" OR "communications" remote'
+  careers_url: https://boards.greenhouse.io/gongio
+  api: https://boards-api.greenhouse.io/v1/boards/gongio/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug gongio."
   enabled: true
 
 - name: Showpad
@@ -1215,10 +1211,9 @@ tracked_companies:
 # =========================================================
 
 - name: Buffer
-  careers_url: https://boards.greenhouse.io/buffer
-  scan_method: websearch
-  scan_query: 'site:buffer.com/resources/journey OR site:boards.greenhouse.io/buffer "marketing" OR "content" OR "email" remote'
-  notes: "Fully remote. Strong writing culture."
+  careers_url: https://jobs.ashbyhq.com/buffer
+  api: https://api.ashbyhq.com/posting-api/job-board/buffer
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug. Fully remote, strong writing culture."
   enabled: true
 
 - name: Zapier
@@ -1229,17 +1224,15 @@ tracked_companies:
   enabled: true
 
 - name: Automattic (WordPress / Tumblr)
-  careers_url: https://automattic.com/work-with-us/
-  scan_method: websearch
-  scan_query: 'site:automattic.com/work-with-us "marketing" OR "content" OR "email" OR "enablement" remote'
-  notes: "Fully distributed. Writer culture is deeply embedded."
+  careers_url: https://boards.greenhouse.io/automatticcareers
+  api: https://boards-api.greenhouse.io/v1/boards/automatticcareers/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug automatticcareers. Fully distributed."
   enabled: true
 
 - name: Doist (Todoist / Twist)
-  careers_url: https://doist.com/jobs
-  scan_method: websearch
-  scan_query: 'site:doist.com/jobs "marketing" OR "content" OR "email" remote'
-  notes: "Async-first culture."
+  careers_url: https://apply.workable.com/doist/
+  api: https://apply.workable.com/api/v3/accounts/doist/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS. Async-first culture."
   enabled: true
 
 - name: GitLab
@@ -1249,10 +1242,9 @@ tracked_companies:
   enabled: true
 
 - name: Help Scout
-  careers_url: https://www.helpscout.com/company/careers/
-  scan_method: websearch
-  scan_query: 'site:helpscout.com/company/careers "marketing" OR "content" OR "email" OR "communications" remote'
-  notes: "Fully remote. Customer-first culture, strong writing culture."
+  careers_url: https://jobs.ashbyhq.com/helpscout
+  api: https://api.ashbyhq.com/posting-api/job-board/helpscout
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug. Fully remote, strong writing culture."
   enabled: true
 
 - name: Remote.com
@@ -1262,10 +1254,9 @@ tracked_companies:
   enabled: true
 
 - name: Basecamp / 37signals
-  careers_url: https://37signals.com/jobs
-  scan_method: websearch
-  scan_query: 'site:37signals.com/jobs "marketing" OR "content" OR "writing" remote'
-  notes: "Opinionated async culture. Exceptional writing valued highly."
+  careers_url: https://apply.workable.com/37signals/
+  api: https://apply.workable.com/api/v3/accounts/37signals/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Workable ATS. Opinionated async culture."
   enabled: true
 
 # =========================================================
@@ -1276,7 +1267,7 @@ tracked_companies:
   careers_url: https://themomproject.com/careers
   scan_method: websearch
   scan_query: 'site:themomproject.com/careers "email marketing" OR "lifecycle" OR "content" OR "sales enablement" remote'
-  notes: "Morgan placed through here previously."
+  notes: "Morgan placed through here previously. Custom careers page — websearch only."
   enabled: true
 
 - name: PowerToFly
@@ -1324,10 +1315,9 @@ tracked_companies:
   enabled: true
 
 - name: Monday.com
-  careers_url: https://monday.com/careers
-  scan_method: websearch
-  scan_query: 'site:monday.com/careers OR site:boards.greenhouse.io/mondaydotcom "marketing" OR "email" OR "content" OR "enablement" OR "communications" remote'
-  notes: "Fixed from broken Greenhouse slug 2026-06-04. monday.com/careers appears SparkHire-powered — websearch fallback."
+  careers_url: https://jobs.ashbyhq.com/monday.com
+  api: https://api.ashbyhq.com/posting-api/job-board/monday.com
+  notes: "upgraded from websearch 2026-06-04. Confirmed Ashby slug monday.com."
   enabled: true
 
 - name: Guild Education
@@ -1337,10 +1327,9 @@ tracked_companies:
   enabled: true
 
 - name: Ipsy / BFA Industries
-  careers_url: https://boards.greenhouse.io/bfaindustries
-  scan_method: websearch
-  scan_query: '"ipsy" OR "bfa industries" "marketing" OR "email" OR "lifecycle" OR "content" remote jobs'
-  notes: "Morgan applied previously."
+  careers_url: https://job-boards.greenhouse.io/personalizedbeautydiscoveryincdbaipsy
+  api: https://boards-api.greenhouse.io/v1/boards/personalizedbeautydiscoveryincdbaipsy/jobs
+  notes: "upgraded from websearch 2026-06-04. Confirmed Greenhouse slug. Morgan applied previously."
   enabled: true
 
 - name: Hims & Hers
@@ -1377,10 +1366,10 @@ tracked_companies:
   enabled: true
 
 - name: Nielsen
-  careers_url: https://jobs.smartrecruiters.com/TheNielsenCompany
+  careers_url: https://www.nielsen.com/careers/
   scan_method: websearch
   scan_query: 'site:jobs.smartrecruiters.com/TheNielsenCompany "marketing" OR "email" OR "content" OR "communications" OR "enablement" remote'
-  notes: "Media measurement. Confirmed SmartRecruiters ATS — not Workday. Websearch only."
+  notes: "Media measurement. SmartRecruiters ATS — websearch via the SmartRecruiters URL since no smartrecruiters.mjs provider yet."
   enabled: true
 
 - name: College Board
