@@ -4,6 +4,9 @@
 // Ashby provider — hits the public posting-api endpoint.
 // Auto-detects from careers_url pattern `https://jobs.ashbyhq.com/<slug>`.
 // Falls back to entry.api if careers_url uses a custom domain (e.g. Zapier, Miro).
+//
+// Ashby location shape: { locationName: string, locationSublocationName: string|null }
+// We surface locationName as the canonical location string.
 
 function resolveApiUrl(entry) {
   // Prefer explicit api field — handles custom-domain careers pages
@@ -12,6 +15,13 @@ function resolveApiUrl(entry) {
   const match = url.match(/jobs\.ashbyhq\.com\/([^/?#]+)/);
   if (!match) return null;
   return `https://api.ashbyhq.com/posting-api/job-board/${match[1]}?includeCompensation=true`;
+}
+
+function resolveLocation(loc) {
+  if (!loc) return '';
+  if (typeof loc === 'string') return loc;
+  // Ashby returns { locationName, locationSublocationName }
+  return loc.locationName || '';
 }
 
 /** @type {Provider} */
@@ -32,7 +42,8 @@ export default {
       title: j.title || '',
       url: j.jobUrl || '',
       company: entry.name,
-      location: j.location || '',
+      location: resolveLocation(j.location),
+      posted_at: j.publishedDate || '',
     }));
   },
 };
