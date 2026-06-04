@@ -767,7 +767,7 @@ tracked_companies:
   enabled: true
 
 - name: SchoolStatus
-  careers_url: https://www.schoolstatus.com/careers
+  careers_url: https://boards.greenhouse.io/schoolstatus
   api: https://boards-api.greenhouse.io/v1/boards/schoolstatus/jobs
   enabled: true
 
@@ -868,9 +868,9 @@ tracked_companies:
   enabled: true
 
 - name: Petco
-  careers_url: https://boards.greenhouse.io/petco
-  api: https://boards-api.greenhouse.io/v1/boards/petco/jobs
-  notes: "upgraded from websearch 2026-06-04."
+  careers_url: https://petco.wd1.myworkdayjobs.com/External
+  scan_method: workday
+  notes: "Confirmed Workday ATS (wd1 tenant). Fixed from broken Greenhouse slug 2026-06-04."
   enabled: true
 
 - name: BarkBox / BARK
@@ -909,9 +909,9 @@ tracked_companies:
   enabled: true
 
 - name: Planned Parenthood
-  careers_url: https://boards.greenhouse.io/plannedparenthood
-  api: https://boards-api.greenhouse.io/v1/boards/plannedparenthood/jobs
-  notes: "upgraded from websearch 2026-06-04."
+  careers_url: https://jobs.lever.co/ppfa
+  api: https://api.lever.co/v0/postings/ppfa?mode=json
+  notes: "Fixed from broken Greenhouse slug 2026-06-04. Confirmed Lever ATS at jobs.lever.co/ppfa."
   enabled: true
 
 - name: Environmental Defense Fund
@@ -989,9 +989,9 @@ tracked_companies:
   enabled: true
 
 - name: Headspace
-  careers_url: https://boards.greenhouse.io/headspace
-  api: https://boards-api.greenhouse.io/v1/boards/headspace/jobs
-  notes: "upgraded from websearch 2026-06-04."
+  careers_url: https://job-boards.greenhouse.io/hs
+  api: https://boards-api.greenhouse.io/v1/boards/hs/jobs
+  notes: "Fixed from broken Greenhouse slug 2026-06-04. Confirmed slug is 'hs' matching job-boards URL."
   enabled: true
 
 - name: Lyra Health
@@ -1321,9 +1321,10 @@ tracked_companies:
   enabled: true
 
 - name: Monday.com
-  careers_url: https://boards.greenhouse.io/mondaydotcom
-  api: https://boards-api.greenhouse.io/v1/boards/mondaydotcom/jobs
-  notes: "upgraded from websearch 2026-06-04."
+  careers_url: https://monday.com/careers
+  scan_method: websearch
+  scan_query: 'site:monday.com/careers OR site:boards.greenhouse.io/mondaydotcom "marketing" OR "email" OR "content" OR "enablement" OR "communications" remote'
+  notes: "Fixed from broken Greenhouse slug 2026-06-04. monday.com/careers appears SparkHire-powered — websearch fallback."
   enabled: true
 
 - name: Guild Education
