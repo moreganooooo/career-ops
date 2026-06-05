@@ -25,8 +25,6 @@ location_filter:
     - "Hybrid"
     - "Commutable"
     - "Local candidates only"
-    - "Must reside"
-    - "Must be based in"
     - "Relocation"
     - "Travel required"
     - "Frequent travel"
@@ -194,11 +192,9 @@ title_filter:
     # Deep technical CRM / RevOps / Salesforce roles
     - "Revenue Operations Manager"
     - "Sales Operations Manager"
-    - "Salesforce Developer"
-    - "Salesforce Consultant"
-    - "CRM Developer"
-    - "Database Administrator"
-    - "Marketo Admin"
+    - "Developer"
+    - "Database"
+    - "Marketo"
 
     # Functional noise (facilities, finance, legal, IT)
     - "Facilities"
