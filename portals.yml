@@ -213,236 +213,242 @@ seniority_boost:
 # -- Search queries --
 # PHILOSOPHY: Wide categorical net. title_filter handles precision.
 # To avoid the 32-term limit, heavy job boards are split into two parallel sweeps.
+# Updated 2026-06-04: synced all keyword groups to full positive title filter.
+#   Marketing & Enablement sweep: +10 terms
+#     (writer, editorial, narrative, messaging, storytell, instructional,
+#      outreach, donor, GTM, readiness)
+#   Onboarding & Success sweep: +6 terms
+#     (nurture, journey, launch, activation, experience, relationship)
 # =========================================================
 search_queries:
 
   # ATS Platform Sweeps
   - name: "Greenhouse — Onboarding & Implementation Sweep"
-    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (onboarding OR implementation OR \"customer success\" OR \"client services\" OR \"solutions consultant\" OR training OR education OR enablement OR engagement OR adoption) remote -engineer -developer -recruiter"
+    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (onboarding OR implementation OR \"customer success\" OR \"client services\" OR \"solutions consultant\" OR training OR education OR enablement OR engagement OR adoption OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
   
   - name: "Greenhouse — Marketing & Enablement remote"
-    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Greenhouse — Onboarding & Success remote"
-    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "(site:boards.greenhouse.io OR site:job-boards.greenhouse.io) (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Ashby — Marketing & Enablement remote"
-    query: "site:jobs.ashbyhq.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:jobs.ashbyhq.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Ashby — Onboarding & Success remote"
-    query: "site:jobs.ashbyhq.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:jobs.ashbyhq.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Lever — Marketing & Enablement remote"
-    query: "site:jobs.lever.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:jobs.lever.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Lever — Onboarding & Success remote"
-    query: "site:jobs.lever.co (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:jobs.lever.co (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Workable — Marketing & Enablement remote"
-    query: "site:apply.workable.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:apply.workable.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Workable — Onboarding & Success remote"
-    query: "site:apply.workable.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:apply.workable.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   # Remote-First Job Boards
   - name: "We Work Remotely — Marketing & Enablement"
-    query: "site:weworkremotely.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) -engineer -developer -recruiter"
+    query: "site:weworkremotely.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) -engineer -developer -recruiter"
     enabled: true
 
   - name: "We Work Remotely — Onboarding & Success"
-    query: "site:weworkremotely.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) -engineer -developer -recruiter"
+    query: "site:weworkremotely.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Remote OK — Marketing & Enablement"
-    query: "site:remoteok.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) -engineer -developer -recruiter"
+    query: "site:remoteok.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Remote OK — Onboarding & Success"
-    query: "site:remoteok.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) -engineer -developer -recruiter"
+    query: "site:remoteok.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Himalayas — Marketing & Enablement remote"
-    query: "site:himalayas.app (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:himalayas.app (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Himalayas — Onboarding & Success remote"
-    query: "site:himalayas.app (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:himalayas.app (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Remote.co — Marketing & Enablement"
-    query: "site:remote.co/remote-jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) -engineer -developer -recruiter"
+    query: "site:remote.co/remote-jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Remote.co — Onboarding & Success"
-    query: "site:remote.co/remote-jobs (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) -engineer -developer -recruiter"
+    query: "site:remote.co/remote-jobs (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Remotive — Marketing & Enablement"
-    query: "site:remotive.com/remote-jobs/marketing (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) -engineer -developer -recruiter"
+    query: "site:remotive.com/remote-jobs/marketing (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Remotive — Onboarding & Success"
-    query: "site:remotive.com/remote-jobs/marketing (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) -engineer -developer -recruiter"
+    query: "site:remotive.com/remote-jobs/marketing (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Just Remote — Marketing & Enablement"
-    query: "site:justremote.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) -engineer -developer -recruiter"
+    query: "site:justremote.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Just Remote — Onboarding & Success"
-    query: "site:justremote.co (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) -engineer -developer -recruiter"
+    query: "site:justremote.co (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer -recruiter"
     enabled: true
 
   - name: "Working Nomads — Marketing & Enablement remote"
-    query: "site:workingnomads.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:workingnomads.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer"
     enabled: true
 
   - name: "Working Nomads — Onboarding & Success remote"
-    query: "site:workingnomads.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer"
+    query: "site:workingnomads.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "NoDesk — marketing + enablement + implementation"
-    query: "site:nodesk.co/remote-jobs/marketing (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) -engineer -developer"
+    query: "site:nodesk.co/remote-jobs/marketing (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer"
     enabled: true
 
   - name: "RemoteFront — marketing + enablement remote"
-    query: "site:remotefront.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:remotefront.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # Startup & Tech-Focused Boards
   - name: "Wellfound — Marketing & Enablement remote"
-    query: "site:wellfound.com/jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:wellfound.com/jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Wellfound — Onboarding & Success remote"
-    query: "site:wellfound.com/jobs (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:wellfound.com/jobs (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "YC / Work at a Startup — Marketing & Enablement remote"
-    query: "site:workatastartup.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:workatastartup.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "YC / Work at a Startup — Onboarding & Success remote"
-    query: "site:workatastartup.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:workatastartup.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "MKT1 — B2B startup marketing broad sweep"
-    query: "site:jobs.mkt1.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) -engineer -developer"
+    query: "site:jobs.mkt1.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer"
     enabled: true
 
   - name: "Startup.jobs — marketing + enablement + implementation remote"
-    query: "site:startup.jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:startup.jobs (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Hey Marketers — startup marketing broad sweep"
-    query: "site:heymarketers.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR \"customer success\") -engineer -developer"
+    query: "site:heymarketers.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR \"customer success\") -engineer -developer"
     enabled: true
 
   - name: "Midwest Startups — marketing + enablement"
-    query: "site:jobs.midweststartups.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) -engineer -developer"
+    query: "site:jobs.midweststartups.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer"
     enabled: true
 
   # Mainstream Aggregators
   - name: "Built In — Marketing & Enablement remote"
-    query: "site:builtin.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:builtin.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
     notes: "Also surfaces company list pages (Top EdTech Companies Hiring Remote, etc.)."
 
   - name: "Built In — Onboarding & Success remote"
-    query: "site:builtin.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:builtin.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "ZipRecruiter — Marketing & Enablement remote"
-    query: "site:ziprecruiter.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:ziprecruiter.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "ZipRecruiter — Onboarding & Success remote"
-    query: "site:ziprecruiter.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement) remote -engineer -developer -recruiter"
+    query: "site:ziprecruiter.com (implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR enablement OR engagement OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "FlexJobs — marketing + enablement + implementation remote"
-    query: "site:flexjobs.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:flexjobs.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "MarketingHire — marketing + enablement broad sweep"
-    query: "site:marketinghire.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR \"customer success\") remote -engineer -developer"
+    query: "site:marketinghire.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR retention OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR \"customer success\") remote -engineer -developer"
     enabled: true
 
   - name: "AMA Job Board — marketing + comms + enablement remote"
-    query: "site:jobs.ama.org (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:jobs.ama.org (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Authentic Jobs — content + marketing + enablement remote"
-    query: "site:authenticjobs.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR copywriting OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR retention OR training OR education OR engagement) remote -engineer -developer"
+    query: "site:authenticjobs.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR copywriting OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR retention OR training OR education OR engagement OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Jobspresso — marketing + enablement + implementation remote"
-    query: "site:jobspresso.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:jobspresso.co (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # Diversity & Mission-Adjacent Platforms
   - name: "The Mom Project — marketing + enablement + implementation remote"
-    query: "site:themomproject.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:themomproject.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "PowerToFly — marketing + enablement + implementation remote"
-    query: "site:powertofly.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:powertofly.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR adoption OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # Nonprofit / Cause-Driven Boards
   - name: "Idealist — marketing + comms + enablement + implementation remote"
-    query: "site:idealist.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:idealist.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "NonprofitJobs — marketing + communications + implementation remote"
-    query: "site:nonprofitjobs.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR fundraising OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:nonprofitjobs.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR fundraising OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "GreaterGoodJobs — marketing + comms remote"
-    query: "site:greatergoodjobs.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR community OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:greatergoodjobs.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR community OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "WorkForGood — marketing + comms + implementation remote"
-    query: "site:work4good.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:work4good.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "ExecSearches — nonprofit marketing + comms remote"
-    query: "site:execsearches.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:execsearches.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Tech Jobs for Good — social impact marketing + enablement + implementation"
-    query: "site:techjobsforgood.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:techjobsforgood.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # Progressive / Democracy / Civic Tech
   - name: "GAIN Power — progressive campaigns + nonprofit marketing"
-    query: "site:gainpower.org/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:gainpower.org/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Matt's List — progressive digital + marketing"
-    query: "site:mattslist.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:mattslist.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Progressive Data Jobs — data-driven organizing + marketing"
-    query: "site:progressivedatajobs.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:progressivedatajobs.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # EdTech / Education Sector
   - name: "EdSurge Jobs — marketing + enablement + implementation remote"
-    query: "site:edsurge.com/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:edsurge.com/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "EdTechJobs.io — marketing + enablement + implementation"
-    query: "site:edtechjobs.io (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:edtechjobs.io (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Himalayas — Remote K-12 / EdTech companies list"
@@ -455,166 +461,166 @@ search_queries:
 
   # Animal Welfare / Pet Industry Boards
   - name: "HumanePro — animal welfare marketing + comms + implementation"
-    query: "site:humanepro.org/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:humanepro.org/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "NACA — animal care marketing + community + implementation"
-    query: "site:nacanet.org/career-center-job-board (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"community engagement\" OR education OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:nacanet.org/career-center-job-board (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"community engagement\" OR education OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Animal People — pet + animal marketing broad sweep"
-    query: "site:animalpeoplerecruitment.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:animalpeoplerecruitment.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "The VET Recruiter — animal health marketing + sales support"
-    query: "site:thevetrecruiter.com \"Animal Health\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR sales OR enablement OR implementation OR \"customer success\" OR training OR engagement OR copywriting) remote"
+    query: "site:thevetrecruiter.com \"Animal Health\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR sales OR enablement OR implementation OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   # Mental Health / Telehealth
   - name: "Behavioral Health Jobs — telehealth marketing + implementation remote"
-    query: "site:behavioralhealthjobs.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:behavioralhealthjobs.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Rock Health — digital health marketing + enablement + implementation remote"
-    query: "site:rockhealth.com/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR retention OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:rockhealth.com/jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR retention OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # Sustainability & Climate
   - name: "Climatebase — climate tech marketing + enablement + implementation remote"
-    query: "site:climatebase.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer -recruiter"
+    query: "site:climatebase.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer -recruiter"
     enabled: true
 
   - name: "Green Jobs Board — environmental marketing + comms remote"
-    query: "site:greenjobsboard.us (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:greenjobsboard.us (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Remote Climate Jobs — remote-first climate marketing + implementation"
-    query: "site:remoteclimatejobs.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) -engineer -developer"
+    query: "site:remoteclimatejobs.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) -engineer -developer"
     enabled: true
 
   # Cannabis Job Boards
   - name: "Vangst — cannabis marketing + enablement + implementation remote"
-    query: "site:vangst.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR brand OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:vangst.com (marketing OR lifecycle OR campaign OR email OR CRM OR content OR brand OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Herb Career — cannabis marketing + enablement remote"
-    query: "site:herb.career (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR \"customer success\" OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:herb.career (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "CareersInCannabis — marketing + comms + implementation remote"
-    query: "site:careersincannabis.com (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:careersincannabis.com (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Marijuana Jobs — cannabis marketing + implementation remote"
-    query: "site:marijuanajobscannabiscareers.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:marijuanajobscannabiscareers.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "Inweed — cannabis marketing + brand + enablement remote"
-    query: "site:inweed.io (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR \"customer success\" OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:inweed.io (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   - name: "FlowerHire — cannabis corporate marketing + enablement remote"
-    query: "site:flowerhire.com (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR \"customer success\" OR training OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:flowerhire.com (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # Government & Public Sector
   - name: "USAJOBS — federal marketing + communications + implementation remote"
-    query: "site:usajobs.gov (marketing OR lifecycle OR campaign OR email OR communications OR \"public affairs\" OR \"digital communications\" OR content OR outreach OR implementation OR \"customer success\" OR training OR education OR engagement OR copywriting) remote -engineer -developer"
+    query: "site:usajobs.gov (marketing OR lifecycle OR campaign OR email OR communications OR \"public affairs\" OR \"digital communications\" OR content OR outreach OR implementation OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote -engineer -developer"
     enabled: true
 
   # Websearch Fallbacks — EdTech
   - name: "Teaching Strategies — all roles remote"
-    query: "site:teaching-strategies.pinpointhq.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:teaching-strategies.pinpointhq.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "PowerSchool — all roles remote"
-    query: "site:careers-powerschool.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:careers-powerschool.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Waterford.org — all roles remote"
-    query: "(\"waterford.org\" OR \"waterford education\" OR \"waterford reading academy\") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote jobs"
+    query: "(\"waterford.org\" OR \"waterford education\" OR \"waterford reading academy\") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   - name: "Imagine Learning — all roles remote"
-    query: "\"imagine learning\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote jobs"
+    query: "\"imagine learning\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   - name: "Achieve3000 (McGraw-Hill) — all roles remote"
-    query: "site:careers.mheducation.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:careers.mheducation.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   # Websearch Fallbacks — Animal Welfare / Pet
   - name: "Humane Society of the United States — all roles remote"
-    query: "\"humane society of the united states\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR community OR training OR education OR engagement OR copywriting) remote jobs"
+    query: "\"humane society of the united states\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR community OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   - name: "American Humane — all roles remote"
-    query: "\"american humane\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting) remote jobs"
+    query: "\"american humane\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   - name: "North Shore Animal League — all roles remote"
-    query: "site:animalleague.org/who-we-are/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting) remote"
+    query: "site:animalleague.org/who-we-are/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Chewy — all roles remote"
-    query: "site:careers.chewy.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:careers.chewy.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Rover — all roles remote"
-    query: "site:rover.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:rover.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Hill's Pet Nutrition — all roles remote"
-    query: "site:jobs.colgate.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:jobs.colgate.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Embark Veterinary — all roles remote"
-    query: "(\"embark veterinary\" OR \"embarkvet\") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote jobs"
+    query: "(\"embark veterinary\" OR \"embarkvet\") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   # Websearch Fallbacks — Nonprofit
   - name: "World Wildlife Fund — all roles remote"
-    query: "site:careers-wwfus.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting) remote"
+    query: "site:careers-wwfus.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "The Nature Conservancy — all roles remote"
-    query: "site:careers.tnc.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting) remote"
+    query: "site:careers.tnc.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Feeding America — all roles remote"
-    query: "\"feeding america\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting) remote jobs"
+    query: "\"feeding america\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   - name: "PBS — all roles remote"
-    query: "\"PBS\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR audience OR training OR engagement OR copywriting) remote jobs"
+    query: "\"PBS\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR audience OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   # Websearch Fallbacks — Mental Health
   - name: "Brightside Health — all roles remote"
-    query: "\"Brightside Health\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote jobs"
+    query: "\"Brightside Health\" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs"
     enabled: true
 
   # Websearch Fallbacks — Cannabis
   - name: "Leafly — all roles remote"
-    query: "site:leafly.com/info/jobs (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting) remote"
+    query: "site:leafly.com/info/jobs (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Wurk — all roles remote"
-    query: "site:enjoywurk.com (marketing OR lifecycle OR campaign OR email OR content OR \"customer marketing\" OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting) remote"
+    query: "site:enjoywurk.com (marketing OR lifecycle OR campaign OR email OR content OR \"customer marketing\" OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   # Websearch Fallbacks — Sales / Email Platforms
   - name: "Mailchimp / Intuit — all roles remote"
-    query: "site:jobs.intuit.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:jobs.intuit.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   # Websearch Fallbacks — Analytics / Data
   - name: "Nielsen — all roles remote"
-    query: "site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
   - name: "Pearson — all roles remote"
-    query: "site:pearson.jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting) remote"
+    query: "site:pearson.jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR \"customer success\" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote"
     enabled: true
 
 # =========================================================
@@ -650,7 +656,7 @@ tracked_companies:
 - name: Teaching Strategies
   careers_url: https://teaching-strategies.pinpointhq.com/
   scan_method: websearch
-  scan_query: 'site:teaching-strategies.pinpointhq.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:teaching-strategies.pinpointhq.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Pinpoint ATS — no provider built yet. Websearch fallback until pinpoint.mjs ships."
   enabled: false
 
@@ -718,7 +724,7 @@ tracked_companies:
 - name: PowerSchool
   careers_url: https://careers-powerschool.icims.com/jobs/intro
   scan_method: websearch
-  scan_query: 'site:careers-powerschool.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:careers-powerschool.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "iCIMS ATS — no icims provider built yet. Websearch fallback."
   enabled: false
 
@@ -731,7 +737,7 @@ tracked_companies:
 - name: Panorama Education
   careers_url: https://apply.workable.com/panorama-education/
   scan_method: websearch
-  scan_query: 'site:apply.workable.com/panorama-education/j/ (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:apply.workable.com/panorama-education/j/ (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Workable API restricted; switched to targeted websearch."
   enabled: true
 
@@ -744,14 +750,14 @@ tracked_companies:
 - name: Waterford.org
   careers_url: https://www.paycomonline.net/v4/ats/web.php/portal/331B479E8FD113A8751AEE3AC103ABFD/jobs
   scan_method: websearch
-  scan_query: 'waterford.org OR "waterford education" OR "waterford reading academy" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: 'waterford.org OR "waterford education" OR "waterford reading academy" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Paycom ATS — no public API. Websearch only."
   enabled: false
 
 - name: Imagine Learning
   careers_url: https://www.imaginelearning.com/about/careers/
   scan_method: websearch
-  scan_query: '"imagine learning" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '"imagine learning" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Jobvite ATS — no direct API. Websearch only."
   enabled: false
 
@@ -764,7 +770,7 @@ tracked_companies:
 - name: Discovery Education
   careers_url: https://www.discoveryeducation.com/careers/
   scan_method: websearch
-  scan_query: 'site:discoveryeducation.com/careers OR "discovery education" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: 'site:discoveryeducation.com/careers OR "discovery education" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Workable slug discoveryed returned 404 2026-06-04 — switched to websearch."
   enabled: false
 
@@ -781,7 +787,7 @@ tracked_companies:
 - name: Achieve3000 (McGraw-Hill)
   careers_url: https://careers.mheducation.com/jobs/
   scan_method: websearch
-  scan_query: 'site:careers.mheducation.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:careers.mheducation.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Acquired by McGraw-Hill. iCIMS ATS — no direct provider. Keyword filter essential."
   enabled: false
 
@@ -793,7 +799,7 @@ tracked_companies:
 - name: SchooLinks
   careers_url: https://www.schoolinks.com/careers
   scan_method: websearch
-  scan_query: '"schoolinks" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '"schoolinks" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Workable slug schoolinks returned 404 2026-06-04 — switched to websearch."
   enabled: false
 
@@ -816,7 +822,7 @@ tracked_companies:
 - name: Humane Society of the United States
   careers_url: https://www.humanesociety.org/careers
   scan_method: websearch
-  scan_query: '"humane society of the united states" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR community OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '"humane society of the united states" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR community OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   enabled: false
 
 - name: Best Friends Animal Society
@@ -828,14 +834,14 @@ tracked_companies:
 - name: American Humane
   careers_url: https://americanhumane.applytojob.com/apply
   scan_method: websearch
-  scan_query: '"american humane" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '"american humane" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "ApplyToJob ATS — no direct provider."
   enabled: false
 
 - name: North Shore Animal League
   careers_url: https://www.animalleague.org/who-we-are/careers/
   scan_method: websearch
-  scan_query: 'site:animalleague.org/who-we-are/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:animalleague.org/who-we-are/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   enabled: false
 
 - name: Modern Animal
@@ -851,14 +857,14 @@ tracked_companies:
 - name: Chewy
   careers_url: https://careers.chewy.com/
   scan_method: websearch
-  scan_query: 'site:careers.chewy.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:careers.chewy.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Large pet e-commerce. Custom ATS — websearch only."
   enabled: false
 
 - name: Rover
   careers_url: https://www.rover.com/careers
   scan_method: websearch
-  scan_query: 'site:rover.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:rover.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Pet care marketplace. Custom careers page — websearch only."
   enabled: false
 
@@ -877,14 +883,14 @@ tracked_companies:
 - name: Hill's Pet Nutrition
   careers_url: https://jobs.colgate.com/
   scan_method: websearch
-  scan_query: 'site:jobs.colgate.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:jobs.colgate.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Owned by Colgate-Palmolive. Oracle HCM ATS. Morgan's Callahan Creek client."
   enabled: false
 
 - name: Petco
   careers_url: https://www.petco.com/shop/en/petcostore/content/careers
   scan_method: websearch
-  scan_query: '"petco" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs -"store manager" -"groomer" -"vet tech"'
+  scan_query: '"petco" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs -"store manager" -"groomer" -"vet tech"'
   notes: "Workday wd1 tenant returned HTML not JSON 2026-06-04 — needs manual URL verification. Switched to websearch."
   enabled: false
 
@@ -902,14 +908,14 @@ tracked_companies:
 - name: Embark Veterinary
   careers_url: https://embarkvet.applytojob.com/apply
   scan_method: websearch
-  scan_query: '("embark veterinary" OR "embarkvet") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '("embark veterinary" OR "embarkvet") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "ApplyToJob ATS — no direct provider. Dog genetics + wellness."
   enabled: false
 
 - name: Fi Smart Dog Collar
   careers_url: https://www.tryfi.com
   scan_method: websearch
-  scan_query: 'site:tryfi.com OR site:jobs.lever.co/fi (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:tryfi.com OR site:jobs.lever.co/fi (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Dog tech; crossover between CX enablement and content."
   enabled: false
 
@@ -943,21 +949,21 @@ tracked_companies:
 - name: World Wildlife Fund
   careers_url: https://careers-wwfus.icims.com/
   scan_method: websearch
-  scan_query: 'site:careers-wwfus.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:careers-wwfus.icims.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "iCIMS ATS — no direct provider. Websearch only."
   enabled: false
 
 - name: The Nature Conservancy
   careers_url: https://careers.tnc.org/us/en/
   scan_method: websearch
-  scan_query: 'site:careers.tnc.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:careers.tnc.org (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Phenom-powered board, JS-heavy. Websearch only."
   enabled: false
 
 - name: Feeding America
   careers_url: https://www.feedingamerica.org/about-us/careers
   scan_method: websearch
-  scan_query: '"feeding america" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '"feeding america" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR donor OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Custom careers page — websearch only."
   enabled: false
 
@@ -987,7 +993,7 @@ tracked_companies:
 - name: PBS
   careers_url: https://vhr-pbs.wd115.myworkdayjobs.com/PBSCareers
   scan_method: websearch
-  scan_query: '"PBS" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR audience OR training OR engagement OR copywriting) remote jobs'
+  scan_query: '"PBS" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR audience OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Workday ATS (wd115 tenant). Playwright timeout known issue — JS-heavy page. Switched to websearch 2026-06-04."
   enabled: false
 
@@ -1050,7 +1056,7 @@ tracked_companies:
 - name: Brightside Health
   careers_url: https://www.brightside.com
   scan_method: websearch
-  scan_query: '(site:brightside.com OR "Brightside Health") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '(site:brightside.com OR "Brightside Health") (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Virtual mental health care. Custom site — websearch only."
   enabled: false
 
@@ -1112,7 +1118,7 @@ tracked_companies:
 - name: ADHD Coaching Network
   careers_url: https://adhdcoaching.com
   scan_method: websearch
-  scan_query: 'site:adhdcoaching.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:adhdcoaching.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "ADHD coaching network; niche/long-shot but relevant to neurodivergence-focused mission spaces."
   enabled: false
 
@@ -1123,7 +1129,7 @@ tracked_companies:
 - name: Leafly
   careers_url: https://www.leafly.com/info/jobs
   scan_method: websearch
-  scan_query: 'site:leafly.com/info/jobs (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR engagement OR copywriting) remote'
+  scan_query: 'site:leafly.com/info/jobs (marketing OR lifecycle OR campaign OR email OR content OR brand OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Morgan applied previously. Cannabis marketplace with B2B + B2C marketing needs."
   enabled: false
 
@@ -1163,14 +1169,14 @@ tracked_companies:
 - name: Wurk
   careers_url: https://enjoywurk.com
   scan_method: websearch
-  scan_query: 'site:enjoywurk.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR engagement OR copywriting) remote'
+  scan_query: 'site:enjoywurk.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "HR/HCM platform for cannabis industry. Custom site — websearch only."
   enabled: false
 
 - name: CannaSite
   careers_url: https://cannasite.com/careers/
   scan_method: websearch
-  scan_query: 'site:cannasite.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting) remote'
+  scan_query: 'site:cannasite.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR training OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Remote digital marketing agency serving cannabis brands."
   enabled: false
 
@@ -1214,7 +1220,7 @@ tracked_companies:
 - name: Mailchimp / Intuit
   careers_url: https://jobs.intuit.com
   scan_method: websearch
-  scan_query: 'site:jobs.intuit.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:jobs.intuit.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Oracle HCM ATS (jobs.intuit.com) — no direct provider. Websearch only."
   enabled: false
 
@@ -1286,7 +1292,7 @@ tracked_companies:
 - name: Doist (Todoist / Twist)
   careers_url: https://doist.com/jobs
   scan_method: websearch
-  scan_query: '"doist" OR "todoist" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '"doist" OR "todoist" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Workable slug doist returned 404 2026-06-04 — switched to websearch. Async-first culture."
   enabled: false
 
@@ -1311,7 +1317,7 @@ tracked_companies:
 - name: Basecamp / 37signals
   careers_url: https://37signals.com/jobs
   scan_method: websearch
-  scan_query: '"37signals" OR "basecamp" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote jobs'
+  scan_query: '"37signals" OR "basecamp" (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote jobs'
   notes: "Workable slug 37signals returned 404 2026-06-04 — switched to websearch. Opinionated async culture."
   enabled: false
 
@@ -1322,14 +1328,14 @@ tracked_companies:
 - name: The Mom Project
   careers_url: https://themomproject.com/careers
   scan_method: websearch
-  scan_query: 'site:themomproject.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:themomproject.com/careers (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Morgan placed through here previously. Custom careers page — websearch only."
   enabled: false
 
 - name: PowerToFly
   careers_url: https://powertofly.com/jobs/
   scan_method: websearch
-  scan_query: 'site:powertofly.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:powertofly.com (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   enabled: false
 
 # =========================================================
@@ -1445,7 +1451,7 @@ tracked_companies:
 - name: Pearson
   careers_url: https://pearson.jobs
   scan_method: websearch
-  scan_query: 'site:pearson.jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:pearson.jobs (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Oracle HCM ATS — not Workday. Websearch only."
   enabled: false
 
@@ -1458,7 +1464,7 @@ tracked_companies:
 - name: Nielsen
   careers_url: https://www.nielsen.com/careers/
   scan_method: websearch
-  scan_query: 'site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting) remote'
+  scan_query: 'site:jobs.smartrecruiters.com/TheNielsenCompany (marketing OR lifecycle OR campaign OR email OR content OR communications OR enablement OR implementation OR onboarding OR "customer success" OR training OR education OR engagement OR copywriting OR writer OR editorial OR narrative OR messaging OR storytell OR instructional OR outreach OR donor OR GTM OR readiness OR nurture OR journey OR launch OR activation OR experience OR relationship) remote'
   notes: "Media measurement. SmartRecruiters ATS — websearch via SmartRecruiters URL since no smartrecruiters.mjs provider yet."
   enabled: false
 
