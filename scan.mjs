@@ -120,17 +120,30 @@ function resolveProvider(entry, providers, { skipIds = [] } = {}) {
 }
 
 // ── Title filter ────────────────────────────────────────────────────
+// Returns { pass(title): boolean, negativeMatchCounts: Map<string, number> }
+// negativeMatchCounts tallies how many titles each negative keyword removed.
+// Only the first matching negative keyword is counted per title (same
+// semantics as the original — the title is rejected on first hit).
 
 function buildTitleFilter(titleFilter) {
   const positive = (titleFilter?.positive || []).map(k => k.toLowerCase());
   const negative = (titleFilter?.negative || []).map(k => k.toLowerCase());
+  const negativeMatchCounts = new Map(negative.map(k => [k, 0]));
 
-  return (title) => {
+  function pass(title) {
     const lower = title.toLowerCase();
     const hasPositive = positive.length === 0 || positive.some(k => lower.includes(k));
-    const hasNegative = negative.some(k => lower.includes(k));
-    return hasPositive && !hasNegative;
-  };
+    if (!hasPositive) return false;
+    for (const k of negative) {
+      if (lower.includes(k)) {
+        negativeMatchCounts.set(k, (negativeMatchCounts.get(k) || 0) + 1);
+        return false;
+      }
+    }
+    return true;
+  }
+
+  return { pass, negativeMatchCounts };
 }
 
 // ── Location filter ─────────────────────────────────────────────────
@@ -390,7 +403,7 @@ async function main() {
 
   const config = parseYaml(readFileSync(PORTALS_PATH, 'utf-8'));
   const companies = config.tracked_companies || [];
-  const titleFilter = buildTitleFilter(config.title_filter);
+  const { pass: titleFilter, negativeMatchCounts } = buildTitleFilter(config.title_filter);
   const locationFilter = buildLocationFilter(config.location_filter);
 
   // 3. Resolve a provider for each enabled company
@@ -534,6 +547,20 @@ async function main() {
   console.log(`Companies scanned:     ${targets.length}`);
   console.log(`Total jobs found:      ${totalFound}`);
   console.log(`Filtered by title:     ${totalFilteredTitle} removed`);
+
+  // Top-10 negative blockers — shows what's actually driving the title removals
+  const topNegative = [...negativeMatchCounts.entries()]
+    .filter(([, count]) => count > 0)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
+  if (topNegative.length > 0) {
+    console.log('  Top blockers:');
+    for (const [keyword, count] of topNegative) {
+      const bar = '█'.repeat(Math.min(Math.round(count / 20), 20));
+      console.log(`    ${keyword.padEnd(28)} ${String(count).padStart(4)}  ${bar}`);
+    }
+  }
+
   console.log(`Filtered by location:  ${totalFilteredLocation} removed`);
   console.log(`Duplicates:            ${totalDupes} skipped`);
   if (verify) {
