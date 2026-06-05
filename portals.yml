@@ -40,161 +40,55 @@ location_filter:
     - "Singapore"
 
 # -- Title filter --
+# PHILOSOPHY: Positive list uses broad root keywords matched as substrings.
+# "Email" catches Email Marketing, Email Specialist, Email Programs Manager, etc.
+# Negative list does the precision work — blocking what we definitely don't want.
+# Updated 2026-06-04: collapsed from 150+ phrases → 28 root keywords.
 title_filter:
   positive:
-    # Email & Lifecycle Marketing
-    - "Email Marketing"
-    - "Lifecycle Marketing"
-    - "Lifecycle Specialist"
-    - "CRM Marketing"
-    - "CRM Specialist"
-    - "Email Specialist"
-    - "Email Campaign"
-    - "Marketing Automation"
-    - "Retention Marketing"
-    - "Engagement Marketing"
-    - "Campaign Specialist"
-    - "Campaign Manager"
-    - "Campaign Operations"
-    - "Campaign Coordinator"
-    - "Email Operations"
-    - "Drip Campaign"
+    # Core disciplines
+    - "Marketing"      # catches ~40+ variants on its own
+    - "Email"          # Email Marketing, Email Specialist, Email Programs, Email Experience
+    - "Lifecycle"      # exact discipline name; lifecycle marketing, lifecycle specialist
+    - "CRM"            # CRM Marketing, CRM Specialist, CRM Coordinator, CRM Admin
+    - "Campaign"       # Campaign Manager, Campaign Specialist, Campaign Ops, Campaign Coordinator
+    - "GTM"            # GTM Enablement, GTM Coordinator, GTM Readiness, Go-to-Market
 
-    # Sales Enablement
-    - "Sales Enablement"
-    - "Revenue Enablement"
-    - "GTM Enablement"
-    - "Enablement Specialist"
-    - "Enablement Manager"
-    - "Sales Content"
-    - "Sales Readiness"
-    - "Enablement Coordinator"
-    - "Sales Support"
-    - "Sales Productivity Specialist"
+    # Content & copy
+    - "Content"        # Content Strategist, Content Writer, Content Coordinator, Content Specialist
+    - "Copywriter"     # Copywriter, Copywriting, Copy Strategist
+    - "Writer"         # Marketing Writer, Staff Writer, Editorial Writer, Proposal Writer
+    - "Editorial"      # Editorial Manager, Editorial Strategist (media + nonprofit orgs)
+    - "Narrative"      # Brand Narrative Lead, Narrative Strategist
+    - "Messaging"      # Messaging Strategist, Messaging & Positioning Specialist
+    - "Storytell"      # Storyteller, Digital Storytelling (nonprofit-specific)
+    - "Instructional"  # Instructional Designer
 
-    # Content & Copy
-    - "Content Strategist"
-    - "Content Specialist"
-    - "Content Writer"
-    - "B2B Copywriter"
-    - "Copywriter"
-    - "Marketing Content"
-    - "Brand Strategist"
-    - "Brand Content"
-    - "Copy Strategist"
-    - "Marketing Writer"
-    - "Communications Specialist"
-    - "Marketing Communications"
-    - "Marketing Communications Specialist"
+    # Communications & outreach
+    - "Communications" # Communications Specialist, Donor Comms, Member Comms, Constituent Comms
+    - "Outreach"       # Community Outreach Coordinator, Digital Outreach Specialist
+    - "Donor"          # Donor Communications, Donor Relations (nonprofit)
 
-    # Marketing Generalist / Coordinator
-    - "Marketing Specialist"
-    - "Marketing Coordinator"
-    - "Marketing Associate"
-    - "Marketing Operations"
-    - "Email Coordinator"
-    - "Content Coordinator"
-    - "Communications Coordinator"
-    - "Digital Marketing"
-    - "Growth Marketing"
-    - "Demand Generation"
-    - "Marketing Manager"
+    # Enablement & sales support
+    - "Enablement"     # Sales, GTM, Field, Revenue, Partner, Customer Success Enablement
+    - "Readiness"      # Sales Readiness, GTM Readiness Manager
+    - "Training"       # Training Specialist, Sales Trainer, Customer Trainer
 
-    # Email / Lifecycle / Retention adjacent
-    - "Nurture Marketing"
-    - "Customer Marketing"
-    - "Audience Engagement"
-    - "Revenue Marketing"
-    - "Newsletter"
-    - "Email Producer"
-    - "Subscriber"
-    - "Drip"
-    - "Automation Specialist"
-    - "Journey"
-    - "Customer Journey Specialist"
+    # Lifecycle / retention / nurture
+    - "Retention"      # Retention Marketing, Member Retention, Subscriber Retention
+    - "Nurture"        # Nurture campaigns, Nurture Specialist
+    - "Engagement"     # Audience, Customer, Member, Patient Engagement
+    - "Journey"        # Member Journey, Customer Journey, User Journey Specialist
 
-    # Sales Enablement / Enablement adjacent
-    - "Marketing Enablement"
-    - "Enablement Content"
-    - "Sales Communications"
-    - "Sales Productivity"
-    - "Revenue Communications"
-    - "Partner Enablement"
-    - "Enablement Program"
-    - "Sales Learning"
-    - "Sales Training Content"
-    - "Customer Success Enablement"
-    - "Training Specialist"
-    - "Training Coordinator"
-    - "Learning Specialist"
-    - "Learning Experience Designer"
-    - "Instructional Designer"
-    - "Messaging Strategist"
-    - "Sales Support Specialist"
-    - "Sales Trainer"
-
-    # CRM / junior ops / GTM-adjacent
-    - "CRM Coordinator"
-    - "Marketing Systems"
-    - "Marketing Technology"
-    - "MarTech"
-    - "Revenue Operations Coordinator"
-    - "Revenue Operations Specialist"
-    - "RevOps Coordinator"
-    - "Sales Operations"
-    - "GTM Operations"
-    - "GTM Coordinator"
-    - "Funnel Optimization"
-    - "Pipeline Marketing"
-    - "Marketing Platform"
-    - "ESP Specialist"
-    - "CRM Administrator"
-    - "Marketing Ops"
-    - "Marketing Automation Coordinator"
-
-    # Implementation / Onboarding / Customer Success
-    - "Implementation Specialist"
-    - "Implementation Manager"
-    - "Implementation Coordinator"
-    - "Implementation Analyst"
-    - "Onboarding Manager"
-    - "Onboarding Coordinator"
-    - "Onboarding Specialist"
-    - "Customer Onboarding"
-    - "Client Onboarding"
-    - "Client Onboarding Specialist"
-    - "Customer Success Manager"
-    - "Customer Success Specialist"
-    - "Customer Success Associate"
-    - "User Success Specialist"
-    - "Client Success"
-    - "Account Manager"
-    - "Account Coordinator"
-    - "Customer Experience"
-    - "Customer Engagement"
-    - "Client Services"
-    - "Customer Education"
-    - "Customer Trainer"
-    - "Solutions Specialist"
-    - "Customer Advocate"
-    - "Adoption Specialist"
-    - "Platform Specialist"
-    - "Customer Strategist"
-    - "Relationship Manager"
-
-    # Content / nonprofit / proposal / comms adjacent
-    - "Partnership Marketing"
-    - "Donor Communications"
-    - "Fundraising Communications"
-    - "Proposal Writer"
-    - "Proposal Coordinator"
-    - "RFP"
-    - "Sales Deck"
-    - "Pitch Content"
-    - "Community Manager"
-    - "Brand Manager"
-    - "Social Media Manager"
-    - "Audience Development"
+    # Onboarding / implementation / CX
+    - "Onboarding"     # Customer, Client, User, Product Onboarding
+    - "Implementation" # Implementation Specialist, Manager, Coordinator, Analyst
+    - "Adoption"       # Adoption Specialist, Platform Adoption
+    - "Launch"         # Launch Specialist, Customer Launch Manager (SaaS-common)
+    - "Activation"     # User Activation Specialist (PLG companies)
+    - "Success"        # Customer Success Manager, Specialist, Associate
+    - "Experience"     # Customer Experience, Member Experience, Patient Experience
+    - "Relationship"   # Relationship Manager, Client Relationship Specialist
 
   negative:
     - "Engineer"
@@ -269,7 +163,6 @@ title_filter:
     - "Machine Learning"
     - "Data Analyst"
     - "BI Analyst"
-    - "Business Analyst"
     - "Growth Hacker"
     - "Tableau"
     - "Looker"
@@ -285,10 +178,9 @@ title_filter:
     - "SEO Manager"
 
     # Senior leadership / over-senior roles
-    # Note: 'Senior' intentionally omitted — Senior IC roles are in scope.
+    # Note: 'Senior' and 'Principal' intentionally omitted — Senior/Principal IC roles are in scope.
     - "Head of "
     - "SVP"
-    - "Principal "
 
     # HR / people ops false positives
     - "Benefits "
@@ -307,6 +199,14 @@ title_filter:
     - "CRM Developer"
     - "Database Administrator"
     - "Marketo Admin"
+
+    # Functional noise (facilities, finance, legal, IT)
+    - "Facilities"
+    - "IT Support"
+    - "Legal "
+    - "Finance "
+    - "Accounting"
+    - "Procurement"
 
 seniority_boost:
   - "Senior"
