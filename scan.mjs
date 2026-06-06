@@ -132,11 +132,12 @@ function buildTitleFilter(titleFilter) {
   const positive = (titleFilter?.positive || []).map(k => k.toLowerCase());
   const negative = (titleFilter?.negative || []).map(k => k.toLowerCase());
   const negativeMatchCounts = new Map(negative.map(k => [k, 0]));
+  let positiveRejectCount = 0;
 
   function pass(title) {
     const lower = title.toLowerCase();
     const hasPositive = positive.length === 0 || positive.some(k => lower.includes(k));
-    if (!hasPositive) return false;
+    if (!hasPositive) { positiveRejectCount++; return false; }
     for (const k of negative) {
       if (lower.includes(k)) {
         negativeMatchCounts.set(k, (negativeMatchCounts.get(k) || 0) + 1);
@@ -146,7 +147,7 @@ function buildTitleFilter(titleFilter) {
     return true;
   }
 
-  return { pass, negativeMatchCounts };
+  return { pass, negativeMatchCounts, getStats: () => ({ positiveRejectCount }) };
 }
 
 // ── Location filter ─────────────────────────────────────────────────
@@ -389,6 +390,10 @@ async function main() {
   const verify = !noVerify;
   const companyFlag = args.indexOf('--company');
   const filterCompany = companyFlag !== -1 ? args[companyFlag + 1]?.toLowerCase() : null;
+  // Diagnostic flags — never write results when these are active
+  const noTitleFilter = args.includes('--no-title-filter');
+  const noLocationFilter = args.includes('--no-location-filter');
+  const debug = args.includes('--debug');
 
   // 1. Load providers
   const providers = await loadProviders(PROVIDERS_DIR);
@@ -406,8 +411,13 @@ async function main() {
   const config = parseYaml(readFileSync(PORTALS_PATH, 'utf-8'));
   const companies = config.tracked_companies || [];
   const searchQueries = config.search_queries || [];
-  const { pass: titleFilter, negativeMatchCounts } = buildTitleFilter(config.title_filter);
-  const locationFilter = buildLocationFilter(config.location_filter);
+  const { pass: titlePass, negativeMatchCounts, getStats: getTitleStats } = buildTitleFilter(config.title_filter);
+  const locationPass = buildLocationFilter(config.location_filter);
+  // Diagnostic bypass
+  const titleFilter = noTitleFilter ? () => true : titlePass;
+  const locationFilter = noLocationFilter ? () => true : locationPass;
+  if (noTitleFilter) console.log('⚠️  Title filter DISABLED (--no-title-filter). All titles will pass.');
+  if (noLocationFilter) console.log('⚠️  Location filter DISABLED (--no-location-filter). All locations will pass.');
 
   // 3. Resolve a provider for each enabled target (Tiers 0-2)
   const targets = [];
@@ -500,12 +510,14 @@ async function main() {
   const newOffers = [];
   const errors = [...resolveErrors];
   const sourceCounts = new Map();
+  const funnelLog = []; // per-company funnel for --debug
 
   const tasks = targets.map(company => async () => {
     let provider = company._provider;
     const ctx = makeHttpCtx();
     let sourceName = provider.id === 'local-parser' ? 'local-parser' : `${provider.id}-api`;
     const tag = company.source_tag || sourceName;
+    const funnel = { name: company.name || company.scan_query || '?', raw: 0, title: 0, location: 0, dupes: 0, final: 0 };
     try {
       let jobs;
       try {
@@ -525,35 +537,42 @@ async function main() {
       if (!Array.isArray(jobs)) {
         throw new Error(`${provider.id}: fetch() did not return an array`);
       }
+      funnel.raw = jobs.length;
       totalFound += jobs.length;
       sourceCounts.set(tag, (sourceCounts.get(tag) || 0) + jobs.length);
 
       for (const job of jobs) {
         if (!titleFilter(job.title)) {
           totalFilteredTitle++;
+          funnel.title++;
           continue;
         }
         if (!locationFilter(job.location)) {
           totalFilteredLocation++;
+          funnel.location++;
           continue;
         }
         if (seenUrls.has(job.url)) {
           totalDupes++;
+          funnel.dupes++;
           continue;
         }
         const key = `${job.company.toLowerCase()}::${job.title.toLowerCase()}`;
         if (seenCompanyRoles.has(key)) {
           totalDupes++;
+          funnel.dupes++;
           continue;
         }
         // Mark as seen to avoid intra-scan dupes
         seenUrls.add(job.url);
         seenCompanyRoles.add(key);
+        funnel.final++;
         newOffers.push({ ...job, source: sourceName });
       }
     } catch (err) {
       errors.push({ company: company.name, error: err.message });
     }
+    funnelLog.push(funnel);
   });
 
   await parallelFetch(tasks, CONCURRENCY);
@@ -603,22 +622,36 @@ async function main() {
   console.log(`${'━'.repeat(45)}`);
   console.log(`Companies scanned:     ${targets.length}`);
   console.log(`Total jobs found:      ${totalFound}`);
-  console.log(`Filtered by title:     ${totalFilteredTitle} removed`);
+  const { positiveRejectCount } = getTitleStats();
+  const negativeRejectCount = totalFilteredTitle - positiveRejectCount;
+  if (noTitleFilter) {
+    console.log(`Filtered by title:     DISABLED`);
+  } else {
+    console.log(`Filtered by title:     ${totalFilteredTitle} removed`);
+    console.log(`  ↳ no positive match: ${positiveRejectCount} (title lacked target keywords)`);
+    console.log(`  ↳ negative hit:      ${negativeRejectCount} (title contained excluded term)`);
+  }
 
   // Top-10 negative blockers — shows what's actually driving the title removals
-  const topNegative = [...negativeMatchCounts.entries()]
-    .filter(([, count]) => count > 0)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10);
-  if (topNegative.length > 0) {
-    console.log('  Top blockers:');
-    for (const [keyword, count] of topNegative) {
-      const bar = '█'.repeat(Math.min(Math.round(count / 20), 20));
-      console.log(`    ${keyword.padEnd(28)} ${String(count).padStart(4)}  ${bar}`);
+  if (!noTitleFilter) {
+    const topNegative = [...negativeMatchCounts.entries()]
+      .filter(([, count]) => count > 0)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10);
+    if (topNegative.length > 0) {
+      console.log('  Top negative blockers:');
+      for (const [keyword, count] of topNegative) {
+        const bar = '█'.repeat(Math.min(Math.round(count / 20), 20));
+        console.log(`    ${keyword.padEnd(28)} ${String(count).padStart(4)}  ${bar}`);
+      }
     }
   }
 
-  console.log(`Filtered by location:  ${totalFilteredLocation} removed`);
+  if (noLocationFilter) {
+    console.log(`Filtered by location:  DISABLED`);
+  } else {
+    console.log(`Filtered by location:  ${totalFilteredLocation} removed`);
+  }
   console.log(`Duplicates:            ${totalDupes} skipped`);
   if (verify) {
     console.log(`Expired (verified):    ${expiredOffers.length} dropped`);
@@ -647,6 +680,25 @@ async function main() {
     }
   }
 
+  if (debug) {
+    console.log(`\n${'━'.repeat(70)}`);
+    console.log('Funnel Debug — per company (raw > 0, sorted by raw desc)');
+    console.log(`${'━'.repeat(70)}`);
+    const col = (s, w) => String(s).slice(0, w).padEnd(w);
+    const colR = (s, w) => String(s).slice(0, w).padStart(w);
+    console.log(col('Company', 35) + colR('Raw', 6) + colR('Title', 7) + colR('Loc', 5) + colR('Dup', 5) + colR('New', 5));
+    console.log('─'.repeat(63));
+    const sorted = funnelLog.filter(f => f.raw > 0).sort((a, b) => b.raw - a.raw);
+    for (const f of sorted) {
+      const flag = f.final > 0 ? ' ✓' : '';
+      console.log(col(f.name, 35) + colR(f.raw, 6) + colR(f.title, 7) + colR(f.location, 5) + colR(f.dupes, 5) + colR(f.final, 5) + flag);
+    }
+    const zeroRaw = funnelLog.filter(f => f.raw === 0);
+    if (zeroRaw.length > 0) {
+      console.log(`\n  ${zeroRaw.length} companies returned 0 raw jobs: ${zeroRaw.map(f => f.name).join(', ')}`);
+    }
+  }
+
   if (errors.length > 0) {
     console.log(`\nErrors (${errors.length}):`);
     for (const e of errors) {
@@ -666,7 +718,6 @@ async function main() {
     }
   }
 
-  console.log(`\n→ Run /career-ops pipeline to evaluate new offers.`);
   console.log(`\n→ Run /career-ops pipeline to evaluate new offers.`);
   console.log('→ Share results and get help: https://discord.gg/8pRpHETxa4');
 }
