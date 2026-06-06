@@ -30,10 +30,27 @@ const APPLY_PATTERNS = [
   /\bsolicitar\b/i,
   /\bbewerben\b/i,
   /\bpostuler\b/i,
+  /apply (now|here|today)/i,
   /submit application/i,
   /easy apply/i,
   /start application/i,
   /ich bewerbe mich/i,
+  /send (your )?resume/i,
+  /apply for (this )?job/i,
+];
+
+const JD_SECTION_PATTERNS = [
+  /job description/i,
+  /responsibilities/i,
+  /requirements/i,
+  /qualifications/i,
+  /what you.ll do/i,
+  /about the role/i,
+  /what we.re looking for/i,
+  /benefits/i,
+  /compensation/i,
+  /salary/i,
+  /equal opportunity employer/i,
 ];
 
 const MIN_CONTENT_CHARS = 300;
@@ -46,6 +63,15 @@ function hasApplyControl(controls = []) {
   return controls.some((control) => APPLY_PATTERNS.some((pattern) => pattern.test(control)));
 }
 
+/**
+ * Classify the liveness of a job posting based on HTTP status, URL, body text, and visible controls.
+ * 
+ * Results:
+ * - active: Strong evidence the job is open (apply button found)
+ * - likely_active: JD sections found, but no explicit apply button
+ * - uncertain: Content is present but no strong signals either way
+ * - expired: Strong evidence the job is closed (404, error redirect, hard patterns)
+ */
 export function classifyLiveness({ status = 0, finalUrl = '', bodyText = '', applyControls = [] } = {}) {
   if (status === 404 || status === 410) {
     return { result: 'expired', code: 'http_gone', reason: `HTTP ${status}` };
@@ -70,9 +96,14 @@ export function classifyLiveness({ status = 0, finalUrl = '', bodyText = '', app
     return { result: 'expired', code: 'listing_page', reason: `pattern matched: ${listingPage.source}` };
   }
 
-  if (bodyText.trim().length < MIN_CONTENT_CHARS) {
-    return { result: 'expired', code: 'insufficient_content', reason: 'insufficient content — likely nav/footer only' };
+  const hasJdSection = firstMatch(JD_SECTION_PATTERNS, bodyText);
+  if (hasJdSection) {
+    return { result: 'likely_active', code: 'jd_sections_found', reason: `JD keywords found: ${hasJdSection.source}` };
   }
 
-  return { result: 'uncertain', code: 'no_apply_control', reason: 'content present but no visible apply control found' };
+  if (bodyText.trim().length < MIN_CONTENT_CHARS) {
+    return { result: 'uncertain', code: 'insufficient_content', reason: 'insufficient content — likely nav/footer only' };
+  }
+
+  return { result: 'uncertain', code: 'no_apply_control', reason: 'content present but no strong liveness signals found' };
 }

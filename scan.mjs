@@ -355,12 +355,11 @@ async function verifyOffers(offers) {
       } else if (result === 'uncertain' && GUARD_CODES.has(code)) {
         invalid.push({ ...offer, code, reason });
         console.log(`  ⛔ invalid   ${offer.company} | ${offer.title} (${reason})`);
-      } else if (result === 'uncertain' && code === 'no_apply_control') {
-        dropped.push({ ...offer, reason });
-        console.log(`  ⚠️ no-apply  ${offer.company} | ${offer.title} (${reason})`);
       } else {
         verified.push(offer);
-        const icon = result === 'active' ? '✅' : '⚠️';
+        let icon = '✅';
+        if (result === 'likely_active') icon = '✨';
+        else if (result === 'uncertain') icon = '⚠️';
         console.log(`  ${icon} ${result.padEnd(9)} ${offer.company} | ${offer.title}`);
       }
     }
@@ -445,11 +444,13 @@ async function main() {
   let totalDupes = 0;
   const newOffers = [];
   const errors = [...resolveErrors];
+  const sourceCounts = new Map();
 
   const tasks = targets.map(company => async () => {
     let provider = company._provider;
     const ctx = makeHttpCtx();
     let sourceName = provider.id === 'local-parser' ? 'local-parser' : `${provider.id}-api`;
+    const tag = company.source_tag || sourceName;
     try {
       let jobs;
       try {
@@ -470,6 +471,7 @@ async function main() {
         throw new Error(`${provider.id}: fetch() did not return an array`);
       }
       totalFound += jobs.length;
+      sourceCounts.set(tag, (sourceCounts.get(tag) || 0) + jobs.length);
 
       for (const job of jobs) {
         if (!titleFilter(job.title)) {
@@ -565,10 +567,30 @@ async function main() {
   console.log(`Duplicates:            ${totalDupes} skipped`);
   if (verify) {
     console.log(`Expired (verified):    ${expiredOffers.length} dropped`);
-    console.log(`No apply control:      ${droppedOffers.length} dropped`);
     console.log(`Invalid (guarded):     ${invalidOffers.length} dropped`);
   }
   console.log(`New offers added:      ${verifiedOffers.length}`);
+
+  // Provider Health Report
+  if (config.reporting?.track_source_counts && sourceCounts.size > 0) {
+    console.log(`\n${'━'.repeat(45)}`);
+    console.log('Provider Health Report');
+    console.log(`${'━'.repeat(45)}`);
+    const sortedSources = [...sourceCounts.entries()].sort((a, b) => b[1] - a[1]);
+    for (const [tag, count] of sortedSources) {
+      console.log(`  ${tag.padEnd(28)} ${String(count).padStart(4)} jobs found`);
+    }
+
+    // Alerts
+    const alerts = config.reporting?.alert_on_zero_sources || [];
+    const triggered = alerts.filter(tag => (sourceCounts.get(tag) || 0) === 0);
+    if (triggered.length > 0) {
+      console.log(`\n🚨  CRITICAL: ZERO RESULTS FROM EXPECTED SOURCES:`);
+      for (const tag of triggered) {
+        console.log(`    - ${tag} (check if API is blocked or query is too narrow)`);
+      }
+    }
+  }
 
   if (errors.length > 0) {
     console.log(`\nErrors (${errors.length}):`);

@@ -48,8 +48,8 @@ const args = process.argv.slice(2);
 const summaryMode = args.includes('--summary');
 const minThresholdIdx = args.indexOf('--min-threshold');
 const MIN_THRESHOLD = minThresholdIdx !== -1 && args[minThresholdIdx + 1] !== undefined
-  ? (Number.isNaN(parseInt(args[minThresholdIdx + 1])) ? 5 : parseInt(args[minThresholdIdx + 1]))
-  : 5;
+  ? (Number.isNaN(parseInt(args[minThresholdIdx + 1])) ? 20 : parseInt(args[minThresholdIdx + 1]))
+  : 20;
 
 // --- Status normalization (English-only aliases) ---
 const ALIASES = {

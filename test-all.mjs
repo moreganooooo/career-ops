@@ -133,6 +133,26 @@ try {
   } else {
     fail(`Closed mycareersfuture posting misclassified as ${closedMycareersfuture.result}`);
   }
+
+  const likelyActivePage = classifyLiveness({
+    bodyText: 'Job Description\nResponsibilities: building great things.\nQualifications: experience.',
+    applyControls: [],
+  });
+  if (likelyActivePage.result === 'likely_active') {
+    pass('JD sections found without apply button are likely_active');
+  } else {
+    fail(`Likely active page misclassified as ${likelyActivePage.result}`);
+  }
+
+  const shortUncertainPage = classifyLiveness({
+    bodyText: 'Short content.',
+    applyControls: [],
+  });
+  if (shortUncertainPage.result === 'uncertain') {
+    pass('Short content without expired signals is uncertain (not expired)');
+  } else {
+    fail(`Short content misclassified as ${shortUncertainPage.result}`);
+  }
 } catch (e) {
   fail(`Liveness classification tests crashed: ${e.message}`);
 }

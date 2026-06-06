@@ -358,13 +358,19 @@ Use this before submitting or publishing any writing.
 - Is there a moment of insight, surprise, or calm confidence?
 - Does the closing leave a sense of clarity or forward movement?
 
-### Anti-Cringe Scan
+## Evidence Source Integration
 
-- Have we avoided filler, buzzwords, and corporate fluff?
-- Are there any phrases that feel templated, robotic, or inflated?
-- Could Morgan read this to someone she respects and feel proud, not squirmy?
+Use the full breadth of Morgan's archive to build credible, proof-heavy narratives. Do not rely on the CV alone.
+
+- **Treering sequences & campaigns:** 100+ assets, high-reply metrics (74% open, etc.). Use as proof for Email/Lifecycle, Content, and Copywriting roles.
+- **Application answers & Case Studies:** Reference `article-digest.md` and `data/verified-claims.csv` for specific STAR+R stories and deep-dive proof points.
+- **LinkedIn examples:** Use as proof for Brand Voice, Social Media, and Community roles.
+- **Process docs & Training decks:** Reference the 8-step SDR process map and workshop series as proof for Enablement, Onboarding, Training, and Operations roles.
+- **Salesforce/CRM Audit:** Use the $3M+ pipeline recovery and custom dashboard designs as proof for MarOps and RevOps-adjacent roles.
 
 ## Final Standard
+
+### Anti-Cringe Scan
 
 Morgan's writing should feel like strategic empathy with backbone.
 
