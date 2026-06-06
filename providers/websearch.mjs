@@ -231,14 +231,66 @@ export default {
 
     return results
       .filter(r => r.url && r.title && isJobUrl(r.url) && isDirectJobTitle(r.title))
-      .map(r => ({
-        title: cleanTitle(r.title, entry.name),
-        url: r.url,
-        company: entry.name,
-        location: extractLocation(r.description || r.extra_snippets?.[0] || ''),
-      }));
+      .map(r => {
+        const urlCompany = extractCompanyFromUrl(r.url);
+        const recognizedProvider = recognizeProvider(r.url);
+
+        // For sweeps, prefer the URL-extracted company name.
+        // For tracked companies, use entry.name as the source of truth.
+        const companyName = (/** @type {any} */(entry)._isSweep && urlCompany) ? urlCompany : entry.name;
+        
+        return {
+          title: cleanTitle(r.title, companyName),
+          url: r.url,
+          company: companyName,
+          location: extractLocation(r.description || r.extra_snippets?.[0] || ''),
+          _promotedPortal: recognizedProvider ? { provider: recognizedProvider, url: r.url } : null
+        };
+      });
   },
 };
+
+/**
+ * @param {string} rawUrl
+ * @returns {string|null}
+ */
+function extractCompanyFromUrl(rawUrl) {
+  try {
+    const url = new URL(rawUrl);
+    const host = url.hostname.replace(/^www\./, '');
+    const path = url.pathname.split('/').filter(Boolean);
+
+    // Greenhouse: boards.greenhouse.io/company or job-boards.greenhouse.io/company
+    if (host.includes('greenhouse.io') && path.length >= 1) {
+      return capitalize(path[0]);
+    }
+    // Lever: jobs.lever.co/company
+    if (host === 'jobs.lever.co' && path.length >= 1) {
+      return capitalize(path[0]);
+    }
+    // Ashby: jobs.ashbyhq.com/company
+    if (host === 'jobs.ashbyhq.com' && path.length >= 1) {
+      return capitalize(path[0]);
+    }
+    // Workable: apply.workable.com/company
+    if (host === 'apply.workable.com' && path.length >= 1) {
+      return capitalize(path[0]);
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * @param {string} str
+ * @returns {string}
+ */
+function capitalize(str) {
+  if (!str) return str;
+  return str.split(/[-_]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
 
 /**
  * @param {string} raw
@@ -246,9 +298,12 @@ export default {
  * @returns {string}
  */
 function cleanTitle(raw, companyName) {
-  return raw
-    .replace(new RegExp(`\\s*[-|]\\s*${escapeRegex(companyName)}.*$`, 'i'), '')
-    .replace(/\s*[-|]\s*(Jobs|Careers|Job Board|Greenhouse|Lever|Ashby|LinkedIn|Indeed|Glassdoor).*$/i, '')
+  let cleaned = raw;
+  if (companyName) {
+    cleaned = cleaned.replace(new RegExp(`\\s*[-|]\\s*${escapeRegex(companyName)}.*$`, 'i'), '');
+  }
+  return cleaned
+    .replace(/\s*[-|]\s*(Jobs|Careers|Job Board|Greenhouse|Lever|Ashby|LinkedIn|Indeed|Glassdoor|ZipRecruiter|Workable).*$/i, '')
     .trim();
 }
 

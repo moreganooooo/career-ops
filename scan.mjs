@@ -36,8 +36,11 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 import { makeHttpCtx } from './providers/_http.mjs';
+import { recognizeProvider } from './providers/_recognition.mjs';
+import { guessPortal } from './providers/_guessing.mjs';
 
 const parseYaml = yaml.load;
+const stringifyYaml = yaml.dump;
 
 // ── Config ──────────────────────────────────────────────────────────
 
@@ -402,14 +405,23 @@ async function main() {
 
   const config = parseYaml(readFileSync(PORTALS_PATH, 'utf-8'));
   const companies = config.tracked_companies || [];
+  const searchQueries = config.search_queries || [];
   const { pass: titleFilter, negativeMatchCounts } = buildTitleFilter(config.title_filter);
   const locationFilter = buildLocationFilter(config.location_filter);
 
-  // 3. Resolve a provider for each enabled company
+  // 3. Resolve a provider for each enabled target (Tiers 0-2)
   const targets = [];
   let skippedCount = 0;
   const skippedNames = [];
   const resolveErrors = [];
+  const promotedCompanies = [];
+
+  console.log('Resolving providers and discovering portals (Tiers 0-2)...');
+
+  // Resolve targets in parallel to keep things moving
+  const resolutionTasks = [];
+
+  // 3a. Tracked companies
   for (const company of companies) {
     if (!company || typeof company !== 'object') continue;
     if (company.enabled === false) continue;
@@ -418,14 +430,57 @@ async function main() {
       continue;
     }
     if (filterCompany && !company.name.toLowerCase().includes(filterCompany)) continue;
-    const resolved = resolveProvider(company, providers);
-    if (!resolved) { skippedCount++; skippedNames.push(company.name); continue; }
-    if (resolved.error) { resolveErrors.push({ company: company.name, error: resolved.error }); continue; }
-    targets.push({ ...company, _provider: resolved.provider });
+
+    resolutionTasks.push(async () => {
+      const resolved = resolveProvider(company, providers);
+      
+      // Tier 1: If it's a websearch company, try to guess the portal first
+      if (resolved?.provider?.id === 'websearch' && !filterCompany) {
+        const guess = await guessPortal(company.name, company.domain);
+        if (guess) {
+          const p = providers.get(guess.provider);
+          if (p) {
+            console.log(`  ✨ Promoted: ${company.name} (discovered ${guess.provider} via guessing)`);
+            promotedCompanies.push({ name: company.name, provider: guess.provider, careers_url: guess.url });
+            return { ...company, _provider: p, careers_url: guess.url, api: guess.url };
+          }
+        }
+      }
+
+      if (!resolved) { skippedCount++; skippedNames.push(company.name); return null; }
+      if (resolved.error) { resolveErrors.push({ company: company.name, error: resolved.error }); return null; }
+      return { ...company, _provider: resolved.provider };
+    });
   }
 
-  const localParserCount = targets.filter(t => t._provider.id === 'local-parser').length;
-  console.log(`Scanning ${targets.length} companies via providers (${localParserCount} local parser; ${skippedCount} skipped — no provider matched)`);
+  // 3b. Search queries (broad sweeps)
+  for (const q of searchQueries) {
+    if (!q || typeof q !== 'object') continue;
+    if (q.enabled === false) continue;
+    if (filterCompany) continue; 
+    
+    resolutionTasks.push(async () => {
+      const p = providers.get(q.provider || 'websearch');
+      if (!p) {
+        resolveErrors.push({ company: q.name, error: `unknown provider: ${q.provider || 'websearch'}` });
+        return null;
+      }
+      return {
+        ...q,
+        scan_query: q.query,
+        _provider: p,
+        _isSweep: true
+      };
+    });
+  }
+
+  const resolvedTargets = await parallelFetch(resolutionTasks, 10);
+  for (const t of resolvedTargets) {
+    if (t) targets.push(t);
+  }
+
+  const localParserCount = targets.filter(t => t._provider && t._provider.id === 'local-parser').length;
+  console.log(`Scanning ${targets.length} targets via providers (${localParserCount} local parser; ${skippedCount} skipped — no provider matched)`);
   if (skippedNames.length > 0) {
     console.log(`Skipped companies: ${skippedNames.join(', ')}`);
   }
@@ -612,7 +667,45 @@ async function main() {
   }
 
   console.log(`\n→ Run /career-ops pipeline to evaluate new offers.`);
+  console.log(`\n→ Run /career-ops pipeline to evaluate new offers.`);
   console.log('→ Share results and get help: https://discord.gg/8pRpHETxa4');
+}
+
+function updatePortalsWithPromotions(promotions) {
+  try {
+    const raw = readFileSync(PORTALS_PATH, 'utf-8');
+    const config = parseYaml(raw);
+    const companies = config.tracked_companies || [];
+
+    for (const promo of promotions) {
+      const idx = companies.findIndex(c => c.name === promo.name);
+      if (idx !== -1) {
+        // Upgrade existing entry
+        companies[idx].provider = promo.provider;
+        companies[idx].careers_url = promo.careers_url;
+        if (promo.provider === 'greenhouse' || promo.provider === 'lever' || promo.provider === 'ashby') {
+          companies[idx].api = promo.careers_url; // simple API mapping for standard ATS
+        }
+        delete companies[idx].scan_method;
+        delete companies[idx].scan_query;
+        console.log(`    - Upgraded ${promo.name} to ${promo.provider}`);
+      } else {
+        // Add new company discovered via sweep
+        companies.push({
+          name: promo.name,
+          provider: promo.provider,
+          careers_url: promo.careers_url,
+          enabled: true
+        });
+        console.log(`    - Added new company ${promo.name} (${promo.provider})`);
+      }
+    }
+
+    config.tracked_companies = companies;
+    writeFileSync(PORTALS_PATH, stringifyYaml(config, { indent: 2, lineWidth: -1 }), 'utf-8');
+  } catch (err) {
+    console.error(`⚠️ Failed to update portals.yml: ${err.message}`);
+  }
 }
 
 // Only run main() when invoked directly (`node scan.mjs`), not when imported by tests.
