@@ -12,7 +12,7 @@ export function splitItems(xml) {
 
 export function extractTag(item, tag) {
   if (!item) return '';
-  const re = new RegExp(`<${tag}[^>]*>([\s\S]*?)<\\/${tag}>`, 'i');
+  const re = new RegExp('<' + tag + '[^>]*>([\\s\\S]*?)<\\/' + tag + '>', 'i');
   const m = item.match(re);
   if (!m) return '';
   let s = m[1].trim();
