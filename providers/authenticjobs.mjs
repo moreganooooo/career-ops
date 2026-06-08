@@ -1,8 +1,14 @@
 // @ts-check
 /** @typedef {import('./_types.js').Provider} Provider */
+import { splitItems, extractTag } from './_rss.mjs';
 
-const AUTHENTICJOBS_API_URL = 'https://authenticjobs.com/api/';
-const AUTHENTICJOBS_HEADERS = { Accept: 'application/json' };
+const AUTHENTICJOBS_RSS_URL = 'https://authenticjobs.com/?feed=job_feed';
+
+function matchesSearchTerm(title, description, term) {
+  if (!term) return true;
+  const needle = term.toLowerCase();
+  return `${title} ${description || ''}`.toLowerCase().includes(needle);
+}
 
 /** @type {Provider} */
 export default {
@@ -11,28 +17,22 @@ export default {
     return null;
   },
   async fetch(entry, ctx) {
-    const apiKey = process.env.AUTHENTICJOBS_API_KEY;
-    if (!apiKey) {
-      throw new Error('authenticjobs: missing AUTHENTICJOBS_API_KEY environment variable');
-    }
-    const params = new URLSearchParams({
-      format: 'json',
-      method: 'aj.jobs.search',
-      api_key: apiKey,
-      sort: 'date-posted-desc',
-    });
-    if (entry.search_term) params.set('keyword', entry.search_term);
-    const url = `${AUTHENTICJOBS_API_URL}?${params.toString()}`;
-    const json = await ctx.fetchJson(url, { headers: AUTHENTICJOBS_HEADERS });
-    const jobs = Array.isArray(json?.listings?.listing) ? json.listings.listing : [];
-    return jobs
-      .filter((j) => j.id && j.title)
+    const xml = await ctx.fetchText(AUTHENTICJOBS_RSS_URL);
+    return splitItems(xml)
+      .map((item) => ({
+        title: extractTag(item, 'title'),
+        link: extractTag(item, 'link'),
+        description: extractTag(item, 'description'),
+        pubDate: extractTag(item, 'pubDate'),
+      }))
+      .filter((j) => j.link && j.title)
+      .filter((j) => matchesSearchTerm(j.title, j.description, entry.search_term))
       .map((j) => ({
-        title: j.title || '',
-        url: j.company?.url ? j.company.url : `https://authenticjobs.com/job/${j.id}`,
-        company: j.company?.name || entry.name,
-        location: j.location?.name || '',
-        posted_at: j.posted_at || j.date || '',
+        title: j.title,
+        url: /** @type {string} */ (j.link),
+        company: entry.name, // Authentic Jobs RSS titles/links don't expose a company field
+        location: '',
+        posted_at: j.pubDate || '',
       }));
   },
 };
