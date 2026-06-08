@@ -2,7 +2,7 @@
 /** @typedef {import('./_types.js').Provider} Provider */
 import { splitItems, extractTag } from './_rss.mjs';
 
-const JOBSPRESSO_RSS_URL = 'https://jobspresso.co/feed/';
+const JOBSPRESSO_RSS_URL = 'https://jobspresso.co/jobs/feed/';
 const JOBSPRESSO_HEADERS = { Accept: 'application/rss+xml, application/xml, text/xml' };
 
 function matchesSearchTerm(title, description, category, term) {
