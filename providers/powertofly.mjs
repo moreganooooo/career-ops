@@ -1,24 +1,37 @@
 // @ts-check
 /** @typedef {import('./_types.js').Provider} Provider */
-import { splitItems, extractTag } from './_rss.mjs';
 
-const FEEDS = ['https://powertofly.com/jobs/rss','https://powertofly.com/jobs'];
+// NOTE: this endpoint's URL ends in `/rss` but returns JSON, not XML —
+// confirmed against ever-jobs's PowertoflyApiResponse type ({ items, status }).
+const POWERTOFLY_API_URL = 'https://powertofly.com/jobs/rss';
+const POWERTOFLY_HEADERS = { Accept: 'application/json' };
 
+function matchesSearchTerm(item, term) {
+  if (!term) return true;
+  const needle = term.toLowerCase();
+  const categories = Array.isArray(item.categories) ? item.categories.join(' ') : '';
+  const haystack = `${item.title || ''} ${categories}`.toLowerCase();
+  return haystack.includes(needle);
+}
+
+/** @type {Provider} */
 export default {
   id: 'powertofly',
-  detect() { return null; },
+  detect() {
+    return null;
+  },
   async fetch(entry, ctx) {
-    for (const u of FEEDS) {
-      try {
-        const text = await ctx.fetchText(u).catch(()=>null);
-        if (!text) continue;
-        if (text.trim().startsWith('<')) {
-          const items = splitItems(text);
-          const jobs = items.map(it=>({ title: extractTag(it,'title'), link: extractTag(it,'link'), description: extractTag(it,'description'), pubDate: extractTag(it,'pubDate') })).filter(j=>j.title && j.link);
-          return jobs.filter(j=>{ if(!entry.search_term) return true; const n=entry.search_term.toLowerCase(); return (j.title||'').toLowerCase().includes(n) || (j.description||'').toLowerCase().includes(n); }).map(j=>({ title:j.title, url:j.link, company:entry.name, location:'', posted_at:j.pubDate||'' }));
-        }
-      } catch(e){ continue; }
-    }
-    return [];
-  }
+    const json = await ctx.fetchJson(POWERTOFLY_API_URL, { headers: POWERTOFLY_HEADERS });
+    const items = Array.isArray(json?.items) ? json.items : [];
+    return items
+      .filter((item) => item.link && item.title)
+      .filter((item) => matchesSearchTerm(item, entry.search_term))
+      .map((item) => ({
+        title: item.title || '',
+        url: item.link,
+        company: entry.name, // PowerToFly items don't expose a company field
+        location: item.job_location || '',
+        posted_at: item.published_on || '',
+      }));
+  },
 };

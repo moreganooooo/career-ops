@@ -1,21 +1,34 @@
 // @ts-check
 /** @typedef {import('./_types.js').Provider} Provider */
-import { splitItems, extractTag } from './_rss.mjs';
 
-const FEEDS = ['https://4dayweek.io/jobs.rss','https://4dayweek.io/feed/'];
+const FOURDAYWEEK_API_URL = 'https://4dayweek.io/api/jobs';
+const FOURDAYWEEK_HEADERS = { Accept: 'application/json' };
 
+function matchesSearchTerm(job, term) {
+  if (!term) return true;
+  const needle = term.toLowerCase();
+  const haystack = `${job.title || ''} ${job.category || ''} ${(job.tags || []).join(' ')}`.toLowerCase();
+  return haystack.includes(needle);
+}
+
+/** @type {Provider} */
 export default {
   id: 'fourdayweek',
-  detect() { return null; },
+  detect() {
+    return null;
+  },
   async fetch(entry, ctx) {
-    for (const u of FEEDS) {
-      try {
-        const xml = await ctx.fetchText(u).catch(()=>null);
-        if (!xml) continue;
-        const items = splitItems(xml);
-        return items.map(it=>({ title: extractTag(it,'title'), link: extractTag(it,'link'), description: extractTag(it,'description'), pubDate: extractTag(it,'pubDate') })).filter(j=>j.title && j.link).filter(j=>{ if(!entry.search_term) return true; const n=entry.search_term.toLowerCase(); return (j.title||'').toLowerCase().includes(n) || (j.description||'').toLowerCase().includes(n); }).map(j=>({ title:j.title, url:j.link, company:entry.name, location:'', posted_at:j.pubDate||'' }));
-      } catch(e){ continue; }
-    }
-    return [];
-  }
+    const json = await ctx.fetchJson(FOURDAYWEEK_API_URL, { headers: FOURDAYWEEK_HEADERS });
+    const jobs = Array.isArray(json) ? json : Array.isArray(json?.jobs) ? json.jobs : [];
+    return jobs
+      .filter((j) => j.url && j.title)
+      .filter((j) => matchesSearchTerm(j, entry.search_term))
+      .map((j) => ({
+        title: j.title || '',
+        url: j.url,
+        company: j.company || entry.name,
+        location: j.location || '',
+        posted_at: j.published_at || '',
+      }));
+  },
 };

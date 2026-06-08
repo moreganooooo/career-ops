@@ -1,26 +1,34 @@
 // @ts-check
 /** @typedef {import('./_types.js').Provider} Provider */
-import { splitItems, extractTag } from './_rss.mjs';
 
-const CANDIDATE_FEEDS = [
-  'https://nodesk.co/feed/',
-  'https://nodesk.co/jobs.rss',
-  'https://nodesk.co/remote-jobs.rss'
-];
+const NODESK_API_URL = 'https://nodesk.co/api/jobs/';
+const NODESK_HEADERS = { Accept: 'application/json' };
 
+function matchesSearchTerm(job, term) {
+  if (!term) return true;
+  const needle = term.toLowerCase();
+  const haystack = `${job.title || ''} ${job.category || ''} ${(job.tags || []).join(' ')}`.toLowerCase();
+  return haystack.includes(needle);
+}
+
+/** @type {Provider} */
 export default {
   id: 'nodesk',
-  detect() { return null; },
+  detect() {
+    return null;
+  },
   async fetch(entry, ctx) {
-    for (const u of CANDIDATE_FEEDS) {
-      try {
-        const xml = await ctx.fetchText(u).catch(()=>null);
-        if (!xml) continue;
-        const items = splitItems(xml);
-        const jobs = items.map(it=>({ title: extractTag(it,'title'), link: extractTag(it,'link'), desc: extractTag(it,'description'), pubDate: extractTag(it,'pubDate') })).filter(j=>j.title && j.link);
-        return jobs.filter(j=> { if (!entry.search_term) return true; const n = entry.search_term.toLowerCase(); return (j.title||'').toLowerCase().includes(n) || (j.desc||'').toLowerCase().includes(n); }).map(j=>({ title:j.title, url:j.link, company:entry.name, location:'', posted_at:j.pubDate||'' }));
-      } catch(e) { continue; }
-    }
-    return [];
-  }
+    const json = await ctx.fetchJson(NODESK_API_URL, { headers: NODESK_HEADERS });
+    const jobs = Array.isArray(json) ? json : Array.isArray(json?.jobs) ? json.jobs : [];
+    return jobs
+      .filter((j) => j.url && j.title)
+      .filter((j) => matchesSearchTerm(j, entry.search_term))
+      .map((j) => ({
+        title: j.title || '',
+        url: j.url,
+        company: j.company || entry.name,
+        location: j.location || '',
+        posted_at: j.published_at || j.date || '',
+      }));
+  },
 };

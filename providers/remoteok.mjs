@@ -1,29 +1,34 @@
 // @ts-check
 /** @typedef {import('./_types.js').Provider} Provider */
 
-/**
- * RemoteOK provider - attempts JSON API then falls back to empty array.
- */
+const REMOTEOK_API_URL = 'https://remoteok.com/api';
+const REMOTEOK_HEADERS = { Accept: 'application/json' };
+
+function matchesSearchTerm(job, term) {
+  if (!term) return true;
+  const needle = term.toLowerCase();
+  const haystack = `${job.position || ''} ${(job.tags || []).join(' ')}`.toLowerCase();
+  return haystack.includes(needle);
+}
+
+/** @type {Provider} */
 export default {
   id: 'remoteok',
-  detect() { return null; },
+  detect() {
+    return null;
+  },
   async fetch(entry, ctx) {
-    try {
-      const url = 'https://remoteok.com/api';
-      const json = await ctx.fetchJson(url).catch(()=>null);
-      const items = Array.isArray(json) ? json : [];
-      return items
-        .filter(i => i && (i.position || i.title))
-        .map(i => ({
-          title: i.position || i.title || '',
-          url: (i.url && String(i.url).startsWith('http')) ? i.url : (i.url ? `https://remoteok.com${i.url}` : ''),
-          company: i.company || i.company_name || entry.name || '',
-          location: i.location || i.location_name || '',
-          posted_at: i.date || i.posted_at || '',
-        }))
-        .filter(j => j.title && j.url);
-    } catch (e) {
-      return [];
-    }
-  }
+    const json = await ctx.fetchJson(REMOTEOK_API_URL, { headers: REMOTEOK_HEADERS });
+    const jobs = Array.isArray(json) ? json.slice(1) : []; // first element is API metadata, not a job
+    return jobs
+      .filter((j) => j && j.position && (j.apply_url || j.url))
+      .filter((j) => matchesSearchTerm(j, entry.search_term))
+      .map((j) => ({
+        title: j.position || '',
+        url: j.apply_url || j.url,
+        company: j.company || entry.name,
+        location: j.location || '',
+        posted_at: j.date || '',
+      }));
+  },
 };
