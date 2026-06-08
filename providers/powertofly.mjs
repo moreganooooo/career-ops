@@ -24,11 +24,11 @@ export default {
     const json = await ctx.fetchJson(POWERTOFLY_API_URL, { headers: POWERTOFLY_HEADERS });
     const items = Array.isArray(json?.items) ? json.items : [];
     return items
-      .filter((item) => item.link && item.title)
+      .filter((item) => (item.link || item.guid) && item.title)
       .filter((item) => matchesSearchTerm(item, entry.search_term))
       .map((item) => ({
         title: item.title || '',
-        url: item.link,
+        url: item.link || item.guid,
         company: entry.name, // PowerToFly items don't expose a company field
         location: item.job_location || '',
         posted_at: item.published_on || '',
