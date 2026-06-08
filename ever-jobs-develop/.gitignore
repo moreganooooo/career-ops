@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.nx/
+*.js.map
+*.d.ts.map
+.cache
+.claude/settings.local.json
+.env
+.env.local
+
+# Transient working files for the company-source discovery/scaffold pipeline
+# (probe candidates, probe survivors, enrichment, numbering, assembled batch).
+# These are regenerated each scheduled run and must never be committed.
+.candidates*.txt
+.survivors*.json
+.enrich*.json
+.numbering.json
+.batch-input.json
+.index-rows.txt

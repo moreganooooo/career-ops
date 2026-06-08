@@ -18,10 +18,9 @@
 const BRAVE_API_URL = 'https://api.search.brave.com/res/v1/web/search';
 const BRAVE_API_KEY = process.env.BRAVE_API_KEY;
 
-// True sequential queue — each request waits for the previous one to fully
-// complete before starting, then adds a 1.1s gap. This guarantees we never
-// exceed Brave's free tier 1 req/sec limit regardless of scan.mjs concurrency.
-const RATE_LIMIT_MS = 1100;
+// Sequential queue with a 100ms gap — ~10 req/sec, well under the paid plan's
+// 50 req/sec limit. Keeps a small buffer in case of clock jitter.
+const RATE_LIMIT_MS = 100;
 let queue = Promise.resolve();
 
 function enqueue(fn) {

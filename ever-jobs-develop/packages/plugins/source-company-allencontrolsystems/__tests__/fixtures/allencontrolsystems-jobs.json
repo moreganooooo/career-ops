@@ -1,0 +1,55 @@
+{
+  "jobs": [
+    {
+      "id": 4974411008,
+      "title": "Advanced Drone Operator ",
+      "company_name": "Allen Control Systems",
+      "absolute_url": "https://job-boards.greenhouse.io/allencontrolsystems/jobs/4974411008",
+      "updated_at": "2026-01-15T16:56:29-05:00",
+      "location": {
+        "name": "Austin, TX"
+      },
+      "departments": [
+        {
+          "id": 4974411009,
+          "name": "Business Operations "
+        }
+      ],
+      "content": "&lt;p&gt;&lt;strong&gt;About Allen Control Systems.&lt;/strong&gt; Now hiring a Advanced Drone Operator on the Business Operations team &amp; more.&lt;/p&gt;"
+    },
+    {
+      "id": 5159002008,
+      "title": "Buyer 1",
+      "company_name": "Allen Control Systems",
+      "absolute_url": "https://job-boards.greenhouse.io/allencontrolsystems/jobs/5159002008",
+      "updated_at": "2026-03-19T12:32:07-04:00",
+      "location": {
+        "name": "Austin, TX"
+      },
+      "departments": [
+        {
+          "id": 5159002009,
+          "name": "Supply Chain"
+        }
+      ],
+      "content": "&lt;p&gt;&lt;strong&gt;About Allen Control Systems.&lt;/strong&gt; Now hiring a Buyer 1 on the Supply Chain team &amp; more.&lt;/p&gt;"
+    },
+    {
+      "id": 5159007008,
+      "title": "Buyer 2",
+      "company_name": "Allen Control Systems",
+      "absolute_url": "https://job-boards.greenhouse.io/allencontrolsystems/jobs/5159007008",
+      "updated_at": "2026-03-19T12:31:49-04:00",
+      "location": {
+        "name": "Austin, TX"
+      },
+      "departments": [
+        {
+          "id": 5159007009,
+          "name": "Supply Chain"
+        }
+      ],
+      "content": "&lt;p&gt;&lt;strong&gt;About Allen Control Systems.&lt;/strong&gt; Now hiring a Buyer 2 on the Supply Chain team &amp; more.&lt;/p&gt;"
+    }
+  ]
+}
