@@ -10,9 +10,12 @@ output/*
 batch/logs/*
 !batch/logs/.gitkeep
 batch/batch-state.tsv
+batch/batch-state-phase2.tsv
 batch/batch-input.tsv
+batch/batch-input-promoted.tsv
 batch/tracker-additions/**/*.tsv
 !batch/tracker-additions/.gitkeep
+batch/pipeline.log
 jds/*
 !jds/.gitkeep
 
