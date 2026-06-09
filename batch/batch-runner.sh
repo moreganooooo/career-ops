@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# career-ops batch runner — standalone orchestrator for claude -p workers
-# Reads batch-input.tsv, delegates each offer to a claude -p worker,
-# tracks state in batch-state.tsv for resumability.
-#
-# NOTE: This script is Claude Code-specific. It uses claude -p with
-# --dangerously-skip-permissions and --append-system-prompt-file flags
-# that are not available in other CLIs. Multi-CLI support is out of scope
-# for now — contributions welcome.
+# career-ops batch runner — orchestrator for headless AI worker processes
+# Reads batch-input.tsv, delegates each offer to a worker, tracks state
+# in batch-state.tsv for resumability. Supports Claude and Gemini CLI.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -33,12 +28,15 @@ RETRY_FAILED=false
 START_FROM=0
 MAX_RETRIES=2
 MIN_SCORE=0
-MODEL=""  # empty = let claude -p use the Claude Max default
+MODEL=""  # empty = CLI default
+CLI="claude"  # claude | gemini
+# Phase 2 overrides — set by --input / --state flags
+INPUT_OVERRIDE=""
+STATE_OVERRIDE=""
 
 usage() {
   cat <<'USAGE'
-career-ops batch runner — process job offers in batch via claude -p workers
-Uses your default Claude model (Claude Max subscription).
+career-ops batch runner — process job offers in batch via headless AI workers.
 
 Usage: batch-runner.sh [OPTIONS]
 
@@ -49,9 +47,11 @@ Options:
   --start-from N       Start from offer ID N (skip earlier IDs)
   --max-retries N      Max retry attempts per offer (default: 2)
   --min-score N        Skip PDF/tracker for offers scoring below N (default: 0 = off)
-  --model NAME         Claude model passed to `claude -p --model` (default:
-                       unset = Claude Max default). Use a cheaper model for
-                       large batches, e.g. `--model claude-sonnet-4-6`.
+  --model NAME         Model to pass to the CLI (default: CLI default)
+  --cli NAME           AI CLI to use: claude (default) or gemini
+  --input FILE         Input TSV file (default: batch/batch-input.tsv)
+  --state FILE         State TSV file (default: batch/batch-state.tsv)
+  --prompt FILE        Prompt template (default: batch/batch-prompt.md)
   -h, --help           Show this help
 
 Files:
@@ -65,8 +65,16 @@ Examples:
   # Dry run to see pending offers
   ./batch-runner.sh --dry-run
 
-  # Process all pending
+  # Process all pending with Claude (default)
   ./batch-runner.sh
+
+  # Mega-batch Phase 1: cheap screen-all with Gemini (free tier)
+  node prepare-batch.mjs
+  ./batch-runner.sh --cli gemini --prompt batch/screen-prompt.md --min-score 3.5
+
+  # Mega-batch Phase 2: full eval on best fits
+  node promote-screened.mjs --min-score 3.5
+  ./batch-runner.sh --cli gemini --input batch/batch-input-promoted.tsv --state batch/batch-state-phase2.tsv
 
   # Retry only failed offers
   ./batch-runner.sh --retry-failed
@@ -86,10 +94,18 @@ while [[ $# -gt 0 ]]; do
     --max-retries) MAX_RETRIES="$2"; shift 2 ;;
     --min-score) MIN_SCORE="$2"; shift 2 ;;
     --model) MODEL="$2"; shift 2 ;;
+    --cli) CLI="$2"; shift 2 ;;
+    --input) INPUT_OVERRIDE="$2"; shift 2 ;;
+    --state) STATE_OVERRIDE="$2"; shift 2 ;;
+    --prompt) PROMPT_FILE="$2"; shift 2 ;;
     -h|--help) usage; exit 0 ;;
     *) echo "Unknown option: $1"; usage; exit 1 ;;
   esac
 done
+
+# Apply file overrides
+[[ -n "$INPUT_OVERRIDE" ]] && INPUT_FILE="$INPUT_OVERRIDE"
+[[ -n "$STATE_OVERRIDE" ]] && STATE_FILE="$STATE_OVERRIDE"
 
 # Lock file to prevent double execution
 acquire_lock() {
@@ -129,10 +145,24 @@ check_prerequisites() {
     exit 1
   fi
 
-  if ! command -v claude &>/dev/null; then
-    echo "ERROR: 'claude' CLI not found in PATH."
-    exit 1
-  fi
+  case "$CLI" in
+    claude)
+      if ! command -v claude &>/dev/null; then
+        echo "ERROR: 'claude' CLI not found in PATH."
+        exit 1
+      fi
+      ;;
+    gemini)
+      if ! command -v gemini &>/dev/null; then
+        echo "ERROR: 'gemini' CLI not found in PATH. Install from: https://github.com/google-gemini/gemini-cli"
+        exit 1
+      fi
+      ;;
+    *)
+      echo "ERROR: Unknown --cli value '$CLI'. Use 'claude' or 'gemini'."
+      exit 1
+      ;;
+  esac
 
   mkdir -p "$LOGS_DIR" "$TRACKER_DIR" "$REPORTS_DIR"
 }
@@ -360,17 +390,25 @@ process_offer() {
     -e "s|{{ID}}|${esc_id}|g" \
     "$PROMPT_FILE" > "$resolved_prompt"
 
-  # Launch claude -p worker.
-  # Model defaults to the Claude Max subscription default unless --model was
-  # passed. Building the command in an array keeps quoting safe regardless.
-  local -a claude_args=(-p --dangerously-skip-permissions)
-  if [[ -n "$MODEL" ]]; then
-    claude_args+=(--model "$MODEL")
-  fi
-  claude_args+=(--append-system-prompt-file "$resolved_prompt" "$prompt")
-
+  # Launch worker. Building commands in arrays keeps quoting safe.
   local exit_code=0
-  claude "${claude_args[@]}" > "$log_file" 2>&1 || exit_code=$?
+  if [[ "$CLI" == "gemini" ]]; then
+    local full_prompt
+    full_prompt="$(cat "$resolved_prompt")"$'\n\n'"$prompt"
+    local -a gemini_args=(--yolo --skip-trust)
+    if [[ -n "$MODEL" ]]; then
+      gemini_args+=(-m "$MODEL")
+    fi
+    gemini_args+=(-p "$full_prompt")
+    gemini "${gemini_args[@]}" > "$log_file" 2>&1 || exit_code=$?
+  else
+    local -a claude_args=(-p --dangerously-skip-permissions)
+    if [[ -n "$MODEL" ]]; then
+      claude_args+=(--model "$MODEL")
+    fi
+    claude_args+=(--append-system-prompt-file "$resolved_prompt" "$prompt")
+    claude "${claude_args[@]}" > "$log_file" 2>&1 || exit_code=$?
+  fi
 
   # Cleanup resolved prompt
   rm -f "$resolved_prompt"
@@ -475,7 +513,7 @@ main() {
   fi
 
   echo "=== career-ops batch runner ==="
-  echo "Parallel: $PARALLEL | Max retries: $MAX_RETRIES"
+  echo "CLI: $CLI | Parallel: $PARALLEL | Max retries: $MAX_RETRIES"
   echo "Input: $total_input offers"
   echo ""
 
