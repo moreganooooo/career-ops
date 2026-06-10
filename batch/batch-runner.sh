@@ -357,6 +357,48 @@ reserve_report_num() {
   run_with_state_lock reserve_report_num_unlocked "$@"
 }
 
+# Extract job title from a fetched JD file, falling back to the URL slug
+extract_job_title() {
+  local jd_file="$1" url="$2"
+  local title=""
+  if [[ -f "$jd_file" && -s "$jd_file" ]]; then
+    # og:title is the most reliable signal across Greenhouse/Ashby/Lever
+    title=$(grep -oi 'og:title[^>]*content="[^"]*"' "$jd_file" 2>/dev/null \
+            | grep -oi 'content="[^"]*"' | cut -d'"' -f2 | head -1)
+    # Fallback: <title> tag
+    if [[ -z "$title" ]]; then
+      title=$(grep -o '<title>[^<]*</title>' "$jd_file" 2>/dev/null \
+              | sed 's/<[^>]*>//g' | head -1)
+    fi
+  fi
+  # Final fallback: readable slug from the URL path
+  if [[ -z "$title" ]]; then
+    title=$(basename "$url" | tr '-_' '  ')
+  fi
+  printf '%s' "$title" | tr '[:upper:]' '[:lower:]'
+}
+
+# Returns "skip", "pass", or "uncertain" for a given job title.
+# "skip"      — title matches a hard-stop keyword; don't call the model
+# "pass"      — title matches a target-role keyword; proceed normally
+# "uncertain" — no keyword match either way; let the model decide
+title_pre_filter() {
+  local title="$1"
+  # Hard stops — roles that are categorically not a fit
+  local hard_stops='social media manager|software engineer|data engineer|frontend engineer|backend engineer|fullstack|full.stack|full stack|devops|site reliability|sre |security engineer|machine learning engineer|ml engineer|data scientist|data analyst|graphic design[er]|accountant|bookkeeper|payroll|attorney|paralegal|recruiter|talent acqui|cold call|hardware engineer|product design[er]|ux designer|ui designer|ios engineer|android engineer|network engineer|infrastructure engineer'
+  if printf '%s' "$title" | grep -qiE "$hard_stops"; then
+    printf 'skip'
+    return
+  fi
+  # Target role keywords — at least one should appear for a real match
+  local targets='lifecycle marketing|email marketing|campaign manager|campaign specialist|marketing manager|marketing specialist|content marketing|content strateg|content writer|copywriter|sales enablement|revenue enablement|customer marketing|customer onboarding|onboarding specialist|implementation specialist|marketing operations|crm marketing|customer education|customer adoption|b2b content|lifecycle manager|lifecycle specialist|enablement manager|enablement specialist'
+  if printf '%s' "$title" | grep -qiE "$targets"; then
+    printf 'pass'
+    return
+  fi
+  printf 'uncertain'
+}
+
 # Process a single offer
 process_offer() {
   local id="$1" url="$2" source="$3" notes="$4"
@@ -372,6 +414,23 @@ process_offer() {
   local jd_file="/tmp/batch-jd-${id}.txt"
 
   echo "--- Processing offer #$id: $url (report $report_num, attempt $((retries + 1)))"
+
+  # --- Title pre-filter (runs for ALL CLIs — saves quota/tokens on obvious non-matches) ---
+  # Fetch the JD now so we can extract the title; Ollama will reuse this file later
+  if [[ ! -f "$jd_file" || ! -s "$jd_file" ]]; then
+    curl -s --max-time 30 -L "$url" 2>/dev/null > "$jd_file" || true
+  fi
+  local job_title filter_result
+  job_title=$(extract_job_title "$jd_file" "$url")
+  filter_result=$(title_pre_filter "$job_title")
+  if [[ "$filter_result" == "skip" ]]; then
+    local completed_at
+    completed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    update_state "$id" "$url" "skipped" "$started_at" "$completed_at" "$report_num" "0.5" "title-filter" "$retries"
+    echo "    ⏭️  Title-filtered: \"$job_title\""
+    return
+  fi
+  # -----------------------------------------------------------------------------------------
 
   # Build the prompt with placeholders replaced
   local prompt
@@ -416,10 +475,7 @@ process_offer() {
     gemini "${gemini_args[@]}" > "$log_file" 2>&1 || exit_code=$?
   elif [[ "$CLI" == "ollama" ]]; then
     local ollama_model="${MODEL:-qwen2.5-coder:1.5b}"
-    # Fetch JD if not cached locally — ollama can't fetch URLs itself
-    if [[ ! -f "$jd_file" || ! -s "$jd_file" ]]; then
-      curl -s --max-time 30 -L "$url" 2>/dev/null > "$jd_file" || true
-    fi
+    # JD already fetched by title pre-filter above
     local jd_content=""
     if [[ -f "$jd_file" && -s "$jd_file" ]]; then
       # Strip HTML; avoid head -c in pipeline — SIGPIPE from head propagates via pipefail and kills set -e scripts
