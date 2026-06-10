@@ -35,6 +35,8 @@ modes/_profile.md
 
 # Generated
 .resolved-prompt-*
+.ollama-prompt-*.txt
+batch-runner.pid
 node_modules/
 bun.lock
 

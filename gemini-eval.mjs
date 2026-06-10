@@ -37,7 +37,7 @@ import { fileURLToPath } from 'url';
 // ---------------------------------------------------------------------------
 try {
   const { config } = await import('dotenv');
-  config();
+  config({ override: true });
 } catch {
   // dotenv is optional — fall back to process.env if not installed
 }

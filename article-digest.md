@@ -287,4 +287,37 @@ Never frame this gap as a liability. It is an honest human circumstance with a c
 
 ---
 
+---
+
+## Track 6: Agency Copywriting — Multi-Channel, Multi-Format, Regulated Industries
+
+*This track is often under-credited in evaluations. Morgan's Callahan Creek internship + freelance extension produced real client work across a wider range of formats and industries than the CV summary conveys. These samples are on file in writing-samples/BestCopySamples/CallahanCreekcopysamples/.*
+
+### CommunityAmerica Credit Union (CACU) — Financial Services Copy
+
+Morgan wrote extensively for CACU, a Kansas City-area credit union, across multiple formats and regulated product types:
+
+- **PPC advertising copy** — checked account headlines and CTAs written for paid digital: "Splurge and Stash — Open a CommunityAmerica checking account and get $100. That's one monstrous deal." Multiple ad variations for checking, interest checking, free checking, online checking.
+- **Insurance product pages** — web copy for auto/home protection, deposit insurance, life and health insurance, loan payment and identity protection. Navigated accurate regulated product claims with consumer-friendly language.
+- **Mortgage web copy** — "Your dream home now comes with a dream loan." Application funnel copy, rate watch CTA, mortgage calculator UX copy.
+- **Online Banking flash demo scripts** — conversational explanations of account alerts, transaction search, and online banking features for a non-technical consumer audience. Translating product complexity into warm, accessible language.
+- **Business services DM mailer** — multi-panel direct mail for CACU business checking. Front panel, address panel, CTA panel, interior copy. Headline: "We mean business." Offer: free $300 Visa gift card acquisition incentive.
+- **Matrix coupon / personalized letter** — customized direct mail letters for checking acquisition with segmented offers.
+- **Family Makeover bios** — financial wellness campaign storytelling: profiling real families navigating debt, savings, and financial goals for a content/blog campaign.
+
+**Why this matters for financial services copywriting roles:** CACU is a regulated financial institution. Writing insurance pages, mortgage copy, and PPC ads for them required accuracy with product claims, compliance with financial marketing standards, and the ability to make financial products feel trustworthy and accessible. This isn't investment management — but the underlying discipline is identical.
+
+### Channel breadth at Callahan Creek (beyond CACU)
+
+- **TV :30 script** — Hill's Pet Nutrition PetSmart web spot; communication hierarchy, :30 script with product/visual mandatories
+- **In-store radio scripts** — Hill's Science Diet Healthy Mobility; :20 and :30 Muzak/in-store formats
+- **Print co-op insert** — Hill's Science Diet / Good Housekeeping / Petco; multi-brand print format with clinical claims
+- **Vet channel handbook** — Hill's Science Diet Pet Nutrition Handbook; long-form educational copy for professional audience
+- **Sprint B2B broadband copy** — "Take your Broadband on the go" — technology for business, 4G/3G product copy
+- **Free State Brewing** — brand copy + product descriptions for craft beer labels and brand identity
+
+**Summary:** At Callahan Creek, Morgan wrote across PPC, print, DM, TV, radio, web, and long-form educational formats. The client mix spans financial services (CACU), pet nutrition (Hill's), telecom (Sprint), CPG (brewing, pet food). Two of these campaigns were selected for client rollout, and the engagement was extended to a long-term freelance relationship.
+
+---
+
 *End of digest. For scoring guidance, archetype framing, and compensation targets, see modes/_profile.md.*
