@@ -14,7 +14,7 @@ An AI-powered job search pipeline that runs entirely on Claude Code (+ Gemini CL
 - **Batch screening** — parallel workers evaluate large batches overnight; Gemini CLI (free quota) or local Ollama for zero-cost CPU runs
 - **Pipeline tracking** — single source of truth, integrity-checked, deduped
 
-As of June 2026: **68 evaluation reports · 49 tracked applications · 764 offers through the batch pipeline**
+As of June 2026: **70 evaluation reports · 51 tracked applications · 764 offers queued for batch screening**
 
 ---
 
