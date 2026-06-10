@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# career-ops batch runner — orchestrator for headless AI worker processes
-# Reads batch-input.tsv, delegates each offer to a worker, tracks state
-# in batch-state.tsv for resumability. Supports Claude and Gemini CLI.
+# career-ops batch runner — standalone orchestrator for claude -p workers
+# Reads batch-input.tsv, delegates each offer to a claude -p worker,
+# tracks state in batch-state.tsv for resumability.
+#
+# NOTE: This script is Claude Code-specific. It uses claude -p with
+# --dangerously-skip-permissions and --append-system-prompt-file flags
+# that are not available in other CLIs. Multi-CLI support is out of scope
+# for now — contributions welcome.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -28,16 +33,13 @@ RETRY_FAILED=false
 START_FROM=0
 MAX_RETRIES=2
 MIN_SCORE=0
-LIMIT=0   # 0 = no limit
-MODEL=""  # empty = CLI default
-CLI="claude"  # claude | gemini
-# Phase 2 overrides — set by --input / --state flags
-INPUT_OVERRIDE=""
-STATE_OVERRIDE=""
+MODEL=""  # empty = let claude -p use the Claude Max default
+RATE_LIMIT_SLEEP=300
 
 usage() {
   cat <<'USAGE'
-career-ops batch runner — process job offers in batch via headless AI workers.
+career-ops batch runner — process job offers in batch via claude -p workers
+Uses your default Claude model (Claude Max subscription).
 
 Usage: batch-runner.sh [OPTIONS]
 
@@ -48,12 +50,11 @@ Options:
   --start-from N       Start from offer ID N (skip earlier IDs)
   --max-retries N      Max retry attempts per offer (default: 2)
   --min-score N        Skip PDF/tracker for offers scoring below N (default: 0 = off)
-  --limit N            Process at most N offers then stop (default: 0 = no limit)
-  --model NAME         Model to pass to the CLI (default: CLI default)
-  --cli NAME           AI CLI to use: claude (default), gemini, or ollama
-  --input FILE         Input TSV file (default: batch/batch-input.tsv)
-  --state FILE         State TSV file (default: batch/batch-state.tsv)
-  --prompt FILE        Prompt template (default: batch/batch-prompt.md)
+  --rate-limit-sleep N Seconds to wait before retrying a rate-limited worker
+                       (default: 300)
+  --model NAME         Claude model passed to `claude -p --model` (default:
+                       unset = Claude Max default). Use a cheaper model for
+                       large batches, e.g. `--model claude-sonnet-4-6`.
   -h, --help           Show this help
 
 Files:
@@ -67,20 +68,8 @@ Examples:
   # Dry run to see pending offers
   ./batch-runner.sh --dry-run
 
-  # Process all pending with Claude (default)
+  # Process all pending
   ./batch-runner.sh
-
-  # Mega-batch Phase 1: cheap screen-all with Gemini (free tier)
-  node prepare-batch.mjs
-  ./batch-runner.sh --cli gemini --prompt batch/screen-prompt.md --min-score 3.5
-
-  # Mega-batch Phase 1: screen-all with local Ollama (free, no rate limits)
-  node prepare-batch.mjs
-  ./batch-runner.sh --cli ollama --model llama3 --prompt batch/screen-prompt.md --min-score 3.5
-
-  # Mega-batch Phase 2: full eval on best fits
-  node promote-screened.mjs --min-score 3.5
-  ./batch-runner.sh --cli gemini --input batch/batch-input-promoted.tsv --state batch/batch-state-phase2.tsv
 
   # Retry only failed offers
   ./batch-runner.sh --retry-failed
@@ -99,20 +88,21 @@ while [[ $# -gt 0 ]]; do
     --start-from) START_FROM="$2"; shift 2 ;;
     --max-retries) MAX_RETRIES="$2"; shift 2 ;;
     --min-score) MIN_SCORE="$2"; shift 2 ;;
-    --limit) LIMIT="$2"; shift 2 ;;
+    --rate-limit-sleep)
+      [[ $# -ge 2 ]] || { echo "ERROR: --rate-limit-sleep requires an argument"; exit 1; }
+      RATE_LIMIT_SLEEP="$2"
+      shift 2
+      ;;
     --model) MODEL="$2"; shift 2 ;;
-    --cli) CLI="$2"; shift 2 ;;
-    --input) INPUT_OVERRIDE="$2"; shift 2 ;;
-    --state) STATE_OVERRIDE="$2"; shift 2 ;;
-    --prompt) PROMPT_FILE="$2"; shift 2 ;;
     -h|--help) usage; exit 0 ;;
     *) echo "Unknown option: $1"; usage; exit 1 ;;
   esac
 done
 
-# Apply file overrides
-[[ -n "$INPUT_OVERRIDE" ]] && INPUT_FILE="$INPUT_OVERRIDE"
-[[ -n "$STATE_OVERRIDE" ]] && STATE_FILE="$STATE_OVERRIDE"
+if ! [[ "$RATE_LIMIT_SLEEP" =~ ^[0-9]+$ ]]; then
+  echo "ERROR: --rate-limit-sleep must be a non-negative integer (seconds)."
+  exit 1
+fi
 
 # Lock file to prevent double execution
 acquire_lock() {
@@ -152,30 +142,10 @@ check_prerequisites() {
     exit 1
   fi
 
-  case "$CLI" in
-    claude)
-      if ! command -v claude &>/dev/null; then
-        echo "ERROR: 'claude' CLI not found in PATH."
-        exit 1
-      fi
-      ;;
-    gemini)
-      if ! command -v gemini &>/dev/null; then
-        echo "ERROR: 'gemini' CLI not found in PATH. Install from: https://github.com/google-gemini/gemini-cli"
-        exit 1
-      fi
-      ;;
-    ollama)
-      if ! command -v ollama &>/dev/null; then
-        echo "ERROR: 'ollama' not found in PATH. Install from: https://ollama.com"
-        exit 1
-      fi
-      ;;
-    *)
-      echo "ERROR: Unknown --cli value '$CLI'. Use 'claude', 'gemini', or 'ollama'."
-      exit 1
-      ;;
-  esac
+  if ! command -v claude &>/dev/null; then
+    echo "ERROR: 'claude' CLI not found in PATH."
+    exit 1
+  fi
 
   mkdir -p "$LOGS_DIR" "$TRACKER_DIR" "$REPORTS_DIR"
 }
@@ -342,6 +312,11 @@ update_state() {
   run_with_state_lock update_state_unlocked "$@"
 }
 
+is_rate_limit_log() {
+  local log_file="$1"
+  grep -Eiq '(rate limit|rate_limit|too many requests|429|quota exceeded|try again later|temporarily unavailable)' "$log_file"
+}
+
 reserve_report_num_unlocked() {
   local id="$1" url="$2" started="$3" retries="$4"
 
@@ -355,48 +330,6 @@ reserve_report_num_unlocked() {
 
 reserve_report_num() {
   run_with_state_lock reserve_report_num_unlocked "$@"
-}
-
-# Extract job title from a fetched JD file, falling back to the URL slug
-extract_job_title() {
-  local jd_file="$1" url="$2"
-  local title=""
-  if [[ -f "$jd_file" && -s "$jd_file" ]]; then
-    # og:title is the most reliable signal across Greenhouse/Ashby/Lever
-    title=$(grep -oi 'og:title[^>]*content="[^"]*"' "$jd_file" 2>/dev/null \
-            | grep -oi 'content="[^"]*"' | cut -d'"' -f2 | head -1)
-    # Fallback: <title> tag
-    if [[ -z "$title" ]]; then
-      title=$(grep -o '<title>[^<]*</title>' "$jd_file" 2>/dev/null \
-              | sed 's/<[^>]*>//g' | head -1)
-    fi
-  fi
-  # Final fallback: readable slug from the URL path
-  if [[ -z "$title" ]]; then
-    title=$(basename "$url" | tr '-_' '  ')
-  fi
-  printf '%s' "$title" | tr '[:upper:]' '[:lower:]'
-}
-
-# Returns "skip", "pass", or "uncertain" for a given job title.
-# "skip"      — title matches a hard-stop keyword; don't call the model
-# "pass"      — title matches a target-role keyword; proceed normally
-# "uncertain" — no keyword match either way; let the model decide
-title_pre_filter() {
-  local title="$1"
-  # Hard stops — roles that are categorically not a fit
-  local hard_stops='social media manager|software engineer|data engineer|frontend engineer|backend engineer|fullstack|full.stack|full stack|devops|site reliability|sre |security engineer|machine learning engineer|ml engineer|data scientist|data analyst|graphic design[er]|accountant|bookkeeper|payroll|attorney|paralegal|recruiter|talent acqui|cold call|hardware engineer|product design[er]|ux designer|ui designer|ios engineer|android engineer|network engineer|infrastructure engineer'
-  if printf '%s' "$title" | grep -qiE "$hard_stops"; then
-    printf 'skip'
-    return
-  fi
-  # Target role keywords — at least one should appear for a real match
-  local targets='lifecycle marketing|email marketing|campaign manager|campaign specialist|marketing manager|marketing specialist|content marketing|content strateg|content writer|copywriter|sales enablement|revenue enablement|customer marketing|customer onboarding|onboarding specialist|implementation specialist|marketing operations|crm marketing|customer education|customer adoption|b2b content|lifecycle manager|lifecycle specialist|enablement manager|enablement specialist'
-  if printf '%s' "$title" | grep -qiE "$targets"; then
-    printf 'pass'
-    return
-  fi
-  printf 'uncertain'
 }
 
 # Process a single offer
@@ -415,26 +348,9 @@ process_offer() {
 
   echo "--- Processing offer #$id: $url (report $report_num, attempt $((retries + 1)))"
 
-  # --- Title pre-filter (runs for ALL CLIs — saves quota/tokens on obvious non-matches) ---
-  # Fetch the JD now so we can extract the title; Ollama will reuse this file later
-  if [[ ! -f "$jd_file" || ! -s "$jd_file" ]]; then
-    curl -s --max-time 30 -L "$url" 2>/dev/null > "$jd_file" || true
-  fi
-  local job_title filter_result
-  job_title=$(extract_job_title "$jd_file" "$url")
-  filter_result=$(title_pre_filter "$job_title")
-  if [[ "$filter_result" == "skip" ]]; then
-    local completed_at
-    completed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-    update_state "$id" "$url" "skipped" "$started_at" "$completed_at" "$report_num" "0.5" "title-filter" "$retries"
-    echo "    ⏭️  Title-filtered: \"$job_title\""
-    return
-  fi
-  # -----------------------------------------------------------------------------------------
-
   # Build the prompt with placeholders replaced
   local prompt
-  prompt="Process this job offer. Run the full pipeline: A-F evaluation + report .md + PDF + tracker line."
+  prompt="Procesa esta oferta de empleo. Ejecuta el pipeline completo: evaluación A-F + report .md + PDF + tracker line."
   prompt="$prompt URL: $url"
   prompt="$prompt JD file: $jd_file"
   prompt="$prompt Report number: $report_num"
@@ -462,89 +378,44 @@ process_offer() {
     -e "s|{{ID}}|${esc_id}|g" \
     "$PROMPT_FILE" > "$resolved_prompt"
 
-  # Launch worker. Building commands in arrays keeps quoting safe.
-  local exit_code=0
-  if [[ "$CLI" == "gemini" ]]; then
-    local full_prompt
-    full_prompt="$(cat "$resolved_prompt")"$'\n\n'"$prompt"
-    local -a gemini_args=(--yolo --skip-trust)
-    if [[ -n "$MODEL" ]]; then
-      gemini_args+=(-m "$MODEL")
-    fi
-    gemini_args+=(-p "$full_prompt")
-    gemini "${gemini_args[@]}" > "$log_file" 2>&1 || exit_code=$?
-  elif [[ "$CLI" == "ollama" ]]; then
-    local ollama_model="${MODEL:-qwen2.5-coder:1.5b}"
-    # JD already fetched by title pre-filter above
-    local jd_content=""
-    if [[ -f "$jd_file" && -s "$jd_file" ]]; then
-      # Strip HTML; avoid head -c in pipeline — SIGPIPE from head propagates via pipefail and kills set -e scripts
-      jd_content=$(sed 's/<[^>]*>//g' "$jd_file" | tr -s ' \t')
-      jd_content="${jd_content:0:3000}"
-    fi
-    # Inline context files — cap each aggressively so total prompt fits within num_ctx=4096 for Intel CPU
-    local full_prompt
-    full_prompt="$(cat "$resolved_prompt")"
-    full_prompt+=$'\n\n---\n## Context Files (pre-loaded — no file reads needed)\n'
-    # Use ollama-profile-summary.md if present — purpose-built compact summary for small models
-    local _profile_src="$BATCH_DIR/ollama-profile-summary.md"
-    [[ ! -f "$_profile_src" ]] && _profile_src="$PROJECT_DIR/config/profile.yml"
-    full_prompt+=$'\n### Candidate Profile\n'"$(head -c 2000 "$_profile_src" 2>/dev/null || true)"
-    full_prompt+=$'\n\n### CV\n'"$(head -c 3000 "$PROJECT_DIR/cv.md" 2>/dev/null || true)"
-    full_prompt+=$'\n\n---\n## Job to Evaluate\nURL: '"$url"
-    [[ -n "$jd_content" ]] && full_prompt+=$'\n'"$jd_content"
-    full_prompt+=$'\n\nOutput ONLY the Machine Summary YAML block and the mini-report markdown. No file operations.'
-    # Use Ollama REST API — no CLI spinner noise, caps output with num_predict, faster prefill with num_ctx=4096
-    local prompt_file="${BATCH_DIR}/.ollama-prompt-${id}.txt"
-    printf '%s' "$full_prompt" > "$prompt_file"
-    python3 - "$ollama_model" "$prompt_file" > "$log_file" 2>/dev/null << 'PYEOF' && exit_code=0 || exit_code=$?
-import json, sys, urllib.request, urllib.error
-model = sys.argv[1]
-prompt = open(sys.argv[2]).read()
-payload = json.dumps({
-    'model': model, 'prompt': prompt, 'stream': False,
-    'options': {'num_predict': 600, 'num_ctx': 4096}
-}).encode()
-req = urllib.request.Request(
-    'http://localhost:11434/api/generate',
-    data=payload, headers={'Content-Type': 'application/json'}
-)
-try:
-    with urllib.request.urlopen(req, timeout=600) as r:
-        sys.stdout.write(json.loads(r.read()).get('response', ''))
-except urllib.error.URLError as e:
-    sys.stderr.write(f'Ollama API error: {e}\n')
-    sys.exit(1)
-PYEOF
-    rm -f "$prompt_file"
-    # Parse output and write pipeline artifacts that ollama cannot write itself
-    if [[ $exit_code -eq 0 ]]; then
-      local ol_company ol_role ol_score ol_archetype ol_decision ol_slug
-      ol_company=$(grep -m1 '^company:'    "$log_file" | cut -d'"' -f2)
-      ol_role=$(grep -m1    '^role:'       "$log_file" | cut -d'"' -f2)
-      ol_score=$(grep -m1   '^score:'      "$log_file" | grep -oE '[0-9]+\.[0-9]+')
-      ol_archetype=$(grep -m1 '^archetype:' "$log_file" | cut -d'"' -f2)
-      ol_decision=$(grep -m1 '^final_decision:' "$log_file" | cut -d'"' -f2)
-      ol_slug=$(printf '%s' "$ol_company" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g;s/--*/-/g;s/^-//;s/-$//')
-      if [[ -n "$ol_company" && -n "$ol_score" ]]; then
-        local report_file="$REPORTS_DIR/${report_num}-${ol_slug}-${date}.md"
-        printf '# Screening: %s — %s\n\n**Date:** %s\n**Score:** %s/5\n**URL:** %s\n**Note:** Lightweight Ollama screening report. PDF not generated.\n\n## Machine Summary\n%s\n' \
-          "$ol_company" "$ol_role" "$date" "$ol_score" "$url" \
-          "$(awk '/```yaml/{f=1;next} /```/{f=0} f' "$log_file")" > "$report_file"
-        printf '%s\t%s\t%s\t%s\tEvaluated\t%s/5\t❌\t[%s](reports/%s-%s-%s.md)\t%s — %s\n' \
-          "$id" "$date" "$ol_company" "$ol_role" "$ol_score" \
-          "$report_num" "$report_num" "$ol_slug" "$date" \
-          "$ol_archetype" "$ol_decision" > "$TRACKER_DIR/${id}.tsv"
-      fi
-    fi
-  else
-    local -a claude_args=(-p --dangerously-skip-permissions)
-    if [[ -n "$MODEL" ]]; then
-      claude_args+=(--model "$MODEL")
-    fi
-    claude_args+=(--append-system-prompt-file "$resolved_prompt" "$prompt")
-    claude "${claude_args[@]}" > "$log_file" 2>&1 || exit_code=$?
+  # Launch claude -p worker.
+  # Model defaults to the Claude Max subscription default unless --model was
+  # passed. Building the command in an array keeps quoting safe regardless.
+  local -a claude_args=(-p --dangerously-skip-permissions)
+  if [[ -n "$MODEL" ]]; then
+    claude_args+=(--model "$MODEL")
   fi
+  claude_args+=(--append-system-prompt-file "$resolved_prompt" "$prompt")
+
+  local exit_code=0
+  local terminal_failure_recorded=false
+  while true; do
+    exit_code=0
+    claude "${claude_args[@]}" > "$log_file" 2>&1 || exit_code=$?
+
+    if [[ $exit_code -eq 0 ]]; then
+      break
+    fi
+
+    if is_rate_limit_log "$log_file" && (( retries < MAX_RETRIES )); then
+      if (( RATE_LIMIT_SLEEP <= 0 )); then
+        retries=$((retries + 1))
+        update_state "$id" "$url" "failed" "$started_at" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$report_num" "-" "rate-limit; no wait configured" "$retries"
+        echo "    ❌ Rate limited and --rate-limit-sleep is 0; not retrying."
+        terminal_failure_recorded=true
+        break
+      fi
+      retries=$((retries + 1))
+      local retry_completed_at
+      retry_completed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+      update_state "$id" "$url" "rate_limited" "$started_at" "$retry_completed_at" "$report_num" "-" "rate-limit; retrying after ${RATE_LIMIT_SLEEP}s" "$retries"
+      echo "    ⏳ Rate limited (attempt $retries/$MAX_RETRIES). Waiting ${RATE_LIMIT_SLEEP}s before retry..."
+      sleep "$RATE_LIMIT_SLEEP"
+      continue
+    fi
+
+    break
+  done
 
   # Cleanup resolved prompt
   rm -f "$resolved_prompt"
@@ -556,7 +427,7 @@ PYEOF
     # Try to extract score from worker output
     local score="-"
     local score_match
-    score_match=$(sed -nE 's/.*"score":[[:space:]]*([0-9.]+).*/\1/p; s/^[[:space:]]*score:[[:space:]]*([0-9.]+).*/\1/p; s/^SCORE:[[:space:]]*([0-9.]+).*/\1/p' "$log_file" 2>/dev/null | head -1 || true)
+   score_match=$(sed -nE 's/.*"score":[[:space:]]*([0-9.]+).*/\1/p' "$log_file" 2>/dev/null | head -1 || true)
     if [[ -n "$score_match" ]]; then
       score="$score_match"
     fi
@@ -572,8 +443,10 @@ PYEOF
 
     update_state "$id" "$url" "completed" "$started_at" "$completed_at" "$report_num" "$score" "-" "$retries"
     echo "    ✅ Completed (score: $score, report: $report_num)"
-  else
-    retries=$((retries + 1))
+  elif [[ "$terminal_failure_recorded" == "false" ]]; then
+    if (( retries < MAX_RETRIES )); then
+      retries=$((retries + 1))
+    fi
     local error_msg
     error_msg=$(tail -5 "$log_file" 2>/dev/null | tr '\n' ' ' | cut -c1-200 || echo "Unknown error (exit code $exit_code)")
     update_state "$id" "$url" "failed" "$started_at" "$completed_at" "$report_num" "-" "$error_msg" "$retries"
@@ -649,7 +522,7 @@ main() {
   fi
 
   echo "=== career-ops batch runner ==="
-  echo "CLI: $CLI | Parallel: $PARALLEL | Max retries: $MAX_RETRIES"
+  echo "Parallel: $PARALLEL | Max retries: $MAX_RETRIES"
   echo "Input: $total_input offers"
   echo ""
 
@@ -706,7 +579,6 @@ main() {
     pending_urls+=("$url")
     pending_sources+=("$source")
     pending_notes+=("$notes")
-    (( LIMIT > 0 && ${#pending_ids[@]} >= LIMIT )) && break
   done < "$INPUT_FILE"
 
   local pending_count=${#pending_ids[@]}

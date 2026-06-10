@@ -11,10 +11,6 @@ const ALLOWED_GREENHOUSE_HOSTS = new Set([
   'job-boards.eu.greenhouse.io',
 ]);
 
-// Postings older than this are silently dropped — likely filled or forgotten.
-const MAX_AGE_DAYS = 45;
-const MAX_AGE_MS = MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
-
 function assertGreenhouseUrl(url) {
   let parsed;
   try {
@@ -30,7 +26,7 @@ function assertGreenhouseUrl(url) {
 
 function resolveApiUrl(entry) {
   if (entry.api) {
-    try { assertGreenhouseUrl(entry.api); } catch { return null; }
+    assertGreenhouseUrl(entry.api);
     return entry.api;
   }
   const url = entry.careers_url || '';
@@ -39,20 +35,17 @@ function resolveApiUrl(entry) {
   return null;
 }
 
-function isTooOld(updatedAt) {
-  if (!updatedAt) return false; // missing field — let it through, Playwright will catch it
-  const ts = Date.parse(updatedAt);
-  if (isNaN(ts)) return false;
-  return Date.now() - ts > MAX_AGE_MS;
-}
-
 /** @type {Provider} */
 export default {
   id: 'greenhouse',
 
   detect(entry) {
-    const apiUrl = resolveApiUrl(entry);
-    return apiUrl ? { url: apiUrl } : null;
+    try {
+      const apiUrl = resolveApiUrl(entry);
+      return apiUrl ? { url: apiUrl } : null;
+    } catch {
+      return null;
+    }
   },
 
   async fetch(entry, ctx) {
@@ -63,15 +56,11 @@ export default {
     // assertGreenhouseUrl above it guarantees the final hostname stays in the allowlist.
     const json = await ctx.fetchJson(apiUrl, { redirect: 'error' });
     const jobs = Array.isArray(json?.jobs) ? json.jobs : [];
-    return jobs
-      .filter(j => j.absolute_url)
-      .filter(j => !isTooOld(j.updated_at))
-      .map(j => ({
-        title: j.title || '',
-        url: j.absolute_url,
-        company: entry.name,
-        location: j.location?.name || '',
-        posted_at: j.updated_at || '',
-      }));
+    return jobs.filter(j => j.absolute_url).map(j => ({
+      title: j.title || '',
+      url: j.absolute_url,
+      company: entry.name,
+      location: j.location?.name || '',
+    }));
   },
 };

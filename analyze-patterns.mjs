@@ -48,19 +48,22 @@ const args = process.argv.slice(2);
 const summaryMode = args.includes('--summary');
 const minThresholdIdx = args.indexOf('--min-threshold');
 const MIN_THRESHOLD = minThresholdIdx !== -1 && args[minThresholdIdx + 1] !== undefined
-  ? (Number.isNaN(parseInt(args[minThresholdIdx + 1])) ? 20 : parseInt(args[minThresholdIdx + 1]))
-  : 20;
+  ? (Number.isNaN(parseInt(args[minThresholdIdx + 1])) ? 5 : parseInt(args[minThresholdIdx + 1]))
+  : 5;
 
-// --- Status normalization (English-only aliases) ---
+// --- Status normalization (mirrors verify-pipeline.mjs) ---
 const ALIASES = {
-  'evaluated': 'evaluated', 'conditional': 'evaluated', 'hold': 'evaluated', 'evaluate': 'evaluated', 'verify': 'evaluated',
+  'evaluada': 'evaluated', 'condicional': 'evaluated', 'hold': 'evaluated',
+  'evaluar': 'evaluated', 'verificar': 'evaluated',
+  'aplicado': 'applied', 'enviada': 'applied', 'aplicada': 'applied',
   'applied': 'applied', 'sent': 'applied',
-  'responded': 'responded',
-  'interview': 'interview',
-  'offer': 'offer',
-  'rejected': 'rejected',
-  'discarded': 'discarded', 'closed': 'discarded', 'cancelled': 'discarded',
-  'skip': 'skip', 'monitor': 'skip', 'geo blocker': 'skip',
+  'respondido': 'responded',
+  'entrevista': 'interview',
+  'oferta': 'offer',
+  'rechazado': 'rejected', 'rechazada': 'rejected',
+  'descartado': 'discarded', 'descartada': 'discarded',
+  'cerrada': 'discarded', 'cancelada': 'discarded',
+  'no aplicar': 'skip', 'no_aplicar': 'skip', 'monitor': 'skip', 'geo blocker': 'skip',
 };
 
 function normalizeStatus(raw) {
@@ -222,14 +225,18 @@ function parseReport(reportPath) {
   const plain = content.replace(/\*\*/g, '');
 
   // Extract Block A table (Role Summary) — works with both EN and ES headers
-  const blockARegex = /\|\s*(?:Archetype|Arquetipo)\s*\|\s*(.*?)\s*\|/i;
+  // Archetype cell may be labeled "Archetype", "Arquetipo", or "Detected archetype" (drift from EN translation).
+  const blockARegex = /\|\s*(?:Detected\s+)?(?:Archetype|Arquetipo)\s*\|\s*(.*?)\s*\|/i;
   const seniorityRegex = /\|\s*(?:Seniority|Nivel|Level)\s*\|\s*(.*?)\s*\|/i;
   const remoteRegex = /\|\s*(?:Remote|Remoto|Location)\s*\|\s*(.*?)\s*\|/i;
   const teamRegex = /\|\s*(?:Team|Team size|Equipo)\s*\|\s*(.*?)\s*\|/i;
   const compRegex = /\|\s*(?:Comp|Salary|Salario|Listed salary)\s*\|\s*(.*?)\s*\|/i;
   const domainRegex = /\|\s*(?:Domain|Dominio|Industry)\s*\|\s*(.*?)\s*\|/i;
 
-  const archMatch = plain.match(blockARegex);
+  // Fallback: report header field `Archetype: ...` or `Arquetipo: ...` (newer reports use this).
+  const headerArchRegex = /^(?:Archetype|Arquetipo):\s*(.+?)$/im;
+
+  const archMatch = plain.match(blockARegex) || plain.match(headerArchRegex);
   if (archMatch && !report.archetype) report.archetype = archMatch[1].trim();
 
   const senMatch = plain.match(seniorityRegex);

@@ -13,7 +13,7 @@
 
 import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const CAREER_OPS = dirname(fileURLToPath(import.meta.url));
 const APPS_FILE = existsSync(join(CAREER_OPS, 'data/applications.md'))
@@ -39,22 +39,24 @@ const CADENCE = {
   interview_thankyou: 1,
 };
 
-// --- Status normalization (English-only aliases) ---
+// --- Status normalization (mirrors verify-pipeline.mjs) ---
 const ALIASES = {
-  'evaluated': 'evaluated', 'conditional': 'evaluated', 'hold': 'evaluated', 'evaluate': 'evaluated', 'verify': 'evaluated',
+  'evaluada': 'evaluated', 'condicional': 'evaluated', 'hold': 'evaluated',
+  'evaluar': 'evaluated', 'verificar': 'evaluated',
+  'aplicado': 'applied', 'enviada': 'applied', 'aplicada': 'applied',
   'applied': 'applied', 'sent': 'applied',
-  'responded': 'responded',
-  'interview': 'interview',
-  'offer': 'offer',
-  'rejected': 'rejected',
-  'discarded': 'discarded', 'closed': 'discarded', 'cancelled': 'discarded',
-  'skip': 'skip', 'monitor': 'skip', 'geo blocker': 'skip',
-  'duplicate': 'discarded', 'dup': 'discarded', 'repost': 'discarded',
+  'respondido': 'responded',
+  'entrevista': 'interview',
+  'oferta': 'offer',
+  'rechazado': 'rejected', 'rechazada': 'rejected',
+  'descartado': 'discarded', 'descartada': 'discarded',
+  'cerrada': 'discarded', 'cancelada': 'discarded',
+  'no aplicar': 'skip', 'no_aplicar': 'skip', 'monitor': 'skip', 'geo blocker': 'skip',
 };
 
 const ACTIONABLE_STATUSES = ['applied', 'responded', 'interview'];
 
-function normalizeStatus(raw) {
+export function normalizeStatus(raw) {
   const clean = raw.replace(/\*\*/g, '').trim().toLowerCase()
     .replace(/\s+\d{4}-\d{2}-\d{2}.*$/, '').trim();
   return ALIASES[clean] || clean;
@@ -65,16 +67,16 @@ function today() {
   return new Date(new Date().toISOString().split('T')[0]);
 }
 
-function parseDate(dateStr) {
+export function parseDate(dateStr) {
   if (!dateStr || !/^\d{4}-\d{2}-\d{2}$/.test(dateStr.trim())) return null;
   return new Date(dateStr.trim());
 }
 
-function daysBetween(d1, d2) {
+export function daysBetween(d1, d2) {
   return Math.floor((d2 - d1) / (1000 * 60 * 60 * 24));
 }
 
-function addDays(date, days) {
+export function addDays(date, days) {
   const result = new Date(date);
   result.setUTCDate(result.getUTCDate() + days);
   return result.toISOString().split('T')[0];
@@ -151,7 +153,7 @@ function resolveReportPath(reportField) {
 }
 
 // --- Compute urgency ---
-function computeUrgency(status, daysSinceApp, daysSinceLastFollowup, followupCount) {
+export function computeUrgency(status, daysSinceApp, daysSinceLastFollowup, followupCount) {
   if (status === 'applied') {
     if (followupCount >= CADENCE.applied_max_followups) return 'cold';
     if (followupCount === 0 && daysSinceApp >= CADENCE.applied_first) return 'overdue';
@@ -171,7 +173,7 @@ function computeUrgency(status, daysSinceApp, daysSinceLastFollowup, followupCou
 }
 
 // --- Compute next follow-up date ---
-function computeNextFollowupDate(status, appDate, lastFollowupDate, followupCount) {
+export function computeNextFollowupDate(status, appDate, lastFollowupDate, followupCount) {
   if (status === 'applied') {
     if (followupCount >= CADENCE.applied_max_followups) return null; // cold
     if (followupCount === 0) return addDays(parseDate(appDate), CADENCE.applied_first);
@@ -325,13 +327,15 @@ function printSummary(result) {
   console.log('');
 }
 
-// --- Run ---
-const result = analyze();
+// --- Run (CLI only; guarded so the module is safely importable for tests) ---
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const result = analyze();
 
-if (summaryMode) {
-  printSummary(result);
-} else {
-  console.log(JSON.stringify(result, null, 2));
+  if (summaryMode) {
+    printSummary(result);
+  } else {
+    console.log(JSON.stringify(result, null, 2));
+  }
+
+  if (result.error) process.exit(1);
 }
-
-if (result.error) process.exit(1);

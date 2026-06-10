@@ -3,7 +3,7 @@
  * gemini-eval.mjs — Gemini-powered Job Offer Evaluator for career-ops
  *
  * A free-tier alternative to the Claude-based pipeline.
- * Reads evaluation logic from modes/offer.md + modes/_shared.md,
+ * Reads evaluation logic from modes/oferta.md + modes/_shared.md,
  * reads the user's resume from cv.md, and evaluates a Job Description
  * passed as a command-line argument.
  *
@@ -31,13 +31,14 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 
 // ---------------------------------------------------------------------------
 // Bootstrap: load .env before anything else
 // ---------------------------------------------------------------------------
 try {
   const { config } = await import('dotenv');
-  config({ override: true });
+  config();
 } catch {
   // dotenv is optional — fall back to process.env if not installed
 }
@@ -52,7 +53,7 @@ const ROOT = dirname(fileURLToPath(import.meta.url));
 const PATHS = {
   // Primary evaluation logic lives in these two mode files
   shared:      join(ROOT, 'modes', '_shared.md'),
-  offer:      join(ROOT, 'modes', 'offer.md'),
+  oferta:      join(ROOT, 'modes', 'oferta.md'),
   // Canonical skill path referenced in Issue #344
   evaluate:    join(ROOT, '.claude', 'skills', 'career-ops', 'SKILL.md'),
   cv:          join(ROOT, 'cv.md'),
@@ -60,6 +61,7 @@ const PATHS = {
   profileYml:  join(ROOT, 'config', 'profile.yml'),
   reports:     join(ROOT, 'reports'),
   tracker:     join(ROOT, 'data', 'applications.md'),
+  trackerAdditions: join(ROOT, 'batch', 'tracker-additions'),
 };
 
 // ---------------------------------------------------------------------------
@@ -161,6 +163,23 @@ function nextReportNumber() {
   return String(Math.max(...files) + 1).padStart(3, '0');
 }
 
+function slugifyCompany(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '') || 'unknown';
+}
+
+function tsvSafe(value) {
+  return String(value ?? '').replace(/[\t\r\n]+/g, ' ').trim();
+}
+
+function normalizedTrackerScore(value) {
+  const clean = tsvSafe(value);
+  if (!clean || clean === '?') return 'N/A';
+  return /\/5$/i.test(clean) ? clean : `${clean}/5`;
+}
+
 // Lazy import — only used when saving
 let readdirSync;
 try {
@@ -177,7 +196,7 @@ if (!readdirSync) {
 console.log('\n📂  Loading context files...');
 
 const sharedContext  = readFile(PATHS.shared,      'modes/_shared.md');
-const offerLogic    = readFile(PATHS.offer,      'modes/offer.md');
+const ofertaLogic    = readFile(PATHS.oferta,      'modes/oferta.md');
 const cvContent      = readFile(PATHS.cv,          'cv.md');
 const profileContent = readFile(PATHS.profile,     'modes/_profile.md');
 const profileYml     = readFile(PATHS.profileYml,  'config/profile.yml');
@@ -196,9 +215,9 @@ SYSTEM CONTEXT (_shared.md)
 ${sharedContext}
 
 ═══════════════════════════════════════════════════════
-EVALUATION MODE (offer.md)
+EVALUATION MODE (oferta.md)
 ═══════════════════════════════════════════════════════
-${offerLogic}
+${ofertaLogic}
 
 ═══════════════════════════════════════════════════════
 CANDIDATE RESUME (cv.md)
@@ -318,9 +337,10 @@ if (saveReport) {
 
     const num         = nextReportNumber();
     const today       = new Date().toISOString().split('T')[0];
-    const companySlug = company.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const companySlug = slugifyCompany(company);
     const filename    = `${num}-${companySlug}-${today}.md`;
     const reportPath  = join(PATHS.reports, filename);
+    const trackerPath = join(PATHS.trackerAdditions, `${num}-${companySlug}.tsv`);
 
     const reportContent = `# Evaluation: ${company} — ${role}
 
@@ -337,13 +357,31 @@ ${evaluationText.replace(/---SCORE_SUMMARY---[\s\S]*?---END_SUMMARY---/, '').tri
 `;
 
     writeFileSync(reportPath, reportContent, 'utf-8');
+    mkdirSync(PATHS.trackerAdditions, { recursive: true });
+    const trackerFields = [
+      String(parseInt(num, 10)),
+      today,
+      tsvSafe(company),
+      tsvSafe(role),
+      'Evaluated',
+      normalizedTrackerScore(score),
+      '❌',
+      `[${num}](reports/${filename})`,
+      'Gemini evaluation',
+    ];
+    writeFileSync(trackerPath, `${trackerFields.join('\t')}\n`, 'utf-8');
     console.log(`\n✅  Report saved: reports/${filename}`);
-
-    // Append tracker entry reminder
-    console.log(`\n📊  Tracker entry (add to data/applications.md):`);
-    console.log(`    | ${num} | ${today} | ${company} | ${role} | ${score} | Evaluated | ❌ | [${num}](reports/${filename}) |`);
+    console.log(`📊  Tracker addition saved: batch/tracker-additions/${num}-${companySlug}.tsv`);
+    const mergeOutput = execFileSync(process.execPath, [join(ROOT, 'merge-tracker.mjs')], {
+      cwd: ROOT,
+      encoding: 'utf-8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    if (mergeOutput.trim()) console.log(mergeOutput.trim());
+    console.log('📊  Tracker merged into data/applications.md.');
   } catch (err) {
     console.warn(`⚠️   Could not save report: ${err.message}`);
+    process.exitCode = 1;
   }
 }
 
