@@ -310,8 +310,7 @@ Output ONLY the YAML block. No markdown. No preamble.
       const reportFilename = `${reportNum}-${companySlug}-${dateStr}.md`;
 
       // 2. Updated reportContent (removed the array mapping)
-      const reportContent = `# Screener: ${companyName} — ${roleName}
-Date: ${dateStr}
+      const reportContent = `Role: ${companyName} — ${roleName}
 Score: ${score}/5
 Decision: ${decision}
 
@@ -319,7 +318,8 @@ Reasoning: ${wrapText(scoreReason)}
 
 Hard Stops: ${wrapText(hardStops)}
 Soft Gaps: ${wrapText(softGaps)}
-Strengths: ${wrapText(topStrengths)};
+Strengths: ${wrapText(topStrengths)};`;
+      
       // Write Files
       fs.writeFileSync(path.join(REPORTS_DIR, reportFilename), reportContent, 'utf-8');
       
@@ -329,7 +329,7 @@ Strengths: ${wrapText(topStrengths)};
       updateState(offer.id, offer.url, 'completed', startedAt, new Date().toISOString(), reportNum, score, '-', retries);
       
       // 3. Your preferred terminal output!
-      console.log(`✅ Done — Score: ${score} | ${roleName}`);
+      console.log(`✅ Done`);
       console.log(`\n${reportContent}\n`);
       
       // Only sleep if this isn't the very last item in the queue
