@@ -130,7 +130,7 @@ function isCompanyHardStop(offer) {
   return null;
 }
 
-function wrapText(text, maxLen = 80) {
+function wrapText(text, maxLen = 100) {
   if (!text) return 'None';
   const words = String(text).split(/\s+/);
   let lines = [];
@@ -318,7 +318,9 @@ Reasoning: ${wrapText(scoreReason)}
 
 Hard Stops: ${wrapText(hardStops)}
 Soft Gaps: ${wrapText(softGaps)}
-Strengths: ${wrapText(topStrengths)};`;
+Strengths: ${wrapText(topStrengths)};
+
+---`;
       
       // Write Files
       fs.writeFileSync(path.join(REPORTS_DIR, reportFilename), reportContent, 'utf-8');
