@@ -130,9 +130,26 @@ function isCompanyHardStop(offer) {
   return null;
 }
 
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
+function wrapText(text, maxLen = 80) {
+  if (!text) return 'None';
+  const words = String(text).split(/\s+/);
+  let lines = [];
+  let currentLine = '';
+
+  for (const word of words) {
+    // If adding the next word exceeds the limit, push the line and start a new one
+    if ((currentLine + word).length > maxLen) {
+      if (currentLine) lines.push(currentLine.trim());
+      currentLine = word + ' ';
+    } else {
+      currentLine += word + ' ';
+    }
+  }
+  if (currentLine) lines.push(currentLine.trim());
+  
+  return lines.join('\n'); // Joins the neat lines together
+}
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
