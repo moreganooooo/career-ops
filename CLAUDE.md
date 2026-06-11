@@ -260,6 +260,37 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 | Asks about rejection patterns or wants to improve targeting | `patterns` |
 | Asks about follow-ups or application cadence | `followup` |
 
+### Batch Evaluation Workflow (Token-Efficient)
+
+Before running any batch evaluation, always run the pre-filter pipeline first:
+
+```bash
+# Step 1 — Filter pipeline.md by title + location (fetches pages, ~5-15 min)
+bash filter-pipeline.sh
+
+# Step 2 — Review outputs
+#   confirmed-remote-queue.txt   clean remote URLs ready for evaluation
+#   location-check-results.txt   full annotated breakdown
+#   uncertain-titles.txt         roles with no keyword match
+
+# Step 3 — Evaluate confirmed remote queue (lightweight screener via Anthropic API)
+node batch-runner-custom.mjs --limit 10   # use --limit to control token spend
+
+# Step 4 — Merge tracker
+node merge-tracker.mjs
+```
+
+**Key scripts:**
+| Script | Purpose |
+|--------|---------|
+| `filter-pipeline.sh` | Title hard-stop + location check → outputs clean queue |
+| `batch-runner-custom.mjs` | Lightweight screener using Haiku via Anthropic API (requires credits) |
+| `batch/batch-runner.sh` | Full A-F evaluation via `claude -p` (uses Claude Code subscription) |
+
+**Known in-office companies** (hard-stopped in `filter-pipeline.sh`): `openai`, `notion`
+
+**Token strategy:** Run `filter-pipeline.sh` first (zero LLM cost) → evaluate only `confirmed-remote-queue.txt` → use `--limit` to spread across sessions.
+
 ### CV Source of Truth
 
 - `cv.md` in project root is the canonical CV
