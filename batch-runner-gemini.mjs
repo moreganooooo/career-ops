@@ -214,7 +214,7 @@ Output ONLY the YAML block. No markdown. No preamble.
       if (!jdText || jdText.length < 100) throw new Error('Page body empty');
 
       // TRUNCATE to save tokens
-      const MAX_JD_CHARS = 10000;
+      const MAX_JD_CHARS = 12000;
       if (jdText.length > MAX_JD_CHARS) {
         console.log(`✂️  Truncating JD from ${jdText.length} to ${MAX_JD_CHARS} chars`);
         jdText = jdText.slice(0, MAX_JD_CHARS) + '\n\n[...TRUNCATED...]';
