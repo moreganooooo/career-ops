@@ -302,8 +302,7 @@ Reasoning: ${scoreReason || 'None'}
 
 Hard Stops: ${hardStops || 'None'}
 Soft Gaps: ${softGaps || 'None'}
-Strengths: ${topStrengths || 'None'}
-`;
+Strengths: ${topStrengths || 'None'}`;
       // Write Files
       fs.writeFileSync(path.join(REPORTS_DIR, reportFilename), reportContent, 'utf-8');
       
