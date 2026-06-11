@@ -299,6 +299,7 @@ Score: ${score}/5
 Decision: ${decision}
 
 Reasoning: ${scoreReason || 'None'}
+
 Hard Stops: ${hardStops || 'None'}
 Soft Gaps: ${softGaps || 'None'}
 Strengths: ${topStrengths || 'None'}
