@@ -315,9 +315,11 @@ Strengths: ${topStrengths || 'None'}`;
       console.log(`✅ Done — Score: ${score} | ${roleName}`);
       console.log(`\n${reportContent}\n`);
       
-      // Generous cooldown to protect the free tier TPM token budget
-      console.log(`⏳ Sleeping for 20 seconds before the next request...`);
-      await new Promise(r => setTimeout(r, 20000));
+      // Only sleep if this isn't the very last item in the queue
+      if (i < toProcess.length - 1) {
+        console.log(`⏳ Sleeping for 20 seconds before the next request...`);
+        await new Promise(r => setTimeout(r, 20000));
+      }
 
     } catch (err) {
       const errMsg = (err.message || '').toLowerCase();
