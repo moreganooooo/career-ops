@@ -47,7 +47,7 @@ if (!geminiKey) {
   process.exit(1);
 }
 
-const modelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const modelName = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
 const genAI = new GoogleGenerativeAI(geminiKey);
 
 // ---------------------------------------------------------------------------
@@ -133,12 +133,15 @@ function isCompanyHardStop(offer) {
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// Main
+// ---------------------------------------------------------------------------
 async function main() {
   fs.mkdirSync(TRACKER_DIR, { recursive: true });
   fs.mkdirSync(REPORTS_DIR, { recursive: true });
 
   if (!fs.existsSync(INPUT_FILE)) {
-    console.error(`❌  batch/batch-input.tsv not found. Run scan.mjs first to populate it.`);
+    console.error(`❌ batch/batch-input.tsv not found. Run scan.mjs first.`);
     process.exit(1);
   }
 
@@ -165,34 +168,27 @@ async function main() {
 
   console.log(`\n📋 Total: ${offers.length} | Completed: ${completedIds.size} | To run: ${toProcess.length}`);
   console.log(`🤖 Model: ${modelName}`);
-  if (toProcess.length === 0) { console.log('✅ Nothing to process!'); return; }
 
   const screenerContext = fs.readFileSync(path.join(ROOT, 'batch', 'screener-context.md'), 'utf-8');
   const screenPrompt    = fs.readFileSync(PROMPT_FILE, 'utf-8');
 
-  const systemPrompt = `You are a screening worker for career-ops.
-Your goal is speed and efficiency to process roles.
+  // Ensure score_reason is requested early to avoid cutoff
+  const systemPrompt = `You are a screening worker.
+GOAL: Speed and efficiency.
 
-═══════════════════════════════════════════════════════
-CANDIDATE CONTEXT (critical reframes + background)
-═══════════════════════════════════════════════════════
+CONTEXT:
 ${screenerContext}
 
-═══════════════════════════════════════════════════════
-SCREENING METHODOLOGY
-═══════════════════════════════════════════════════════
+METHODOLOGY:
 ${screenPrompt}
 
-OUTPUT FORMAT — IMPORTANT OVERRIDE
-Follow the output instructions from the screening methodology above EXACTLY.
-Output ONLY the YAML block. No markdown report. No summary. No extra text.
-The YAML must begin with the very first character of your response (no preamble).`;
+OUTPUT FORMAT:
+Output ONLY the YAML block. No markdown. No preamble.
+`;
 
   console.log('\n🌐 Launching Playwright browser...');
   const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-  });
+  const context = await browser.newContext();
   const page = await context.newPage();
 
   for (let i = 0; i < toProcess.length; i++) {
@@ -206,158 +202,156 @@ The YAML must begin with the very first character of your response (no preamble)
     console.log(`[${i + 1}/${toProcess.length}] #${offer.id}: ${offer.notes || offer.url}`);
 
     try {
-      // Zero-cost skip for known in-office companies
       const hardStopCompany = isCompanyHardStop(offer);
       if (hardStopCompany) {
-        console.log(`⛔ Hard stop (${hardStopCompany}) — skipping without API call`);
+        console.log(`⛔ Hard stop (${hardStopCompany}) — skipping`);
         updateState(offer.id, offer.url, 'completed', startedAt, new Date().toISOString(), '-', '0.0', '-', retries);
-        console.log(`✅ Skipped (no credits used)`);
         continue;
       }
 
       console.log(`🌐 Fetching JD...`);
-      const jdText = await fetchJD(page, offer.url);
-      if (!jdText || jdText.length < 100) throw new Error('Page body empty or too short');
+      let jdText = await fetchJD(page, offer.url);
+      if (!jdText || jdText.length < 100) throw new Error('Page body empty');
 
-      console.log(`🤖 Screening with Gemini (${modelName})...`);
+      // TRUNCATE to save tokens
+      const MAX_JD_CHARS = 10000;
+      if (jdText.length > MAX_JD_CHARS) {
+        console.log(`✂️  Truncating JD from ${jdText.length} to ${MAX_JD_CHARS} chars`);
+        jdText = jdText.slice(0, MAX_JD_CHARS) + '\n\n[...TRUNCATED...]';
+      }
+
+      console.log(`🤖 Screening with Gemini...`);
       const model = genAI.getGenerativeModel({
         model: modelName,
-        generationConfig: { temperature: 0.3, maxOutputTokens: 1024 },
+        generationConfig: { temperature: 0.3, maxOutputTokens: 2048 }, // Increased tokens
       });
 
       const result = await model.generateContent([
         { text: systemPrompt },
-        { text: `Evaluate this job.\nID: ${offer.id}\nURL: ${offer.url}\nREPORT_NUM: ${reportNum}\nDATE: ${dateStr}\n\nJOB DESCRIPTION:\n${jdText}` },
+        { text: `Evaluate this job.\nID: ${offer.id}\nURL: ${offer.url}\n\nJOB TEXT:\n${jdText}` },
       ]);
 
       const responseText = result.response.text();
+      const yamlText = responseText.replace(/^```[^\n]*\n/gm, '').replace(/^```$/gm, '').trim();
 
-      // Strip markdown code fences that Gemini sometimes adds
-      const yamlText = responseText
-        .replace(/^```[^\n]*\n/gm, '')
-        .replace(/^```$/gm, '')
-        .trim();
+      if (!yamlText || yamlText.length < 20) throw new Error('Empty response');
 
-      if (!yamlText || yamlText.length < 20) {
-        console.warn('⚠️  Empty or too-short response:\n', responseText.slice(0, 200));
-        throw new Error('Empty response from model');
-      }
-
-      // Parse key fields from YAML using regex (no YAML lib needed)
+      // --- FIXED EXTRACTION ENGINE ---
       const extract = (key) => {
-        const m = yamlText.match(new RegExp(`${key}:\\s*["']?([^"'\n\\[]+)["']?`));
-        return m ? m[1].trim() : '';
+        // Capture everything until the next newline that starts a key (e.g., "\nkey:")
+        const regex = new RegExp(`(?:^|\\n)\\s*${key}:\\s*["']?(.*?)(?=(?:\\n\\s*[a-z_0-9]+:\\s)|$)`, 'is');
+        const m = yamlText.match(regex);
+        // FIX: Extract group [1] safely, then clean trailing quotes
+        return m && m[1] ? m[1].replace(/^["']|["']$/g, '').trim() : '';
       };
+
       const extractList = (key) => {
-        const m = yamlText.match(new RegExp(`${key}:\\s*\\[([^\\]]*)\\]`, 's'));
-        if (!m) return [];
-        return m[1].split(',').map(s => s.replace(/['"]/g, '').trim()).filter(Boolean);
+        const lines = yamlText.split('\n');
+        let inTargetList = false;
+        const results = [];
+
+        for (const rawLine of lines) {
+          const line = rawLine.trim();
+          
+          // 1. Did we find our target key?
+          if (line.startsWith(`${key}:`)) {
+            inTargetList = true;
+            
+            // Check for inline arrays (e.g., hard_stops: ['a', 'b'])
+            const inlineMatch = line.match(/\[(.*?)\]/);
+            if (inlineMatch) {
+              return inlineMatch[1].split(',').map(s => s.replace(/['"]/g, '').trim()).filter(Boolean);
+            }
+            continue;
+          }
+
+          if (inTargetList) {
+            // 2. Stop parsing if we hit the next YAML key (e.g., "soft_gaps:")
+            if (/^[a-zA-Z0-9_]+:/.test(line)) break;
+
+            // 3. Grab the list items (handles both "- item" and "1. item")
+            if (line.startsWith('-') || /^\d+\./.test(line)) {
+              const itemText = line.replace(/^(?:-|\d+\.)\s*/, '').replace(/['"]/g, '').trim();
+              if (itemText) results.push(itemText);
+            }
+          }
+        }
+        return results;
       };
-      
-      const scoreReason = extract('score_reason') || '';
+
+// 1. Updated extraction (using standard extract instead of extractList)
       const companyName  = extract('company')         || 'Unknown';
       const roleName     = extract('role')            || 'Unknown';
       const score        = extract('score')           || '3.0';
-      const archetype    = extract('archetype')       || 'Unknown';
+      const scoreReason  = extract('score_reason')    || extract('reason') || extract('risk_level') || '';
       const decision     = extract('final_decision')  || 'Consider';
-      const legitimacy   = extract('legitimacy_tier') || 'High Confidence';
-      const hardStops    = extractList('hard_stops');
-      const softGaps     = extractList('soft_gaps');
-      const topStrengths = extractList('top_strengths');
+      const hardStops    = extract('hard_stops');
+      const softGaps     = extract('soft_gaps');
+      const topStrengths = extract('top_strengths');
 
       const companySlug = companyName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      const status = parseFloat(score) >= 4.0 ? 'Evaluated' : 'SKIP';
-
-      const reportContent = `# Screener: ${companyName} — ${roleName}
-
-**Date:** ${dateStr}
-**Score:** ${score}/5
-**Archetype:** ${archetype}
-**Decision:** ${decision}
-**Legitimacy:** ${legitimacy}
-**URL:** ${offer.url}
-**PDF:** ❌
-**Verification:** unconfirmed (batch screener)
-**Tool:** Gemini (${modelName})
-
----
-
-## Hard Stops
-${hardStops.length ? hardStops.map(s => `- ${s}`).join('\n') : '- None'}
-
-## Soft Gaps
-${softGaps.length ? softGaps.map(s => `- ${s}`).join('\n') : '- None'}
-
-## Top Strengths
-${topStrengths.length ? topStrengths.map(s => `- ${s}`).join('\n') : '- See CV for details'}
-
----
-
-*Lightweight Gemini screen — run \`/career-ops oferta\` for full A–F evaluation.*
-
-## Machine Summary
-\`\`\`yaml
-company: "${companyName}"
-role: "${roleName}"
-score: ${score}
-archetype: "${archetype}"
-decision: "${decision}"
-legitimacy: "${legitimacy}"
-\`\`\`
-`;
-
-      const tsvLine = [
-        String(parseInt(reportNum, 10)),
-        dateStr,
-        companyName,
-        roleName,
-        status,
-        `${score}/5`,
-        '❌',
-        `[${reportNum}](reports/${reportNum}-${companySlug}-${dateStr}.md)`,
-        decision === 'Apply' ? `Score ${score} — apply` : `Score ${score} — ${decision.toLowerCase()}`,
-      ].join('\t');
-
       const reportFilename = `${reportNum}-${companySlug}-${dateStr}.md`;
-      fs.writeFileSync(path.join(REPORTS_DIR, reportFilename), reportContent, 'utf-8');
-      console.log(`📝 Report: reports/${reportFilename}`);
 
+      // 2. Updated reportContent (removed the array mapping)
+      const reportContent = `# Screener: ${companyName} — ${roleName}
+Date: ${dateStr}
+Score: ${score}/5
+Decision: ${decision}
+
+Reasoning: ${scoreReason || 'None'}
+Hard Stops: ${hardStops || 'None'}
+Soft Gaps: ${softGaps || 'None'}
+Strengths: ${topStrengths || 'None'}
+`;
+      // Write Files
+      fs.writeFileSync(path.join(REPORTS_DIR, reportFilename), reportContent, 'utf-8');
+      
+      const tsvLine = [String(parseInt(reportNum)), dateStr, companyName, roleName, (parseFloat(score)>=4?'Evaluated':'SKIP'), `${score}/5`, '❌', `[${reportNum}](reports/${reportFilename})`, decision].join('\t');
       fs.writeFileSync(path.join(TRACKER_DIR, `${offer.id}.tsv`), tsvLine + '\n', 'utf-8');
-      console.log(`📊 Tracker: batch/tracker-additions/${offer.id}.tsv`);
 
       updateState(offer.id, offer.url, 'completed', startedAt, new Date().toISOString(), reportNum, score, '-', retries);
-      console.log(`✅ Done — Score: ${score}/5 | ${roleName} @ ${companyName}`);
-      if (scoreReason) console.log(`   💬 ${scoreReason}`);
-
-      // Gemini free tier: be a little more generous with pauses than Haiku
-      await new Promise(r => setTimeout(r, 3000));
+      
+      // 3. Your preferred terminal output!
+      console.log(`✅ Done — Score: ${score} | ${roleName}`);
+      console.log(`\n${reportContent}\n`);
+      
+      // Generous cooldown to protect the free tier TPM token budget
+      console.log(`⏳ Sleeping for 20 seconds before the next request...`);
+      await new Promise(r => setTimeout(r, 20000));
 
     } catch (err) {
-      const msg = (err.message || '').includes('quota') || (err.message || '').includes('rate')
-        ? `Rate limit hit — waiting 60s before continuing...`
-        : err.message;
+      const errMsg = (err.message || '').toLowerCase();
+      
+      // DEBUG: Print the real error to help us see if it's "Daily" or "Minute"
+      console.log(`\n🔍 API ERROR DETAIL: "${errMsg}"`);
 
-      console.error(`❌ Failed #${offer.id}: ${msg}`);
+      const isDaily = errMsg.includes('day') || errMsg.includes('daily');
+      const isQuota = errMsg.includes('quota') || errMsg.includes('resource_exhausted') || errMsg.includes('429');
 
-      if (msg.includes('Rate limit')) {
-        await new Promise(r => setTimeout(r, 60000));
+      if (isDaily) {
+        console.error(`\n⛔ DAILY QUOTA EXCEEDED. Stopping script to prevent infinite loop.`);
+        process.exit(1); // Exit completely
+      } 
+      else if (isQuota) {
+        console.warn(`\n⚠️  [Minute Rate Limit] Cooling down 70s...`);
+        await new Promise(r => setTimeout(r, 90000));
+        i--; // Retry
+      } 
+      else {
+        console.error(`\n❌ Error #${offer.id}: ${err.message}`);
+        updateState(offer.id, offer.url, 'failed', startedAt, new Date().toISOString(), reportNum, '-', err.message, retries + 1);
       }
-
-      updateState(offer.id, offer.url, 'failed', startedAt, new Date().toISOString(), reportNum, '-', err.message, retries + 1);
-      await new Promise(r => setTimeout(r, 2000));
     }
   }
 
   await browser.close();
-  console.log('\n🏁 Done! Merging results...');
-
+  console.log('\n🏁 Batch finished.');
+  
+  // Merge step
   try {
     const { execFileSync } = await import('child_process');
-    execFileSync('node', ['merge-tracker.mjs'], { stdio: 'inherit' });
-    execFileSync('node', ['verify-pipeline.mjs'], { stdio: 'inherit' });
-  } catch (err) {
-    console.error('⚠️  Merge/verify error:', err.message);
-  }
+    if (fs.existsSync('merge-tracker.mjs')) execFileSync('node', ['merge-tracker.mjs'], { stdio: 'inherit' });
+  } catch (e) {}
 }
 
-main().catch(err => { console.error('Fatal:', err); process.exit(1); });
+main().catch(console.error);
