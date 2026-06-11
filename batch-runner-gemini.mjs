@@ -315,11 +315,11 @@ Date: ${dateStr}
 Score: ${score}/5
 Decision: ${decision}
 
-Reasoning: ${scoreReason || 'None'}
+Reasoning: ${wrapText(scoreReason)}
 
-Hard Stops: ${hardStops || 'None'}
-Soft Gaps: ${softGaps || 'None'}
-Strengths: ${topStrengths || 'None'}`;
+Hard Stops: ${wrapText(hardStops)}
+Soft Gaps: ${wrapText(softGaps)}
+Strengths: ${wrapText(topStrengths)};
       // Write Files
       fs.writeFileSync(path.join(REPORTS_DIR, reportFilename), reportContent, 'utf-8');
       
