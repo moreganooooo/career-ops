@@ -69,8 +69,9 @@ Read the job below. Then complete the following steps in order.
 - Exact role title
 
 ### Step 2 — Check hard disqualifiers
-
-Go through each hard disqualifier above. If ANY applies, set score = 0.5 and final_decision = "Skip". Stop here and output the YAML.
+If ANY applies, set score = 0.5, final_decision = "Skip", 
+score_reason = one sentence naming the specific disqualifier.
+Then output the YAML and stop.
 
 ### Step 3 — Match role to target list
 

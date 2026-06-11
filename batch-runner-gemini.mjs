@@ -254,11 +254,7 @@ The YAML must begin with the very first character of your response (no preamble)
         return m[1].split(',').map(s => s.replace(/['"]/g, '').trim()).filter(Boolean);
       };
       
-      const scoreReason = (() => {
-      const m = yamlText.match(/score_reason:\s*["']?(.+?)["']?\s*$/m);
-      return m ? m[1].trim().replace(/^["']|["']$/g, '') : '';
-      })();
-      
+      const scoreReason = extract('score_reason') || '';
       const companyName  = extract('company')         || 'Unknown';
       const roleName     = extract('role')            || 'Unknown';
       const score        = extract('score')           || '3.0';
