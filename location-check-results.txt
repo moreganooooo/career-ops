@@ -241,3 +241,23 @@ UNCERTAIN  | uncertain | ActiveCampaign - Strategy & Business Operations Manager
 🏢 IN-OFFICE | pass | Gong - Manager GTM Strategy & Planning
 🏢 IN-OFFICE | pass | Gong - Manager/Senior Manager GTM Strategy & Planning
 🏢 IN-OFFICE | pass | Gong - Senior Product Content Writer
+🏢 IN-OFFICE | pass | Showpad - Analyst - Partnerships
+🏢 IN-OFFICE | pass | Showpad - Customer Marketing & Advocacy Associate
+UNCERTAIN  | uncertain | Showpad - Partner Enablement Lead
+UNCERTAIN  | uncertain | Showpad - Sales Business Partner
+UNCERTAIN  | uncertain | GitLab - AI Transformation Owner, Marketing
+SKIP       | uncertain | GitLab - Candidate Experience Specialist, Contractor
+UNCERTAIN  | uncertain | GitLab - Customer Success Architect
+SKIP       | uncertain | GitLab - Customer Success Manager
+SKIP       | uncertain | GitLab - Customer Success Manager, Japan
+SKIP       | uncertain | GitLab - Customer Success Manager, SEUR
+UNCERTAIN  | uncertain | GitLab - Lead Global Marketing Campaigns Manager
+✅ REMOTE   | pass | GitLab - Lead Product Marketing Manager, Pricing and Packaging
+SKIP       | uncertain | GitLab - Presales Consultant - Japan
+SKIP       | uncertain | GitLab - Program Manager - Dubai
+SKIP       | uncertain | GitLab - Senior Executive Business Partner
+SKIP       | uncertain | GitLab - Senior Executive Business Partner to CFO
+SKIP       | uncertain | GitLab - Senior TA Operations Specialist
+UNCERTAIN  | uncertain | GitLab - Sr. Manager, Customer Experience Operations
+UNCERTAIN  | uncertain | Outreach - Principal Systems Operations Manager
+SKIP       | uncertain | Outreach - Program Manager, Supportability - Prague, Czechia
