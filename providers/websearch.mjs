@@ -260,7 +260,7 @@ function extractCompanyFromUrl(rawUrl) {
     const path = url.pathname.split('/').filter(Boolean);
 
     // Greenhouse: boards.greenhouse.io/company or job-boards.greenhouse.io/company
-    if (host.includes('greenhouse.io') && path.length >= 1) {
+    if ((host === 'greenhouse.io' || host.endsWith('.greenhouse.io')) && path.length >= 1) {
       return capitalize(path[0]);
     }
     // Lever: jobs.lever.co/company
