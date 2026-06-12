@@ -261,3 +261,174 @@ SKIP       | uncertain | GitLab - Senior TA Operations Specialist
 UNCERTAIN  | uncertain | GitLab - Sr. Manager, Customer Experience Operations
 UNCERTAIN  | uncertain | Outreach - Principal Systems Operations Manager
 SKIP       | uncertain | Outreach - Program Manager, Supportability - Prague, Czechia
+🏢 IN-OFFICE | pass | Outreach - Sales Enablement Manager
+🏢 IN-OFFICE | pass | Mindtickle - Principal Product Marketing Manager – Field (Expansion & Retention)
+🏢 IN-OFFICE | pass | Mindtickle - Senior Field Marketing Associate
+UNCERTAIN  | uncertain | Mindtickle - Senior Program Manager
+UNCERTAIN  | uncertain | Airtable - AI Agent Architect, Customer Experience
+SKIP       | uncertain | Airtable - Delivery Consultant
+UNCERTAIN  | uncertain | Airtable - Lead Solutions Consultant
+SKIP       | uncertain | Airtable - Program Manager, Professional Services - East
+SKIP       | uncertain | Airtable - Program Manager, Professional Services - West
+🏢 IN-OFFICE | pass | Airtable - Regional Marketing Manager
+UNCERTAIN  | uncertain | Airtable - Senior Partner Solutions Architect
+SKIP       | uncertain | Remote.com - CX AI & Automation Lead
+UNCERTAIN  | uncertain | Remote.com - Mobility Specialist - AMER
+SKIP       | uncertain | Remote.com - Pay Customer Success Manager, SMB
+✅ REMOTE   | pass | Remote.com - Principal, Marketing Analytics
+UNCERTAIN  | uncertain | Remote.com - Product-Led Growth Manager
+SKIP       | uncertain | Remote.com - Senior Deal Desk Specialist
+SKIP       | uncertain | Remote.com - Senior Mobility Specialist - Immigration Lawyer
+SKIP       | uncertain | Remote.com - Senior Mobility Specialist - Immigration Lawyer
+UNCERTAIN  | uncertain | Remote.com - Senior Partner Solutions Architect
+✅ REMOTE   | pass | Remote.com - Senior Strategic Partnerships Manager
+UNCERTAIN  | uncertain | Remote.com - Senior Total Rewards Partner
+✅ REMOTE   | pass | Remote.com - Senior Workday Implementation Specialist
+UNCERTAIN  | uncertain | Remote.com - Staff Performance Video Content Producer
+SKIP       | uncertain | Asana - Customer Success Manager - Portfolio Accounts
+SKIP       | uncertain | Asana - Customer Success Manager, Top Accounts
+SKIP       | uncertain | Asana - CX Enablement Partner (AI)
+UNCERTAIN  | uncertain | Asana - Enterprise Sales Manager, Education & Public Sector
+SKIP       | uncertain | Asana - Implementation Manager
+❓ UNCLEAR  | pass | Asana - Marketing Operations Manager, Lead Funnel | https://www.asana.com/jobs/apply/7908794?gh_jid=7908794
+❓ UNCLEAR  | pass | Asana - Marketing Operations Manager, Strategy | https://www.asana.com/jobs/apply/7920801?gh_jid=7920801
+UNCERTAIN  | uncertain | Asana - Product Owner, GTM AI
+SKIP       | uncertain | Asana - Public Sector Channel Partner Manager
+❓ UNCLEAR  | pass | Asana - Senior Marketing Operations Manager, Growth Ops | https://www.asana.com/jobs/apply/7875694?gh_jid=7875694
+❓ UNCLEAR  | pass | Asana - Senior Product Marketing Manager, Asana Service Management | https://www.asana.com/jobs/apply/7920814?gh_jid=7920814
+❓ UNCLEAR  | pass | Asana - Senior Product Marketing Manager, Command by Asana | https://www.asana.com/jobs/apply/7920824?gh_jid=7920824
+SKIP       | uncertain | Asana - SEO Content Manager
+UNCERTAIN  | uncertain | Asana - Workplace Coordinator
+🏢 IN-OFFICE | pass | Guild Education - Senior Marketing Manager
+SKIP       | uncertain | Nabu Casa - Supply &amp; Logistics Coordinator
+UNCERTAIN  | uncertain | Superhuman - Senior Manager Strategic Customer Success
+UNCERTAIN  | uncertain | SORACOM - Customer Service Specialist
+UNCERTAIN  | uncertain | SHRI KRISHNA PLACEMENT - Specialist
+UNCERTAIN  | uncertain | iMPROve Health - PROJECT SPECIALIST HEALTHCARE
+UNCERTAIN  | uncertain | BusPlanner - Events Coordinator
+UNCERTAIN  | uncertain | NestlÃ© Health Science - Associate Brand Manager Innovation
+UNCERTAIN  | uncertain | CuraSenseAI - Public Health Communications Professional
+✅ REMOTE   | pass | Septeo CNEE - Product Marketing Manager (w/m/d) für SaaS und On-Premises Lösungen
+UNCERTAIN  | uncertain | Air Apps - CRM Specialist
+SKIP       | uncertain | Medtronic - CRM _ DSS _ Zhengzhou
+UNCERTAIN  | uncertain | Sonova International - Business & CRM Analyst | Remote
+✅ REMOTE   | pass | Super.Com - Product Marketing Manager
+SKIP       | uncertain | Bask Health - Senior Customer Success Manager
+SKIP       | uncertain | Bask Health - Customer Success Advocate
+✅ REMOTE   | pass | Tabby - Senior Marketing Analyst, Marketing Analytics
+UNCERTAIN  | uncertain | Marker Video - Content Creator
+SKIP       | uncertain | Real Work From Anywhere — Marketing - Creator Success Manager (Business & Monetisation) - Fully Remote | SaaS at Passion.io
+🏢 IN-OFFICE | pass | Mclane Company, Inc. - Recruitment Marketing Manager
+UNCERTAIN  | uncertain | Encompass Health Rehabilitation Hospital of Midland Odessa - Healthcare Sales And Marketing Opportunity
+UNCERTAIN  | uncertain | Encompass Health Rehabilitation Hospital of Midland Odessa - Make An Impact In Healthcare Marketing
+UNCERTAIN  | uncertain | MYR Group - Marketing Proposal Specialist
+UNCERTAIN  | uncertain | MYR Group - Marketing Proposal Coordinator
+🏢 IN-OFFICE | pass | Zappos.com LLC - Marketing Operations Manager, Zappos
+🏢 IN-OFFICE | pass | Procter & Gamble - Amazon Search & Marketing Manager
+🏢 IN-OFFICE | pass | Goshen Health - Marketing Specialist
+SKIP       | uncertain | Kirtland Federal Credit Union - Marketing Intern
+🏢 IN-OFFICE | pass | Marimn Health - MARKETING SPECIALIST
+UNCERTAIN  | uncertain | ASPCA - Farm & Industry Engagement Coordinator
+UNCERTAIN  | uncertain | ASPCA - Admissions and Placement Specialist
+❓ UNCLEAR  | pass | Best Friends Animal Society - Coordinator, Shelter Partnerships - Salt Lake City, UT | https://bestfriends.wd1.myworkdayjobs.com/job/Salt-Lake-City-UT/Coordinator--Shelter-Partnerships---Salt-Lake-City--UT_JR101194
+UNCERTAIN  | uncertain | National Audubon Society - Coordinator, Land & Conservation
+SKIP       | uncertain | The Nature Conservancy - Policy Advisor, Climate and Biodiversity Finance
+UNCERTAIN  | uncertain | The Nature Conservancy - Communications Manager, Internal Communications
+UNCERTAIN  | uncertain | The Nature Conservancy - Donor Engagement & Events Coordinator
+SKIP       | pass | Abnormal Security - Content Strategist
+SKIP       | uncertain | Abnormal Security - Customer Success Operations Manager
+SKIP       | uncertain | Abnormal Security - Senior Credit & Collections Specialist
+SKIP       | uncertain | Abnormal Security - Senior Customer Success Manager, Canada (French speaking)
+SKIP       | uncertain | AccuWeather - Creative Writer Intern (Summer 2026)
+❓ UNCLEAR  | pass | AccuWeather - Manager, Government Affairs and Weather Enterprise Partnerships | https://job-boards.greenhouse.io/accuweather/jobs/7954745
+UNCERTAIN  | uncertain | AccuWeather - Manager, Integrated Marketing
+UNCERTAIN  | uncertain | AccuWeather - Manager, Learning & Development
+UNCERTAIN  | uncertain | AccuWeather - Media Marketing and Office Operations Coordinator
+❓ UNCLEAR  | pass | Agricultural Marketing Service - Fruit and Vegetable Marketing Specialist | https://www.usajobs.gov:443/job/872474700
+SKIP       | pass | United States Army Installation Management Command - Marketing Specialist (Commercial Sponsorship/Advertising) NF-03
+❓ UNCLEAR  | pass | Small Business Administration - Outreach & Marketing Specialist | https://www.usajobs.gov:443/job/872274200
+SKIP       | pass | Adaptive Financial Consulting - Sales Operations Analyst Junior - Barcelona- Salary Up to 32K
+UNCERTAIN  | uncertain | Adaptive Biotechnologies - Accessioning Specialist II
+UNCERTAIN  | uncertain | Adaptive Biotechnologies - Account Operations Manager - Southeast
+UNCERTAIN  | uncertain | Adaptive Biotechnologies - Diagnostics Hematology Specialist (North Central)
+SKIP       | uncertain | Acryl Data - Customer Success Manager
+SKIP       | uncertain | Aechelon Technology - Data Annotator / Geospatial Annotation Specialist
+UNCERTAIN  | uncertain | Aechelon Technology - Senior Program Manager / Project Manager
+SKIP       | uncertain | Advocate Construction - Project Consultant
+UNCERTAIN  | uncertain | Aegis Ventures - Manager of Customer Success
+UNCERTAIN  | uncertain | Aegis Ventures - Senior Operations Manager
+SKIP       | uncertain | AgWest Farm Credit - Credit Underwriter
+UNCERTAIN  | uncertain | AgWest Farm Credit - Customer Service Specialist
+UNCERTAIN  | uncertain | AgWest Farm Credit - Loan Specialist
+UNCERTAIN  | uncertain | AgWest Farm Credit - Relationship Manager
+SKIP       | uncertain | Affinity.co - Engineering Manager, Relationship Intelligence
+SKIP       | uncertain | Affinity.co - Senior Customer Success Manager
+SKIP       | uncertain | Affinity.co - Strategic Customer Success Manager
+🏢 IN-OFFICE | pass | AIFT - Marketing Manager
+🏢 IN-OFFICE | pass | AIFT - Senior Marketing Manager / Marketing Manager
+🏢 IN-OFFICE | pass | AfterShip - Performance Marketing Manager
+🏢 IN-OFFICE | pass | AfterShip - Senior Product Marketing Manager
+SKIP       | uncertain | AfterShip - TikTok Shop Growth Consultant
+UNCERTAIN  | uncertain | AfterShip - Vertical Marketing Senior Lead
+UNCERTAIN  | uncertain | Advanced Technology Services - Electronic Repair Tech Specialist
+SKIP       | uncertain | Advanced Technology Services - Field Service Industrial Maintenance Specialist
+SKIP       | uncertain | Advanced Technology Services - Field Service Maintenance Specialist (Local Travel)
+SKIP       | uncertain | Advanced Technology Services - Industrial Maintenance Specialist (PLC/ Controls Technician)
+SKIP       | uncertain | Advanced Technology Services - Maintenance Planner/Coordinator
+SKIP       | uncertain | Advanced Technology Services - Maintenance Specialist
+SKIP       | uncertain | Advanced Technology Services - Maintenance Specialist (PLC/ Controls Experience Needed)
+SKIP       | uncertain | Advanced Technology Services - Siemens Maintenance Specialist
+SKIP       | uncertain | Advanced Technology Services - Skillbridge Leadership Program (Active Military Only)
+SKIP       | uncertain | Advanced Technology Services - Skillbridge Technician Program (Active Military only)
+UNCERTAIN  | uncertain | Akuity - Community Manager - Open Source
+🏢 IN-OFFICE | pass | Aktos - Product Implementation Specialist
+SKIP       | uncertain | AirSculpt - Aesthetic Sales Consultant
+❓ UNCLEAR  | pass | AlertMedia - Product Marketing Manager | https://job-boards.greenhouse.io/alertmedia/jobs/8467007002
+SKIP       | uncertain | AlertMedia - Strategic Customer Success Manager
+SKIP       | uncertain | Allen Control Systems - Engineering Project Coordinator
+SKIP       | uncertain | Allen Control Systems - Technical Writer
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Business Operations & Program Management Analyst (Senior) #808
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Business Operations & Program Management Analyst (Senior) Job #807
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Communications Specialist – Skill Level 3 – HDF #753
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Communications Specialist – Skill Level 4 – HDF #755
+SKIP       | uncertain | Allen Integrated Solutions - Discovery & Collection Specialist - Junior Job#485
+SKIP       | uncertain | Allen Integrated Solutions - Discovery & Collection Specialist - Senior Job#476
+SKIP       | uncertain | Allen Integrated Solutions - GEOINT History Program Specialist – Senior #793
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Lifecycle Acquisition Analyst (Expert) #813
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Lifecycle Acquisition Analyst (Mid) #809
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Lifecycle Acquisition Analyst (Mid) #810
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Lifecycle Acquisition Analyst (Senior) #811
+UNCERTAIN  | uncertain | Allen Integrated Solutions - Lifecycle Acquisition Analyst (Senior) #812
+SKIP       | uncertain | Allen Integrated Solutions - Mid-Level GEOINT Analyst (Operations Specialist) Job# 790
+SKIP       | uncertain | Allen Integrated Solutions - Senior Travel Business Specialist #764
+SKIP       | uncertain | Allen Integrated Solutions - Source Performance and Quality Specialist - Junior Job #686
+SKIP       | uncertain | Allen Integrated Solutions - Source Performance and Quality Specialist - Mid Job#490
+UNCERTAIN  | uncertain | Ally Behavior Centers - Center Operations Manager
+UNCERTAIN  | uncertain | Ally Behavior Centers - Center Operations Manager in Training (COMiT)
+SKIP       | uncertain | Ally Behavior Centers - Corporate Operations Intern
+UNCERTAIN  | uncertain | Ally Behavior Centers - Enrollment Coordinator
+SKIP       | uncertain | Ally Behavior Centers - Entry-Level Autism Specialist
+UNCERTAIN  | uncertain | Ally Behavior Centers - Entry-Level Enrollment Specialist
+UNCERTAIN  | uncertain | Ally Behavior Centers - Operations Leadership Development Program (LDP)
+UNCERTAIN  | uncertain | AlphaGrep Securities - Campus Program
+UNCERTAIN  | uncertain | AlphaGrep Securities - Sales Support
+UNCERTAIN  | uncertain | Alt - Customer Experience Representative- Contractor
+❓ UNCLEAR  | pass | Altana - Sales Operations Analyst | https://job-boards.greenhouse.io/altanaai/jobs/7748333003
+SKIP       | uncertain | ALTEN Technology USA - Engineering Lab Manager – Automotive Validation & Test Operations
+SKIP       | uncertain | ALTEN Technology USA - Manufacturing Change Management - Project Manager
+UNCERTAIN  | uncertain | ALTEN Technology USA - Project Management Specialist (Ref. L-2609)
+SKIP       | uncertain | AltScore - Customer Success Manager (Enterprise / EC)
+UNCERTAIN  | uncertain | Altruist - Advisor Support Representative
+❓ UNCLEAR  | pass | Altruist - Content Marketing Manager, Hazel AI | https://altruist.com/join-altruist/5820319004?gh_jid=5820319004
+UNCERTAIN  | uncertain | Altruist - Relationship Manager
+❓ UNCLEAR  | pass | Altruist - Sales Enablement Manager | https://altruist.com/join-altruist/5985979004?gh_jid=5985979004
+❓ UNCLEAR  | pass | Altruist - Sales Operations Analyst | https://altruist.com/join-altruist/5985972004?gh_jid=5985972004
+❓ UNCLEAR  | pass | Altruist - Senior Manager, Event Marketing | https://altruist.com/join-altruist/6015696004?gh_jid=6015696004
+❓ UNCLEAR  | pass | Altruist - Senior Product Marketing Manager, Core & Lending | https://altruist.com/join-altruist/5838974004?gh_jid=5838974004
+UNCERTAIN  | uncertain | Alumni Ventures - Community Relations Associate
+UNCERTAIN  | uncertain | AMEND Consulting - BI Consultant
+UNCERTAIN  | uncertain | AMEND Consulting - FP&A Consultant
+UNCERTAIN  | uncertain | AMEND Consulting - Senior Consultant | Program Management
+SKIP       | uncertain | Ambient Enterprises - Building Automation Systems (BAS) Technician
+UNCERTAIN  | uncertain | Ambient Enterprises - Office Coordinator - Johnson Barrow
+UNCERTAIN  | uncertain | Ambient Enterprises - Parts Specialist - APA
