@@ -320,8 +320,7 @@ Hard Stops: ${wrapText(hardStops)}
 Soft Gaps: ${wrapText(softGaps)}
 Strengths: ${wrapText(topStrengths)};
 
----`;
-      
+──────────────────────────────────────────────────`;
       // Write Files
       fs.writeFileSync(path.join(REPORTS_DIR, reportFilename), reportContent, 'utf-8');
       
@@ -333,7 +332,6 @@ Strengths: ${wrapText(topStrengths)};
       // 3. Your preferred terminal output!
       console.log(`✅ Done`);
       console.log(`\n${reportContent}\n`);
-      
       // Only sleep if this isn't the very last item in the queue
       if (i < toProcess.length - 1) {
         console.log(`⏳ Sleeping for 20 seconds before the next request...`);
@@ -364,10 +362,8 @@ Strengths: ${wrapText(topStrengths)};
       }
     }
   }
-
   await browser.close();
   console.log('\n🏁 Batch finished.');
-  
   // Merge step
   try {
     const { execFileSync } = await import('child_process');
