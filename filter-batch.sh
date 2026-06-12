@@ -31,9 +31,8 @@ HARD_STOPS=' engineer|developer|software|full stack|frontend|front end|backend|d
 TARGETS='lifecycle|email marketing|campaign|marketing manager|marketing specialist|content marketing|content strateg|content writer|copywriter|enablement|enablement|customer marketing|onboarding|implementation specialist|marketing operations|crm marketing|customer education|customer adoption|b2b content|product marketing|marketing analytics|marketing strategy|go-to-market|gtm strategy|revenue operations|revops|sales strategy|sales operations|partnerships|customer strategy|engagement|creative strategist|media strategist|web strategy|digital experience|sales specialist|marketing lead|marketing assistant|marketing analyst|lead marketing|marketing automation|marketing ai|marketing associate|marketing executive|partner marketing|digital marketing|crm specialist|marketing proposal'
 
 INOFFICE_COMPANIES='openai|\bnotion\b'
-INOFFICE_CONTENT='\bhq\b|on-site|on site|in-office|in office|hybrid|commutable|local|relocation|travel|field|days per|openai|notion|canada|\bcan\b|ontario|british columbia|alberta|quebec|ireland|united kingdom|\buk\b|england|scotland|wales|japan|south korea|korea|australia|india|bengaluru|hyderabad|france|germany|poland|singapore|mexico|brazil|netherlands|spain|italy|sweden|denmark|norway|switzerland|belgium|china|philippines|taiwan|vietnam|thailand|indonesia|malaysia|pakistan|nigeria|south africa|kenya|egypt|israel|turkey|\buae\b|dubai|dublin|tokyo|seoul|sydney|melbourne|paris|munich|berlin|london|amsterdam|toronto|vancouver|lithuania|greece|kazakhstan|croatia|slovenia|slovakia|colombia|austria|bangalore|bulgaria|arabia|ny, sf, chicago|ny or sf|luxembourg|frankfurt|serbia|brasil|emea|apac|latam'
-REMOTE_CONTENT='\bremote\b|virtual|home|anywhere|flexible|north america|\bUS\b|\bU.S.\b|\bUSA\b|\bU.S.A.\b|united states'
-
+INOFFICE_CONTENT='\bhq\b|onsite|on-site|on site|in-office|in office|in the office|in-person|in person|office-based|office based|hybrid|commutable|commuting distance|commute to|local|local candidates|relocation|relocate|must reside in|must live in|must be located in|\brto\b|return to office|back to office|on-premises|on-prem|colocated|co-located|physical presence|travel|travel required|willingness to travel|percent travel|% travel|field|road warrior|driver'"'"'s license|days per|days a week|days/week|days in office|days in the office|canada|\bcan\b|ontario|british columbia|alberta|quebec|toronto|vancouver|ireland|dublin|united kingdom|\buk\b|england|scotland|wales|london|japan|tokyo|south korea|korea|seoul|australia|sydney|melbourne|new zealand|india|bengaluru|bangalore|hyderabad|pune|chennai|gurugram|france|paris|germany|munich|berlin|frankfurt|poland|singapore|mexico|brazil|brasil|argentina|buenos aires|colombia|bogota|costa rica|chile|peru|netherlands|amsterdam|spain|italy|portugal|sweden|denmark|norway|switzerland|belgium|austria|china|philippines|taiwan|vietnam|thailand|indonesia|malaysia|pakistan|nigeria|south africa|kenya|egypt|israel|turkey|\buae\b|dubai|arabia|lithuania|greece|kazakhstan|croatia|slovenia|slovakia|serbia|bulgaria|romania|hungary|czech republic|luxembourg|ny, sf, chicago|ny or sf|emea|apac|latam'
+REMOTE_CONTENT='\bremote\b|virtual|anywhere|\bwfh\b|\bwfa\b|work from home|work from anywhere|telecommute|telecommuting|telework|teleworking|location independent|location agnostic|remote-first|fully remote|remote ok|remote-friendly|off-site|offsite|nationwide|home|distributed|flexible|north america|\bUS\b|\bU.S.\b|\bUSA\b|\bU.S.A.\b|united states'
 # ─── Load completed IDs from state file ──────────────────────────────────────
 
 # Extract completed IDs as a newline-separated list (bash 3.2 compatible)
@@ -92,12 +91,12 @@ while IFS=$'\t' read -r id url source notes; do
   fi
 
   # Pass 2: uncertain — no keyword match either way
-  if [[ "$bucket" == "uncertain" ]]; then
+    if [[ "$bucket" == "uncertain" ]]; then
     ((uncertain_count += 1))
     echo "$notes" >> "$UNCERTAIN_FILE"
     echo "UNCERTAIN  | uncertain | $notes" >> "$RESULTS_FILE"
-    continue  # omit from filtered TSV
-  fi
+    # Fall through to location check instead of dropping
+    fi
 
   # Pass 3: confirmed pass — check location
   if echo "$fullline" | grep -qiE 'remote'; then
