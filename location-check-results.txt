@@ -1,4 +1,4 @@
-# Location + Title Filter Results — Fri Jun 12 11:00:00 EDT 2026
+# Location + Title Filter Results — Fri Jun 12 11:12:43 EDT 2026
 # FORMAT: STATUS | BUCKET | Role
 
 SKIP       | uncertain | IAPWE - Freelance Writer
@@ -24,16 +24,16 @@ SKIP       | uncertain | Nuclear Regulatory Commission - Senior IT Specialist (D
 SKIP       | uncertain | Defense Media Activity - Marketing Coordinator NE-04
 SKIP       | uncertain | Air Force District of Washington - Marketing and Sponsorship Assistant
 SKIP       | uncertain | Air Force Global Strike Command - MARKETING DIRECTOR
-SKIP       | uncertain | United States Army Installation Management Command - Marketing Assistant NF-03
+SKIP       | pass | United States Army Installation Management Command - Marketing Assistant NF-03
 SKIP       | pass | United States Army Installation Management Command - Marketing Specialist (E-Commerce) NF-03
 SKIP       | uncertain | Agricultural Marketing Service - Industrial Specialist (Agriculture) (Scales and Weighing Specialist)
 UNCERTAIN  | uncertain | Air Combat Command - Marketing and Digital Advertising Specialist
 SKIP       | pass | Air Force Services Agency - Marketing Specialist (MarTech Manager)
 SKIP       | uncertain | U.S. Marine Corps - MARKETING TECH/OUTREACH SPECIALIST NF3*
-SKIP       | uncertain | Office of the Chief Human Capital Officer - Communications & Marketing Assistant
+SKIP       | pass | Office of the Chief Human Capital Officer - Communications & Marketing Assistant
 SKIP       | uncertain | United States Army Installation Management Command - Marketing Program Assistant NF-03
-SKIP       | uncertain | Office of the Chief Human Capital Officer - VCS Communications and Marketing Assistant
-SKIP       | uncertain | Office of the Chief Human Capital Officer - Communications and Marketing Assistant
+SKIP       | pass | Office of the Chief Human Capital Officer - VCS Communications and Marketing Assistant
+SKIP       | pass | Office of the Chief Human Capital Officer - Communications and Marketing Assistant
 SKIP       | uncertain | Versaterm - Customer Success Advocate I
 UNCERTAIN  | uncertain | Stackblitz - Job Application for Customer Enablement Lead at Bolt.new
 SKIP       | uncertain | Versaterm - Job Application for Customer Success Advocate I at Versaterm
@@ -53,7 +53,7 @@ SKIP       | pass | Fleetio - Job Application for Growth Marketing Manager at Fl
 🏢 IN-OFFICE | pass | Clear - Job Application for CRM Marketing Analyst at CLEAR - Corporate
 🏢 IN-OFFICE | pass | Bluecubeservices - Job Application for Wealth & Lending Marketing Specialist at Blue Cube Services
 ❓ UNCLEAR  | pass | Alertmedia - Job Application for Product Marketing Manager at AlertMedia | https://job-boards.greenhouse.io/alertmedia/jobs/8467007002?gh_src=0b951b9f2
-UNCERTAIN  | uncertain | Twilio - Job Application for Marketing Analyst, PLG & Self-Serve Analytics at Twilio
+❓ UNCLEAR  | pass | Twilio - Job Application for Marketing Analyst, PLG & Self-Serve Analytics at Twilio | https://job-boards.greenhouse.io/twilio/jobs/7923207
 🏢 IN-OFFICE | pass | Orchard - Job Application for Growth Marketing Manager, Paid Social at Orchard
 UNCERTAIN  | uncertain | Ag1 - Job Application for Senior Manager, Shopper Marketing at AG1
 UNCERTAIN  | uncertain | Jetsonhome - Job Application for Marketing Growth Analyst (Engineer) at Jetson Home
@@ -65,15 +65,15 @@ UNCERTAIN  | uncertain | Jetsonhome - Job Application for Marketing Growth Analy
 UNCERTAIN  | uncertain | Steercrm - Job Application for Manager of Scaled Customer Success at Steer
 ❓ UNCLEAR  | pass | Mixpanel - Senior Customer Strategy & Operations Manager | https://job-boards.greenhouse.io/mixpanel/jobs/7962972
 SKIP       | uncertain | Boundlesslearning - Job Application for Quality Assurance Analyst at Boundless Learning
-❓ UNCLEAR  | pass | Haast - Field Marketing Manager @ Haast | https://jobs.ashbyhq.com/haast/9fe22046-e986-4ccf-8968-149d27f99b5b
-UNCERTAIN  | uncertain | Moment - Marketing Leader @ Moment Technology
+✅ REMOTE   | pass | Haast - Field Marketing Manager @ Haast
+🏢 IN-OFFICE | pass | Moment - Marketing Leader @ Moment Technology
 ❓ UNCLEAR  | pass | Quantum - Performance Marketing Specialist @ Quantum | https://jobs.ashbyhq.com/quantum/165edda3-7075-4c93-9b52-00b1b4c030e1
 UNCERTAIN  | uncertain | Brightwheel - Senior Analyst, GTM Intelligence @ brightwheel
 UNCERTAIN  | uncertain | Finout - Marketing AI - Content Manager @ Finout
-UNCERTAIN  | uncertain | Strava - Lead Marketing Analyst @ Strava
+❓ UNCLEAR  | pass | Strava - Lead Marketing Analyst @ Strava | https://jobs.ashbyhq.com/Strava/b84257fd-a8a3-48bc-951b-a619b0182cbe
 ❓ UNCLEAR  | pass | Assorthealth - Senior Event Marketing Manager @ Assort Health | https://jobs.ashbyhq.com/assorthealth/53b1214d-3745-4d84-96df-e6f623d67ced
 UNCERTAIN  | uncertain | Strava - Partner Marketing Sciences Lead @ Strava
-UNCERTAIN  | uncertain | Lightspeedhq - Marketing Automation Specialist @ Lightspeed Commerce, Inc.
+❓ UNCLEAR  | pass | Lightspeedhq - Marketing Automation Specialist @ Lightspeed Commerce, Inc. | https://jobs.ashbyhq.com/lightspeedhq/d1f14bed-59b2-49f1-8ad8-854aeb90a0bd
 SKIP       | uncertain | Axion - Senior Director, Customer Success @ Axion
 SKIP       | uncertain | Thumbtack - Applied Scientist, Pro Growth @ Thumbtack
 🏢 IN-OFFICE | pass | HowGood - HowGood - Growth Marketing Manager, Reduction Network
@@ -97,7 +97,7 @@ SKIP       | uncertain | Workday — Onboarding & Success remote - Program Worke
 UNCERTAIN  | uncertain | Perfectserve - Job Application for Manager, Customer Success - US Remote at PerfectServe
 SKIP       | uncertain | Parsecautomationcorp - Job Application for Customer Success Manager (EU) at Parsec Automation Corp.
 SKIP       | uncertain | Versaterm - Job Application for Director, Customer Success at Versaterm
-🏢 IN-OFFICE | pass | Levelpath - Customer Engagement Specialist (New York City) @ Levelpath
+✅ REMOTE   | pass | Levelpath - Customer Engagement Specialist (New York City) @ Levelpath
 ❓ UNCLEAR  | pass | Khan Academy - B2B Customer Lifecycle Marketing Manager, Integrated Marketing (12 months fixed-term) | https://job-boards.greenhouse.io/khanacademy/jobs/7923227
 SKIP       | uncertain | Khan Academy - ELA Assessment Content Creator, Elementary Grades 3-5 (24 month Fixed Term)
 ❓ UNCLEAR  | pass | Khan Academy - Email Marketing Manager (Interim Consultant) ($75-$80/hour, 25 hours/week, 6 week contract) | https://job-boards.greenhouse.io/khanacademy/jobs/7966713
@@ -111,7 +111,7 @@ SKIP       | uncertain | Newsela - Project Based Freelance Contributor - Assessm
 SKIP       | uncertain | Newsela - Project Based Freelance Contributor - Assessment Item Specialist, Social Studies (Remote, US)
 ❓ UNCLEAR  | pass | Duolingo - Country Marketing Manager, Turkey | https://careers.duolingo.com/jobs/8448693002?gh_jid=8448693002
 UNCERTAIN  | uncertain | Duolingo - Manager, Strategy and Business Operations
-UNCERTAIN  | uncertain | Duolingo - Performance Marketing Lead
+❓ UNCLEAR  | pass | Duolingo - Performance Marketing Lead | https://careers.duolingo.com/jobs/8562780002?gh_jid=8562780002
 ❓ UNCLEAR  | pass | Duolingo - Product Marketing Manager, Duolingo Math | https://careers.duolingo.com/jobs/8400553002?gh_jid=8400553002
 UNCERTAIN  | uncertain | Duolingo - Senior Community Manager
 UNCERTAIN  | uncertain | Duolingo - Senior Manager, Scaling Operations
@@ -132,7 +132,7 @@ SKIP       | uncertain | IXL Learning - Curriculum Content Tester (Freelance)
 SKIP       | uncertain | IXL Learning - Curriculum Sales Consultant, New York City
 SKIP       | uncertain | IXL Learning - Curriculum Sales Consultant, Philadelphia
 SKIP       | uncertain | IXL Learning - Customer Data Specialist
-UNCERTAIN  | uncertain | IXL Learning - Digital Marketing Analyst
+🏢 IN-OFFICE | pass | IXL Learning - Digital Marketing Analyst
 UNCERTAIN  | uncertain | IXL Learning - District Partnership Specialist, California (Bay Area)
 UNCERTAIN  | uncertain | IXL Learning - District Partnership Specialist, California (Central Coast)
 UNCERTAIN  | uncertain | IXL Learning - District Partnership Specialist, Cleveland
@@ -171,8 +171,8 @@ SKIP       | uncertain | IXL Learning - Recruiting Specialist
 UNCERTAIN  | uncertain | IXL Learning - School Membership Specialist
 UNCERTAIN  | uncertain | IXL Learning - Strategic Partnership Specialist, Miami
 UNCERTAIN  | uncertain | ClassDojo - Growth Product Lead, Kids
-🏢 IN-OFFICE | pass | Amplify - Product Marketing Manager
-❓ UNCLEAR  | pass | Amplify - Senior Manager, Product Marketing | https://job-boards.greenhouse.io/goguardian/jobs/4680978006
+❓ UNCLEAR  | pass | Amplify - Product Marketing Manager | https://job-boards.greenhouse.io/goguardian/jobs/4684465006
+🏢 IN-OFFICE | pass | Amplify - Senior Manager, Product Marketing
 SKIP       | uncertain | Nearpod - Customer Success Manager II
 UNCERTAIN  | uncertain | Nearpod - District Consultant - Hillsborough County
 UNCERTAIN  | uncertain | Nearpod - District Consultant - Part Time -Atlanta
@@ -223,7 +223,7 @@ SKIP       | uncertain | Klaviyo - Customer Success Manager
 SKIP       | uncertain | Klaviyo - Engineering Enablement Program Manager
 SKIP       | uncertain | Klaviyo - Engineering Manager - Data Automation
 UNCERTAIN  | uncertain | Klaviyo - Inbound Growth Specialist
-UNCERTAIN  | uncertain | Klaviyo - Integrated Marketing Lead - K:Service
+❓ UNCLEAR  | pass | Klaviyo - Integrated Marketing Lead - K:Service | https://www.klaviyo.com/careers/jobs?gh_jid=7635660003
 SKIP       | uncertain | Klaviyo - Lead Data Science Analyst, GTM Strategic Analytics and Insights
 SKIP       | uncertain | Klaviyo - Lead GTM Data Operations Analyst, AI Workflows
 SKIP       | uncertain | Klaviyo - Lead GTM Data Operations Analyst, AI Workflows
@@ -238,7 +238,7 @@ SKIP       | uncertain | Constant Contact - Partner Success Manager (Lead Gen & 
 SKIP       | pass | Constant Contact - Revenue Operations Specialist
 UNCERTAIN  | uncertain | Constant Contact - Senior Revenue Analyst, Customer Success
 UNCERTAIN  | uncertain | ActiveCampaign - Strategy & Business Operations Manager
-🏢 IN-OFFICE | pass | Gong - Manager GTM Strategy & Planning
+❓ UNCLEAR  | pass | Gong - Manager GTM Strategy & Planning | https://job-boards.greenhouse.io/gongio/jobs/4688823006
 🏢 IN-OFFICE | pass | Gong - Manager/Senior Manager GTM Strategy & Planning
 🏢 IN-OFFICE | pass | Gong - Senior Product Content Writer
 🏢 IN-OFFICE | pass | Showpad - Analyst - Partnerships
@@ -252,7 +252,7 @@ SKIP       | uncertain | GitLab - Customer Success Manager
 SKIP       | uncertain | GitLab - Customer Success Manager, Japan
 SKIP       | uncertain | GitLab - Customer Success Manager, SEUR
 UNCERTAIN  | uncertain | GitLab - Lead Global Marketing Campaigns Manager
-✅ REMOTE   | pass | GitLab - Lead Product Marketing Manager, Pricing and Packaging
+🏢 IN-OFFICE | pass | GitLab - Lead Product Marketing Manager, Pricing and Packaging
 SKIP       | uncertain | GitLab - Presales Consultant - Japan
 SKIP       | uncertain | GitLab - Program Manager - Dubai
 SKIP       | uncertain | GitLab - Senior Executive Business Partner
@@ -432,3 +432,972 @@ UNCERTAIN  | uncertain | AMEND Consulting - Senior Consultant | Program Manageme
 SKIP       | uncertain | Ambient Enterprises - Building Automation Systems (BAS) Technician
 UNCERTAIN  | uncertain | Ambient Enterprises - Office Coordinator - Johnson Barrow
 UNCERTAIN  | uncertain | Ambient Enterprises - Parts Specialist - APA
+UNCERTAIN  | uncertain | Ambient Enterprises - Project Coordinator, Costco - Johnson Barrow
+SKIP       | uncertain | Ambient Enterprises - VFD Specialist - Mechanical Technologies
+UNCERTAIN  | uncertain | American Institute - Part-Time Admissions Coordinator
+UNCERTAIN  | uncertain | American Institute - Relationship Development Representative
+UNCERTAIN  | uncertain | Amae Health - Community Liaison
+UNCERTAIN  | uncertain | Amae Health - Founder Associate, Growth & Partnership Operations
+🏢 IN-OFFICE | pass | Amae Health - Growth Marketing Lead
+UNCERTAIN  | uncertain | Amae Health - Practice Operations Manager
+UNCERTAIN  | uncertain | Amae Health - Provider Growth and Relationship Lead
+UNCERTAIN  | uncertain | American Institutes for Research - Communications Assistant (Part-time)
+SKIP       | uncertain | American Institutes for Research - Senior Systems Programmer, Healthcare Innovations
+UNCERTAIN  | uncertain | American Institutes for Research - TA Consultant, Continuous Improvement Coaching
+UNCERTAIN  | uncertain | Amplitude - AI Tech Partner Lead
+UNCERTAIN  | uncertain | Amplitude - Global Startup and Venture Program Lead
+❓ UNCLEAR  | pass | Amplitude - Principal Product Marketing Manager, Agents | https://job-boards.greenhouse.io/amplitude/jobs/8525067002
+SKIP       | uncertain | Amplitude - Senior Technical Success Manager III - Strategic
+SKIP       | uncertain | Amplitude - Senior Technical Success Manager, Majors - East Region
+🏢 IN-OFFICE | pass | Anchanto - Revenue Operations Senior Associate
+SKIP       | uncertain | Amtech Software - Implementation Consultant
+SKIP       | uncertain | Antenna - Customer Success Manager
+🏢 IN-OFFICE | pass | Antenna - Senior Manager, Content Marketing
+UNCERTAIN  | uncertain | Anteriad - Marketing Insights Lead
+SKIP       | uncertain | Antora Energy - Communications Intern
+UNCERTAIN  | uncertain | Anthropic - Amazon GTM Partnership, Startups
+UNCERTAIN  | uncertain | Anthropic - ANZ Communications Lead
+SKIP       | pass | Anthropic - Beneficial Deployments Customer Success Manager, Scaled Partnerships
+UNCERTAIN  | uncertain | Anthropic - Communications Lead, Enterprise
+UNCERTAIN  | uncertain | Anthropic - Communications Lead, Platform
+UNCERTAIN  | uncertain | Anthropic - Communications Specialist, Product
+UNCERTAIN  | uncertain | Anthropic - Contracts Manager, Research & Operations
+UNCERTAIN  | uncertain | Anthropic - Customer Program Manager, Executive Briefing Center
+SKIP       | uncertain | Anthropic - Customer Success Manager, Digital Native Business
+SKIP       | uncertain | Anthropic - Customer Success Manager, Higher Education
+SKIP       | uncertain | Anthropic - Customer Success Manager, Industries
+SKIP       | uncertain | Anthropic - Customer Success Manager, Scaled
+SKIP       | uncertain | Anthropic - Customer Success Manager, Strategics
+UNCERTAIN  | uncertain | Anthropic - Customer Success Programs Manager
+SKIP       | uncertain | Anthropic - Data Center Facility Operations Lead
+SKIP       | uncertain | Anthropic - Engineering Editorial Lead
+UNCERTAIN  | uncertain | Anthropic - Enterprise Community Lead
+🏢 IN-OFFICE | pass | Anthropic - Field Marketing Manager
+❓ UNCLEAR  | pass | Anthropic - Field Marketing Manager, Startups | https://job-boards.greenhouse.io/anthropic/jobs/5191833008
+SKIP       | uncertain | Anthropic - Global Senior Equity Program Manager
+🏢 IN-OFFICE | pass | Anthropic - Implementation Specialist
+UNCERTAIN  | uncertain | Anthropic - Internal Communications Manager, Policy
+✅ REMOTE   | pass | Anthropic - Manager of Applied AI Architecture, Partnerships
+UNCERTAIN  | uncertain | Anthropic - Marketing Events Content Manager
+UNCERTAIN  | uncertain | Anthropic - Marketing Events Lead, Brand
+UNCERTAIN  | uncertain | Anthropic - Marketing Events Lead, Enterprise
+UNCERTAIN  | uncertain | Anthropic - Marketing Events Producer
+SKIP       | uncertain | Anthropic - Operations Sourcing Manager, Data Center
+UNCERTAIN  | uncertain | Anthropic - Partner Solutions Architect, Applied AI
+UNCERTAIN  | uncertain | Anthropic - Policy Communications Manager
+UNCERTAIN  | uncertain | Anthropic - Program Manager, Communications
+SKIP       | uncertain | Anthropic - Recruiting Coordinator [contract]
+UNCERTAIN  | uncertain | Anthropic - Research Lead, Training Insights
+UNCERTAIN  | uncertain | Anthropic - Research Operations, Discovery
+UNCERTAIN  | uncertain | Anthropic - Research Operations, External Artifacts
+SKIP       | uncertain | Anthropic - Senior Manager, Order Management – Partnership NPI & Automation
+✅ REMOTE   | pass | Anthropic - Startup Partnerships Lead
+UNCERTAIN  | uncertain | Anthropic - Strategy & Operations Lead, Marketing
+UNCERTAIN  | uncertain | Anthropic - Technical Enablement Lead, Claude Code
+UNCERTAIN  | uncertain | Anthropic - Technical Program Management, Alignment
+UNCERTAIN  | uncertain | Anthropic - Technical Specialist, Claude Code
+SKIP       | uncertain | Apartment Life - Events and Ministry Coordinator (Offsite, Part-time)
+SKIP       | uncertain | Apartment Life - Events and Ministry Coordinator (Onsite, Volunteer)
+SKIP       | uncertain | Apartment Life - Events and Ministry Coordinator(Onsite, Volunteer)
+❓ UNCLEAR  | pass | Apartment Life - Strategic Partnerships Operational Specialist | https://job-boards.greenhouse.io/apartmentlife/jobs/4266929009
+SKIP       | uncertain | AppDirect - Associate Customer Success Manager
+UNCERTAIN  | uncertain | AppDirect - Customer Retention Specialist - Energy Industry
+SKIP       | pass | AppDirect - Data Center Product Sales Specialist
+SKIP       | uncertain | AppDirect - Junior Accounts Receivable & Collections Specialist
+SKIP       | uncertain | AppDirect - Junior Accounts Receivable Specialist
+🏢 IN-OFFICE | pass | AppDirect - Marketing Manager
+UNCERTAIN  | uncertain | AppDirect - Network Implementation Project Manager
+SKIP       | uncertain | Apptronik - Accounts Payable Specialist
+SKIP       | uncertain | Apptronik - CAM Programmer
+UNCERTAIN  | uncertain | Atoms Tech - Strategic Account Specialist - Bogotá, COL
+UNCERTAIN  | uncertain | Attentive - GTM and G&A (USA)
+UNCERTAIN  | uncertain | Attentive - Messaging Strategy & Operations Manager
+🏢 IN-OFFICE | pass | Attentive - Principal Product Marketing Manager
+UNCERTAIN  | uncertain | Attentive - Senior Product Analyst, Strategy and Operations
+🏢 IN-OFFICE | pass | Attentive - Senior Product Marketing Manager, Competitive Intelligence
+🏢 IN-OFFICE | pass | Attentive - Senior Product Marketing Manager - Data & Integrations
+UNCERTAIN  | uncertain | Attentive - Strategy & Operations Associate
+UNCERTAIN  | uncertain | Bandwidth - AI Knowledge Manager
+SKIP       | uncertain | Bandwidth - Global Customer Success Manager
+🏢 IN-OFFICE | pass | Bandwidth - Implementation Specialist
+🏢 IN-OFFICE | pass | Bandwidth - Manager, Marketing Analytics
+SKIP       | uncertain | Bandwidth - Strategic Global Customer Success Manager
+UNCERTAIN  | uncertain | Bicycle Health - Enrollment Coordinator
+SKIP       | uncertain | Betterment - CX Automation Performance Analyst
+🏢 IN-OFFICE | pass | BitGo - Product Marketing Manager
+🏢 IN-OFFICE | pass | BitGo - Product Marketing Manager, Prime / OTC
+SKIP       | uncertain | BitGo - Senior Customer Success Manager - Fintech
+UNCERTAIN  | uncertain | Bitpanda - Associate, Global Campaigns
+UNCERTAIN  | uncertain | Bitpanda - Market Operations Manager
+SKIP       | uncertain | Bitpanda - NetSuite Consultant
+SKIP       | uncertain | Bitpanda - Senior Specialist, Treasury - Liquidity
+UNCERTAIN  | uncertain | Bitpanda - Specialist, Internal Audit
+SKIP       | uncertain | Bitpanda - Specialist, Risk & Controls Assurance
+UNCERTAIN  | uncertain | Bitpanda - Specialist, Securities Platform, Corporate Actions & Asset Servicing
+SKIP       | uncertain | Bitpanda - Specialist, Securities Platform, Settlements & Reconciliations
+UNCERTAIN  | uncertain | Bitpanda - Specialist, Strategic Finance
+UNCERTAIN  | uncertain | Bitpanda - Specialist, Trading Operations - Night Shift
+❓ UNCLEAR  | pass | Bitso - Growth Marketing Specialist (B2B) | https://bitso.com/jobs/7699282003?gh_jid=7699282003
+UNCERTAIN  | uncertain | Bitso - Sr. Specialist, Product FP&A
+SKIP       | uncertain | Anteris Technologies - Operations Admin Opportunities
+UNCERTAIN  | uncertain | Brex - Banking Relationship Manager
+UNCERTAIN  | uncertain | Brex - Brex Rotational Program
+SKIP       | uncertain | Brex - Compliance Manager, Marketing
+❓ UNCLEAR  | pass | Brex - Customer Marketing Manager | https://www.brex.com/careers/8580837002?gh_jid=8580837002
+SKIP       | uncertain | Brex - Engineering Manager, Onboarding
+SKIP       | uncertain | Brex - Engineering Program Manager, AI
+SKIP       | uncertain | Brex - Enterprise Customer Success Manager
+UNCERTAIN  | uncertain | Brex - Enterprise Implementation Consultant
+UNCERTAIN  | uncertain | Brex - Manager, Banking Operations
+SKIP       | uncertain | Brex - Manager, GTM Recruiting
+SKIP       | uncertain | Brex - Mid-Market Customer Success Manager
+UNCERTAIN  | uncertain | Brex - Relationship Manager
+❓ UNCLEAR  | pass | Brex - Sales Enablement Lead | https://www.brex.com/careers/8548765002?gh_jid=8548765002
+❓ UNCLEAR  | pass | Brex - Sales Enablement Specialist | https://www.brex.com/careers/8550358002?gh_jid=8550358002
+SKIP       | uncertain | Brex - Scaled Customer Success Manager
+❓ UNCLEAR  | pass | Brex - Senior Manager, Small Business Partnerships | https://www.brex.com/careers/8457370002?gh_jid=8457370002
+❓ UNCLEAR  | pass | Brex - Senior Marketing Operations Manager, B2B Sales | https://www.brex.com/careers/8380680002?gh_jid=8380680002
+❓ UNCLEAR  | pass | Brex - Senior Marketing Operations Manager, Product-Led Growth | https://www.brex.com/careers/8372631002?gh_jid=8372631002
+❓ UNCLEAR  | pass | Brex - Senior Partner Marketing Manager | https://www.brex.com/careers/8578101002?gh_jid=8578101002
+UNCERTAIN  | uncertain | Brex - Technical Consultant I
+UNCERTAIN  | uncertain | Block - Account Services Manager - Franchise Growth
+UNCERTAIN  | uncertain | Block - Channel Sales Support Agent
+UNCERTAIN  | uncertain | Block - Channel Sales Support Agent (Reseller)
+SKIP       | uncertain | Block - Compliance Technology Program Lead
+UNCERTAIN  | uncertain | Block - CRM Product Owner, GTM
+❓ UNCLEAR  | pass | Block - Engagement Marketing Manager - Activation & Habituation | http://block.xyz/careers/jobs/5232832008?gh_jid=5232832008
+✅ REMOTE   | pass | Block - Engagement Marketing Manager - Banking & Loyalty
+UNCERTAIN  | uncertain | Block - Enterprise Partner Marketer
+UNCERTAIN  | uncertain | Block - Enterprise Seller Onboarding (ESO) Technical Project Manager
+UNCERTAIN  | uncertain | Block - Front Office Brokerage Operations Lead
+✅ REMOTE   | pass | Block - Global B2B Growth Marketing Lead
+UNCERTAIN  | uncertain | Block - Partner Development Lead, Commerce: Afterpay & Cash App
+UNCERTAIN  | uncertain | Block - Partner Manager
+UNCERTAIN  | uncertain | Block - Policy + External Affairs Communications Lead
+✅ REMOTE   | pass | Block - Product Partnerships Manager - Square
+✅ REMOTE   | pass | Block - Program Manager, Bank Partnerships Marketing
+UNCERTAIN  | uncertain | Block - Program Manager, Issuing Bank Programs
+SKIP       | uncertain | Block - Regulatory Program Manager, Automation & Intelligence
+SKIP       | uncertain | Block - Regulatory Program Owner, Cash App Investing
+✅ REMOTE   | pass | Block - Senior Manager, GTM Strategy
+✅ REMOTE   | pass | Block - Senior Partnerships Manager, Australia
+SKIP       | uncertain | Buildkite - Staff Customer Success Manager
+✅ REMOTE   | pass | Carta - Alliances Marketing Manager
+SKIP       | uncertain | Carrot Fertility - Global Payment Operations Coordinator, Contractor
+SKIP       | uncertain | CircleCI - Data Science Manager, GTM
+❓ UNCLEAR  | pass | CircleCI - Marketing Manager | http://www.circleci.com/careers/jobs/8582995002/?gh_jid=8582995002
+SKIP       | uncertain | CircleCI - Technical Success Manager, Growth
+UNCERTAIN  | uncertain | Charlie Health - Care Admin Specialist (Full Time)
+UNCERTAIN  | uncertain | Charlie Health - Care Admin Specialist (Part-Time)
+UNCERTAIN  | uncertain | Charlie Health - Care Experience Specialist
+SKIP       | uncertain | Charlie Health - Cash Posting Specialist
+UNCERTAIN  | uncertain | Charlie Health - Continuing Care Coordinator
+SKIP       | uncertain | Charlie Health - Crisis Intervention Specialist  (Oregon)
+SKIP       | uncertain | Charlie Health - Crisis Intervention Specialist (part-time)
+❓ UNCLEAR  | pass | Charlie Health - Growth Marketing Manager | https://www.charliehealth.com/careers?gh_jid=4522603004
+UNCERTAIN  | uncertain | Charlie Health - Growth Strategy Analyst, GTM Data
+UNCERTAIN  | uncertain | Charlie Health - Growth Strategy Analyst, Performance & Comp
+❓ UNCLEAR  | pass | Charlie Health - Growth Strategy Analyst/Sr Analyst, Partnerships | https://www.charliehealth.com/careers?gh_jid=6006998004
+SKIP       | uncertain | Charlie Health - Insurance Verification Specialist
+UNCERTAIN  | uncertain | Charlie Health - Learning Architect
+SKIP       | uncertain | Charlie Health - Mental Health Group Specialist
+UNCERTAIN  | uncertain | Charlie Health - Payer Strategy Specialist
+SKIP       | uncertain | Charlie Health - Posting Reconciliation Specialist
+SKIP       | uncertain | Charlie Health - Reconciliation Specialist
+SKIP       | uncertain | Charlie Health - Recruiting Coordinator
+SKIP       | uncertain | Charlie Health - Release of Information Specialist (Part-Time)
+UNCERTAIN  | uncertain | Charlie Health - Revenue Specialist
+UNCERTAIN  | uncertain | Charlie Health - Specialist, Onboarding Compliance
+UNCERTAIN  | uncertain | Charlie Health - Strategy & Operations Analyst
+UNCERTAIN  | uncertain | Charlie Health - Strategy & Operations Analyst, GrowthOps
+UNCERTAIN  | uncertain | Charlie Health - Strategy & Operations Analyst / Sr Analyst
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Central Plains | https://www.charliehealth.com/careers?gh_jid=5980562004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Greater NYC Area | https://www.charliehealth.com/careers?gh_jid=5967475004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Great Lakes | https://www.charliehealth.com/careers?gh_jid=5980567004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Mid-Atlantic | https://www.charliehealth.com/careers?gh_jid=5980553004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Mountain Region | https://www.charliehealth.com/careers?gh_jid=5980602004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, NorCal | https://www.charliehealth.com/careers?gh_jid=5980596004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Northeast | https://www.charliehealth.com/careers?gh_jid=5980517004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, PNW | https://www.charliehealth.com/careers?gh_jid=5967627004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Southeast | https://www.charliehealth.com/careers?gh_jid=5980610004
+❓ UNCLEAR  | pass | Charlie Health - Territory Manager- Employer Partnerships, Southwest (AZ/NV) | https://www.charliehealth.com/careers?gh_jid=5792364004
+SKIP       | uncertain | Collective Health - Member Claims Associate (Contract)
+SKIP       | uncertain | American Cancer Society - Guest Relations Coordinator, Hope Lodge
+UNCERTAIN  | uncertain | Clover Health - Customer Experience Lead
+UNCERTAIN  | uncertain | Clover Health - Product Strategist
+SKIP       | uncertain | Clover Health - Provider Success Manager - Dallas-Fort Worth, Texas
+SKIP       | uncertain | Clover Health - Provider Success Manager - South Texas
+SKIP       | uncertain | ComplyAdvantage - Digital Customer Success Manager
+UNCERTAIN  | uncertain | ComplyAdvantage - Technology Operations Analyst
+UNCERTAIN  | uncertain | CookUnity - B2B - Healthcare Operations Manager
+❓ UNCLEAR  | pass | CookUnity - B2B - Smart Fridge Marketing Lead | https://careers.cookunity.com/open-roles?gh_jid=7735368003
+SKIP       | uncertain | CookUnity - Cooling Specialist
+SKIP       | uncertain | CookUnity - Culinary Operations Manager
+SKIP       | uncertain | CookUnity - Culinary Operations Supervisor
+SKIP       | uncertain | CookUnity - Food Safety Specialist
+SKIP       | uncertain | CookUnity - Food Safety Specialist (Overnight)
+SKIP       | uncertain | CookUnity - Fulfillment Team Member
+UNCERTAIN  | uncertain | CookUnity - Growth Analyst, Offline Media
+UNCERTAIN  | uncertain | CookUnity - Jr. Product Analyst, Chef Marketing
+SKIP       | uncertain | CookUnity - Kitchen Operations Supervisor
+SKIP       | uncertain | CookUnity - Logistics Team Member
+SKIP       | uncertain | CookUnity - Maintenance Team Member
+UNCERTAIN  | uncertain | CookUnity - Onboarding Coordinator
+UNCERTAIN  | uncertain | CookUnity - Operations Manager
+UNCERTAIN  | uncertain | CookUnity - Operations Manager
+UNCERTAIN  | uncertain | CookUnity - Senior Associate, Brand Marketing
+🏢 IN-OFFICE | pass | CookUnity - Senior Brand Marketing Manager, Sponsorships
+SKIP       | uncertain | CookUnity - Senior Culinary Operations Manager
+SKIP       | uncertain | CookUnity - Senior Warehouse Operations Manager
+UNCERTAIN  | uncertain | CookUnity - Sr Brand Design Manager
+SKIP       | uncertain | CookUnity - Warehouse Logistics Coordinator
+SKIP       | uncertain | CookUnity - Warehouse Operations Manager
+SKIP       | uncertain | CookUnity - Warehouse Team Member
+SKIP       | uncertain | Contentful - Customer Success Manager - Enterprise
+SKIP       | uncertain | Contentful - Field Enablement Program Manager
+UNCERTAIN  | uncertain | Contentful - Senior RFP Program Manager
+SKIP       | pass | Current - Freelance CRM Campaign Manager (Salesforce & HubSpot)
+SKIP       | uncertain | Cresta - AI Success Manager
+UNCERTAIN  | uncertain | Cresta - AI Value Partner, Customer Analytics
+SKIP       | uncertain | Cresta - Conversation Design Intern (Customer Success)
+SKIP       | uncertain | Cresta - Data Science Intern (Customer Success)
+❓ UNCLEAR  | pass | Cresta - Enablement Manager, AI Agent | https://job-boards.greenhouse.io/cresta/jobs/5118062008
+🏢 IN-OFFICE | pass | Cresta - Events and Field Marketing Manager
+UNCERTAIN  | uncertain | Cresta - Growth Content Manager
+🏢 IN-OFFICE | pass | Cresta - Growth Marketing Manager, Web & CRO
+UNCERTAIN  | uncertain | Cresta - Principal Partner Solutions Consultant
+❓ UNCLEAR  | pass | Cresta - Sales Enablement Manager, International | https://job-boards.greenhouse.io/cresta/jobs/5181786008
+SKIP       | uncertain | DataCamp - Curriculum Manager - Data Science and AI
+UNCERTAIN  | uncertain | DataCamp - Customer Assurance Specialist
+UNCERTAIN  | uncertain | DataCamp - Learning Solution Architect
+SKIP       | uncertain | DataCamp - Senior Customer Success Manager
+UNCERTAIN  | uncertain | DataCamp - Senior Program Delivery Manager
+SKIP       | uncertain | Descript - Engineering Manager, Narrative Editing
+UNCERTAIN  | uncertain | Descript - Strategic Finance, GTM
+❓ UNCLEAR  | pass | Datadog - Associate Event Marketing Manager (Sponsorship) | https://careers.datadoghq.com/detail/7727991/?gh_jid=7727991
+❓ UNCLEAR  | pass | Datadog - Associate Field Marketing Manager (West/Central) | https://careers.datadoghq.com/detail/7954584/?gh_jid=7954584
+SKIP       | uncertain | Datadog - Coordinator, Business Recruiting - Contract (NYC)
+UNCERTAIN  | uncertain | Datadog - Customer Success Associate - Boston
+UNCERTAIN  | uncertain | Datadog - Customer Success Associate - Commercial Accounts
+UNCERTAIN  | uncertain | Datadog - Customer Success Associate - Denver
+SKIP       | uncertain | Datadog - Customer Success Manager - Boston
+SKIP       | uncertain | Datadog - Customer Success Manager - Denver
+SKIP       | uncertain | Datadog - Customer Success Manager - Key Accounts
+UNCERTAIN  | uncertain | Datadog - Inclusion Program Manager (NYC)
+UNCERTAIN  | uncertain | Datadog - Lead Creative Operations Manager
+❓ UNCLEAR  | pass | Datadog - Manager, GTM Strategy/Operations | https://careers.datadoghq.com/detail/7746286/?gh_jid=7746286
+❓ UNCLEAR  | pass | Datadog - Manager, Sales Enablement Program Management | https://careers.datadoghq.com/detail/7737197/?gh_jid=7737197
+❓ UNCLEAR  | pass | Datadog - Partner Enablement Manager | https://careers.datadoghq.com/detail/7979307/?gh_jid=7979307
+UNCERTAIN  | uncertain | Datadog - Partner Manager - Channels
+UNCERTAIN  | uncertain | Datadog - Partner Solutions Architect (ANZ)
+SKIP       | pass | Datadog - Principal Growth Marketing Manager - SEO/GEO
+UNCERTAIN  | uncertain | Datadog - Principal Partner Manager - Channels (GSI)
+UNCERTAIN  | uncertain | Datadog - Principal Partner Solutions Architect (Public Sector - Fed)
+❓ UNCLEAR  | pass | Datadog - Product Marketing Manager | https://careers.datadoghq.com/detail/7759965/?gh_jid=7759965
+❓ UNCLEAR  | pass | Datadog - Product Marketing Manager - Log Management | https://careers.datadoghq.com/detail/7803551/?gh_jid=7803551
+UNCERTAIN  | uncertain | Datadog - Product Operations Manager
+SKIP       | pass | Datadog - Senior Curriculum Manager, Sales Enablement
+❓ UNCLEAR  | pass | Datadog - Senior Event Marketing Manager - Conferences & Global Events | https://careers.datadoghq.com/detail/7917939/?gh_jid=7917939
+SKIP       | pass | Datadog - Senior Group Manager, Marketing Analytics & Field Operations
+UNCERTAIN  | uncertain | Datadog - Senior Partner Manager - Alliances (Chile)
+SKIP       | uncertain | Divergent - Advanced Manufacturing Production Specialist
+SKIP       | uncertain | Divergent - CNC Machining Specialist - (Turning Focus)
+SKIP       | uncertain | Divergent - CNC Programmer - (Turning Focus)
+UNCERTAIN  | uncertain | Divergent - Enterprise Platform Application Specialist (Microsoft 365)
+SKIP       | uncertain | Divergent - Metrology Programmer
+UNCERTAIN  | uncertain | Divergent - Operations Analyst
+UNCERTAIN  | uncertain | Divergent - Senior Program Manager, Aerospace and Defense
+SKIP       | uncertain | Divergent - Sr. Metrology & Inspection Specialist (2nd shift)
+UNCERTAIN  | uncertain | Divergent - Video Specialist
+🏢 IN-OFFICE | pass | Doximity - Community Marketing Manager
+UNCERTAIN  | uncertain | Dropbox - Senior Sales Manager, Growth
+UNCERTAIN  | uncertain | Elastic - Account Coordinator
+UNCERTAIN  | uncertain | Elastic - Federal Civilian Program Manager
+❓ UNCLEAR  | pass | Elastic - Principal Competitive Intelligence - Search - Product Marketing | https://jobs.elastic.co/jobs?gh_jid=7590696&gh_jid=7590696
+❓ UNCLEAR  | pass | Elastic - Principal Product Marketing Manager - Observability | https://jobs.elastic.co/jobs?gh_jid=7843346&gh_jid=7843346
+❓ UNCLEAR  | pass | Elastic - Principal Product Marketing Manager - Platform | https://jobs.elastic.co/jobs?gh_jid=7742834&gh_jid=7742834
+UNCERTAIN  | uncertain | Elastic - Program Manager, Strategic Projects
+❓ UNCLEAR  | pass | Elastic - Senior Product Marketing Manager - Portfolio | https://jobs.elastic.co/jobs?gh_jid=7781718&gh_jid=7781718
+🏢 IN-OFFICE | pass | Elastic - Senior Product Marketing Manager - Serverless
+UNCERTAIN  | uncertain | Elastic - Sr. Analyst, PubSec Revenue Strategy & Operations
+SKIP       | uncertain | Extend - Claims Adjudication Specialist (Tier I)
+SKIP       | uncertain | Extend - Fraud Operations Specialist I
+UNCERTAIN  | uncertain | Ethos Life - Principal Offline Acquisition Marketing
+❓ UNCLEAR  | pass | Ethos Life - Principal Product Marketing Manager | https://job-boards.greenhouse.io/ethoslife/jobs/8508998002
+UNCERTAIN  | uncertain | Ethos Life - Senior Growth Manager, Re-engagement
+❓ UNCLEAR  | pass | Fairmarkit - Senior Product Marketing Manager | https://job-boards.greenhouse.io/fairmarkit/jobs/5988066004
+UNCERTAIN  | uncertain | Fastly - Performance Center - Program Lead
+UNCERTAIN  | uncertain | Fastly - Program Manager
+UNCERTAIN  | uncertain | Fetch - Member Experience Agent
+SKIP       | uncertain | Fetch - Underwriting Operations Analyst
+UNCERTAIN  | uncertain | Fingerprint - Business Operations Associate
+🏢 IN-OFFICE | pass | Fingerprint - Senior Product Marketing Manager - US
+UNCERTAIN  | uncertain | firsthand Health - Manager, Community Operations
+UNCERTAIN  | uncertain | firsthand Health - Manager, Community Operations
+SKIP       | uncertain | firsthand Health - Peer Recovery Specialist (CORE Guide)
+UNCERTAIN  | uncertain | FIS® Amount™ - Account Specialist, Affiliate Growth
+UNCERTAIN  | uncertain | Fivetran - Marketing Business Analyst
+🏢 IN-OFFICE | pass | Fivetran - Senior Marketing Operations & Technology Manager
+UNCERTAIN  | uncertain | Fivetran - Senior Pricing Operations Manager
+UNCERTAIN  | uncertain | Fivetran - Senior Staff Program Manager
+🏢 IN-OFFICE | pass | Fivetran - Senior Technical Product Marketing Manager
+UNCERTAIN  | uncertain | Flexport - Air Operations Associate
+SKIP       | uncertain | Flexport - Global Operations Specialist
+UNCERTAIN  | uncertain | Flexport - Ocean Operations Associate
+SKIP       | uncertain | Flexport - Ocean Operations Specialist
+UNCERTAIN  | uncertain | Flexport - Operations Manager
+UNCERTAIN  | uncertain | Flexport - Senior Manager, Communications & Content
+UNCERTAIN  | uncertain | Flexport - Senior Operations Manager
+UNCERTAIN  | uncertain | Flexport - Trade Advisory Manager
+UNCERTAIN  | uncertain | Flo Health - Community & Growth Manager (Reddit)
+🏢 IN-OFFICE | pass | Flo Health - Content Strategist (Video) – Perimenopause
+🏢 IN-OFFICE | pass | Flo Health - Creative Strategist
+SKIP       | uncertain | Form Health - Client Implementation Manager
+SKIP       | uncertain | Form Health - IT Systems & Operations Manager
+SKIP       | uncertain | Form Health - Registered Dietitian, Diabetes Specialist - W2
+SKIP       | uncertain | FourKites - Implementation Manager
+SKIP       | uncertain | FourKites - Senior Customer Success Manager
+UNCERTAIN  | uncertain | FourKites - Services Consulting Specialist
+UNCERTAIN  | uncertain | Generate Biomedicines - Scientific Visualization and Communications Manager
+❓ UNCLEAR  | pass | Grove Collaborative - Lead Content Strategist | https://job-boards.greenhouse.io/grovecollaborative/jobs/5235830008
+UNCERTAIN  | uncertain | Grove Collaborative - Senior Manager of Growth Marketing (Temp - Parental Leave Coverage)
+❓ UNCLEAR  | pass | Gusto - Corporate Development & Partnerships Deal Lead | https://job-boards.greenhouse.io/gusto/jobs/6348898
+UNCERTAIN  | uncertain | Gusto - Executive Operations - R&D
+UNCERTAIN  | uncertain | Gusto - Future Opportunities: Channel Sales Experience
+SKIP       | uncertain | Gusto - Future Opportunities: Dedicated Service Advisor (Chicago)
+SKIP       | uncertain | Gusto - Future Opportunities: Dedicated Service Advisor (Phoenix)
+UNCERTAIN  | uncertain | Gusto - Future Opportunities: Retirement Client Relationship Manager
+🏢 IN-OFFICE | pass | Gusto - Future Opportunities: Retirement Implementation Specialist
+❓ UNCLEAR  | pass | Gusto - Growth Marketing Lead | https://job-boards.greenhouse.io/gusto/jobs/7844197
+UNCERTAIN  | uncertain | Gusto - Jr. Onboarding Associate
+UNCERTAIN  | uncertain | Gusto - Principal Product Operations Manager, Benefits
+❓ UNCLEAR  | pass | Gusto - Revenue Operations Analyst | https://job-boards.greenhouse.io/gusto/jobs/7797180
+UNCERTAIN  | uncertain | Gusto - Strategic Operations Lead
+❓ UNCLEAR  | pass | HealthJoy - Product Marketing Lead | https://job-boards.greenhouse.io/healthjoy/jobs/8550051002
+UNCERTAIN  | uncertain | Hightouch - AI Strategy Consultant
+UNCERTAIN  | uncertain | Hightouch - Enterprise Growth Marketer
+SKIP       | uncertain | Hightouch - Implementation Manager
+🏢 IN-OFFICE | pass | Hightouch - Product Marketing Manager, AdTech
+SKIP       | uncertain | Hightouch - Recruiting Coordinator
+🏢 IN-OFFICE | pass | Hightouch - Sales Operations Lead
+🏢 IN-OFFICE | pass | Hightouch - Senior Copywriter
+SKIP       | uncertain | HomeLight - Real Estate Advisor
+SKIP       | uncertain | HomeLight - Real Estate Advisor (part-time)
+🏢 IN-OFFICE | pass | HomeLight - Sr. Growth Marketing Manager
+UNCERTAIN  | uncertain | Inflection AI - Member of Technical Staff – Model Training
+SKIP       | uncertain | Intercom - Enterprise Customer Success Manager
+UNCERTAIN  | uncertain | Intercom - Manager, Relationship Managers (MidMarket)
+UNCERTAIN  | uncertain | Intercom - Manager, Relationship Managers (SMB)
+❓ UNCLEAR  | pass | Intercom - Principal Product Marketing Manager | https://job-boards.greenhouse.io/intercom/jobs/7232569
+UNCERTAIN  | uncertain | Intercom - Principal Program Manager
+SKIP       | uncertain | Intercom - Professional Services Operations Manager
+UNCERTAIN  | uncertain | Intercom - Relationship Manager, Commercial
+UNCERTAIN  | uncertain | Intercom - Relationship Manager, MidMarket
+UNCERTAIN  | uncertain | Intercom - Relationship Manager, Small Business 2
+SKIP       | uncertain | Intercom - Scaled Customer Success Manager
+❓ UNCLEAR  | pass | Intercom - Senior Customer Success Enablement Manager | https://job-boards.greenhouse.io/intercom/jobs/7973740
+❓ UNCLEAR  | pass | Intercom - Senior Field Marketing Manager - Brand Activations | https://job-boards.greenhouse.io/intercom/jobs/7996772
+❓ UNCLEAR  | pass | Intercom - Senior Field Marketing Manager - Regional Events | https://job-boards.greenhouse.io/intercom/jobs/7996697
+✅ REMOTE   | pass | Intercom - Senior GTM Enablement Manager, Operations
+✅ REMOTE   | pass | Intercom - Staff Creative Copywriter
+UNCERTAIN  | uncertain | Instacart - AI Field Consultant
+UNCERTAIN  | uncertain | Instacart - Catalog Operations Analyst II
+SKIP       | uncertain | Instacart - Fraud & Identity Specialist (Contract)
+UNCERTAIN  | uncertain | Instacart - Integration & Automation Tech Lead
+UNCERTAIN  | uncertain | Instacart - Knowledge Strategist Team Lead
+UNCERTAIN  | uncertain | Instacart - Knowledge Strategist Team Lead, Governance
+SKIP       | uncertain | Instacart - On-the-Ground-Specialist (Contractor) - Caper Deployments
+UNCERTAIN  | uncertain | Instacart - Program Manager II
+SKIP       | uncertain | Instacart - Senior Program Manager, Quality Assurance
+SKIP       | uncertain | Instacart - Trust & Safety Specialist, Law Enforcement Response
+UNCERTAIN  | uncertain | Karat - Principal Client Advisor (New Business Acquisition) (United States)
+SKIP       | uncertain | Justworks - Associate Channel Partner Manager
+SKIP       | uncertain | Justworks - Business Insurance Specialist
+SKIP       | uncertain | Justworks - Channel Partner Manager
+SKIP       | uncertain | Justworks - Data & Analytics Operations Manager - AI & Systems
+SKIP       | uncertain | Justworks - Engineering Manager, Onboarding
+UNCERTAIN  | uncertain | Justworks - Experience Design Manager, Internal Experiences
+✅ REMOTE   | pass | Justworks - GTM Revenue Enablement Manager
+SKIP       | pass | Justworks - Manager, Channel Partnerships
+SKIP       | pass | Justworks - Manager, Channel Partnerships (Phoenix, AZ)
+UNCERTAIN  | uncertain | Justworks - Manager, International Customer Success
+UNCERTAIN  | uncertain | Justworks - Manager, Onboarding
+UNCERTAIN  | uncertain | Justworks - Product Operations Manager, AI & Systems
+UNCERTAIN  | uncertain | Justworks - Program Manager, Product
+UNCERTAIN  | uncertain | Justworks - Project Manager, Partner Experience
+UNCERTAIN  | uncertain | Justworks - Research Operations Lead (Fixed Term)
+SKIP       | pass | Justworks - Risk & Insurance Enablement Manager
+UNCERTAIN  | uncertain | Justworks - Senior Manager, Community Marketing
+SKIP       | uncertain | Justworks - Senior Manager, Strategy Operations - Data & Analytics
+✅ REMOTE   | pass | Justworks - Senior Product Marketing Manager, Growth
+✅ REMOTE   | pass | Justworks - Senior Product Marketing Manager, International
+🏢 IN-OFFICE | pass | Justworks - Senior Product Marketing Manager, Pricing & Packaging
+✅ REMOTE   | pass | Justworks - Senior Product Marketing Manager, Release Marketing
+UNCERTAIN  | uncertain | Justworks - Senior Program Manager, Product
+UNCERTAIN  | uncertain | Justworks - Technology Partner Manager
+SKIP       | uncertain | Databricks - Candidate Experience Coordinator
+❓ UNCLEAR  | pass | Databricks - Customer Enablement Specialist | https://databricks.com/company/careers/open-positions/job?gh_jid=8431935002
+UNCERTAIN  | uncertain | Databricks - Delivery Solutions Architect - Communications, Media, Entertainment & Games
+UNCERTAIN  | uncertain | Databricks - Deployment Strategist
+❓ UNCLEAR  | pass | Databricks - Digital Native Go-to-Market (GTM) Leader | https://databricks.com/company/careers/open-positions/job?gh_jid=8495071002
+❓ UNCLEAR  | pass | Databricks - Go-To-Market (GTM) Digital Natives Program Leader | https://databricks.com/company/careers/open-positions/job?gh_jid=8356420002
+❓ UNCLEAR  | pass | Databricks - Lakebase Sales Specialist | https://databricks.com/company/careers/open-positions/job?gh_jid=8569410002
+❓ UNCLEAR  | pass | Databricks - Lakebase Sales Specialist (Central) | https://databricks.com/company/careers/open-positions/job?gh_jid=8569510002
+❓ UNCLEAR  | pass | Databricks - Lakebase Sales Specialist, Healthcare & Life Sciences | https://databricks.com/company/careers/open-positions/job?gh_jid=8569461002
+SKIP       | pass | Databricks - Lakebase Sales Specialist-Manufacturing
+❓ UNCLEAR  | pass | Databricks - Lakebase Sales Specialist - Retail | https://databricks.com/company/careers/open-positions/job?gh_jid=8569436002
+UNCERTAIN  | uncertain | Databricks - Lakebase Specialist Sales
+UNCERTAIN  | uncertain | Databricks - Lead GTM Enablement & Scale Architect, Lakebase
+UNCERTAIN  | uncertain | Databricks - Resident Solutions Architect - Communications, Media, Entertainment & Games
+UNCERTAIN  | uncertain | Databricks - Senior Customer Enablement Architect
+❓ UNCLEAR  | pass | Databricks - Senior Manager GTM Strategy & Operations (Partners) | https://databricks.com/company/careers/open-positions/job?gh_jid=8450207002
+UNCERTAIN  | uncertain | Databricks - Specialist Solutions Architect - AI/ML
+SKIP       | uncertain | Databricks - Specialist Solutions Architect - Data Warehousing (Healthcare & Life Sciences)
+UNCERTAIN  | uncertain | Databricks - Sr. ISV & Partner Solutions Architect
+UNCERTAIN  | uncertain | Databricks - Sr. Manager, Customer Enablement (APJ)
+❓ UNCLEAR  | pass | Databricks - Sr. Partner Marketing Manager - Consulting & System Integrators | https://databricks.com/company/careers/open-positions/job?gh_jid=8493152002
+❓ UNCLEAR  | pass | Databricks - Sr. Product Marketing Manager, Lakebase | https://databricks.com/company/careers/open-positions/job?gh_jid=8407915002
+UNCERTAIN  | uncertain | Databricks - Sr. Program Manager, Data for Good
+UNCERTAIN  | uncertain | Databricks - Sr. Solutions Architect - Global Telecommunications
+UNCERTAIN  | uncertain | Databricks - Sr Staff Product Operations Manager
+UNCERTAIN  | uncertain | Databricks - Sr. Technology Partner Manager, Startup Program
+UNCERTAIN  | uncertain | Databricks - Strategic Customer Advisor
+UNCERTAIN  | uncertain | Databricks - Strategy & Execution AI Specialist
+UNCERTAIN  | uncertain | Databricks - Strategy & Execution Manager, GTM
+SKIP       | uncertain | Databricks - TA Operations Associate (Contract)
+SKIP       | uncertain | Keeper Security - Associate Product Content Specialist
+SKIP       | uncertain | Keeper Security - Customer Success Manager
+SKIP       | pass | Keeper Security - GTM Enablement Specialist
+SKIP       | uncertain | Keeper Security - Manager, Customer Success Management (AMER)
+SKIP       | pass | Keeper Security - Marketing Analytics Manager
+SKIP       | uncertain | Keeper Security - Senior Channel Strategy & Operations Analyst
+SKIP       | pass | Keeper Security - Senior Manager, Customer Marketing
+UNCERTAIN  | uncertain | Lattice - GTM Analytics Manager
+❓ UNCLEAR  | pass | Lattice - Senior GTM Enablement Manager | https://lattice.com/job?gh_jid=8488098002
+❓ UNCLEAR  | pass | Lattice - Senior Revenue Operations Manager | https://lattice.com/job?gh_jid=8581365002
+UNCERTAIN  | uncertain | Lithic - Product Delivery Specialist
+UNCERTAIN  | uncertain | Lyft - Business Operations Manager
+UNCERTAIN  | uncertain | Lyft - Executive Social and Communications Manager
+SKIP       | uncertain | Lyft - Fleet Operations Associate (Afternoon & Overnight Shift)
+SKIP       | uncertain | Lyft - Global Equity Program Manager
+SKIP       | pass | Lyft - Growth Marketing Manager, Programmatic
+UNCERTAIN  | uncertain | Lyft - Operations Associate, Flexdrive
+UNCERTAIN  | uncertain | Lyft - Operations Lead
+UNCERTAIN  | uncertain | Lyft - Operations Manager, Citi Bike
+UNCERTAIN  | uncertain | Lyft - Program Manager, AV Technical Operations
+UNCERTAIN  | uncertain | Lyft - Program Manager, Process Excellence & Standards
+SKIP       | uncertain | Lyft - Senior Autonomous Vehicle Partnership Manager
+UNCERTAIN  | uncertain | Lyft - Senior Design Program Manager, Design Foundations & AI Transformation
+SKIP       | uncertain | Lyft - Senior Manager, AV Field Operations
+❓ UNCLEAR  | pass | Lyft - Senior Marketing Operations Manager | https://app.careerpuck.com/job-board/lyft/job/8576936002?gh_jid=8576936002
+SKIP       | uncertain | Lucid Motors - Delivery Advisor, Dusseldorf (m/f/d)
+SKIP       | uncertain | Lucid Motors - Parts Advisor - Tysons Galleria
+SKIP       | uncertain | Lucid Motors - Part Time Brand Ambassador
+SKIP       | uncertain | Lucid Motors - Part Time Brand Ambassador
+❓ UNCLEAR  | pass | Lucid Motors - Sales Specialist | https://job-boards.greenhouse.io/lucidmotors/jobs/5139259007
+❓ UNCLEAR  | pass | Lucid Motors - Sales Specialist, Century City | https://job-boards.greenhouse.io/lucidmotors/jobs/5154445007
+🏢 IN-OFFICE | pass | Lucid Motors - Sales Specialist, Dusseldorf (m/f/d)
+SKIP       | uncertain | Lucid Motors - Senior Service Advisor, Houston
+SKIP       | uncertain | Lucid Motors - Service Advisor, Costa Mesa
+SKIP       | uncertain | Lucid Motors - Service Advisor - Goose Island, IL
+SKIP       | uncertain | Lucid Motors - Service Advisor, Millbrae
+SKIP       | uncertain | Lucid Motors - Service Advisor - Plainview, NY
+SKIP       | uncertain | Lucid Motors - Service Advisor - Richmond, VA
+SKIP       | uncertain | Lucid Motors - Service Advisor - Riviera Beach, FL
+SKIP       | uncertain | Lucid Motors - Service Advisor - Roswell, GA
+SKIP       | uncertain | Lucid Motors - Service Advisor - Rutherford, NJ
+SKIP       | uncertain | Lucid Motors - Service Advisor, Scottsdale
+SKIP       | uncertain | Lucid Motors - Service Parts Advisor, Torrance
+UNCERTAIN  | uncertain | Lucid Motors - Sr. Manager, Global Launch Process & Strategy
+UNCERTAIN  | uncertain | Lucid Motors - Sr. Program Manager UIUX Design
+🏢 IN-OFFICE | pass | Lucid Motors - Sr. Sales Specialist - Used Cars, Frankfurt (m/f/d)
+SKIP       | uncertain | Lucid Motors - Vehicle Operations Assistant
+SKIP       | uncertain | Lucid Motors - Vehicle Operations Specialist
+❓ UNCLEAR  | pass | Marqeta - Sales Enablement Associate | https://job-boards.greenhouse.io/marqeta/jobs/7859750
+🏢 IN-OFFICE | pass | MasterClass - Sr. Content Marketing Manager
+SKIP       | uncertain | Misfits Market - 2nd Shift Distribution Coordinator
+SKIP       | uncertain | Misfits Market - Inbound Logistics Specialist
+UNCERTAIN  | uncertain | Misfits Market - Operations Manager
+UNCERTAIN  | uncertain | Misfits Market - Operations Supervisor
+SKIP       | uncertain | Misfits Market - Senior Client Success Manager
+UNCERTAIN  | uncertain | Misfits Market - Senior Manager, Growth Marketing - Paid Social
+UNCERTAIN  | uncertain | Misfits Market - Senior Operations Manager
+UNCERTAIN  | uncertain | Momentous - Amazon Strategy and Growth Manager
+❓ UNCLEAR  | pass | Momentous - Product Marketing Manager | https://job-boards.greenhouse.io/momentous/jobs/5148221008
+UNCERTAIN  | uncertain | Momentous - Senior Manager of Influencer and Affiliate Marketing
+✅ REMOTE   | pass | Mochi Health - Performance Marketing Manager
+SKIP       | uncertain | Moniepoint - Data Science Manager (Marketing)
+❓ UNCLEAR  | pass | Navan - Brand Copywriter | https://navan.com/careers/openings?gh_jid=7964894
+SKIP       | uncertain | Navan - Business Travel Consultant (Berlin or Remote) (Geschäftsreiseexperte)
+SKIP       | uncertain | Navan - Business Travel Consultant - French - Remote
+SKIP       | uncertain | Navan - Business Travel Consultant II
+SKIP       | uncertain | Navan - Chief-of-Staff, Global Operations & Services (GO&S)
+SKIP       | uncertain | Navan - Customer Success Manager
+SKIP       | uncertain | Navan - Enterprise Customer Success Manager
+SKIP       | uncertain | Navan - Enterprise Customer Success Manager (Travel)
+UNCERTAIN  | uncertain | Navan - Enterprise Launch Manager
+UNCERTAIN  | uncertain | Navan - Enterprise Solutions Consultant
+UNCERTAIN  | uncertain | Navan - Global Mobility Program Manager
+UNCERTAIN  | uncertain | Navan - GTM Enablement Senior Specialist, Onboarding
+❓ UNCLEAR  | pass | Navan - GTM Strategy & Operations Manager | https://navan.com/careers/openings?gh_jid=7482725
+❓ UNCLEAR  | pass | Navan - GTM Strategy & Operations Senior Analyst | https://navan.com/careers/openings?gh_jid=7729289
+UNCERTAIN  | uncertain | Navan - Manager Communications
+❓ UNCLEAR  | pass | Navan - Manager, Revenue Operations - SDR | https://navan.com/careers/openings?gh_jid=7684953
+SKIP       | uncertain | Navan - Manager, Travel Experience Consultant
+UNCERTAIN  | uncertain | Navan - Mid-Market Solutions Consultant - Expense
+UNCERTAIN  | uncertain | Navan - Senior Commercial Solutions Consultant
+❓ UNCLEAR  | pass | Navan - Senior Marketing Operations Manager | https://navan.com/careers/openings?gh_jid=7408349
+❓ UNCLEAR  | pass | Navan - Senior Revenue Operations Analyst, Data Quality | https://navan.com/careers/openings?gh_jid=7255604
+SKIP       | uncertain | Natera - Manager, Oncology Provider Experience
+SKIP       | uncertain | Natera - Organ Health Specialist
+SKIP       | uncertain | Natera - Organ Health Specialist, Abdominal Transplant
+SKIP       | uncertain | Natera - Organ Health Specialist, Abdominal Transplant
+SKIP       | uncertain | Natera - Organ Health Specialist – Abdominal Transplant (Southeast Central)
+SKIP       | uncertain | Natera - Pathology Support Coordinator - Sample Review- (ASCP Certified)- TEMP Position Tues-Saturday (2nd Shift)
+SKIP       | uncertain | Natera - Phlebotomist Test Coordinator - Bayonne, NJ
+SKIP       | uncertain | Natera - Phlebotomist Test Coordinator - Florence, SC
+SKIP       | uncertain | Natera - Phlebotomist Test Coordinator - Freehold, NJ
+SKIP       | uncertain | Natera - Phlebotomist Test Coordinator - Georgetown, TX
+UNCERTAIN  | uncertain | Natera - Program Manager
+SKIP       | uncertain | Natera - Quality Assurance Specialist
+SKIP       | uncertain | Natera - Rare Disease Specialist (National)
+UNCERTAIN  | uncertain | Natera - Sales Application Specialist
+SKIP       | uncertain | Natera - Sales Training Manager, Oncology
+UNCERTAIN  | uncertain | Natera - Senior Manager, Network Operations
+SKIP       | pass | Natera - Sr Area Product Marketing Manager, Oncology
+UNCERTAIN  | uncertain | Natera - Supervisor, Test Coordinator - Houston, TX
+UNCERTAIN  | uncertain | Motive - Marketing and Communications Supervisor
+UNCERTAIN  | uncertain | Iterable - Senior Implementation Project Manager
+UNCERTAIN  | uncertain | Iterable - Solutions Consultant
+SKIP       | uncertain | Netskope - Customer Success Manager - Scale
+SKIP       | uncertain | Netskope - Sr. Customer Success Manager
+UNCERTAIN  | uncertain | Omada Health - Commercial Enablement Innovation Lead
+❓ UNCLEAR  | pass | Omada Health - Senior Product Marketing Manager | https://job-boards.greenhouse.io/omadahealth/jobs/7680866
+UNCERTAIN  | uncertain | Omada Health - Staff AI Transformation Program Manager
+SKIP       | uncertain | Otter - Business Operations Associate - Ciudad de México, MEX
+🏢 IN-OFFICE | pass | Otter - Digital Onboarding Specialist - Bogotá, COL
+SKIP       | uncertain | Otter - Enterprise Customer Success Manager - Los Angeles, CA
+SKIP       | pass | Otter - Equipment and Partnerships Program Manager - Los Angeles, CA
+🏢 IN-OFFICE | pass | Otter - Sales Enablement Specialist - Los Angeles, CA
+UNCERTAIN  | uncertain | Octave - Group Practice Partnership - California
+UNCERTAIN  | uncertain | Octave - Group Practice Partnership - Florida
+UNCERTAIN  | uncertain | Octave - Group Practice Partnership - Illinois
+UNCERTAIN  | uncertain | Octave - Group Practice Partnership - New Jersey
+UNCERTAIN  | uncertain | Octave - Group Practice Partnership - New York
+UNCERTAIN  | uncertain | Octave - Group Practice Partnership - North Carolina
+UNCERTAIN  | uncertain | Octave - Group Practice Partnership - Pennsylvania
+UNCERTAIN  | uncertain | Okta - Category Manager, Marketing
+UNCERTAIN  | uncertain | Okta - CEO Communications Manager
+UNCERTAIN  | uncertain | Okta - Customer Success Executive, DoD/IC/FSI
+UNCERTAIN  | uncertain | Okta - Customer Success Executive, SLED
+UNCERTAIN  | uncertain | Okta - Distinguished Strategic Advisor (Fed Focused)
+UNCERTAIN  | uncertain | Okta - GTM Process & Productivity Tools Manager
+UNCERTAIN  | uncertain | Okta - Pricing Operations Manager
+SKIP       | uncertain | Okta - Principal Delivery Success Manager
+❓ UNCLEAR  | pass | Okta - Revenue Operations Manager | https://www.okta.com/company/careers/opportunity/7767846?gh_jid=7767846
+❓ UNCLEAR  | pass | Okta - Senior Analyst, Sales Strategy & Operations | https://www.okta.com/company/careers/opportunity/7860180?gh_jid=7860180
+SKIP       | uncertain | Okta - Senior Customer Success Manager, DoD/IC/FSI
+SKIP       | uncertain | Okta - Senior Customer Success Manager, SLED
+UNCERTAIN  | uncertain | Okta - Senior Identity Specialist (Field CTO)
+UNCERTAIN  | uncertain | Okta - Senior Manager, M&A Integration & Strategic Programs
+❓ UNCLEAR  | pass | Okta - Senior Product Marketing Specialist, Public Sector | https://www.okta.com/company/careers/opportunity/7833584?gh_jid=7833584
+SKIP       | uncertain | Okta - Sr. Customer Success Manager
+SKIP       | uncertain | Okta - Sr. Customer Success Manager, Federal
+UNCERTAIN  | uncertain | Okta - Sr. Social Content Manager
+❓ UNCLEAR  | pass | Okta - Staff Product Marketing Manager, Public Sector | https://www.okta.com/company/careers/opportunity/7833580?gh_jid=7833580
+UNCERTAIN  | uncertain | Okta - Technical Consultant, Auth0
+SKIP       | uncertain | Overstory - Delivery Operations Manager
+SKIP       | uncertain | Overstory - Enterprise Customer Success Manager
+🏢 IN-OFFICE | pass | Overstory - Senior Product Marketing Manager
+UNCERTAIN  | uncertain | Overstory - Strategy & Operations Lead
+❓ UNCLEAR  | pass | Otter.ai - Growth Marketing Manager, Paid Acquisition | https://otter.ai/careers?gh_jid=7713874003
+❓ UNCLEAR  | pass | Otter.ai - Senior Field Marketing Manager | https://otter.ai/careers?gh_jid=7761479003
+UNCERTAIN  | uncertain | Otter.ai - Senior Manager, Customer Success
+❓ UNCLEAR  | pass | Otter.ai - Senior Manager, Sales Enablement | https://otter.ai/careers?gh_jid=7602523003
+❓ UNCLEAR  | pass | Otter.ai - Senior Marketing Campaign Manager | https://otter.ai/careers?gh_jid=7761499003
+✅ REMOTE   | pass | PagerDuty - Account Based Marketing Manager
+SKIP       | uncertain | PagerDuty - Deal Desk Specialist
+❓ UNCLEAR  | pass | PagerDuty - Sales Strategy and Operations Manager | https://job-boards.greenhouse.io/pagerduty/jobs/5835317004
+SKIP       | uncertain | PagerDuty - Senior Principal Customer Success Manager (San Francisco)
+❓ UNCLEAR  | pass | PagerDuty - Senior Sales Strategy and Operations Analyst | https://job-boards.greenhouse.io/pagerduty/jobs/6006599004
+SKIP       | uncertain | PagerDuty - Sr. Principal Customer Success Manager - Detroit
+SKIP       | uncertain | PagerDuty - Sr. Principal Customer Success Manager - Minnesota
+SKIP       | uncertain | PagerDuty - Sr. Principal Customer Success Manager - NYC
+SKIP       | uncertain | PagerDuty - Sr. Principal Customer Success Manager, PubSector - DC
+SKIP       | uncertain | Parachute Home - Fulfillment Operations Specialist
+UNCERTAIN  | uncertain | Parachute Home - Senior CRM Manager
+SKIP       | uncertain | PathAI - IT Service Desk Specialist
+UNCERTAIN  | uncertain | PathAI - Manager/Sr. Manager, Biopharma Marketing
+🏢 IN-OFFICE | pass | Peloton - Associate Manager, Marketing Web Strategy
+🏢 IN-OFFICE | pass | Peloton - Copywriter II
+UNCERTAIN  | uncertain | Peloton - Manager, Production Operations
+UNCERTAIN  | uncertain | Peloton - Manager, Strategic Partner Management
+UNCERTAIN  | uncertain | Peloton - Operations Supervisor, Refurb
+UNCERTAIN  | uncertain | Pinterest - AI Policy Specialist, Content Standards & Practices
+SKIP       | uncertain | Pinterest - Client Partner II, Mid-Market
+SKIP       | uncertain | Pinterest - Engineering Manager I, Growth AI
+SKIP       | uncertain | Pinterest - Lead Client Partner, Mid-Market
+SKIP       | uncertain | Pinterest - Lead Client Partner Retail / e-Commerce
+SKIP       | uncertain | Pinterest - Lead Client Partner, Retail Home
+SKIP       | uncertain | Pinterest - Lead Client Partner, Travel
+SKIP       | pass | Pinterest - Manager, Revenue Operations and Order Management
+SKIP       | uncertain | Pinterest - Measurement Partner II
+SKIP       | uncertain | Pinterest - Programmatic Ads Sales Lead
+SKIP       | uncertain | Pinterest - Sr. Client Partner, Mid-Market
+SKIP       | uncertain | Pinterest - Sr. Client Partner, Tech
+UNCERTAIN  | uncertain | Pinterest - Sr. Communications Lead, Internal Communications
+SKIP       | pass | Pinterest - Sr. Programmatic Ads Sales Specialist
+🏢 IN-OFFICE | pass | Pinterest - Sr. Sales Strategy & Operations Lead
+UNCERTAIN  | uncertain | Postman - Deal Operations Analyst
+UNCERTAIN  | uncertain | Postman - Member of Technical Staff, AI Agent Development Lead
+UNCERTAIN  | uncertain | Postman - Member of Technical Staff,  AI Platform & Architecture (Infrastructure)
+🏢 IN-OFFICE | pass | Postman - Principal Product Marketing Manager
+❓ UNCLEAR  | pass | Postman - Product Partnerships Manager | https://job-boards.greenhouse.io/postman/jobs/7766420003
+🏢 IN-OFFICE | pass | Postman - Sales Enablement Program Manager
+❓ UNCLEAR  | pass | Postman - Senior Digital Marketing Manager | https://job-boards.greenhouse.io/postman/jobs/7696833003
+✅ REMOTE   | pass | Postman - Senior Product Marketing Manager
+❓ UNCLEAR  | pass | Postman - Senior Sales Operations Manager, Enterprise | https://job-boards.greenhouse.io/postman/jobs/7752221003
+SKIP       | uncertain | Postman - Senior Technical Writer
+UNCERTAIN  | uncertain | Postman - Technical Community Manager
+UNCERTAIN  | uncertain | Postman - Technical Enablement Program Manager
+SKIP       | uncertain | Postscript - Senior Customer Success Manager
+SKIP       | uncertain | project44 - Customer Success Manager
+🏢 IN-OFFICE | pass | project44 - Field Marketing Manager
+UNCERTAIN  | uncertain | project44 - Manager, FP&A -GTM Finance
+🏢 IN-OFFICE | pass | project44 - Sr Manager, Product Partnerships
+SKIP       | uncertain | Redwood Materials - Inventory Control Specialist
+SKIP       | uncertain | QuintoAndar - Grupo QuintoAndar | Especialista Comercial - Hunter - Brasília
+SKIP       | uncertain | QuintoAndar - Grupo QuintoAndar | Especialista Comercial - Hunter - Curitiba
+SKIP       | uncertain | QuintoAndar - Grupo QuintoAndar | Especialista Comercial - Hunter - Goiânia
+SKIP       | uncertain | QuintoAndar - Grupo QuintoAndar | Especialista Comercial - Hunter - Porto Alegre
+SKIP       | uncertain | QuintoAndar - Grupo QuintoAndar | Especialista Comercial - Hunter - RJ
+🏢 IN-OFFICE | pass | Potomac - Sales Enablement Associate
+🏢 IN-OFFICE | pass | Altra Federal Credit Union - AI Enablement Specialist - Operations Center - Onalaska WI
+🏢 IN-OFFICE | pass | Altra Federal Credit Union - AI Enablement Specialist
+🏢 IN-OFFICE | pass | VitalSource Technologies - Enablement Manager
+UNCERTAIN  | uncertain | City National Bank - Lead AI Enablement Analyst
+UNCERTAIN  | uncertain | Jobot - Manager, AI Strategy & Enablement
+UNCERTAIN  | uncertain | Ritual - TEE Specialist
+SKIP       | uncertain | Relativity Space - CNC Programmer II
+SKIP       | uncertain | Relativity Space - CNC Programmer II, Second Shift
+SKIP       | uncertain | Relativity Space - Environmental Test Specialist
+UNCERTAIN  | uncertain | Relativity Space - Lead, Business Operations
+SKIP       | uncertain | Relativity Space - Logistics Specialist I
+SKIP       | uncertain | Relativity Space - Machining Specialist III
+UNCERTAIN  | uncertain | Relativity Space - Production Coordinator II, Second Shift
+SKIP       | uncertain | Relativity Space - Receiving Specialist II
+SKIP       | uncertain | Relativity Space - Receiving Specialist II, Second Shift
+SKIP       | uncertain | Relativity Space - Recruiting Coordinator (Contract)
+UNCERTAIN  | uncertain | Relativity Space - Senior Associate, Business Operations
+SKIP       | uncertain | Relativity Space - Senior CNC Programmer
+SKIP       | uncertain | Relativity Space - Senior CNC Programmer, Second Shift
+UNCERTAIN  | uncertain | Relativity Space - Senior Communications Manager
+SKIP       | uncertain | Relativity Space - Shipping Specialist II
+UNCERTAIN  | uncertain | Relativity Space - Tool Builder Specialist II
+🏢 IN-OFFICE | pass | Reddit - 3rd Party Partnerships Manager - Commerce
+SKIP       | uncertain | Reddit - Client Partner, Large Customer Sales (Retail, Ecomm)
+SKIP       | uncertain | Reddit - Client Partner, Mid-Market (B2B Services Acquisitions)
+SKIP       | uncertain | Reddit - Community Manager - French speaker (contract)
+❓ UNCLEAR  | pass | Reddit - Creative Strategist - App Dev | https://job-boards.greenhouse.io/reddit/jobs/7769002
+UNCERTAIN  | uncertain | Reddit - Experience Coordinator, San Francisco
+UNCERTAIN  | uncertain | Reddit - Experience Manager, Places
+UNCERTAIN  | uncertain | Reddit - Experience Partner, Programs
+UNCERTAIN  | uncertain | Reddit - GTM Enablement Lead, SMB
+UNCERTAIN  | uncertain | Reddit - Revenue Strategy & Operations, Lead
+SKIP       | uncertain | Reddit - Senior Client Partner, Global Strategic Accounts (Telco)
+SKIP       | uncertain | Reddit - Senior Client Partner, Large Customer Sales (Sports Apparel)
+SKIP       | uncertain | Reddit - Senior Client Partner, Large Customer Sales (Tech)
+SKIP       | uncertain | Reddit - Senior Data Science Manager, Marketing
+UNCERTAIN  | uncertain | Reformation - Assistant Store Manager, Operations, Full-time - Flatiron
+UNCERTAIN  | uncertain | Reformation - Operations Associate, Part Time - Broadway Plaza
+UNCERTAIN  | uncertain | Reformation - Operations Associate, Temporary Part Time - Broadway Plaza
+SKIP       | uncertain | Reformation - Senior Accounts Receivable Specialist
+✅ REMOTE   | pass | Riot Games - Global & Americas Manager, Partnership Management - Riot Commercial Partnerships
+UNCERTAIN  | uncertain | Riot Games - Senior Brand Manager
+UNCERTAIN  | uncertain | Riot Games - Senior Principal Insights Analyst, Growth Marketing/UA - Mobile
+SKIP       | uncertain | Riot Games - Senior Technical Artist - VALORANT, Premium Content
+UNCERTAIN  | uncertain | Riot Games - Senior Technical Program - Publishing Platform
+🏢 IN-OFFICE | pass | Rocket Money - Growth Marketing Manager - Digital
+UNCERTAIN  | uncertain | Rocket Money - Operations Associate
+UNCERTAIN  | uncertain | Roofstock - Back of House Coordinator
+SKIP       | uncertain | Roofstock - Construction Specialist
+SKIP       | uncertain | Roofstock - Hospitality Coordinator
+SKIP       | uncertain | Roofstock - Maintenance Project Coordinator
+SKIP       | uncertain | Roofstock - Maintenance Project Coordinator (Temp)
+SKIP       | uncertain | Roofstock - Move-Out Coordinator
+SKIP       | uncertain | Roofstock - Rent Underwriter
+SKIP       | uncertain | Roofstock - Resident Experience Manager
+SKIP       | uncertain | Roofstock - Resident Experience Manager (Delinquency & Eviction Specialist)
+SKIP       | uncertain | Roofstock - Seasonal Hospitality Coordinator
+SKIP       | uncertain | Roofstock - Supervisor, Hospitality Operations
+SKIP       | uncertain | Roofstock - Team Lead, Hospitality Operations
+SKIP       | uncertain | Roofstock - Trade Specialist
+SKIP       | uncertain | Rockstar Games - Graphics Programmer
+SKIP       | uncertain | Rockstar Games - Senior Gameplay Programmer
+SKIP       | uncertain | Rockstar Games - Senior Graphics Programmer
+SKIP       | uncertain | Sidecar Health - Field Support Representative, Member Experience
+SKIP       | uncertain | Sidecar Health - Field Support Supervisor, Customer Success
+UNCERTAIN  | uncertain | Sidecar Health - Operations Training Specialist, Contact Center
+SKIP       | uncertain | Schwarzman Animal Medical Center - Care Coordinator
+SKIP       | uncertain | Schwarzman Animal Medical Center - Client Communications Specialist (CCS)
+SKIP       | uncertain | Schwarzman Animal Medical Center - Radiology Coordinator
+SKIP       | uncertain | Rocket Lab - Accounts Payables Specialist
+SKIP       | uncertain | Rocket Lab - CNC Programmer
+UNCERTAIN  | uncertain | Rocket Lab - Events & Merchandise Coordinator
+SKIP       | uncertain | Rocket Lab - Inventory Coordinator II
+SKIP       | uncertain | Rocket Lab - Lead Inventory Coordinator
+SKIP       | uncertain | Rocket Lab - Lead, Recovery Operations
+UNCERTAIN  | uncertain | Rocket Lab - Manager- Test & Launch Operations
+UNCERTAIN  | uncertain | Rocket Lab - Production Coordinator II
+SKIP       | uncertain | Rocket Lab - Senior Inventory Coordinator I
+UNCERTAIN  | uncertain | Rocket Lab - Senior Program Manager I
+UNCERTAIN  | uncertain | Rocket Lab - Senior Program Manager I/II
+SKIP       | uncertain | Rocket Lab - Test Operations Mechanical Technician II, III, Senior
+UNCERTAIN  | uncertain | Roblox - Creator Growth Operations Manager, Monetization
+SKIP       | uncertain | Roblox - Critical Harms Investigations & Incident Management Junior Specialist
+SKIP       | uncertain | Roblox - Critical Harms Investigations & Incident Management Specialist
+SKIP       | uncertain | Roblox - Executive Business Partner, Office of the CEO
+SKIP       | uncertain | Roblox - Law Enforcement and Digital Safety Specialist, Nevada
+SKIP       | uncertain | Roblox - Law Enforcement and Digital Safety Specialist, West Virginia
+UNCERTAIN  | uncertain | Roblox - Lead/Senior Lead, Roblox Incubator Program
+UNCERTAIN  | uncertain | Roblox - Localization Program Manager
+SKIP       | uncertain | Roblox - Manager Data Center Operations
+SKIP       | uncertain | Roblox - Principal Engine Programmer - Systems (C++)
+❓ UNCLEAR  | pass | Roblox - Product Marketing Manager, Creator Monetization | https://careers.roblox.com/jobs/7951971?gh_jid=7951971
+❓ UNCLEAR  | pass | Roblox - Product Marketing Manager, Discovery | https://careers.roblox.com/jobs/7950883?gh_jid=7950883
+❓ UNCLEAR  | pass | Roblox - Senior Growth Marketing Manager | https://careers.roblox.com/jobs/7977893?gh_jid=7977893
+UNCERTAIN  | uncertain | Roblox - Tech Lead Manager (TLM) - Ads Experience
+UNCERTAIN  | uncertain | SingleStore - GTM Systems Manager
+UNCERTAIN  | uncertain | SingleStore - Partner Operations Manager
+❓ UNCLEAR  | pass | SingleStore - Revenue Operations Manager | https://job-boards.greenhouse.io/singlestore/jobs/7951345
+❓ UNCLEAR  | pass | SingleStore - Sales Enablement Specialist | https://job-boards.greenhouse.io/singlestore/jobs/7955119
+🏢 IN-OFFICE | pass | SingleStore - Sr. Revenue Operations Analyst
+❓ UNCLEAR  | pass | Speechmatics - Marketing Operations Partner | https://job-boards.eu.greenhouse.io/speechmatics/jobs/4876150101
+UNCERTAIN  | uncertain | StackBlitz - Community Manager
+❓ UNCLEAR  | pass | StackBlitz - Field Marketing Manager | https://job-boards.greenhouse.io/stackblitz/jobs/4170467009
+🏢 IN-OFFICE | pass | StackBlitz - Lifecycle Marketing Manager
+❓ UNCLEAR  | pass | StackBlitz - Senior Product Marketing Manager | https://job-boards.greenhouse.io/stackblitz/jobs/4131722009
+UNCERTAIN  | uncertain | Stitch Fix - Manager, Product Design – Client Experience
+UNCERTAIN  | uncertain | Strive Health - Sr. Manager, Partner Success
+UNCERTAIN  | uncertain | Strive Health - Sr. Network Engagement Partner
+SKIP       | uncertain | StockX - Operations Specialist
+SKIP       | uncertain | StockX - Seasonal Operations Specialist
+UNCERTAIN  | uncertain | sweetgreen - Associate Brand Manager
+SKIP       | uncertain | sweetgreen - Infinite Kitchen Operations Specialist
+SKIP       | uncertain | sweetgreen - Operations Innovation & Implementation Manager
+❓ UNCLEAR  | pass | sweetgreen - Senior Copywriter | https://careers.sweetgreen.com/jobs/7901789?gh_jid=7901789
+UNCERTAIN  | uncertain | sweetgreen - Senior Manager, Off-Premise & Digital Operations
+UNCERTAIN  | uncertain | sweetgreen - Sr Manager, Marketing
+SKIP       | uncertain | Stripe - Accounts Receivable Analyst - Service Strategy Enablement
+❓ UNCLEAR  | pass | Stripe - AEO and GEO Marketing Manager | https://stripe.com/jobs/search?gh_jid=7844214
+UNCERTAIN  | uncertain | Stripe - AV Builds and Operations
+❓ UNCLEAR  | pass | Stripe - Brand Partnerships & Strategy Lead | https://stripe.com/jobs/search?gh_jid=7868790
+UNCERTAIN  | uncertain | Stripe - Campaign Operations Manager
+UNCERTAIN  | uncertain | Stripe - Commercial Solutions Program Manager
+❓ UNCLEAR  | pass | Stripe - Consumer Brand Marketing Lead, Link | https://stripe.com/jobs/search?gh_jid=7959351
+❓ UNCLEAR  | pass | Stripe - Consumer Product Marketing Lead, Link | https://stripe.com/jobs/search?gh_jid=7947510
+❓ UNCLEAR  | pass | Stripe - Content Marketing Lead, Bridge | https://stripe.com/jobs/search?gh_jid=7951146
+UNCERTAIN  | uncertain | Stripe - Corporate Communications
+SKIP       | uncertain | Stripe - Credit Risk Analyst, North American Underwriter
+SKIP       | uncertain | Stripe - Credit Risk Strategist, Risk Foundations
+SKIP       | uncertain | Stripe - Customer Funds Reconciliation and Safeguarding Specialist, Luxembourg
+SKIP       | uncertain | Stripe - Customer Success Manager, Enterprise
+❓ UNCLEAR  | pass | Stripe - Design Manager, Digital Experiences | https://stripe.com/jobs/search?gh_jid=7241636
+UNCERTAIN  | uncertain | Stripe - Design Program Manager, AI
+UNCERTAIN  | uncertain | Stripe - Forward Deployed AI Accelerator, Marketing
+SKIP       | uncertain | Stripe - Global AML Lead, Risk Operations
+SKIP       | uncertain | Stripe - Immigration Program Manager
+UNCERTAIN  | uncertain | Stripe - Integrated Campaigns Manager, Startups and AI
+SKIP       | uncertain | Stripe - Integrated Campaigns Manager, Treasury
+SKIP       | uncertain | Stripe - IT Governance, Risk & Compliance (GRC) Specialist, Luxembourg
+UNCERTAIN  | uncertain | Stripe - Manager, Customer Success
+❓ UNCLEAR  | pass | Stripe - Marketing Operations Manager | https://stripe.com/jobs/search?gh_jid=7253148
+❓ UNCLEAR  | pass | Stripe - Marketing Operations Program Manager, Sold Funnel | https://stripe.com/jobs/search?gh_jid=7616135
+UNCERTAIN  | uncertain | Stripe - Network Solution Specialist
+SKIP       | uncertain | Stripe - Operations Program Manager, Capital Collections
+UNCERTAIN  | uncertain | Stripe - Operations Program Manager, Managed Operations
+❓ UNCLEAR  | pass | Stripe - Paid Digital Marketing Manager | https://stripe.com/jobs/search?gh_jid=7617049
+UNCERTAIN  | uncertain | Stripe - Partner Development Manager, Global Networks
+SKIP       | uncertain | Stripe - Partner Development Manager, Netherlands (Dutch fluency)
+❓ UNCLEAR  | pass | Stripe - Partner Development Manager, Strategic Partnerships | https://stripe.com/jobs/search?gh_jid=7973002
+UNCERTAIN  | uncertain | Stripe - Partner Solutions Architect - Consulting Partners
+❓ UNCLEAR  | pass | Stripe - Partner Solutions Architect, Technology Partnerships | https://stripe.com/jobs/search?gh_jid=7964568
+UNCERTAIN  | uncertain | Stripe - Payments Performance Strategist, Network Cost
+UNCERTAIN  | uncertain | Stripe - Portfolio Pricing Strategist
+UNCERTAIN  | uncertain | Stripe - Product Lead, Support Experience
+SKIP       | pass | Stripe - Product Marketing Lead, Fraud and Risk
+❓ UNCLEAR  | pass | Stripe - Product Marketing Manager | https://stripe.com/jobs/search?gh_jid=6348471
+❓ UNCLEAR  | pass | Stripe - Product Marketing Manager, Apps and Ecosystem | https://stripe.com/jobs/search?gh_jid=7913503
+❓ UNCLEAR  | pass | Stripe - Product Marketing Manager, Checkout | https://stripe.com/jobs/search?gh_jid=7961101
+❓ UNCLEAR  | pass | Stripe - Product Marketing Manager, Growth | https://stripe.com/jobs/search?gh_jid=7914005
+❓ UNCLEAR  | pass | Stripe - Product Marketing Manager, Portfolio Pricing | https://stripe.com/jobs/search?gh_jid=7832098
+❓ UNCLEAR  | pass | Stripe - Product Marketing Manager, Pricing | https://stripe.com/jobs/search?gh_jid=7812965
+SKIP       | pass | Stripe - Product Marketing Manager, Risk
+UNCERTAIN  | uncertain | Stripe - Program Manager
+UNCERTAIN  | uncertain | Stripe - Program Manager, Enterprise Servicing
+UNCERTAIN  | uncertain | Stripe - Program Manager, Go To Market
+UNCERTAIN  | uncertain | Stripe - Program Manager, GTM Planning
+SKIP       | uncertain | Stripe - Program Manager, Risk Ops Enablement
+UNCERTAIN  | uncertain | Stripe - Program Manager, Solutions Architecture (GTM Transformation)
+SKIP       | uncertain | Stripe - Program Manager, Third Party Risk
+SKIP       | uncertain | Stripe - Regulatory Reporting Program Manager, Stablecoin
+SKIP       | uncertain | Stripe - Renewals Specialist
+SKIP       | uncertain | Stripe - Risk Operations Analyst
+SKIP       | pass | Stripe - Risk Partnerships Manager, Banks
+SKIP       | uncertain | Stripe - Risk Strategist
+SKIP       | uncertain | Stripe - Risk Strategist, Onboarding and Compliance
+SKIP       | uncertain | Stripe - Risk Strategist, User Risk Strategy
+UNCERTAIN  | uncertain | Stripe - Sales Development Change Management Specialist
+❓ UNCLEAR  | pass | Stripe - Sales Enablement & Training Specialist | https://stripe.com/jobs/search?gh_jid=7359215
+❓ UNCLEAR  | pass | Stripe - Sales Strategy & Operations Business Partner | https://stripe.com/jobs/search?gh_jid=7944515
+SKIP       | uncertain | Stripe - Senior Customer Success Manager
+SKIP       | uncertain | Stripe - Senior Treasury Specialist, Digital Assets
+UNCERTAIN  | uncertain | Stripe - Short-form Video & Social, Community Comms
+UNCERTAIN  | uncertain | Stripe - Specialist Solutions Architect, Money Management
+UNCERTAIN  | uncertain | Stripe - Specialist Solutions Architect, Payments
+SKIP       | uncertain | Stripe - Specialist Solutions Architect, Radar (Fraud/Risk)
+UNCERTAIN  | uncertain | Stripe - Technical Enablement Business Partner
+UNCERTAIN  | uncertain | Stripe - Technical Partner Manager, AMER Banks
+SKIP       | uncertain | Stripe - Tech-Operations
+SKIP       | uncertain | Stripe - User Risk Strategist, Ecosystem Risk Strategy
+❓ UNCLEAR  | pass | Stripe - Writer, Content Marketing | https://stripe.com/jobs/search?gh_jid=7587814
+SKIP       | uncertain | TabaPay - Fraud Risk & Operations Analyst
+SKIP       | uncertain | TabaPay - Implementation Manager
+UNCERTAIN  | uncertain | TabaPay - Technical Project Coordinator
+UNCERTAIN  | uncertain | Tamara - Internal Communications & Events Specialist
+SKIP       | uncertain | Tamara - UX Writer - Arabic
+SKIP       | uncertain | Tamara - UX Writer - English
+UNCERTAIN  | uncertain | Tailscale - Business Operations & Strategy Manager
+SKIP       | uncertain | Tanium - Senior Customer Success Manager
+SKIP       | uncertain | Suitsupply - Customer Experience Coordinator
+SKIP       | uncertain | Suitsupply - Sales Support
+SKIP       | uncertain | Suitsupply - Style Advisor
+SKIP       | uncertain | Suitsupply - Style Advisor
+❓ UNCLEAR  | pass | TaxBit - Content Marketing Manager | https://job-boards.greenhouse.io/taxbit/jobs/5986876004
+🏢 IN-OFFICE | pass | ThirdLove - Growth Marketing Manager: Paid Social
+❓ UNCLEAR  | pass | Textio - Growth Marketing Manager | https://www.textio.com/careers/apply/?job=7576380003&gh_jid=7576380003
+UNCERTAIN  | uncertain | Tatari - Client Services Manager (Agency Relationships)
+UNCERTAIN  | uncertain | Tatari - Client Services Manager - Growth
+UNCERTAIN  | uncertain | Tatari - Media Operations Coordinator
+🏢 IN-OFFICE | pass | Tatari - Revenue Operations Lead
+SKIP       | uncertain | Tenstorrent - Engineering Program Manager, RISCV
+UNCERTAIN  | uncertain | Tia - Care Coordinator I, Late Pacific Schedule - Remote
+🏢 IN-OFFICE | pass | Thunes - Strategic Partnerships Lead
+UNCERTAIN  | uncertain | Tide - CRM Manager – Subscriptions
+UNCERTAIN  | uncertain | Tide - Member Support Pro Associate
+UNCERTAIN  | uncertain | Tide - Operations Manager KYC
+🏢 IN-OFFICE | pass | Tide - Sales Specialist
+🏢 IN-OFFICE | pass | Tide - Senior Partnerships Manager
+SKIP       | uncertain | Tide - Treasury Operations Manager
+SKIP       | uncertain | Toast - Capital Underwriting Specialist II
+SKIP       | uncertain | Toast - Field Implementation Technician - Melbourne
+UNCERTAIN  | uncertain | Toast - GTM AI Operations
+UNCERTAIN  | uncertain | Toast - Manager, Managed Marketing
+SKIP       | uncertain | Toast - Principal Technical Writer
+UNCERTAIN  | uncertain | Thrive Market - Outbound Operations Manager
+SKIP       | uncertain | Together AI - Data Center Operations Coordinator
+UNCERTAIN  | uncertain | Together AI - Manager, Infrastructure Strategy & Operations
+✅ REMOTE   | pass | Together AI - Sales and Marketing Operations Manager
+SKIP       | uncertain | Together AI - Senior Program Manager, Data Center Build
+✅ REMOTE   | pass | Together AI - Sr. Partnerships Manager, Model Ecosystem
+SKIP       | uncertain | Transcarent - Healthcare Privacy & Compliance Specialist
+UNCERTAIN  | uncertain | Transcarent - Manager, Partnership Success- Health Plan
+UNCERTAIN  | uncertain | Transcarent - Manager, Strategic Account Management- Client Success
+UNCERTAIN  | uncertain | Transcarent - Remote Outreach Specialist
+UNCERTAIN  | uncertain | Transcarent - Senior Manager, AI and Leadership Enablement
+UNCERTAIN  | uncertain | Transcarent - Sr. Specialist, Customer Success
+❓ UNCLEAR  | pass | Typeface - Senior Content Marketing Manager | https://job-boards.greenhouse.io/typeface/jobs/5041723007
+❓ UNCLEAR  | pass | Typeface - Senior Product Marketing Manager | https://job-boards.greenhouse.io/typeface/jobs/5134240007
+SKIP       | pass | Twitch - Product Marketing Manager: Trust & Safety, Community
+UNCERTAIN  | uncertain | Twitch - Strategic Partner Manager
+UNCERTAIN  | uncertain | Typeform - Editorial Manager
+UNCERTAIN  | uncertain | Typeform - Senior Web Strategist
+🏢 IN-OFFICE | pass | Underdog - Partnerships Manager
+UNCERTAIN  | uncertain | Underdog - Senior Associate, Strategy & Business Operations
+SKIP       | uncertain | Underdog - Treasury Analyst, Regulatory Operations (FCM)
+SKIP       | uncertain | Twilio - Compliance Operations Specialist 1
+❓ UNCLEAR  | pass | Twilio - Fast Track Onboarding Specialist 2 | https://job-boards.greenhouse.io/twilio/jobs/7767220
+SKIP       | uncertain | Twilio - Fast Track Operations Specialist 2
+❓ UNCLEAR  | pass | Twilio - Field Marketing Specialist, ANZ | https://job-boards.greenhouse.io/twilio/jobs/7805150
+SKIP       | uncertain | Twilio - MDM Data Specialist
+SKIP       | uncertain | Twilio - Onboarding Operations Specialist 1
+UNCERTAIN  | uncertain | Twilio - Partner Solutions Architect
+SKIP       | uncertain | Twilio - Phone Numbers Operations Specialist 1
+UNCERTAIN  | uncertain | Twilio - Principal, Marketing Architecture & Strategy
+SKIP       | uncertain | Twilio - Regulatory and Inventory Operations Specialist (Fluent Japanese Speaker)
+SKIP       | uncertain | Twilio - Senior Customer Success Manager
+UNCERTAIN  | uncertain | Twilio - Senior Manager, GTMA Analysis and Compliance
+UNCERTAIN  | uncertain | Twilio - Senior Principal, Technical Program Management (Research & Development)
+❓ UNCLEAR  | pass | Twilio - Senior Product Marketing Manager, Data | https://job-boards.greenhouse.io/twilio/jobs/7664688
+UNCERTAIN  | uncertain | Twilio - Staff Solutions Architect, Contract LifeCycle Management
+UNCERTAIN  | uncertain | Twilio - Staff Solutions Architect, Opportunity LifeCycle Management
+SKIP       | uncertain | Twilio - Strategy & Operations - Corporate Telecom Compliance Manager
+UNCERTAIN  | uncertain | Unite Us - Senior Product Operations Manager
+🏢 IN-OFFICE | pass | Watershed Informatics - Performance Marketing Analyst
+SKIP       | uncertain | Upstart - Operations Manager, Auto Collections
+UNCERTAIN  | uncertain | Upstart - Operations Manager, Auto Loan Processing
+UNCERTAIN  | uncertain | Upstart - Principal Analyst, Growth Marketing
+SKIP       | uncertain | Upstart - Principal Program Manager, Tech Risk (BC/DR)
+SKIP       | uncertain | Upstart - Recruiting Coordinator (Contract)
+SKIP       | uncertain | Upstart - Senior Collections Specialist
+UNCERTAIN  | uncertain | Upstart - Senior Customer Contact Specialist
+SKIP       | uncertain | Upstart - Senior Home Lending Underwriter
+❓ UNCLEAR  | pass | Upstart - Senior Lifecycle Manager, Emerging Markets (contract) | https://careers.upstart.com/jobs?gh_jid=7904998
+❓ UNCLEAR  | pass | Upstart - Senior Performance Marketing Manager, Direct Mail and Offline Growth, | https://careers.upstart.com/jobs?gh_jid=7858792
+SKIP       | uncertain | Vast - Accounts Payable Specialist
+SKIP       | uncertain | Vast - Astronaut Operations Integrator
+SKIP       | uncertain | Vast - EMI-EMC Test Specialist
+UNCERTAIN  | uncertain | Vast - Events Coordinator
+SKIP       | uncertain | Vast - Inventory Coordinator
+SKIP       | uncertain | Vast - Manufacturing Coordinator
+SKIP       | uncertain | Vast - Manufacturing Coordinator, Avionics (First Shift)
+SKIP       | uncertain | Vast - Manufacturing Coordinator, Avionics (Second Shift)
+SKIP       | uncertain | Vast - Manufacturing Operations Analyst
+UNCERTAIN  | uncertain | Vast - Operations & Production Specialist, Experiences
+SKIP       | uncertain | Vast - Operations Specialist
+UNCERTAIN  | uncertain | Vast - Quality Inspection Specialist
+UNCERTAIN  | uncertain | Vast - Senior Integration Specialist, E-2
+SKIP       | uncertain | Vast - Senior Lathe Programmer
+SKIP       | uncertain | Vast - Senior Subcontracts Specialist, Indirect
+UNCERTAIN  | uncertain | Vast - Sourcing Coordinator, Indirect
+SKIP       | uncertain | Vast - Subcontracts Specialist, Indirect
+SKIP       | uncertain | Vast - Tooling and Fixture Specialist
+UNCERTAIN  | uncertain | Vast - Training Operations Coordinator
+UNCERTAIN  | uncertain | Yotpo - Business Analyst (GTM)
+❓ UNCLEAR  | pass | Yotpo - Enablement Manager, Customer Success | https://www.yotpo.com/careers/gid-7859122?gh_jid=7859122
+❓ UNCLEAR  | pass | Yotpo - Senior Product Marketing Manager | https://www.yotpo.com/careers/gid-7681804?gh_jid=7681804
+SKIP       | uncertain | Yotpo - Upmarket Customer Success Manager
+UNCERTAIN  | uncertain | WITHIN - AI Creative Specialist - CO
+SKIP       | uncertain | WITHIN - Content Creator (Freelancer)
+SKIP       | uncertain | WITHIN - Content Creator (Freelancer) - CO
+❓ UNCLEAR  | pass | WITHIN - Digital Media Strategist | https://job-boards.greenhouse.io/agencywithin/jobs/4461871007
+❓ UNCLEAR  | pass | WITHIN - Digital Media Strategist - CO | https://job-boards.greenhouse.io/agencywithin/jobs/4519870007
+❓ UNCLEAR  | pass | WITHIN - Revenue Enablement Manager | https://job-boards.greenhouse.io/agencywithin/jobs/4077847007
+SKIP       | uncertain | Zenni Optical - Shipping Specialist
+UNCERTAIN  | uncertain | ZoomInfo - GTM Solutions Architect
+UNCERTAIN  | uncertain | ZoomInfo - Research Specialist II
+UNCERTAIN  | uncertain | ZoomInfo - Senior Business Operations Manager
+❓ UNCLEAR  | pass | ZoomInfo - Senior Customer Lifecycle Strategy Manager | https://www.zoominfo.com/careers?gh_jid=8585803002
+❓ UNCLEAR  | pass | ZoomInfo - Senior Partnerships Manager, Solutions | https://www.zoominfo.com/careers?gh_jid=8537341002
+UNCERTAIN  | uncertain | Wolt - Ads & Promos Specialist
+UNCERTAIN  | uncertain | Wolt - Category Manager / Specialist
+UNCERTAIN  | uncertain | Wolt - Drive & Storefront Account Specialist
+🏢 IN-OFFICE | pass | Wolt - Field Sales Specialist
+🏢 IN-OFFICE | pass | Wolt - Marketing Lead, Baltics
+🏢 IN-OFFICE | pass | Wolt - Marketing Specialist, Fixed term contract
+UNCERTAIN  | uncertain | Wolt - Merchant Onboarding Associate
+UNCERTAIN  | uncertain | Wolt - Operations Associate, Courier Onboarding
+UNCERTAIN  | uncertain | Wolt - Operations Associate, Courier Supply
+UNCERTAIN  | uncertain | Wolt - Operations Excellence Manager
+UNCERTAIN  | uncertain | Wolt - Partner Sales Manager - Retail
+SKIP       | uncertain | Wolt - Retail Development Specialist
+SKIP       | uncertain | Wolt - Retail Operations Excellence Specialist
+🏢 IN-OFFICE | pass | Wolt - Sales Specialist | Retail
+SKIP       | uncertain | Wolt - Store Operations Associate - Chania (WM)
+SKIP       | uncertain | Wolt - Store Operations Associate - Cholargos
+SKIP       | uncertain | Wolt - Store Operations Associate - Glyfada
+SKIP       | uncertain | Wolt - Store Operations Associate - Marousi
+SKIP       | uncertain | Wolt - Store Operations Associate - Peristeri
+SKIP       | uncertain | Wolt - Store Operations Associate - Thessaloniki
+UNCERTAIN  | uncertain | Zwift - Associate Specialist- Community Support
+UNCERTAIN  | uncertain | PBS - Sr. Manager, Local Content and Presence
