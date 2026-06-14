@@ -4,7 +4,7 @@
  *
  * Fixes two issues in applications.md:
  * 1. Rows with score >= MIN_SCORE that still have status SKIP → set to Evaluated
- * 2. Garbled score values (e.g. "NA5", "Calculated at end5") → cleaned up
+ * 2. Garbled score values (e.g. "NA5", "N/A/5", "Calculated at end/5") → cleaned up
  *
  * Run: node fix-evaluated-statuses.mjs [--dry-run] [--min-score 4.0]
  */
@@ -41,6 +41,27 @@ const lines = content.split('\n');
 let statusFixes = 0;
 let scoreFixes = 0;
 
+/**
+ * Attempts to extract a clean score from a garbled string.
+ * Returns a numeric string (e.g. "4.5") or "NA".
+ *
+ * Key rule: a number that is immediately preceded by "/" is a denominator
+ * (e.g. the 5 in "N/A/5" or "(Calculated at end)/5") and must be rejected.
+ */
+function extractScore(raw) {
+  // Find all digit sequences (with optional decimal) in the string
+  // Use a regex that also captures the character immediately before the match
+  const matches = [...raw.matchAll(/(?<pre>.)?(\d+(?:\.\d+)?)/g)];
+  for (const m of matches) {
+    const pre = m[1];           // character before the number (undefined if at start)
+    const num = m[2];           // the number itself
+    if (pre === '/') continue;  // skip denominators like "/5"
+    const val = parseFloat(num);
+    if (!isNaN(val) && val >= 0 && val <= 5) return num;
+  }
+  return 'NA';
+}
+
 for (let i = 0; i < lines.length; i++) {
   const line = lines[i];
   if (!line.startsWith('|')) continue;
@@ -53,7 +74,7 @@ for (let i = 0; i < lines.length; i++) {
 
   const num = parts[1];
   let scoreRaw = parts[5];
-  let status = parts[6];
+  const status = parts[6];
   let changed = false;
 
   // Fix 1: Garbled scores — anything that isn't a valid number, "NA", or "unknown"
@@ -62,9 +83,7 @@ for (let i = 0; i < lines.length; i++) {
   const isValidNumber = !isNaN(parseFloat(scoreRaw)) && isFinite(parseFloat(scoreRaw));
 
   if (!isKnownNonNumeric && !isValidNumber) {
-    // Try to extract a clean number from the garbled string
-    const extracted = scoreRaw.match(/\d+(\.\d+)?/)?.[0] ?? 'NA';
-    const fixed = extracted !== '' ? extracted : 'NA';
+    const fixed = extractScore(scoreRaw);
     console.log(`  #${num}: garbled score "${scoreRaw}" → "${fixed}"`);
     parts[5] = fixed;
     scoreRaw = fixed;
