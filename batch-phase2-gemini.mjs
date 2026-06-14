@@ -5,7 +5,7 @@
  * Fetches JD content via URL, saves to temp file, passes to gemini-eval.mjs
  */
 
-import { readFileSync, existsSync, writeFileSync } from 'fs';
+import { readFileSync, existsSync, writeFileSync, appendFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { tmpdir } from 'os';
 import { fileURLToPath } from 'url';
@@ -56,6 +56,11 @@ console.log(`   ${rows.length} roles to evaluate (${completedIds.size} already d
 console.log(`   Default spacing: ${delayMs} ms (~${Math.round(60000 / delayMs)} RPM)\n`);
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+// Ensure state file has a header if it doesn't exist yet
+if (!existsSync(stateFile)) {
+  writeFileSync(stateFile, 'id\turl\tstatus\tstarted_at\tcompleted_at\treport_num\tscore\terror\tretries\n', 'utf-8');
+}
 
 console.log('🌐 Launching Playwright browser...');
 const browser = await chromium.launch({ headless: true });
@@ -144,6 +149,10 @@ for (let i = 0; i < rows.length; i++) {
   if (!success) {
     continue;
   }
+
+  // Mark this ID as completed in the state file so restarts skip it
+  const now = new Date().toISOString();
+  appendFileSync(stateFile, `${id}\t${url}\tcompleted\t${now}\t${now}\t-\t-\t-\t0\n`, 'utf-8');
 
   if (i < rows.length - 1) {
     await sleep(delayMs);
