@@ -10,55 +10,76 @@ import { join, dirname } from 'path';
 import { tmpdir } from 'os';
 import { fileURLToPath } from 'url';
 import { execFileSync } from 'child_process';
-import { chromium } from 'playwright'; // 👈 Added Playwright
+import { chromium } from 'playwright';
 
-const ROOT      = dirname(fileURLToPath(import.meta.url));
-const args      = process.argv.slice(2);
-const inputFile = args[args.indexOf('--input')     + 1] ?? join(ROOT, 'batch', 'batch-input-promoted.tsv');
-const stateFile = args[args.indexOf('--state')     + 1] ?? join(ROOT, 'batch', 'batch-state-phase2.tsv');
-const delayMs   = parseInt(args[args.indexOf('--delay')      + 1] ?? '8000');
-const startFrom = parseInt(args[args.indexOf('--start-from') + 1] ?? '0');
+const ROOT = dirname(fileURLToPath(import.meta.url));
+const args = process.argv.slice(2);
+
+function getArgValue(flag, fallback) {
+  const index = args.indexOf(flag);
+  return index !== -1 && args[index + 1] ? args[index + 1] : fallback;
+}
+
+const DEFAULT_RPM = 15;
+const DEFAULT_DELAY_MS = Math.ceil(60000 / DEFAULT_RPM) + 1000;
+
+const inputFile = getArgValue('--input', join(ROOT, 'batch', 'batch-input-promoted.tsv'));
+const stateFile = getArgValue('--state', join(ROOT, 'batch', 'batch-state-phase2.tsv'));
+const delayMs = parseInt(getArgValue('--delay', String(DEFAULT_DELAY_MS)), 10);
+const startFrom = parseInt(getArgValue('--start-from', '0'), 10);
 
 if (!existsSync(inputFile)) {
   console.error(`❌ Input file not found: ${inputFile}`);
   process.exit(1);
 }
 
-// Load state to skip already-completed IDs
 const completedIds = new Set();
 if (existsSync(stateFile)) {
-  for (const line of readFileSync(stateFile, 'utf-8').trim().split('\n').slice(1)) {
-    const [id, , status] = line.split('\t');
-    if (status === 'completed') completedIds.add(id);
+  const stateText = readFileSync(stateFile, 'utf-8').trim();
+  if (stateText) {
+    for (const line of stateText.split('\n').slice(1)) {
+      const [id, , status] = line.split('\t');
+      if (status === 'completed') completedIds.add(id);
+    }
   }
 }
 
 const rows = readFileSync(inputFile, 'utf-8').trim().split('\n').slice(1)
-  .map(l => { const [id, url, , notes] = l.split('\t'); return { id, url, notes }; })
-  .filter(r => r.id && r.url && parseInt(r.id) >= startFrom && !completedIds.has(r.id));
+  .map(line => {
+    const [id, url, source, notes] = line.split('\t');
+    return { id, url, source, notes };
+  })
+  .filter(row => row.id && row.url && parseInt(row.id, 10) >= startFrom && !completedIds.has(row.id));
 
 console.log(`\n🚀 Phase 2 — Full Gemini evaluation`);
-console.log(`   ${rows.length} roles to evaluate (${completedIds.size} already done)\n`);
+console.log(`   ${rows.length} roles to evaluate (${completedIds.size} already done)`);
+console.log(`   Default spacing: ${delayMs} ms (~${Math.round(60000 / delayMs)} RPM)\n`);
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-// 👈 Start Playwright BEFORE the loop starts
 console.log('🌐 Launching Playwright browser...');
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext();
 const page = await context.newPage();
 
 for (let i = 0; i < rows.length; i++) {
-  const { id, url, notes } = rows[i];
-  console.log(`\n[${i + 1}/${rows.length}] #${id} — ${notes?.slice(0, 60) ?? url}`);
+  const { id, url, source, notes } = rows[i];
+  const fallbackCompany = notes?.trim() || source?.trim() || '';
 
-  // 👈 Fetch the JD text using Playwright
+  console.log(`\n[${i + 1}/${rows.length}] #${id} — ${fallbackCompany || url}`);
+
   let jdText = '';
   try {
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    await page.waitForTimeout(2000); // Give JS time to load the JD
+    await page.waitForTimeout(2000);
     const bodyText = await page.evaluate(() => document.body?.innerText ?? '');
-    jdText = bodyText.trim().slice(0, 12000);
+    jdText = bodyText
+      .replace(/\r/g, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .replace(/[ \t]{2,}/g, ' ')
+      .replace(/[-–—_=]{20,}/g, '')
+      .trim()
+      .slice(0, 12000);
   } catch (err) {
     console.error(`❌ Could not fetch #${id}: ${err.message}`);
     continue;
@@ -69,29 +90,65 @@ for (let i = 0; i < rows.length; i++) {
     continue;
   }
 
-  // Write to temp file and pass via --file flag
   const tmpFile = join(tmpdir(), `career-ops-jd-${id}.txt`);
   writeFileSync(tmpFile, jdText, 'utf-8');
 
-  try {
-    execFileSync(process.execPath, [join(ROOT, 'gemini-eval.mjs'), '--file', tmpFile], {
-      cwd: ROOT,
-      stdio: 'inherit',
-      timeout: 120000,
-    });
-  } catch (err) {
-    if (err.message?.includes('rate') || err.message?.includes('429')) {
-      console.log('⏳ Rate limit hit — waiting 60s...');
-      await sleep(60000);
-    } else {
-      console.error(`❌ Failed #${id}: ${err.message}`);
+  const evalArgs = [
+    join(ROOT, 'gemini-eval.mjs'),
+    '--file', tmpFile,
+    '--quiet',
+    '--company', fallbackCompany,
+  ];
+
+  let success = false;
+
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const output = execFileSync(process.execPath, evalArgs, {
+        cwd: ROOT,
+        encoding: 'utf-8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+        timeout: 120000,
+      });
+
+      if (output?.trim()) process.stdout.write(output);
+      success = true;
+      break;
+    } catch (err) {
+      const msg = [
+        err.stdout?.toString?.() || '',
+        err.stderr?.toString?.() || '',
+        String(err.message || ''),
+      ].join('\n');
+
+      const lower = msg.toLowerCase();
+      const isRateLimit =
+        msg.includes('429') ||
+        lower.includes('rate') ||
+        lower.includes('quota') ||
+        lower.includes('retry in') ||
+        lower.includes('too many requests');
+
+      if (isRateLimit && attempt < 3) {
+        const waitMs = 60000;
+        console.log(`⏳ Rate limit hit on #${id} — waiting ${waitMs / 1000}s before retry ${attempt + 1}/3...`);
+        await sleep(waitMs);
+      } else {
+        if (msg.trim()) process.stderr.write(msg + '\n');
+        console.error(`❌ Failed #${id}`);
+        break;
+      }
     }
+  }
+
+  if (!success) {
     continue;
   }
 
-  if (i < rows.length - 1) await sleep(delayMs);
+  if (i < rows.length - 1) {
+    await sleep(delayMs);
+  }
 }
 
-// 👈 Close the browser when the loop finishes
 await browser.close();
 console.log('\n✅ Phase 2 complete! Run: node merge-tracker.mjs');

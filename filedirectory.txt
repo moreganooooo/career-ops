@@ -1,0 +1,4555 @@
+.
+├── AGENTS.md
+├── CHANGELOG.md
+├── CITATION.cff
+├── CLAUDE.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── CONTRIBUTORS.md
+├── DATA_CONTRACT.md
+├── GEMINI.md
+├── GOVERNANCE.md
+├── LEGAL_DISCLAIMER.md
+├── LICENSE
+├── README.md
+├── SECURITY.md
+├── SUPPORT.md
+├── TRADEMARK.md
+├── VERSION
+├── analyze-patterns.mjs
+├── article-digest.md
+├── batch
+│   ├── README.md
+│   ├── batch-gemini-state.tsv
+│   ├── batch-input-filtered.tsv
+│   ├── batch-input-promoted.tsv
+│   ├── batch-input.tsv
+│   ├── batch-input.tsv.bak
+│   ├── batch-prompt.md
+│   ├── batch-runner.sh
+│   ├── batch-state-phase2.tsv
+│   ├── batch-state.tsv
+│   ├── logs
+│   ├── ollama-profile-summary.md
+│   ├── pipeline.log
+│   ├── screen-prompt.md
+│   ├── screener-context.md
+│   └── tracker-additions
+│       └── merged
+│           ├── 033-magicschool-ai.tsv
+│           ├── 034-classdojo-onboarding.tsv
+│           ├── 035-classdojo-technical.tsv
+│           ├── 036-instructure-customer-marketing.tsv
+│           ├── 037-instructure-csm-k12.tsv
+│           ├── 1.tsv
+│           ├── 10.tsv
+│           ├── 100.tsv
+│           ├── 1000.tsv
+│           ├── 1002.tsv
+│           ├── 1003.tsv
+│           ├── 1005.tsv
+│           ├── 1008.tsv
+│           ├── 1009.tsv
+│           ├── 101.tsv
+│           ├── 1010.tsv
+│           ├── 1011.tsv
+│           ├── 1012.tsv
+│           ├── 1013.tsv
+│           ├── 1014.tsv
+│           ├── 1015.tsv
+│           ├── 1016.tsv
+│           ├── 102.tsv
+│           ├── 1023.tsv
+│           ├── 1024.tsv
+│           ├── 1025.tsv
+│           ├── 1029.tsv
+│           ├── 103.tsv
+│           ├── 1030.tsv
+│           ├── 104.tsv
+│           ├── 105.tsv
+│           ├── 1057.tsv
+│           ├── 1058.tsv
+│           ├── 1059.tsv
+│           ├── 106.tsv
+│           ├── 1065.tsv
+│           ├── 1066.tsv
+│           ├── 1067.tsv
+│           ├── 1068.tsv
+│           ├── 1069.tsv
+│           ├── 107.tsv
+│           ├── 108.tsv
+│           ├── 1083.tsv
+│           ├── 1084.tsv
+│           ├── 1086.tsv
+│           ├── 1089.tsv
+│           ├── 109.tsv
+│           ├── 1092.tsv
+│           ├── 1093.tsv
+│           ├── 1094.tsv
+│           ├── 1095.tsv
+│           ├── 1096.tsv
+│           ├── 1097.tsv
+│           ├── 1098.tsv
+│           ├── 11.tsv
+│           ├── 110.tsv
+│           ├── 1100.tsv
+│           ├── 1101.tsv
+│           ├── 1102.tsv
+│           ├── 1104.tsv
+│           ├── 111.tsv
+│           ├── 1113.tsv
+│           ├── 1114.tsv
+│           ├── 1119.tsv
+│           ├── 112.tsv
+│           ├── 1120.tsv
+│           ├── 1121.tsv
+│           ├── 1122.tsv
+│           ├── 1124.tsv
+│           ├── 1126.tsv
+│           ├── 1127.tsv
+│           ├── 1130.tsv
+│           ├── 1133.tsv
+│           ├── 1134.tsv
+│           ├── 1135.tsv
+│           ├── 1136.tsv
+│           ├── 1137.tsv
+│           ├── 1138.tsv
+│           ├── 1139.tsv
+│           ├── 114.tsv
+│           ├── 1140.tsv
+│           ├── 1142.tsv
+│           ├── 1143.tsv
+│           ├── 1144.tsv
+│           ├── 1145.tsv
+│           ├── 1146.tsv
+│           ├── 1147.tsv
+│           ├── 1148.tsv
+│           ├── 115.tsv
+│           ├── 1150.tsv
+│           ├── 1151.tsv
+│           ├── 1152.tsv
+│           ├── 1153.tsv
+│           ├── 1154.tsv
+│           ├── 1155.tsv
+│           ├── 1156.tsv
+│           ├── 1157.tsv
+│           ├── 1158.tsv
+│           ├── 1159.tsv
+│           ├── 116.tsv
+│           ├── 1160.tsv
+│           ├── 1169.tsv
+│           ├── 117.tsv
+│           ├── 1170.tsv
+│           ├── 1171.tsv
+│           ├── 1173.tsv
+│           ├── 1174.tsv
+│           ├── 1178.tsv
+│           ├── 1179.tsv
+│           ├── 118.tsv
+│           ├── 1180.tsv
+│           ├── 1181.tsv
+│           ├── 1182.tsv
+│           ├── 1184.tsv
+│           ├── 1186.tsv
+│           ├── 119.tsv
+│           ├── 1191.tsv
+│           ├── 1192.tsv
+│           ├── 12.tsv
+│           ├── 1205.tsv
+│           ├── 1206.tsv
+│           ├── 1224.tsv
+│           ├── 1232.tsv
+│           ├── 1233.tsv
+│           ├── 1234.tsv
+│           ├── 1235.tsv
+│           ├── 1236.tsv
+│           ├── 1237.tsv
+│           ├── 1238.tsv
+│           ├── 1239.tsv
+│           ├── 1241.tsv
+│           ├── 1242.tsv
+│           ├── 1243.tsv
+│           ├── 1244.tsv
+│           ├── 1258.tsv
+│           ├── 1260.tsv
+│           ├── 1262.tsv
+│           ├── 1264.tsv
+│           ├── 1265.tsv
+│           ├── 1270.tsv
+│           ├── 1276.tsv
+│           ├── 1277.tsv
+│           ├── 1278.tsv
+│           ├── 1279.tsv
+│           ├── 1280.tsv
+│           ├── 1281.tsv
+│           ├── 1282.tsv
+│           ├── 1283.tsv
+│           ├── 1284.tsv
+│           ├── 1285.tsv
+│           ├── 1286.tsv
+│           ├── 1287.tsv
+│           ├── 1288.tsv
+│           ├── 1289.tsv
+│           ├── 1291.tsv
+│           ├── 1292.tsv
+│           ├── 1295.tsv
+│           ├── 1296.tsv
+│           ├── 1297.tsv
+│           ├── 13.tsv
+│           ├── 1300.tsv
+│           ├── 1301.tsv
+│           ├── 1302.tsv
+│           ├── 1307.tsv
+│           ├── 1308.tsv
+│           ├── 1309.tsv
+│           ├── 1310.tsv
+│           ├── 1311.tsv
+│           ├── 1322.tsv
+│           ├── 1378.tsv
+│           ├── 1381.tsv
+│           ├── 1385.tsv
+│           ├── 1388.tsv
+│           ├── 1390.tsv
+│           ├── 14.tsv
+│           ├── 1405.tsv
+│           ├── 1406.tsv
+│           ├── 1416.tsv
+│           ├── 1440.tsv
+│           ├── 1445.tsv
+│           ├── 1447.tsv
+│           ├── 1448.tsv
+│           ├── 1475.tsv
+│           ├── 1476.tsv
+│           ├── 1486.tsv
+│           ├── 1487.tsv
+│           ├── 1488.tsv
+│           ├── 1489.tsv
+│           ├── 1490.tsv
+│           ├── 1491.tsv
+│           ├── 1492.tsv
+│           ├── 1493.tsv
+│           ├── 1494.tsv
+│           ├── 1499.tsv
+│           ├── 15.tsv
+│           ├── 1500.tsv
+│           ├── 1501.tsv
+│           ├── 1504.tsv
+│           ├── 1507.tsv
+│           ├── 1508.tsv
+│           ├── 1509.tsv
+│           ├── 1510.tsv
+│           ├── 1512.tsv
+│           ├── 1513.tsv
+│           ├── 1514.tsv
+│           ├── 1516.tsv
+│           ├── 1517.tsv
+│           ├── 1518.tsv
+│           ├── 1519.tsv
+│           ├── 1520.tsv
+│           ├── 1521.tsv
+│           ├── 1523.tsv
+│           ├── 1524.tsv
+│           ├── 1525.tsv
+│           ├── 1526.tsv
+│           ├── 1527.tsv
+│           ├── 1528.tsv
+│           ├── 1530.tsv
+│           ├── 1531.tsv
+│           ├── 1532.tsv
+│           ├── 1533.tsv
+│           ├── 1535.tsv
+│           ├── 1544.tsv
+│           ├── 1545.tsv
+│           ├── 1546.tsv
+│           ├── 1549.tsv
+│           ├── 1550.tsv
+│           ├── 1551.tsv
+│           ├── 1553.tsv
+│           ├── 1554.tsv
+│           ├── 1557.tsv
+│           ├── 1572.tsv
+│           ├── 1578.tsv
+│           ├── 1588.tsv
+│           ├── 1598.tsv
+│           ├── 1599.tsv
+│           ├── 16.tsv
+│           ├── 1600.tsv
+│           ├── 1601.tsv
+│           ├── 1602.tsv
+│           ├── 1603.tsv
+│           ├── 1604.tsv
+│           ├── 1606.tsv
+│           ├── 1620.tsv
+│           ├── 1624.tsv
+│           ├── 1625.tsv
+│           ├── 1626.tsv
+│           ├── 1627.tsv
+│           ├── 1632.tsv
+│           ├── 1633.tsv
+│           ├── 1637.tsv
+│           ├── 1639.tsv
+│           ├── 1640.tsv
+│           ├── 1644.tsv
+│           ├── 1650.tsv
+│           ├── 1652.tsv
+│           ├── 1653.tsv
+│           ├── 1656.tsv
+│           ├── 1659.tsv
+│           ├── 1660.tsv
+│           ├── 1661.tsv
+│           ├── 1662.tsv
+│           ├── 1664.tsv
+│           ├── 1667.tsv
+│           ├── 1668.tsv
+│           ├── 1669.tsv
+│           ├── 1671.tsv
+│           ├── 1672.tsv
+│           ├── 1673.tsv
+│           ├── 1674.tsv
+│           ├── 1675.tsv
+│           ├── 1696.tsv
+│           ├── 1697.tsv
+│           ├── 17.tsv
+│           ├── 18.tsv
+│           ├── 19.tsv
+│           ├── 2.tsv
+│           ├── 20.tsv
+│           ├── 21.tsv
+│           ├── 22.tsv
+│           ├── 23.tsv
+│           ├── 24.tsv
+│           ├── 25.tsv
+│           ├── 252.tsv
+│           ├── 253.tsv
+│           ├── 254.tsv
+│           ├── 255.tsv
+│           ├── 256.tsv
+│           ├── 257.tsv
+│           ├── 258.tsv
+│           ├── 259.tsv
+│           ├── 26.tsv
+│           ├── 260.tsv
+│           ├── 261.tsv
+│           ├── 262.tsv
+│           ├── 263.tsv
+│           ├── 264.tsv
+│           ├── 265.tsv
+│           ├── 266.tsv
+│           ├── 267.tsv
+│           ├── 268.tsv
+│           ├── 269.tsv
+│           ├── 27.tsv
+│           ├── 270.tsv
+│           ├── 271.tsv
+│           ├── 272.tsv
+│           ├── 273.tsv
+│           ├── 274.tsv
+│           ├── 275.tsv
+│           ├── 276.tsv
+│           ├── 277.tsv
+│           ├── 278.tsv
+│           ├── 279.tsv
+│           ├── 28.tsv
+│           ├── 280.tsv
+│           ├── 281.tsv
+│           ├── 282.tsv
+│           ├── 283.tsv
+│           ├── 284.tsv
+│           ├── 285.tsv
+│           ├── 286.tsv
+│           ├── 287.tsv
+│           ├── 288.tsv
+│           ├── 29.tsv
+│           ├── 290.tsv
+│           ├── 291.tsv
+│           ├── 292.tsv
+│           ├── 293.tsv
+│           ├── 294.tsv
+│           ├── 295.tsv
+│           ├── 296.tsv
+│           ├── 297.tsv
+│           ├── 298.tsv
+│           ├── 299.tsv
+│           ├── 3.tsv
+│           ├── 30.tsv
+│           ├── 300.tsv
+│           ├── 303.tsv
+│           ├── 304.tsv
+│           ├── 305.tsv
+│           ├── 306.tsv
+│           ├── 307.tsv
+│           ├── 308.tsv
+│           ├── 309.tsv
+│           ├── 31.tsv
+│           ├── 310.tsv
+│           ├── 311.tsv
+│           ├── 312.tsv
+│           ├── 313.tsv
+│           ├── 314.tsv
+│           ├── 315.tsv
+│           ├── 316.tsv
+│           ├── 317.tsv
+│           ├── 318.tsv
+│           ├── 319.tsv
+│           ├── 32.tsv
+│           ├── 320.tsv
+│           ├── 321.tsv
+│           ├── 322.tsv
+│           ├── 323.tsv
+│           ├── 324.tsv
+│           ├── 325.tsv
+│           ├── 326.tsv
+│           ├── 327.tsv
+│           ├── 328.tsv
+│           ├── 329.tsv
+│           ├── 33.tsv
+│           ├── 330.tsv
+│           ├── 331.tsv
+│           ├── 332.tsv
+│           ├── 333.tsv
+│           ├── 334.tsv
+│           ├── 335.tsv
+│           ├── 336.tsv
+│           ├── 337.tsv
+│           ├── 338.tsv
+│           ├── 339.tsv
+│           ├── 34.tsv
+│           ├── 340.tsv
+│           ├── 341.tsv
+│           ├── 344.tsv
+│           ├── 345.tsv
+│           ├── 346.tsv
+│           ├── 347.tsv
+│           ├── 348.tsv
+│           ├── 349.tsv
+│           ├── 35.tsv
+│           ├── 350.tsv
+│           ├── 351.tsv
+│           ├── 352.tsv
+│           ├── 353.tsv
+│           ├── 354.tsv
+│           ├── 355.tsv
+│           ├── 356.tsv
+│           ├── 358.tsv
+│           ├── 359.tsv
+│           ├── 36.tsv
+│           ├── 361.tsv
+│           ├── 362.tsv
+│           ├── 363.tsv
+│           ├── 365.tsv
+│           ├── 366.tsv
+│           ├── 367.tsv
+│           ├── 368.tsv
+│           ├── 369.tsv
+│           ├── 37.tsv
+│           ├── 370.tsv
+│           ├── 372.tsv
+│           ├── 374.tsv
+│           ├── 375.tsv
+│           ├── 376.tsv
+│           ├── 377.tsv
+│           ├── 378.tsv
+│           ├── 379.tsv
+│           ├── 38.tsv
+│           ├── 380.tsv
+│           ├── 381.tsv
+│           ├── 382.tsv
+│           ├── 383.tsv
+│           ├── 384.tsv
+│           ├── 385.tsv
+│           ├── 386.tsv
+│           ├── 387.tsv
+│           ├── 388.tsv
+│           ├── 39.tsv
+│           ├── 390.tsv
+│           ├── 391.tsv
+│           ├── 392.tsv
+│           ├── 393.tsv
+│           ├── 394.tsv
+│           ├── 395.tsv
+│           ├── 4.tsv
+│           ├── 40.tsv
+│           ├── 406.tsv
+│           ├── 407.tsv
+│           ├── 408.tsv
+│           ├── 409.tsv
+│           ├── 41.tsv
+│           ├── 410.tsv
+│           ├── 411.tsv
+│           ├── 42.tsv
+│           ├── 43.tsv
+│           ├── 44.tsv
+│           ├── 45.tsv
+│           ├── 46.tsv
+│           ├── 467.tsv
+│           ├── 47.tsv
+│           ├── 471.tsv
+│           ├── 472.tsv
+│           ├── 474.tsv
+│           ├── 475.tsv
+│           ├── 48.tsv
+│           ├── 480.tsv
+│           ├── 482.tsv
+│           ├── 485.tsv
+│           ├── 488.tsv
+│           ├── 489.tsv
+│           ├── 49.tsv
+│           ├── 490.tsv
+│           ├── 491.tsv
+│           ├── 492.tsv
+│           ├── 493.tsv
+│           ├── 496.tsv
+│           ├── 5.tsv
+│           ├── 50.tsv
+│           ├── 500.tsv
+│           ├── 509.tsv
+│           ├── 51.tsv
+│           ├── 512.tsv
+│           ├── 513.tsv
+│           ├── 515.tsv
+│           ├── 519.tsv
+│           ├── 52.tsv
+│           ├── 520.tsv
+│           ├── 524.tsv
+│           ├── 525.tsv
+│           ├── 526.tsv
+│           ├── 527.tsv
+│           ├── 528.tsv
+│           ├── 529.tsv
+│           ├── 53.tsv
+│           ├── 530.tsv
+│           ├── 533.tsv
+│           ├── 54.tsv
+│           ├── 542.tsv
+│           ├── 548.tsv
+│           ├── 55.tsv
+│           ├── 555.tsv
+│           ├── 56.tsv
+│           ├── 57.tsv
+│           ├── 570.tsv
+│           ├── 572.tsv
+│           ├── 573.tsv
+│           ├── 577.tsv
+│           ├── 578.tsv
+│           ├── 579.tsv
+│           ├── 58.tsv
+│           ├── 580.tsv
+│           ├── 581.tsv
+│           ├── 585.tsv
+│           ├── 587.tsv
+│           ├── 588.tsv
+│           ├── 589.tsv
+│           ├── 59.tsv
+│           ├── 591.tsv
+│           ├── 592.tsv
+│           ├── 593.tsv
+│           ├── 595.tsv
+│           ├── 598.tsv
+│           ├── 599.tsv
+│           ├── 6.tsv
+│           ├── 60.tsv
+│           ├── 600.tsv
+│           ├── 601.tsv
+│           ├── 602.tsv
+│           ├── 603.tsv
+│           ├── 604.tsv
+│           ├── 605.tsv
+│           ├── 606.tsv
+│           ├── 608.tsv
+│           ├── 609.tsv
+│           ├── 61.tsv
+│           ├── 612.tsv
+│           ├── 62.tsv
+│           ├── 625.tsv
+│           ├── 626.tsv
+│           ├── 627.tsv
+│           ├── 628.tsv
+│           ├── 63.tsv
+│           ├── 630.tsv
+│           ├── 631.tsv
+│           ├── 637.tsv
+│           ├── 64.tsv
+│           ├── 641.tsv
+│           ├── 643.tsv
+│           ├── 645.tsv
+│           ├── 646.tsv
+│           ├── 647.tsv
+│           ├── 65.tsv
+│           ├── 66.tsv
+│           ├── 67.tsv
+│           ├── 68.tsv
+│           ├── 680.tsv
+│           ├── 69.tsv
+│           ├── 7.tsv
+│           ├── 70.tsv
+│           ├── 71.tsv
+│           ├── 715.tsv
+│           ├── 716.tsv
+│           ├── 717.tsv
+│           ├── 718.tsv
+│           ├── 719.tsv
+│           ├── 72.tsv
+│           ├── 720.tsv
+│           ├── 721.tsv
+│           ├── 725.tsv
+│           ├── 73.tsv
+│           ├── 738.tsv
+│           ├── 74.tsv
+│           ├── 740.tsv
+│           ├── 75.tsv
+│           ├── 755.tsv
+│           ├── 76.tsv
+│           ├── 77.tsv
+│           ├── 770.tsv
+│           ├── 772.tsv
+│           ├── 775.tsv
+│           ├── 776.tsv
+│           ├── 778.tsv
+│           ├── 78.tsv
+│           ├── 782.tsv
+│           ├── 784.tsv
+│           ├── 786.tsv
+│           ├── 789.tsv
+│           ├── 79.tsv
+│           ├── 792.tsv
+│           ├── 796.tsv
+│           ├── 8.tsv
+│           ├── 80.tsv
+│           ├── 81.tsv
+│           ├── 82.tsv
+│           ├── 83.tsv
+│           ├── 834.tsv
+│           ├── 835.tsv
+│           ├── 837.tsv
+│           ├── 838.tsv
+│           ├── 84.tsv
+│           ├── 840.tsv
+│           ├── 844.tsv
+│           ├── 845.tsv
+│           ├── 848.tsv
+│           ├── 849.tsv
+│           ├── 85.tsv
+│           ├── 850.tsv
+│           ├── 852.tsv
+│           ├── 853.tsv
+│           ├── 854.tsv
+│           ├── 855.tsv
+│           ├── 856.tsv
+│           ├── 857.tsv
+│           ├── 858.tsv
+│           ├── 859.tsv
+│           ├── 86.tsv
+│           ├── 861.tsv
+│           ├── 862.tsv
+│           ├── 863.tsv
+│           ├── 864.tsv
+│           ├── 865.tsv
+│           ├── 866.tsv
+│           ├── 867.tsv
+│           ├── 868.tsv
+│           ├── 869.tsv
+│           ├── 870.tsv
+│           ├── 871.tsv
+│           ├── 872.tsv
+│           ├── 873.tsv
+│           ├── 876.tsv
+│           ├── 877.tsv
+│           ├── 879.tsv
+│           ├── 88.tsv
+│           ├── 882.tsv
+│           ├── 884.tsv
+│           ├── 885.tsv
+│           ├── 886.tsv
+│           ├── 888.tsv
+│           ├── 89.tsv
+│           ├── 891.tsv
+│           ├── 892.tsv
+│           ├── 893.tsv
+│           ├── 894.tsv
+│           ├── 896.tsv
+│           ├── 898.tsv
+│           ├── 9.tsv
+│           ├── 90.tsv
+│           ├── 903.tsv
+│           ├── 904.tsv
+│           ├── 905.tsv
+│           ├── 906.tsv
+│           ├── 907.tsv
+│           ├── 908.tsv
+│           ├── 909.tsv
+│           ├── 91.tsv
+│           ├── 910.tsv
+│           ├── 911.tsv
+│           ├── 912.tsv
+│           ├── 913.tsv
+│           ├── 914.tsv
+│           ├── 915.tsv
+│           ├── 916.tsv
+│           ├── 917.tsv
+│           ├── 92.tsv
+│           ├── 920.tsv
+│           ├── 93.tsv
+│           ├── 939-livekit.tsv
+│           ├── 95.tsv
+│           ├── 96.tsv
+│           ├── 97.tsv
+│           ├── 971.tsv
+│           ├── 972.tsv
+│           ├── 974.tsv
+│           ├── 975.tsv
+│           ├── 976.tsv
+│           ├── 98.tsv
+│           ├── 980.tsv
+│           ├── 981.tsv
+│           ├── 982.tsv
+│           ├── 983.tsv
+│           ├── 984.tsv
+│           ├── 985.tsv
+│           ├── 986.tsv
+│           ├── 988.tsv
+│           ├── 989.tsv
+│           ├── 99.tsv
+│           ├── 990.tsv
+│           ├── 991.tsv
+│           ├── 992.tsv
+│           ├── 994.tsv
+│           ├── 996.tsv
+│           ├── spectraforce-sdr.tsv
+│           ├── tanisha-ai-evaluator.tsv
+│           └── varite-copywriter.tsv
+├── batch-phase2-gemini.mjs
+├── batch-runner-custom.mjs
+├── batch-runner-gemini.mjs
+├── check-liveness.mjs
+├── config
+│   └── profile.yml
+├── confirmed-remote-queue.txt
+├── cv-sync-check.mjs
+├── cv.md
+├── dashboard
+│   ├── data
+│   ├── go.mod
+│   ├── go.sum
+│   ├── internal
+│   │   ├── data
+│   │   │   ├── career.go
+│   │   │   ├── career_test.go
+│   │   │   ├── derive.go
+│   │   │   └── derive_test.go
+│   │   ├── model
+│   │   │   └── career.go
+│   │   ├── theme
+│   │   │   ├── catppuccin.go
+│   │   │   ├── catppuccin_latte.go
+│   │   │   └── theme.go
+│   │   └── ui
+│   │       └── screens
+│   │           ├── pipeline.go
+│   │           ├── pipeline_test.go
+│   │           ├── progress.go
+│   │           ├── sort_test.go
+│   │           ├── timeago_test.go
+│   │           ├── viewer.go
+│   │           └── viewer_test.go
+│   └── main.go
+├── data
+│   ├── TreeringAccomplishments_Complete.pdf
+│   ├── applications.md
+│   ├── applications.md.bak
+│   ├── bullet-bank-clean.csv
+│   ├── bullet-bank.md
+│   ├── detective-findings.csv
+│   ├── evidence-guide.csv
+│   ├── extracted-screenshot-metrics.csv
+│   ├── morgan-background-guide.md
+│   ├── pipeline.md
+│   ├── scan-history.tsv
+│   ├── summaries-and-skills-clean.csv
+│   ├── treering-archive-readme.md
+│   └── verified-claims.csv
+├── dedup-tracker.mjs
+├── docs
+│   ├── ARCHITECTURE.md
+│   ├── CUSTOMIZATION.md
+│   ├── MorganEscottSignature2025.png
+│   ├── SCRIPTS.md
+│   ├── SETUP.md
+│   ├── demo.gif
+│   ├── hero-banner.jpg
+│   ├── local-parser-cookbook.md
+│   ├── og-image.jpg
+│   ├── press
+│   │   ├── business-insider-dark.svg
+│   │   ├── business-insider.svg
+│   │   ├── producthunt.svg
+│   │   ├── wired-dark.svg
+│   │   └── wired.svg
+│   ├── roadmap-phases.jpg
+│   ├── superpowers
+│   │   ├── plans
+│   │   │   └── 2026-06-07-ever-jobs-merge-implementation.md
+│   │   └── specs
+│   │       └── 2026-06-07-ever-jobs-merge-design.md
+│   └── vision-banner.jpg
+├── doctor.mjs
+├── filedirectory
+├── filedirectory.txt
+├── filter-batch.sh
+├── filter-pipeline.sh
+├── fix-portals.mjs
+├── flake.lock
+├── flake.nix
+├── followup-cadence.mjs
+├── fonts
+│   ├── dm-sans-latin-ext.woff2
+│   ├── dm-sans-latin.woff2
+│   ├── dm-serif-display-latin-ext.woff2
+│   ├── dm-serif-display-latin.woff2
+│   ├── inter-latin-ext.woff2
+│   ├── inter-latin.woff2
+│   ├── space-grotesk-latin-ext.woff2
+│   └── space-grotesk-latin.woff2
+├── gemini-eval.mjs
+├── generate-pdf.mjs
+├── import-everjobs-companies.mjs
+├── interview-prep
+│   └── story-bank.md
+├── jds
+├── liveness-browser.mjs
+├── liveness-core.mjs
+├── location-check-results.txt
+├── merge-tracker.mjs
+├── modes
+│   ├── _profile.md
+│   ├── _profile.template.md
+│   ├── _shared.md
+│   ├── apply.md
+│   ├── auto-pipeline.md
+│   ├── batch.md
+│   ├── contact.md
+│   ├── coverletter.md
+│   ├── deep.md
+│   ├── followup.md
+│   ├── interview-prep.md
+│   ├── latex.md
+│   ├── offer.md
+│   ├── offers.md
+│   ├── patterns.md
+│   ├── pdf.md
+│   ├── pipeline.md
+│   ├── project.md
+│   ├── scan.md
+│   ├── tracker.md
+│   ├── training.md
+│   └── writing-style.md
+├── node_modules
+│   ├── @anthropic-ai
+│   │   └── sdk
+│   │       ├── CHANGELOG.md
+│   │       ├── LICENSE
+│   │       ├── README.md
+│   │       ├── _vendor
+│   │       │   └── partial-json-parser
+│   │       │       ├── parser.d.mts
+│   │       │       ├── parser.d.mts.map
+│   │       │       ├── parser.d.ts
+│   │       │       ├── parser.d.ts.map
+│   │       │       ├── parser.js
+│   │       │       ├── parser.js.map
+│   │       │       ├── parser.mjs
+│   │       │       └── parser.mjs.map
+│   │       ├── api-promise.d.mts
+│   │       ├── api-promise.d.mts.map
+│   │       ├── api-promise.d.ts
+│   │       ├── api-promise.d.ts.map
+│   │       ├── api-promise.js
+│   │       ├── api-promise.js.map
+│   │       ├── api-promise.mjs
+│   │       ├── api-promise.mjs.map
+│   │       ├── bin
+│   │       │   ├── cli
+│   │       │   └── migration-config.json
+│   │       ├── client.d.mts
+│   │       ├── client.d.mts.map
+│   │       ├── client.d.ts
+│   │       ├── client.d.ts.map
+│   │       ├── client.js
+│   │       ├── client.js.map
+│   │       ├── client.mjs
+│   │       ├── client.mjs.map
+│   │       ├── core
+│   │       │   ├── api-promise.d.mts
+│   │       │   ├── api-promise.d.mts.map
+│   │       │   ├── api-promise.d.ts
+│   │       │   ├── api-promise.d.ts.map
+│   │       │   ├── api-promise.js
+│   │       │   ├── api-promise.js.map
+│   │       │   ├── api-promise.mjs
+│   │       │   ├── api-promise.mjs.map
+│   │       │   ├── api.d.mts
+│   │       │   ├── api.d.mts.map
+│   │       │   ├── api.d.ts
+│   │       │   ├── api.d.ts.map
+│   │       │   ├── api.js
+│   │       │   ├── api.js.map
+│   │       │   ├── api.mjs
+│   │       │   ├── api.mjs.map
+│   │       │   ├── credentials.d.mts
+│   │       │   ├── credentials.d.mts.map
+│   │       │   ├── credentials.d.ts
+│   │       │   ├── credentials.d.ts.map
+│   │       │   ├── credentials.js
+│   │       │   ├── credentials.js.map
+│   │       │   ├── credentials.mjs
+│   │       │   ├── credentials.mjs.map
+│   │       │   ├── error.d.mts
+│   │       │   ├── error.d.mts.map
+│   │       │   ├── error.d.ts
+│   │       │   ├── error.d.ts.map
+│   │       │   ├── error.js
+│   │       │   ├── error.js.map
+│   │       │   ├── error.mjs
+│   │       │   ├── error.mjs.map
+│   │       │   ├── middleware.d.mts
+│   │       │   ├── middleware.d.mts.map
+│   │       │   ├── middleware.d.ts
+│   │       │   ├── middleware.d.ts.map
+│   │       │   ├── middleware.js
+│   │       │   ├── middleware.js.map
+│   │       │   ├── middleware.mjs
+│   │       │   ├── middleware.mjs.map
+│   │       │   ├── pagination.d.mts
+│   │       │   ├── pagination.d.mts.map
+│   │       │   ├── pagination.d.ts
+│   │       │   ├── pagination.d.ts.map
+│   │       │   ├── pagination.js
+│   │       │   ├── pagination.js.map
+│   │       │   ├── pagination.mjs
+│   │       │   ├── pagination.mjs.map
+│   │       │   ├── resource.d.mts
+│   │       │   ├── resource.d.mts.map
+│   │       │   ├── resource.d.ts
+│   │       │   ├── resource.d.ts.map
+│   │       │   ├── resource.js
+│   │       │   ├── resource.js.map
+│   │       │   ├── resource.mjs
+│   │       │   ├── resource.mjs.map
+│   │       │   ├── streaming.d.mts
+│   │       │   ├── streaming.d.mts.map
+│   │       │   ├── streaming.d.ts
+│   │       │   ├── streaming.d.ts.map
+│   │       │   ├── streaming.js
+│   │       │   ├── streaming.js.map
+│   │       │   ├── streaming.mjs
+│   │       │   ├── streaming.mjs.map
+│   │       │   ├── uploads.d.mts
+│   │       │   ├── uploads.d.mts.map
+│   │       │   ├── uploads.d.ts
+│   │       │   ├── uploads.d.ts.map
+│   │       │   ├── uploads.js
+│   │       │   ├── uploads.js.map
+│   │       │   ├── uploads.mjs
+│   │       │   └── uploads.mjs.map
+│   │       ├── error.d.mts
+│   │       ├── error.d.mts.map
+│   │       ├── error.d.ts
+│   │       ├── error.d.ts.map
+│   │       ├── error.js
+│   │       ├── error.js.map
+│   │       ├── error.mjs
+│   │       ├── error.mjs.map
+│   │       ├── helpers
+│   │       │   ├── beta
+│   │       │   │   ├── environments.d.mts
+│   │       │   │   ├── environments.d.mts.map
+│   │       │   │   ├── environments.d.ts
+│   │       │   │   ├── environments.d.ts.map
+│   │       │   │   ├── environments.js
+│   │       │   │   ├── environments.js.map
+│   │       │   │   ├── environments.mjs
+│   │       │   │   ├── environments.mjs.map
+│   │       │   │   ├── json-schema.d.mts
+│   │       │   │   ├── json-schema.d.mts.map
+│   │       │   │   ├── json-schema.d.ts
+│   │       │   │   ├── json-schema.d.ts.map
+│   │       │   │   ├── json-schema.js
+│   │       │   │   ├── json-schema.js.map
+│   │       │   │   ├── json-schema.mjs
+│   │       │   │   ├── json-schema.mjs.map
+│   │       │   │   ├── mcp.d.mts
+│   │       │   │   ├── mcp.d.mts.map
+│   │       │   │   ├── mcp.d.ts
+│   │       │   │   ├── mcp.d.ts.map
+│   │       │   │   ├── mcp.js
+│   │       │   │   ├── mcp.js.map
+│   │       │   │   ├── mcp.mjs
+│   │       │   │   ├── mcp.mjs.map
+│   │       │   │   ├── memory.d.mts
+│   │       │   │   ├── memory.d.mts.map
+│   │       │   │   ├── memory.d.ts
+│   │       │   │   ├── memory.d.ts.map
+│   │       │   │   ├── memory.js
+│   │       │   │   ├── memory.js.map
+│   │       │   │   ├── memory.mjs
+│   │       │   │   ├── memory.mjs.map
+│   │       │   │   ├── zod.d.mts
+│   │       │   │   ├── zod.d.mts.map
+│   │       │   │   ├── zod.d.ts
+│   │       │   │   ├── zod.d.ts.map
+│   │       │   │   ├── zod.js
+│   │       │   │   ├── zod.js.map
+│   │       │   │   ├── zod.mjs
+│   │       │   │   └── zod.mjs.map
+│   │       │   ├── index.d.mts
+│   │       │   ├── index.d.mts.map
+│   │       │   ├── index.d.ts
+│   │       │   ├── index.d.ts.map
+│   │       │   ├── index.js
+│   │       │   ├── index.js.map
+│   │       │   ├── index.mjs
+│   │       │   ├── index.mjs.map
+│   │       │   ├── json-schema.d.mts
+│   │       │   ├── json-schema.d.mts.map
+│   │       │   ├── json-schema.d.ts
+│   │       │   ├── json-schema.d.ts.map
+│   │       │   ├── json-schema.js
+│   │       │   ├── json-schema.js.map
+│   │       │   ├── json-schema.mjs
+│   │       │   ├── json-schema.mjs.map
+│   │       │   ├── zod.d.mts
+│   │       │   ├── zod.d.mts.map
+│   │       │   ├── zod.d.ts
+│   │       │   ├── zod.d.ts.map
+│   │       │   ├── zod.js
+│   │       │   ├── zod.js.map
+│   │       │   ├── zod.mjs
+│   │       │   └── zod.mjs.map
+│   │       ├── index.d.mts
+│   │       ├── index.d.mts.map
+│   │       ├── index.d.ts
+│   │       ├── index.d.ts.map
+│   │       ├── index.js
+│   │       ├── index.js.map
+│   │       ├── index.mjs
+│   │       ├── index.mjs.map
+│   │       ├── internal
+│   │       │   ├── builtin-types.d.mts
+│   │       │   ├── builtin-types.d.mts.map
+│   │       │   ├── builtin-types.d.ts
+│   │       │   ├── builtin-types.d.ts.map
+│   │       │   ├── builtin-types.js
+│   │       │   ├── builtin-types.js.map
+│   │       │   ├── builtin-types.mjs
+│   │       │   ├── builtin-types.mjs.map
+│   │       │   ├── constants.d.mts
+│   │       │   ├── constants.d.mts.map
+│   │       │   ├── constants.d.ts
+│   │       │   ├── constants.d.ts.map
+│   │       │   ├── constants.js
+│   │       │   ├── constants.js.map
+│   │       │   ├── constants.mjs
+│   │       │   ├── constants.mjs.map
+│   │       │   ├── decoders
+│   │       │   │   ├── jsonl.d.mts
+│   │       │   │   ├── jsonl.d.mts.map
+│   │       │   │   ├── jsonl.d.ts
+│   │       │   │   ├── jsonl.d.ts.map
+│   │       │   │   ├── jsonl.js
+│   │       │   │   ├── jsonl.js.map
+│   │       │   │   ├── jsonl.mjs
+│   │       │   │   ├── jsonl.mjs.map
+│   │       │   │   ├── line.d.mts
+│   │       │   │   ├── line.d.mts.map
+│   │       │   │   ├── line.d.ts
+│   │       │   │   ├── line.d.ts.map
+│   │       │   │   ├── line.js
+│   │       │   │   ├── line.js.map
+│   │       │   │   ├── line.mjs
+│   │       │   │   └── line.mjs.map
+│   │       │   ├── detect-platform.d.mts
+│   │       │   ├── detect-platform.d.mts.map
+│   │       │   ├── detect-platform.d.ts
+│   │       │   ├── detect-platform.d.ts.map
+│   │       │   ├── detect-platform.js
+│   │       │   ├── detect-platform.js.map
+│   │       │   ├── detect-platform.mjs
+│   │       │   ├── detect-platform.mjs.map
+│   │       │   ├── errors.d.mts
+│   │       │   ├── errors.d.mts.map
+│   │       │   ├── errors.d.ts
+│   │       │   ├── errors.d.ts.map
+│   │       │   ├── errors.js
+│   │       │   ├── errors.js.map
+│   │       │   ├── errors.mjs
+│   │       │   ├── errors.mjs.map
+│   │       │   ├── headers.d.mts
+│   │       │   ├── headers.d.mts.map
+│   │       │   ├── headers.d.ts
+│   │       │   ├── headers.d.ts.map
+│   │       │   ├── headers.js
+│   │       │   ├── headers.js.map
+│   │       │   ├── headers.mjs
+│   │       │   ├── headers.mjs.map
+│   │       │   ├── parse.d.mts
+│   │       │   ├── parse.d.mts.map
+│   │       │   ├── parse.d.ts
+│   │       │   ├── parse.d.ts.map
+│   │       │   ├── parse.js
+│   │       │   ├── parse.js.map
+│   │       │   ├── parse.mjs
+│   │       │   ├── parse.mjs.map
+│   │       │   ├── qs
+│   │       │   │   ├── formats.d.mts
+│   │       │   │   ├── formats.d.mts.map
+│   │       │   │   ├── formats.d.ts
+│   │       │   │   ├── formats.d.ts.map
+│   │       │   │   ├── formats.js
+│   │       │   │   ├── formats.js.map
+│   │       │   │   ├── formats.mjs
+│   │       │   │   ├── formats.mjs.map
+│   │       │   │   ├── index.d.mts
+│   │       │   │   ├── index.d.mts.map
+│   │       │   │   ├── index.d.ts
+│   │       │   │   ├── index.d.ts.map
+│   │       │   │   ├── index.js
+│   │       │   │   ├── index.js.map
+│   │       │   │   ├── index.mjs
+│   │       │   │   ├── index.mjs.map
+│   │       │   │   ├── stringify.d.mts
+│   │       │   │   ├── stringify.d.mts.map
+│   │       │   │   ├── stringify.d.ts
+│   │       │   │   ├── stringify.d.ts.map
+│   │       │   │   ├── stringify.js
+│   │       │   │   ├── stringify.js.map
+│   │       │   │   ├── stringify.mjs
+│   │       │   │   ├── stringify.mjs.map
+│   │       │   │   ├── types.d.mts
+│   │       │   │   ├── types.d.mts.map
+│   │       │   │   ├── types.d.ts
+│   │       │   │   ├── types.d.ts.map
+│   │       │   │   ├── types.js
+│   │       │   │   ├── types.js.map
+│   │       │   │   ├── types.mjs
+│   │       │   │   ├── types.mjs.map
+│   │       │   │   ├── utils.d.mts
+│   │       │   │   ├── utils.d.mts.map
+│   │       │   │   ├── utils.d.ts
+│   │       │   │   ├── utils.d.ts.map
+│   │       │   │   ├── utils.js
+│   │       │   │   ├── utils.js.map
+│   │       │   │   ├── utils.mjs
+│   │       │   │   └── utils.mjs.map
+│   │       │   ├── request-options.d.mts
+│   │       │   ├── request-options.d.mts.map
+│   │       │   ├── request-options.d.ts
+│   │       │   ├── request-options.d.ts.map
+│   │       │   ├── request-options.js
+│   │       │   ├── request-options.js.map
+│   │       │   ├── request-options.mjs
+│   │       │   ├── request-options.mjs.map
+│   │       │   ├── shim-types.d.mts
+│   │       │   ├── shim-types.d.mts.map
+│   │       │   ├── shim-types.d.ts
+│   │       │   ├── shim-types.d.ts.map
+│   │       │   ├── shim-types.js
+│   │       │   ├── shim-types.js.map
+│   │       │   ├── shim-types.mjs
+│   │       │   ├── shim-types.mjs.map
+│   │       │   ├── shims.d.mts
+│   │       │   ├── shims.d.mts.map
+│   │       │   ├── shims.d.ts
+│   │       │   ├── shims.d.ts.map
+│   │       │   ├── shims.js
+│   │       │   ├── shims.js.map
+│   │       │   ├── shims.mjs
+│   │       │   ├── shims.mjs.map
+│   │       │   ├── stream-utils.d.mts
+│   │       │   ├── stream-utils.d.mts.map
+│   │       │   ├── stream-utils.d.ts
+│   │       │   ├── stream-utils.d.ts.map
+│   │       │   ├── stream-utils.js
+│   │       │   ├── stream-utils.js.map
+│   │       │   ├── stream-utils.mjs
+│   │       │   ├── stream-utils.mjs.map
+│   │       │   ├── to-file.d.mts
+│   │       │   ├── to-file.d.mts.map
+│   │       │   ├── to-file.d.ts
+│   │       │   ├── to-file.d.ts.map
+│   │       │   ├── to-file.js
+│   │       │   ├── to-file.js.map
+│   │       │   ├── to-file.mjs
+│   │       │   ├── to-file.mjs.map
+│   │       │   ├── tslib.js
+│   │       │   ├── tslib.mjs
+│   │       │   ├── types.d.mts
+│   │       │   ├── types.d.mts.map
+│   │       │   ├── types.d.ts
+│   │       │   ├── types.d.ts.map
+│   │       │   ├── types.js
+│   │       │   ├── types.js.map
+│   │       │   ├── types.mjs
+│   │       │   ├── types.mjs.map
+│   │       │   ├── uploads.d.mts
+│   │       │   ├── uploads.d.mts.map
+│   │       │   ├── uploads.d.ts
+│   │       │   ├── uploads.d.ts.map
+│   │       │   ├── uploads.js
+│   │       │   ├── uploads.js.map
+│   │       │   ├── uploads.mjs
+│   │       │   ├── uploads.mjs.map
+│   │       │   ├── utils
+│   │       │   │   ├── abort.d.mts
+│   │       │   │   ├── abort.d.mts.map
+│   │       │   │   ├── abort.d.ts
+│   │       │   │   ├── abort.d.ts.map
+│   │       │   │   ├── abort.js
+│   │       │   │   ├── abort.js.map
+│   │       │   │   ├── abort.mjs
+│   │       │   │   ├── abort.mjs.map
+│   │       │   │   ├── async-queue.d.mts
+│   │       │   │   ├── async-queue.d.mts.map
+│   │       │   │   ├── async-queue.d.ts
+│   │       │   │   ├── async-queue.d.ts.map
+│   │       │   │   ├── async-queue.js
+│   │       │   │   ├── async-queue.js.map
+│   │       │   │   ├── async-queue.mjs
+│   │       │   │   ├── async-queue.mjs.map
+│   │       │   │   ├── backoff.d.mts
+│   │       │   │   ├── backoff.d.mts.map
+│   │       │   │   ├── backoff.d.ts
+│   │       │   │   ├── backoff.d.ts.map
+│   │       │   │   ├── backoff.js
+│   │       │   │   ├── backoff.js.map
+│   │       │   │   ├── backoff.mjs
+│   │       │   │   ├── backoff.mjs.map
+│   │       │   │   ├── base64.d.mts
+│   │       │   │   ├── base64.d.mts.map
+│   │       │   │   ├── base64.d.ts
+│   │       │   │   ├── base64.d.ts.map
+│   │       │   │   ├── base64.js
+│   │       │   │   ├── base64.js.map
+│   │       │   │   ├── base64.mjs
+│   │       │   │   ├── base64.mjs.map
+│   │       │   │   ├── bytes.d.mts
+│   │       │   │   ├── bytes.d.mts.map
+│   │       │   │   ├── bytes.d.ts
+│   │       │   │   ├── bytes.d.ts.map
+│   │       │   │   ├── bytes.js
+│   │       │   │   ├── bytes.js.map
+│   │       │   │   ├── bytes.mjs
+│   │       │   │   ├── bytes.mjs.map
+│   │       │   │   ├── env.d.mts
+│   │       │   │   ├── env.d.mts.map
+│   │       │   │   ├── env.d.ts
+│   │       │   │   ├── env.d.ts.map
+│   │       │   │   ├── env.js
+│   │       │   │   ├── env.js.map
+│   │       │   │   ├── env.mjs
+│   │       │   │   ├── env.mjs.map
+│   │       │   │   ├── log.d.mts
+│   │       │   │   ├── log.d.mts.map
+│   │       │   │   ├── log.d.ts
+│   │       │   │   ├── log.d.ts.map
+│   │       │   │   ├── log.js
+│   │       │   │   ├── log.js.map
+│   │       │   │   ├── log.mjs
+│   │       │   │   ├── log.mjs.map
+│   │       │   │   ├── path.d.mts
+│   │       │   │   ├── path.d.mts.map
+│   │       │   │   ├── path.d.ts
+│   │       │   │   ├── path.d.ts.map
+│   │       │   │   ├── path.js
+│   │       │   │   ├── path.js.map
+│   │       │   │   ├── path.mjs
+│   │       │   │   ├── path.mjs.map
+│   │       │   │   ├── promise.d.mts
+│   │       │   │   ├── promise.d.mts.map
+│   │       │   │   ├── promise.d.ts
+│   │       │   │   ├── promise.d.ts.map
+│   │       │   │   ├── promise.js
+│   │       │   │   ├── promise.js.map
+│   │       │   │   ├── promise.mjs
+│   │       │   │   ├── promise.mjs.map
+│   │       │   │   ├── query.d.mts
+│   │       │   │   ├── query.d.mts.map
+│   │       │   │   ├── query.d.ts
+│   │       │   │   ├── query.d.ts.map
+│   │       │   │   ├── query.js
+│   │       │   │   ├── query.js.map
+│   │       │   │   ├── query.mjs
+│   │       │   │   ├── query.mjs.map
+│   │       │   │   ├── sleep.d.mts
+│   │       │   │   ├── sleep.d.mts.map
+│   │       │   │   ├── sleep.d.ts
+│   │       │   │   ├── sleep.d.ts.map
+│   │       │   │   ├── sleep.js
+│   │       │   │   ├── sleep.js.map
+│   │       │   │   ├── sleep.mjs
+│   │       │   │   ├── sleep.mjs.map
+│   │       │   │   ├── time.d.mts
+│   │       │   │   ├── time.d.mts.map
+│   │       │   │   ├── time.d.ts
+│   │       │   │   ├── time.d.ts.map
+│   │       │   │   ├── time.js
+│   │       │   │   ├── time.js.map
+│   │       │   │   ├── time.mjs
+│   │       │   │   ├── time.mjs.map
+│   │       │   │   ├── uuid.d.mts
+│   │       │   │   ├── uuid.d.mts.map
+│   │       │   │   ├── uuid.d.ts
+│   │       │   │   ├── uuid.d.ts.map
+│   │       │   │   ├── uuid.js
+│   │       │   │   ├── uuid.js.map
+│   │       │   │   ├── uuid.mjs
+│   │       │   │   ├── uuid.mjs.map
+│   │       │   │   ├── values.d.mts
+│   │       │   │   ├── values.d.mts.map
+│   │       │   │   ├── values.d.ts
+│   │       │   │   ├── values.d.ts.map
+│   │       │   │   ├── values.js
+│   │       │   │   ├── values.js.map
+│   │       │   │   ├── values.mjs
+│   │       │   │   └── values.mjs.map
+│   │       │   ├── utils.d.mts
+│   │       │   ├── utils.d.mts.map
+│   │       │   ├── utils.d.ts
+│   │       │   ├── utils.d.ts.map
+│   │       │   ├── utils.js
+│   │       │   ├── utils.js.map
+│   │       │   ├── utils.mjs
+│   │       │   └── utils.mjs.map
+│   │       ├── lib
+│   │       │   ├── BetaMessageStream.d.mts
+│   │       │   ├── BetaMessageStream.d.mts.map
+│   │       │   ├── BetaMessageStream.d.ts
+│   │       │   ├── BetaMessageStream.d.ts.map
+│   │       │   ├── BetaMessageStream.js
+│   │       │   ├── BetaMessageStream.js.map
+│   │       │   ├── BetaMessageStream.mjs
+│   │       │   ├── BetaMessageStream.mjs.map
+│   │       │   ├── MessageStream.d.mts
+│   │       │   ├── MessageStream.d.mts.map
+│   │       │   ├── MessageStream.d.ts
+│   │       │   ├── MessageStream.d.ts.map
+│   │       │   ├── MessageStream.js
+│   │       │   ├── MessageStream.js.map
+│   │       │   ├── MessageStream.mjs
+│   │       │   ├── MessageStream.mjs.map
+│   │       │   ├── beta-parser.d.mts
+│   │       │   ├── beta-parser.d.mts.map
+│   │       │   ├── beta-parser.d.ts
+│   │       │   ├── beta-parser.d.ts.map
+│   │       │   ├── beta-parser.js
+│   │       │   ├── beta-parser.js.map
+│   │       │   ├── beta-parser.mjs
+│   │       │   ├── beta-parser.mjs.map
+│   │       │   ├── credentials
+│   │       │   │   ├── credential-chain.d.mts
+│   │       │   │   ├── credential-chain.d.mts.map
+│   │       │   │   ├── credential-chain.d.ts
+│   │       │   │   ├── credential-chain.d.ts.map
+│   │       │   │   ├── credential-chain.js
+│   │       │   │   ├── credential-chain.js.map
+│   │       │   │   ├── credential-chain.mjs
+│   │       │   │   ├── credential-chain.mjs.map
+│   │       │   │   ├── identity-token.d.mts
+│   │       │   │   ├── identity-token.d.mts.map
+│   │       │   │   ├── identity-token.d.ts
+│   │       │   │   ├── identity-token.d.ts.map
+│   │       │   │   ├── identity-token.js
+│   │       │   │   ├── identity-token.js.map
+│   │       │   │   ├── identity-token.mjs
+│   │       │   │   ├── identity-token.mjs.map
+│   │       │   │   ├── oidc-federation.d.mts
+│   │       │   │   ├── oidc-federation.d.mts.map
+│   │       │   │   ├── oidc-federation.d.ts
+│   │       │   │   ├── oidc-federation.d.ts.map
+│   │       │   │   ├── oidc-federation.js
+│   │       │   │   ├── oidc-federation.js.map
+│   │       │   │   ├── oidc-federation.mjs
+│   │       │   │   ├── oidc-federation.mjs.map
+│   │       │   │   ├── token-cache.d.mts
+│   │       │   │   ├── token-cache.d.mts.map
+│   │       │   │   ├── token-cache.d.ts
+│   │       │   │   ├── token-cache.d.ts.map
+│   │       │   │   ├── token-cache.js
+│   │       │   │   ├── token-cache.js.map
+│   │       │   │   ├── token-cache.mjs
+│   │       │   │   ├── token-cache.mjs.map
+│   │       │   │   ├── types.d.mts
+│   │       │   │   ├── types.d.mts.map
+│   │       │   │   ├── types.d.ts
+│   │       │   │   ├── types.d.ts.map
+│   │       │   │   ├── types.js
+│   │       │   │   ├── types.js.map
+│   │       │   │   ├── types.mjs
+│   │       │   │   ├── types.mjs.map
+│   │       │   │   ├── user-oauth.d.mts
+│   │       │   │   ├── user-oauth.d.mts.map
+│   │       │   │   ├── user-oauth.d.ts
+│   │       │   │   ├── user-oauth.d.ts.map
+│   │       │   │   ├── user-oauth.js
+│   │       │   │   ├── user-oauth.js.map
+│   │       │   │   ├── user-oauth.mjs
+│   │       │   │   └── user-oauth.mjs.map
+│   │       │   ├── credentials.d.mts
+│   │       │   ├── credentials.d.mts.map
+│   │       │   ├── credentials.d.ts
+│   │       │   ├── credentials.d.ts.map
+│   │       │   ├── credentials.js
+│   │       │   ├── credentials.js.map
+│   │       │   ├── credentials.mjs
+│   │       │   ├── credentials.mjs.map
+│   │       │   ├── environments
+│   │       │   │   ├── index.d.mts
+│   │       │   │   ├── index.d.mts.map
+│   │       │   │   ├── index.d.ts
+│   │       │   │   ├── index.d.ts.map
+│   │       │   │   ├── index.js
+│   │       │   │   ├── index.js.map
+│   │       │   │   ├── index.mjs
+│   │       │   │   ├── index.mjs.map
+│   │       │   │   ├── poller.d.mts
+│   │       │   │   ├── poller.d.mts.map
+│   │       │   │   ├── poller.d.ts
+│   │       │   │   ├── poller.d.ts.map
+│   │       │   │   ├── poller.js
+│   │       │   │   ├── poller.js.map
+│   │       │   │   ├── poller.mjs
+│   │       │   │   ├── poller.mjs.map
+│   │       │   │   ├── worker.d.mts
+│   │       │   │   ├── worker.d.mts.map
+│   │       │   │   ├── worker.d.ts
+│   │       │   │   ├── worker.d.ts.map
+│   │       │   │   ├── worker.js
+│   │       │   │   ├── worker.js.map
+│   │       │   │   ├── worker.mjs
+│   │       │   │   └── worker.mjs.map
+│   │       │   ├── helper-client.d.mts
+│   │       │   ├── helper-client.d.mts.map
+│   │       │   ├── helper-client.d.ts
+│   │       │   ├── helper-client.d.ts.map
+│   │       │   ├── helper-client.js
+│   │       │   ├── helper-client.js.map
+│   │       │   ├── helper-client.mjs
+│   │       │   ├── helper-client.mjs.map
+│   │       │   ├── middleware.d.mts
+│   │       │   ├── middleware.d.mts.map
+│   │       │   ├── middleware.d.ts
+│   │       │   ├── middleware.d.ts.map
+│   │       │   ├── middleware.js
+│   │       │   ├── middleware.js.map
+│   │       │   ├── middleware.mjs
+│   │       │   ├── middleware.mjs.map
+│   │       │   ├── parser.d.mts
+│   │       │   ├── parser.d.mts.map
+│   │       │   ├── parser.d.ts
+│   │       │   ├── parser.d.ts.map
+│   │       │   ├── parser.js
+│   │       │   ├── parser.js.map
+│   │       │   ├── parser.mjs
+│   │       │   ├── parser.mjs.map
+│   │       │   ├── stainless-helper-header.d.mts
+│   │       │   ├── stainless-helper-header.d.mts.map
+│   │       │   ├── stainless-helper-header.d.ts
+│   │       │   ├── stainless-helper-header.d.ts.map
+│   │       │   ├── stainless-helper-header.js
+│   │       │   ├── stainless-helper-header.js.map
+│   │       │   ├── stainless-helper-header.mjs
+│   │       │   ├── stainless-helper-header.mjs.map
+│   │       │   ├── tools
+│   │       │   │   ├── BetaRunnableTool.d.mts
+│   │       │   │   ├── BetaRunnableTool.d.mts.map
+│   │       │   │   ├── BetaRunnableTool.d.ts
+│   │       │   │   ├── BetaRunnableTool.d.ts.map
+│   │       │   │   ├── BetaRunnableTool.js
+│   │       │   │   ├── BetaRunnableTool.js.map
+│   │       │   │   ├── BetaRunnableTool.mjs
+│   │       │   │   ├── BetaRunnableTool.mjs.map
+│   │       │   │   ├── BetaToolRunner.d.mts
+│   │       │   │   ├── BetaToolRunner.d.mts.map
+│   │       │   │   ├── BetaToolRunner.d.ts
+│   │       │   │   ├── BetaToolRunner.d.ts.map
+│   │       │   │   ├── BetaToolRunner.js
+│   │       │   │   ├── BetaToolRunner.js.map
+│   │       │   │   ├── BetaToolRunner.mjs
+│   │       │   │   ├── BetaToolRunner.mjs.map
+│   │       │   │   ├── CompactionControl.d.mts
+│   │       │   │   ├── CompactionControl.d.mts.map
+│   │       │   │   ├── CompactionControl.d.ts
+│   │       │   │   ├── CompactionControl.d.ts.map
+│   │       │   │   ├── CompactionControl.js
+│   │       │   │   ├── CompactionControl.js.map
+│   │       │   │   ├── CompactionControl.mjs
+│   │       │   │   ├── CompactionControl.mjs.map
+│   │       │   │   ├── SessionToolRunner.d.mts
+│   │       │   │   ├── SessionToolRunner.d.mts.map
+│   │       │   │   ├── SessionToolRunner.d.ts
+│   │       │   │   ├── SessionToolRunner.d.ts.map
+│   │       │   │   ├── SessionToolRunner.js
+│   │       │   │   ├── SessionToolRunner.js.map
+│   │       │   │   ├── SessionToolRunner.mjs
+│   │       │   │   ├── SessionToolRunner.mjs.map
+│   │       │   │   ├── ToolError.d.mts
+│   │       │   │   ├── ToolError.d.mts.map
+│   │       │   │   ├── ToolError.d.ts
+│   │       │   │   ├── ToolError.d.ts.map
+│   │       │   │   ├── ToolError.js
+│   │       │   │   ├── ToolError.js.map
+│   │       │   │   ├── ToolError.mjs
+│   │       │   │   ├── ToolError.mjs.map
+│   │       │   │   ├── ToolRunner.d.mts
+│   │       │   │   ├── ToolRunner.d.mts.map
+│   │       │   │   ├── ToolRunner.d.ts
+│   │       │   │   ├── ToolRunner.d.ts.map
+│   │       │   │   ├── ToolRunner.js
+│   │       │   │   ├── ToolRunner.js.map
+│   │       │   │   ├── ToolRunner.mjs
+│   │       │   │   └── ToolRunner.mjs.map
+│   │       │   ├── transform-json-schema.d.mts
+│   │       │   ├── transform-json-schema.d.mts.map
+│   │       │   ├── transform-json-schema.d.ts
+│   │       │   ├── transform-json-schema.d.ts.map
+│   │       │   ├── transform-json-schema.js
+│   │       │   ├── transform-json-schema.js.map
+│   │       │   ├── transform-json-schema.mjs
+│   │       │   └── transform-json-schema.mjs.map
+│   │       ├── package.json
+│   │       ├── pagination.d.mts
+│   │       ├── pagination.d.mts.map
+│   │       ├── pagination.d.ts
+│   │       ├── pagination.d.ts.map
+│   │       ├── pagination.js
+│   │       ├── pagination.js.map
+│   │       ├── pagination.mjs
+│   │       ├── pagination.mjs.map
+│   │       ├── resource.d.mts
+│   │       ├── resource.d.mts.map
+│   │       ├── resource.d.ts
+│   │       ├── resource.d.ts.map
+│   │       ├── resource.js
+│   │       ├── resource.js.map
+│   │       ├── resource.mjs
+│   │       ├── resource.mjs.map
+│   │       ├── resources
+│   │       │   ├── beta
+│   │       │   │   ├── agents
+│   │       │   │   │   ├── agents.d.mts
+│   │       │   │   │   ├── agents.d.mts.map
+│   │       │   │   │   ├── agents.d.ts
+│   │       │   │   │   ├── agents.d.ts.map
+│   │       │   │   │   ├── agents.js
+│   │       │   │   │   ├── agents.js.map
+│   │       │   │   │   ├── agents.mjs
+│   │       │   │   │   ├── agents.mjs.map
+│   │       │   │   │   ├── index.d.mts
+│   │       │   │   │   ├── index.d.mts.map
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── index.d.ts.map
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── index.js.map
+│   │       │   │   │   ├── index.mjs
+│   │       │   │   │   ├── index.mjs.map
+│   │       │   │   │   ├── versions.d.mts
+│   │       │   │   │   ├── versions.d.mts.map
+│   │       │   │   │   ├── versions.d.ts
+│   │       │   │   │   ├── versions.d.ts.map
+│   │       │   │   │   ├── versions.js
+│   │       │   │   │   ├── versions.js.map
+│   │       │   │   │   ├── versions.mjs
+│   │       │   │   │   └── versions.mjs.map
+│   │       │   │   ├── agents.d.mts
+│   │       │   │   ├── agents.d.mts.map
+│   │       │   │   ├── agents.d.ts
+│   │       │   │   ├── agents.d.ts.map
+│   │       │   │   ├── agents.js
+│   │       │   │   ├── agents.js.map
+│   │       │   │   ├── agents.mjs
+│   │       │   │   ├── agents.mjs.map
+│   │       │   │   ├── beta.d.mts
+│   │       │   │   ├── beta.d.mts.map
+│   │       │   │   ├── beta.d.ts
+│   │       │   │   ├── beta.d.ts.map
+│   │       │   │   ├── beta.js
+│   │       │   │   ├── beta.js.map
+│   │       │   │   ├── beta.mjs
+│   │       │   │   ├── beta.mjs.map
+│   │       │   │   ├── deployment-runs.d.mts
+│   │       │   │   ├── deployment-runs.d.mts.map
+│   │       │   │   ├── deployment-runs.d.ts
+│   │       │   │   ├── deployment-runs.d.ts.map
+│   │       │   │   ├── deployment-runs.js
+│   │       │   │   ├── deployment-runs.js.map
+│   │       │   │   ├── deployment-runs.mjs
+│   │       │   │   ├── deployment-runs.mjs.map
+│   │       │   │   ├── deployments.d.mts
+│   │       │   │   ├── deployments.d.mts.map
+│   │       │   │   ├── deployments.d.ts
+│   │       │   │   ├── deployments.d.ts.map
+│   │       │   │   ├── deployments.js
+│   │       │   │   ├── deployments.js.map
+│   │       │   │   ├── deployments.mjs
+│   │       │   │   ├── deployments.mjs.map
+│   │       │   │   ├── environments
+│   │       │   │   │   ├── environments.d.mts
+│   │       │   │   │   ├── environments.d.mts.map
+│   │       │   │   │   ├── environments.d.ts
+│   │       │   │   │   ├── environments.d.ts.map
+│   │       │   │   │   ├── environments.js
+│   │       │   │   │   ├── environments.js.map
+│   │       │   │   │   ├── environments.mjs
+│   │       │   │   │   ├── environments.mjs.map
+│   │       │   │   │   ├── index.d.mts
+│   │       │   │   │   ├── index.d.mts.map
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── index.d.ts.map
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── index.js.map
+│   │       │   │   │   ├── index.mjs
+│   │       │   │   │   ├── index.mjs.map
+│   │       │   │   │   ├── work.d.mts
+│   │       │   │   │   ├── work.d.mts.map
+│   │       │   │   │   ├── work.d.ts
+│   │       │   │   │   ├── work.d.ts.map
+│   │       │   │   │   ├── work.js
+│   │       │   │   │   ├── work.js.map
+│   │       │   │   │   ├── work.mjs
+│   │       │   │   │   └── work.mjs.map
+│   │       │   │   ├── environments.d.mts
+│   │       │   │   ├── environments.d.mts.map
+│   │       │   │   ├── environments.d.ts
+│   │       │   │   ├── environments.d.ts.map
+│   │       │   │   ├── environments.js
+│   │       │   │   ├── environments.js.map
+│   │       │   │   ├── environments.mjs
+│   │       │   │   ├── environments.mjs.map
+│   │       │   │   ├── files.d.mts
+│   │       │   │   ├── files.d.mts.map
+│   │       │   │   ├── files.d.ts
+│   │       │   │   ├── files.d.ts.map
+│   │       │   │   ├── files.js
+│   │       │   │   ├── files.js.map
+│   │       │   │   ├── files.mjs
+│   │       │   │   ├── files.mjs.map
+│   │       │   │   ├── index.d.mts
+│   │       │   │   ├── index.d.mts.map
+│   │       │   │   ├── index.d.ts
+│   │       │   │   ├── index.d.ts.map
+│   │       │   │   ├── index.js
+│   │       │   │   ├── index.js.map
+│   │       │   │   ├── index.mjs
+│   │       │   │   ├── index.mjs.map
+│   │       │   │   ├── memory-stores
+│   │       │   │   │   ├── index.d.mts
+│   │       │   │   │   ├── index.d.mts.map
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── index.d.ts.map
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── index.js.map
+│   │       │   │   │   ├── index.mjs
+│   │       │   │   │   ├── index.mjs.map
+│   │       │   │   │   ├── memories.d.mts
+│   │       │   │   │   ├── memories.d.mts.map
+│   │       │   │   │   ├── memories.d.ts
+│   │       │   │   │   ├── memories.d.ts.map
+│   │       │   │   │   ├── memories.js
+│   │       │   │   │   ├── memories.js.map
+│   │       │   │   │   ├── memories.mjs
+│   │       │   │   │   ├── memories.mjs.map
+│   │       │   │   │   ├── memory-stores.d.mts
+│   │       │   │   │   ├── memory-stores.d.mts.map
+│   │       │   │   │   ├── memory-stores.d.ts
+│   │       │   │   │   ├── memory-stores.d.ts.map
+│   │       │   │   │   ├── memory-stores.js
+│   │       │   │   │   ├── memory-stores.js.map
+│   │       │   │   │   ├── memory-stores.mjs
+│   │       │   │   │   ├── memory-stores.mjs.map
+│   │       │   │   │   ├── memory-versions.d.mts
+│   │       │   │   │   ├── memory-versions.d.mts.map
+│   │       │   │   │   ├── memory-versions.d.ts
+│   │       │   │   │   ├── memory-versions.d.ts.map
+│   │       │   │   │   ├── memory-versions.js
+│   │       │   │   │   ├── memory-versions.js.map
+│   │       │   │   │   ├── memory-versions.mjs
+│   │       │   │   │   └── memory-versions.mjs.map
+│   │       │   │   ├── memory-stores.d.mts
+│   │       │   │   ├── memory-stores.d.mts.map
+│   │       │   │   ├── memory-stores.d.ts
+│   │       │   │   ├── memory-stores.d.ts.map
+│   │       │   │   ├── memory-stores.js
+│   │       │   │   ├── memory-stores.js.map
+│   │       │   │   ├── memory-stores.mjs
+│   │       │   │   ├── memory-stores.mjs.map
+│   │       │   │   ├── messages
+│   │       │   │   │   ├── batches.d.mts
+│   │       │   │   │   ├── batches.d.mts.map
+│   │       │   │   │   ├── batches.d.ts
+│   │       │   │   │   ├── batches.d.ts.map
+│   │       │   │   │   ├── batches.js
+│   │       │   │   │   ├── batches.js.map
+│   │       │   │   │   ├── batches.mjs
+│   │       │   │   │   ├── batches.mjs.map
+│   │       │   │   │   ├── index.d.mts
+│   │       │   │   │   ├── index.d.mts.map
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── index.d.ts.map
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── index.js.map
+│   │       │   │   │   ├── index.mjs
+│   │       │   │   │   ├── index.mjs.map
+│   │       │   │   │   ├── messages.d.mts
+│   │       │   │   │   ├── messages.d.mts.map
+│   │       │   │   │   ├── messages.d.ts
+│   │       │   │   │   ├── messages.d.ts.map
+│   │       │   │   │   ├── messages.js
+│   │       │   │   │   ├── messages.js.map
+│   │       │   │   │   ├── messages.mjs
+│   │       │   │   │   └── messages.mjs.map
+│   │       │   │   ├── messages.d.mts
+│   │       │   │   ├── messages.d.mts.map
+│   │       │   │   ├── messages.d.ts
+│   │       │   │   ├── messages.d.ts.map
+│   │       │   │   ├── messages.js
+│   │       │   │   ├── messages.js.map
+│   │       │   │   ├── messages.mjs
+│   │       │   │   ├── messages.mjs.map
+│   │       │   │   ├── models.d.mts
+│   │       │   │   ├── models.d.mts.map
+│   │       │   │   ├── models.d.ts
+│   │       │   │   ├── models.d.ts.map
+│   │       │   │   ├── models.js
+│   │       │   │   ├── models.js.map
+│   │       │   │   ├── models.mjs
+│   │       │   │   ├── models.mjs.map
+│   │       │   │   ├── sessions
+│   │       │   │   │   ├── events.d.mts
+│   │       │   │   │   ├── events.d.mts.map
+│   │       │   │   │   ├── events.d.ts
+│   │       │   │   │   ├── events.d.ts.map
+│   │       │   │   │   ├── events.js
+│   │       │   │   │   ├── events.js.map
+│   │       │   │   │   ├── events.mjs
+│   │       │   │   │   ├── events.mjs.map
+│   │       │   │   │   ├── index.d.mts
+│   │       │   │   │   ├── index.d.mts.map
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── index.d.ts.map
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── index.js.map
+│   │       │   │   │   ├── index.mjs
+│   │       │   │   │   ├── index.mjs.map
+│   │       │   │   │   ├── resources.d.mts
+│   │       │   │   │   ├── resources.d.mts.map
+│   │       │   │   │   ├── resources.d.ts
+│   │       │   │   │   ├── resources.d.ts.map
+│   │       │   │   │   ├── resources.js
+│   │       │   │   │   ├── resources.js.map
+│   │       │   │   │   ├── resources.mjs
+│   │       │   │   │   ├── resources.mjs.map
+│   │       │   │   │   ├── sessions.d.mts
+│   │       │   │   │   ├── sessions.d.mts.map
+│   │       │   │   │   ├── sessions.d.ts
+│   │       │   │   │   ├── sessions.d.ts.map
+│   │       │   │   │   ├── sessions.js
+│   │       │   │   │   ├── sessions.js.map
+│   │       │   │   │   ├── sessions.mjs
+│   │       │   │   │   ├── sessions.mjs.map
+│   │       │   │   │   ├── threads
+│   │       │   │   │   │   ├── events.d.mts
+│   │       │   │   │   │   ├── events.d.mts.map
+│   │       │   │   │   │   ├── events.d.ts
+│   │       │   │   │   │   ├── events.d.ts.map
+│   │       │   │   │   │   ├── events.js
+│   │       │   │   │   │   ├── events.js.map
+│   │       │   │   │   │   ├── events.mjs
+│   │       │   │   │   │   ├── events.mjs.map
+│   │       │   │   │   │   ├── index.d.mts
+│   │       │   │   │   │   ├── index.d.mts.map
+│   │       │   │   │   │   ├── index.d.ts
+│   │       │   │   │   │   ├── index.d.ts.map
+│   │       │   │   │   │   ├── index.js
+│   │       │   │   │   │   ├── index.js.map
+│   │       │   │   │   │   ├── index.mjs
+│   │       │   │   │   │   ├── index.mjs.map
+│   │       │   │   │   │   ├── threads.d.mts
+│   │       │   │   │   │   ├── threads.d.mts.map
+│   │       │   │   │   │   ├── threads.d.ts
+│   │       │   │   │   │   ├── threads.d.ts.map
+│   │       │   │   │   │   ├── threads.js
+│   │       │   │   │   │   ├── threads.js.map
+│   │       │   │   │   │   ├── threads.mjs
+│   │       │   │   │   │   └── threads.mjs.map
+│   │       │   │   │   ├── threads.d.mts
+│   │       │   │   │   ├── threads.d.mts.map
+│   │       │   │   │   ├── threads.d.ts
+│   │       │   │   │   ├── threads.d.ts.map
+│   │       │   │   │   ├── threads.js
+│   │       │   │   │   ├── threads.js.map
+│   │       │   │   │   ├── threads.mjs
+│   │       │   │   │   └── threads.mjs.map
+│   │       │   │   ├── sessions.d.mts
+│   │       │   │   ├── sessions.d.mts.map
+│   │       │   │   ├── sessions.d.ts
+│   │       │   │   ├── sessions.d.ts.map
+│   │       │   │   ├── sessions.js
+│   │       │   │   ├── sessions.js.map
+│   │       │   │   ├── sessions.mjs
+│   │       │   │   ├── sessions.mjs.map
+│   │       │   │   ├── skills
+│   │       │   │   │   ├── index.d.mts
+│   │       │   │   │   ├── index.d.mts.map
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── index.d.ts.map
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── index.js.map
+│   │       │   │   │   ├── index.mjs
+│   │       │   │   │   ├── index.mjs.map
+│   │       │   │   │   ├── skills.d.mts
+│   │       │   │   │   ├── skills.d.mts.map
+│   │       │   │   │   ├── skills.d.ts
+│   │       │   │   │   ├── skills.d.ts.map
+│   │       │   │   │   ├── skills.js
+│   │       │   │   │   ├── skills.js.map
+│   │       │   │   │   ├── skills.mjs
+│   │       │   │   │   ├── skills.mjs.map
+│   │       │   │   │   ├── versions.d.mts
+│   │       │   │   │   ├── versions.d.mts.map
+│   │       │   │   │   ├── versions.d.ts
+│   │       │   │   │   ├── versions.d.ts.map
+│   │       │   │   │   ├── versions.js
+│   │       │   │   │   ├── versions.js.map
+│   │       │   │   │   ├── versions.mjs
+│   │       │   │   │   └── versions.mjs.map
+│   │       │   │   ├── skills.d.mts
+│   │       │   │   ├── skills.d.mts.map
+│   │       │   │   ├── skills.d.ts
+│   │       │   │   ├── skills.d.ts.map
+│   │       │   │   ├── skills.js
+│   │       │   │   ├── skills.js.map
+│   │       │   │   ├── skills.mjs
+│   │       │   │   ├── skills.mjs.map
+│   │       │   │   ├── user-profiles.d.mts
+│   │       │   │   ├── user-profiles.d.mts.map
+│   │       │   │   ├── user-profiles.d.ts
+│   │       │   │   ├── user-profiles.d.ts.map
+│   │       │   │   ├── user-profiles.js
+│   │       │   │   ├── user-profiles.js.map
+│   │       │   │   ├── user-profiles.mjs
+│   │       │   │   ├── user-profiles.mjs.map
+│   │       │   │   ├── vaults
+│   │       │   │   │   ├── credentials.d.mts
+│   │       │   │   │   ├── credentials.d.mts.map
+│   │       │   │   │   ├── credentials.d.ts
+│   │       │   │   │   ├── credentials.d.ts.map
+│   │       │   │   │   ├── credentials.js
+│   │       │   │   │   ├── credentials.js.map
+│   │       │   │   │   ├── credentials.mjs
+│   │       │   │   │   ├── credentials.mjs.map
+│   │       │   │   │   ├── index.d.mts
+│   │       │   │   │   ├── index.d.mts.map
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── index.d.ts.map
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── index.js.map
+│   │       │   │   │   ├── index.mjs
+│   │       │   │   │   ├── index.mjs.map
+│   │       │   │   │   ├── vaults.d.mts
+│   │       │   │   │   ├── vaults.d.mts.map
+│   │       │   │   │   ├── vaults.d.ts
+│   │       │   │   │   ├── vaults.d.ts.map
+│   │       │   │   │   ├── vaults.js
+│   │       │   │   │   ├── vaults.js.map
+│   │       │   │   │   ├── vaults.mjs
+│   │       │   │   │   └── vaults.mjs.map
+│   │       │   │   ├── vaults.d.mts
+│   │       │   │   ├── vaults.d.mts.map
+│   │       │   │   ├── vaults.d.ts
+│   │       │   │   ├── vaults.d.ts.map
+│   │       │   │   ├── vaults.js
+│   │       │   │   ├── vaults.js.map
+│   │       │   │   ├── vaults.mjs
+│   │       │   │   ├── vaults.mjs.map
+│   │       │   │   ├── webhooks.d.mts
+│   │       │   │   ├── webhooks.d.mts.map
+│   │       │   │   ├── webhooks.d.ts
+│   │       │   │   ├── webhooks.d.ts.map
+│   │       │   │   ├── webhooks.js
+│   │       │   │   ├── webhooks.js.map
+│   │       │   │   ├── webhooks.mjs
+│   │       │   │   └── webhooks.mjs.map
+│   │       │   ├── beta.d.mts
+│   │       │   ├── beta.d.mts.map
+│   │       │   ├── beta.d.ts
+│   │       │   ├── beta.d.ts.map
+│   │       │   ├── beta.js
+│   │       │   ├── beta.js.map
+│   │       │   ├── beta.mjs
+│   │       │   ├── beta.mjs.map
+│   │       │   ├── completions.d.mts
+│   │       │   ├── completions.d.mts.map
+│   │       │   ├── completions.d.ts
+│   │       │   ├── completions.d.ts.map
+│   │       │   ├── completions.js
+│   │       │   ├── completions.js.map
+│   │       │   ├── completions.mjs
+│   │       │   ├── completions.mjs.map
+│   │       │   ├── index.d.mts
+│   │       │   ├── index.d.mts.map
+│   │       │   ├── index.d.ts
+│   │       │   ├── index.d.ts.map
+│   │       │   ├── index.js
+│   │       │   ├── index.js.map
+│   │       │   ├── index.mjs
+│   │       │   ├── index.mjs.map
+│   │       │   ├── messages
+│   │       │   │   ├── batches.d.mts
+│   │       │   │   ├── batches.d.mts.map
+│   │       │   │   ├── batches.d.ts
+│   │       │   │   ├── batches.d.ts.map
+│   │       │   │   ├── batches.js
+│   │       │   │   ├── batches.js.map
+│   │       │   │   ├── batches.mjs
+│   │       │   │   ├── batches.mjs.map
+│   │       │   │   ├── index.d.mts
+│   │       │   │   ├── index.d.mts.map
+│   │       │   │   ├── index.d.ts
+│   │       │   │   ├── index.d.ts.map
+│   │       │   │   ├── index.js
+│   │       │   │   ├── index.js.map
+│   │       │   │   ├── index.mjs
+│   │       │   │   ├── index.mjs.map
+│   │       │   │   ├── messages.d.mts
+│   │       │   │   ├── messages.d.mts.map
+│   │       │   │   ├── messages.d.ts
+│   │       │   │   ├── messages.d.ts.map
+│   │       │   │   ├── messages.js
+│   │       │   │   ├── messages.js.map
+│   │       │   │   ├── messages.mjs
+│   │       │   │   └── messages.mjs.map
+│   │       │   ├── messages.d.mts
+│   │       │   ├── messages.d.mts.map
+│   │       │   ├── messages.d.ts
+│   │       │   ├── messages.d.ts.map
+│   │       │   ├── messages.js
+│   │       │   ├── messages.js.map
+│   │       │   ├── messages.mjs
+│   │       │   ├── messages.mjs.map
+│   │       │   ├── models.d.mts
+│   │       │   ├── models.d.mts.map
+│   │       │   ├── models.d.ts
+│   │       │   ├── models.d.ts.map
+│   │       │   ├── models.js
+│   │       │   ├── models.js.map
+│   │       │   ├── models.mjs
+│   │       │   ├── models.mjs.map
+│   │       │   ├── shared.d.mts
+│   │       │   ├── shared.d.mts.map
+│   │       │   ├── shared.d.ts
+│   │       │   ├── shared.d.ts.map
+│   │       │   ├── shared.js
+│   │       │   ├── shared.js.map
+│   │       │   ├── shared.mjs
+│   │       │   ├── shared.mjs.map
+│   │       │   ├── top-level.d.mts
+│   │       │   ├── top-level.d.mts.map
+│   │       │   ├── top-level.d.ts
+│   │       │   ├── top-level.d.ts.map
+│   │       │   ├── top-level.js
+│   │       │   ├── top-level.js.map
+│   │       │   ├── top-level.mjs
+│   │       │   └── top-level.mjs.map
+│   │       ├── resources.d.mts
+│   │       ├── resources.d.mts.map
+│   │       ├── resources.d.ts
+│   │       ├── resources.d.ts.map
+│   │       ├── resources.js
+│   │       ├── resources.js.map
+│   │       ├── resources.mjs
+│   │       ├── resources.mjs.map
+│   │       ├── src
+│   │       │   ├── _vendor
+│   │       │   │   └── partial-json-parser
+│   │       │   │       ├── README.md
+│   │       │   │       └── parser.ts
+│   │       │   ├── api-promise.ts
+│   │       │   ├── client.ts
+│   │       │   ├── core
+│   │       │   │   ├── README.md
+│   │       │   │   ├── api-promise.ts
+│   │       │   │   ├── api.ts
+│   │       │   │   ├── credentials.ts
+│   │       │   │   ├── error.ts
+│   │       │   │   ├── middleware.ts
+│   │       │   │   ├── pagination.ts
+│   │       │   │   ├── resource.ts
+│   │       │   │   ├── streaming.ts
+│   │       │   │   └── uploads.ts
+│   │       │   ├── error.ts
+│   │       │   ├── helpers
+│   │       │   │   ├── beta
+│   │       │   │   │   ├── environments.ts
+│   │       │   │   │   ├── json-schema.ts
+│   │       │   │   │   ├── mcp.ts
+│   │       │   │   │   ├── memory.ts
+│   │       │   │   │   └── zod.ts
+│   │       │   │   ├── index.ts
+│   │       │   │   ├── json-schema.ts
+│   │       │   │   └── zod.ts
+│   │       │   ├── index.ts
+│   │       │   ├── internal
+│   │       │   │   ├── README.md
+│   │       │   │   ├── builtin-types.ts
+│   │       │   │   ├── constants.ts
+│   │       │   │   ├── decoders
+│   │       │   │   │   ├── jsonl.ts
+│   │       │   │   │   └── line.ts
+│   │       │   │   ├── detect-platform.ts
+│   │       │   │   ├── errors.ts
+│   │       │   │   ├── headers.ts
+│   │       │   │   ├── parse.ts
+│   │       │   │   ├── qs
+│   │       │   │   │   ├── LICENSE.md
+│   │       │   │   │   ├── README.md
+│   │       │   │   │   ├── formats.ts
+│   │       │   │   │   ├── index.ts
+│   │       │   │   │   ├── stringify.ts
+│   │       │   │   │   ├── types.ts
+│   │       │   │   │   └── utils.ts
+│   │       │   │   ├── request-options.ts
+│   │       │   │   ├── shim-types.ts
+│   │       │   │   ├── shims.ts
+│   │       │   │   ├── stream-utils.ts
+│   │       │   │   ├── to-file.ts
+│   │       │   │   ├── types.ts
+│   │       │   │   ├── uploads.ts
+│   │       │   │   ├── utils
+│   │       │   │   │   ├── abort.ts
+│   │       │   │   │   ├── async-queue.ts
+│   │       │   │   │   ├── backoff.ts
+│   │       │   │   │   ├── base64.ts
+│   │       │   │   │   ├── bytes.ts
+│   │       │   │   │   ├── env.ts
+│   │       │   │   │   ├── log.ts
+│   │       │   │   │   ├── path.ts
+│   │       │   │   │   ├── promise.ts
+│   │       │   │   │   ├── query.ts
+│   │       │   │   │   ├── sleep.ts
+│   │       │   │   │   ├── time.ts
+│   │       │   │   │   ├── uuid.ts
+│   │       │   │   │   └── values.ts
+│   │       │   │   └── utils.ts
+│   │       │   ├── lib
+│   │       │   │   ├── BetaMessageStream.ts
+│   │       │   │   ├── MessageStream.ts
+│   │       │   │   ├── beta-parser.ts
+│   │       │   │   ├── credentials
+│   │       │   │   │   ├── credential-chain.ts
+│   │       │   │   │   ├── identity-token.ts
+│   │       │   │   │   ├── oidc-federation.ts
+│   │       │   │   │   ├── token-cache.ts
+│   │       │   │   │   ├── types.ts
+│   │       │   │   │   └── user-oauth.ts
+│   │       │   │   ├── credentials.ts
+│   │       │   │   ├── environments
+│   │       │   │   │   ├── index.ts
+│   │       │   │   │   ├── poller.ts
+│   │       │   │   │   └── worker.ts
+│   │       │   │   ├── helper-client.ts
+│   │       │   │   ├── middleware.ts
+│   │       │   │   ├── parser.ts
+│   │       │   │   ├── stainless-helper-header.ts
+│   │       │   │   ├── tools
+│   │       │   │   │   ├── BetaRunnableTool.ts
+│   │       │   │   │   ├── BetaToolRunner.ts
+│   │       │   │   │   ├── CompactionControl.ts
+│   │       │   │   │   ├── SessionToolRunner.ts
+│   │       │   │   │   ├── ToolError.ts
+│   │       │   │   │   └── ToolRunner.ts
+│   │       │   │   └── transform-json-schema.ts
+│   │       │   ├── pagination.ts
+│   │       │   ├── resource.ts
+│   │       │   ├── resources
+│   │       │   │   ├── beta
+│   │       │   │   │   ├── agents
+│   │       │   │   │   │   ├── agents.ts
+│   │       │   │   │   │   ├── index.ts
+│   │       │   │   │   │   └── versions.ts
+│   │       │   │   │   ├── agents.ts
+│   │       │   │   │   ├── beta.ts
+│   │       │   │   │   ├── deployment-runs.ts
+│   │       │   │   │   ├── deployments.ts
+│   │       │   │   │   ├── environments
+│   │       │   │   │   │   ├── environments.ts
+│   │       │   │   │   │   ├── index.ts
+│   │       │   │   │   │   └── work.ts
+│   │       │   │   │   ├── environments.ts
+│   │       │   │   │   ├── files.ts
+│   │       │   │   │   ├── index.ts
+│   │       │   │   │   ├── memory-stores
+│   │       │   │   │   │   ├── index.ts
+│   │       │   │   │   │   ├── memories.ts
+│   │       │   │   │   │   ├── memory-stores.ts
+│   │       │   │   │   │   └── memory-versions.ts
+│   │       │   │   │   ├── memory-stores.ts
+│   │       │   │   │   ├── messages
+│   │       │   │   │   │   ├── batches.ts
+│   │       │   │   │   │   ├── index.ts
+│   │       │   │   │   │   └── messages.ts
+│   │       │   │   │   ├── messages.ts
+│   │       │   │   │   ├── models.ts
+│   │       │   │   │   ├── sessions
+│   │       │   │   │   │   ├── events.ts
+│   │       │   │   │   │   ├── index.ts
+│   │       │   │   │   │   ├── resources.ts
+│   │       │   │   │   │   ├── sessions.ts
+│   │       │   │   │   │   ├── threads
+│   │       │   │   │   │   │   ├── events.ts
+│   │       │   │   │   │   │   ├── index.ts
+│   │       │   │   │   │   │   └── threads.ts
+│   │       │   │   │   │   └── threads.ts
+│   │       │   │   │   ├── sessions.ts
+│   │       │   │   │   ├── skills
+│   │       │   │   │   │   ├── index.ts
+│   │       │   │   │   │   ├── skills.ts
+│   │       │   │   │   │   └── versions.ts
+│   │       │   │   │   ├── skills.ts
+│   │       │   │   │   ├── user-profiles.ts
+│   │       │   │   │   ├── vaults
+│   │       │   │   │   │   ├── credentials.ts
+│   │       │   │   │   │   ├── index.ts
+│   │       │   │   │   │   └── vaults.ts
+│   │       │   │   │   ├── vaults.ts
+│   │       │   │   │   └── webhooks.ts
+│   │       │   │   ├── beta.ts
+│   │       │   │   ├── completions.ts
+│   │       │   │   ├── index.ts
+│   │       │   │   ├── messages
+│   │       │   │   │   ├── batches.ts
+│   │       │   │   │   ├── index.ts
+│   │       │   │   │   └── messages.ts
+│   │       │   │   ├── messages.ts
+│   │       │   │   ├── models.ts
+│   │       │   │   ├── shared.ts
+│   │       │   │   └── top-level.ts
+│   │       │   ├── resources.ts
+│   │       │   ├── streaming.ts
+│   │       │   ├── tools
+│   │       │   │   ├── agent-toolset
+│   │       │   │   │   ├── fs-util.ts
+│   │       │   │   │   ├── node.browser.ts
+│   │       │   │   │   ├── node.ts
+│   │       │   │   │   └── skills.ts
+│   │       │   │   └── memory
+│   │       │   │       ├── node.browser.ts
+│   │       │   │       └── node.ts
+│   │       │   ├── tsconfig.json
+│   │       │   ├── uploads.ts
+│   │       │   └── version.ts
+│   │       ├── streaming.d.mts
+│   │       ├── streaming.d.mts.map
+│   │       ├── streaming.d.ts
+│   │       ├── streaming.d.ts.map
+│   │       ├── streaming.js
+│   │       ├── streaming.js.map
+│   │       ├── streaming.mjs
+│   │       ├── streaming.mjs.map
+│   │       ├── tools
+│   │       │   ├── agent-toolset
+│   │       │   │   ├── fs-util.d.mts
+│   │       │   │   ├── fs-util.d.mts.map
+│   │       │   │   ├── fs-util.d.ts
+│   │       │   │   ├── fs-util.d.ts.map
+│   │       │   │   ├── fs-util.js
+│   │       │   │   ├── fs-util.js.map
+│   │       │   │   ├── fs-util.mjs
+│   │       │   │   ├── fs-util.mjs.map
+│   │       │   │   ├── node.browser.d.mts
+│   │       │   │   ├── node.browser.d.mts.map
+│   │       │   │   ├── node.browser.d.ts
+│   │       │   │   ├── node.browser.d.ts.map
+│   │       │   │   ├── node.browser.js
+│   │       │   │   ├── node.browser.js.map
+│   │       │   │   ├── node.browser.mjs
+│   │       │   │   ├── node.browser.mjs.map
+│   │       │   │   ├── node.d.mts
+│   │       │   │   ├── node.d.mts.map
+│   │       │   │   ├── node.d.ts
+│   │       │   │   ├── node.d.ts.map
+│   │       │   │   ├── node.js
+│   │       │   │   ├── node.js.map
+│   │       │   │   ├── node.mjs
+│   │       │   │   ├── node.mjs.map
+│   │       │   │   ├── skills.d.mts
+│   │       │   │   ├── skills.d.mts.map
+│   │       │   │   ├── skills.d.ts
+│   │       │   │   ├── skills.d.ts.map
+│   │       │   │   ├── skills.js
+│   │       │   │   ├── skills.js.map
+│   │       │   │   ├── skills.mjs
+│   │       │   │   └── skills.mjs.map
+│   │       │   └── memory
+│   │       │       ├── node.browser.d.mts
+│   │       │       ├── node.browser.d.mts.map
+│   │       │       ├── node.browser.d.ts
+│   │       │       ├── node.browser.d.ts.map
+│   │       │       ├── node.browser.js
+│   │       │       ├── node.browser.js.map
+│   │       │       ├── node.browser.mjs
+│   │       │       ├── node.browser.mjs.map
+│   │       │       ├── node.d.mts
+│   │       │       ├── node.d.mts.map
+│   │       │       ├── node.d.ts
+│   │       │       ├── node.d.ts.map
+│   │       │       ├── node.js
+│   │       │       ├── node.js.map
+│   │       │       ├── node.mjs
+│   │       │       └── node.mjs.map
+│   │       ├── uploads.d.mts
+│   │       ├── uploads.d.mts.map
+│   │       ├── uploads.d.ts
+│   │       ├── uploads.d.ts.map
+│   │       ├── uploads.js
+│   │       ├── uploads.js.map
+│   │       ├── uploads.mjs
+│   │       ├── uploads.mjs.map
+│   │       ├── version.d.mts
+│   │       ├── version.d.mts.map
+│   │       ├── version.d.ts
+│   │       ├── version.d.ts.map
+│   │       ├── version.js
+│   │       ├── version.js.map
+│   │       ├── version.mjs
+│   │       └── version.mjs.map
+│   ├── @babel
+│   │   └── runtime
+│   │       ├── LICENSE
+│   │       ├── README.md
+│   │       ├── helpers
+│   │       │   ├── AwaitValue.js
+│   │       │   ├── OverloadYield.js
+│   │       │   ├── applyDecoratedDescriptor.js
+│   │       │   ├── applyDecs.js
+│   │       │   ├── applyDecs2203.js
+│   │       │   ├── applyDecs2203R.js
+│   │       │   ├── applyDecs2301.js
+│   │       │   ├── applyDecs2305.js
+│   │       │   ├── applyDecs2311.js
+│   │       │   ├── arrayLikeToArray.js
+│   │       │   ├── arrayWithHoles.js
+│   │       │   ├── arrayWithoutHoles.js
+│   │       │   ├── assertClassBrand.js
+│   │       │   ├── assertThisInitialized.js
+│   │       │   ├── asyncGeneratorDelegate.js
+│   │       │   ├── asyncIterator.js
+│   │       │   ├── asyncToGenerator.js
+│   │       │   ├── awaitAsyncGenerator.js
+│   │       │   ├── callSuper.js
+│   │       │   ├── checkInRHS.js
+│   │       │   ├── checkPrivateRedeclaration.js
+│   │       │   ├── classApplyDescriptorDestructureSet.js
+│   │       │   ├── classApplyDescriptorGet.js
+│   │       │   ├── classApplyDescriptorSet.js
+│   │       │   ├── classCallCheck.js
+│   │       │   ├── classCheckPrivateStaticAccess.js
+│   │       │   ├── classCheckPrivateStaticFieldDescriptor.js
+│   │       │   ├── classExtractFieldDescriptor.js
+│   │       │   ├── classNameTDZError.js
+│   │       │   ├── classPrivateFieldDestructureSet.js
+│   │       │   ├── classPrivateFieldGet.js
+│   │       │   ├── classPrivateFieldGet2.js
+│   │       │   ├── classPrivateFieldInitSpec.js
+│   │       │   ├── classPrivateFieldLooseBase.js
+│   │       │   ├── classPrivateFieldLooseKey.js
+│   │       │   ├── classPrivateFieldSet.js
+│   │       │   ├── classPrivateFieldSet2.js
+│   │       │   ├── classPrivateGetter.js
+│   │       │   ├── classPrivateMethodGet.js
+│   │       │   ├── classPrivateMethodInitSpec.js
+│   │       │   ├── classPrivateMethodSet.js
+│   │       │   ├── classPrivateSetter.js
+│   │       │   ├── classStaticPrivateFieldDestructureSet.js
+│   │       │   ├── classStaticPrivateFieldSpecGet.js
+│   │       │   ├── classStaticPrivateFieldSpecSet.js
+│   │       │   ├── classStaticPrivateMethodGet.js
+│   │       │   ├── classStaticPrivateMethodSet.js
+│   │       │   ├── construct.js
+│   │       │   ├── createClass.js
+│   │       │   ├── createForOfIteratorHelper.js
+│   │       │   ├── createForOfIteratorHelperLoose.js
+│   │       │   ├── createSuper.js
+│   │       │   ├── decorate.js
+│   │       │   ├── defaults.js
+│   │       │   ├── defineAccessor.js
+│   │       │   ├── defineEnumerableProperties.js
+│   │       │   ├── defineProperty.js
+│   │       │   ├── dispose.js
+│   │       │   ├── esm
+│   │       │   │   ├── AwaitValue.js
+│   │       │   │   ├── OverloadYield.js
+│   │       │   │   ├── applyDecoratedDescriptor.js
+│   │       │   │   ├── applyDecs.js
+│   │       │   │   ├── applyDecs2203.js
+│   │       │   │   ├── applyDecs2203R.js
+│   │       │   │   ├── applyDecs2301.js
+│   │       │   │   ├── applyDecs2305.js
+│   │       │   │   ├── applyDecs2311.js
+│   │       │   │   ├── arrayLikeToArray.js
+│   │       │   │   ├── arrayWithHoles.js
+│   │       │   │   ├── arrayWithoutHoles.js
+│   │       │   │   ├── assertClassBrand.js
+│   │       │   │   ├── assertThisInitialized.js
+│   │       │   │   ├── asyncGeneratorDelegate.js
+│   │       │   │   ├── asyncIterator.js
+│   │       │   │   ├── asyncToGenerator.js
+│   │       │   │   ├── awaitAsyncGenerator.js
+│   │       │   │   ├── callSuper.js
+│   │       │   │   ├── checkInRHS.js
+│   │       │   │   ├── checkPrivateRedeclaration.js
+│   │       │   │   ├── classApplyDescriptorDestructureSet.js
+│   │       │   │   ├── classApplyDescriptorGet.js
+│   │       │   │   ├── classApplyDescriptorSet.js
+│   │       │   │   ├── classCallCheck.js
+│   │       │   │   ├── classCheckPrivateStaticAccess.js
+│   │       │   │   ├── classCheckPrivateStaticFieldDescriptor.js
+│   │       │   │   ├── classExtractFieldDescriptor.js
+│   │       │   │   ├── classNameTDZError.js
+│   │       │   │   ├── classPrivateFieldDestructureSet.js
+│   │       │   │   ├── classPrivateFieldGet.js
+│   │       │   │   ├── classPrivateFieldGet2.js
+│   │       │   │   ├── classPrivateFieldInitSpec.js
+│   │       │   │   ├── classPrivateFieldLooseBase.js
+│   │       │   │   ├── classPrivateFieldLooseKey.js
+│   │       │   │   ├── classPrivateFieldSet.js
+│   │       │   │   ├── classPrivateFieldSet2.js
+│   │       │   │   ├── classPrivateGetter.js
+│   │       │   │   ├── classPrivateMethodGet.js
+│   │       │   │   ├── classPrivateMethodInitSpec.js
+│   │       │   │   ├── classPrivateMethodSet.js
+│   │       │   │   ├── classPrivateSetter.js
+│   │       │   │   ├── classStaticPrivateFieldDestructureSet.js
+│   │       │   │   ├── classStaticPrivateFieldSpecGet.js
+│   │       │   │   ├── classStaticPrivateFieldSpecSet.js
+│   │       │   │   ├── classStaticPrivateMethodGet.js
+│   │       │   │   ├── classStaticPrivateMethodSet.js
+│   │       │   │   ├── construct.js
+│   │       │   │   ├── createClass.js
+│   │       │   │   ├── createForOfIteratorHelper.js
+│   │       │   │   ├── createForOfIteratorHelperLoose.js
+│   │       │   │   ├── createSuper.js
+│   │       │   │   ├── decorate.js
+│   │       │   │   ├── defaults.js
+│   │       │   │   ├── defineAccessor.js
+│   │       │   │   ├── defineEnumerableProperties.js
+│   │       │   │   ├── defineProperty.js
+│   │       │   │   ├── dispose.js
+│   │       │   │   ├── extends.js
+│   │       │   │   ├── get.js
+│   │       │   │   ├── getPrototypeOf.js
+│   │       │   │   ├── identity.js
+│   │       │   │   ├── importDeferProxy.js
+│   │       │   │   ├── inherits.js
+│   │       │   │   ├── inheritsLoose.js
+│   │       │   │   ├── initializerDefineProperty.js
+│   │       │   │   ├── initializerWarningHelper.js
+│   │       │   │   ├── instanceof.js
+│   │       │   │   ├── interopRequireDefault.js
+│   │       │   │   ├── interopRequireWildcard.js
+│   │       │   │   ├── isNativeFunction.js
+│   │       │   │   ├── isNativeReflectConstruct.js
+│   │       │   │   ├── iterableToArray.js
+│   │       │   │   ├── iterableToArrayLimit.js
+│   │       │   │   ├── jsx.js
+│   │       │   │   ├── maybeArrayLike.js
+│   │       │   │   ├── newArrowCheck.js
+│   │       │   │   ├── nonIterableRest.js
+│   │       │   │   ├── nonIterableSpread.js
+│   │       │   │   ├── nullishReceiverError.js
+│   │       │   │   ├── objectDestructuringEmpty.js
+│   │       │   │   ├── objectSpread.js
+│   │       │   │   ├── objectSpread2.js
+│   │       │   │   ├── objectWithoutProperties.js
+│   │       │   │   ├── objectWithoutPropertiesLoose.js
+│   │       │   │   ├── package.json
+│   │       │   │   ├── possibleConstructorReturn.js
+│   │       │   │   ├── readOnlyError.js
+│   │       │   │   ├── regenerator.js
+│   │       │   │   ├── regeneratorAsync.js
+│   │       │   │   ├── regeneratorAsyncGen.js
+│   │       │   │   ├── regeneratorAsyncIterator.js
+│   │       │   │   ├── regeneratorDefine.js
+│   │       │   │   ├── regeneratorKeys.js
+│   │       │   │   ├── regeneratorRuntime.js
+│   │       │   │   ├── regeneratorValues.js
+│   │       │   │   ├── set.js
+│   │       │   │   ├── setFunctionName.js
+│   │       │   │   ├── setPrototypeOf.js
+│   │       │   │   ├── skipFirstGeneratorNext.js
+│   │       │   │   ├── slicedToArray.js
+│   │       │   │   ├── superPropBase.js
+│   │       │   │   ├── superPropGet.js
+│   │       │   │   ├── superPropSet.js
+│   │       │   │   ├── taggedTemplateLiteral.js
+│   │       │   │   ├── taggedTemplateLiteralLoose.js
+│   │       │   │   ├── tdz.js
+│   │       │   │   ├── temporalRef.js
+│   │       │   │   ├── temporalUndefined.js
+│   │       │   │   ├── toArray.js
+│   │       │   │   ├── toConsumableArray.js
+│   │       │   │   ├── toPrimitive.js
+│   │       │   │   ├── toPropertyKey.js
+│   │       │   │   ├── toSetter.js
+│   │       │   │   ├── tsRewriteRelativeImportExtensions.js
+│   │       │   │   ├── typeof.js
+│   │       │   │   ├── unsupportedIterableToArray.js
+│   │       │   │   ├── using.js
+│   │       │   │   ├── usingCtx.js
+│   │       │   │   ├── wrapAsyncGenerator.js
+│   │       │   │   ├── wrapNativeSuper.js
+│   │       │   │   ├── wrapRegExp.js
+│   │       │   │   └── writeOnlyError.js
+│   │       │   ├── extends.js
+│   │       │   ├── get.js
+│   │       │   ├── getPrototypeOf.js
+│   │       │   ├── identity.js
+│   │       │   ├── importDeferProxy.js
+│   │       │   ├── inherits.js
+│   │       │   ├── inheritsLoose.js
+│   │       │   ├── initializerDefineProperty.js
+│   │       │   ├── initializerWarningHelper.js
+│   │       │   ├── instanceof.js
+│   │       │   ├── interopRequireDefault.js
+│   │       │   ├── interopRequireWildcard.js
+│   │       │   ├── isNativeFunction.js
+│   │       │   ├── isNativeReflectConstruct.js
+│   │       │   ├── iterableToArray.js
+│   │       │   ├── iterableToArrayLimit.js
+│   │       │   ├── jsx.js
+│   │       │   ├── maybeArrayLike.js
+│   │       │   ├── newArrowCheck.js
+│   │       │   ├── nonIterableRest.js
+│   │       │   ├── nonIterableSpread.js
+│   │       │   ├── nullishReceiverError.js
+│   │       │   ├── objectDestructuringEmpty.js
+│   │       │   ├── objectSpread.js
+│   │       │   ├── objectSpread2.js
+│   │       │   ├── objectWithoutProperties.js
+│   │       │   ├── objectWithoutPropertiesLoose.js
+│   │       │   ├── possibleConstructorReturn.js
+│   │       │   ├── readOnlyError.js
+│   │       │   ├── regenerator.js
+│   │       │   ├── regeneratorAsync.js
+│   │       │   ├── regeneratorAsyncGen.js
+│   │       │   ├── regeneratorAsyncIterator.js
+│   │       │   ├── regeneratorDefine.js
+│   │       │   ├── regeneratorKeys.js
+│   │       │   ├── regeneratorRuntime.js
+│   │       │   ├── regeneratorValues.js
+│   │       │   ├── set.js
+│   │       │   ├── setFunctionName.js
+│   │       │   ├── setPrototypeOf.js
+│   │       │   ├── skipFirstGeneratorNext.js
+│   │       │   ├── slicedToArray.js
+│   │       │   ├── superPropBase.js
+│   │       │   ├── superPropGet.js
+│   │       │   ├── superPropSet.js
+│   │       │   ├── taggedTemplateLiteral.js
+│   │       │   ├── taggedTemplateLiteralLoose.js
+│   │       │   ├── tdz.js
+│   │       │   ├── temporalRef.js
+│   │       │   ├── temporalUndefined.js
+│   │       │   ├── toArray.js
+│   │       │   ├── toConsumableArray.js
+│   │       │   ├── toPrimitive.js
+│   │       │   ├── toPropertyKey.js
+│   │       │   ├── toSetter.js
+│   │       │   ├── tsRewriteRelativeImportExtensions.js
+│   │       │   ├── typeof.js
+│   │       │   ├── unsupportedIterableToArray.js
+│   │       │   ├── using.js
+│   │       │   ├── usingCtx.js
+│   │       │   ├── wrapAsyncGenerator.js
+│   │       │   ├── wrapNativeSuper.js
+│   │       │   ├── wrapRegExp.js
+│   │       │   └── writeOnlyError.js
+│   │       ├── package.json
+│   │       └── regenerator
+│   │           └── index.js
+│   ├── @google
+│   │   └── generative-ai
+│   │       ├── LICENSE
+│   │       ├── README.md
+│   │       ├── dist
+│   │       │   ├── generative-ai.d.ts
+│   │       │   ├── index.js
+│   │       │   ├── index.js.map
+│   │       │   ├── index.mjs
+│   │       │   ├── index.mjs.map
+│   │       │   ├── scripts
+│   │       │   │   ├── check-format.d.ts
+│   │       │   │   ├── format-patterns.d.ts
+│   │       │   │   ├── license.d.ts
+│   │       │   │   └── run-format.d.ts
+│   │       │   ├── server
+│   │       │   │   ├── index.js
+│   │       │   │   ├── index.js.map
+│   │       │   │   ├── index.mjs
+│   │       │   │   ├── index.mjs.map
+│   │       │   │   ├── scripts
+│   │       │   │   │   ├── check-format.d.ts
+│   │       │   │   │   ├── format-patterns.d.ts
+│   │       │   │   │   ├── license.d.ts
+│   │       │   │   │   └── run-format.d.ts
+│   │       │   │   ├── server.d.ts
+│   │       │   │   ├── src
+│   │       │   │   │   ├── errors.d.ts
+│   │       │   │   │   ├── gen-ai.d.ts
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── methods
+│   │       │   │   │   │   ├── chat-session-helpers.d.ts
+│   │       │   │   │   │   ├── chat-session.d.ts
+│   │       │   │   │   │   ├── count-tokens.d.ts
+│   │       │   │   │   │   ├── embed-content.d.ts
+│   │       │   │   │   │   └── generate-content.d.ts
+│   │       │   │   │   ├── models
+│   │       │   │   │   │   └── generative-model.d.ts
+│   │       │   │   │   ├── requests
+│   │       │   │   │   │   ├── request-helpers.d.ts
+│   │       │   │   │   │   ├── request.d.ts
+│   │       │   │   │   │   ├── response-helpers.d.ts
+│   │       │   │   │   │   └── stream-reader.d.ts
+│   │       │   │   │   └── server
+│   │       │   │   │       ├── cache-manager.d.ts
+│   │       │   │   │       ├── constants.d.ts
+│   │       │   │   │       ├── file-manager.d.ts
+│   │       │   │   │       ├── index.d.ts
+│   │       │   │   │       └── request.d.ts
+│   │       │   │   └── types
+│   │       │   │       ├── content.d.ts
+│   │       │   │       ├── enums.d.ts
+│   │       │   │       ├── function-calling.d.ts
+│   │       │   │       ├── index.d.ts
+│   │       │   │       ├── requests.d.ts
+│   │       │   │       ├── responses.d.ts
+│   │       │   │       ├── search-grounding.d.ts
+│   │       │   │       └── server
+│   │       │   │           ├── caching.d.ts
+│   │       │   │           ├── files.d.ts
+│   │       │   │           ├── index.d.ts
+│   │       │   │           └── shared.d.ts
+│   │       │   ├── src
+│   │       │   │   ├── errors.d.ts
+│   │       │   │   ├── gen-ai.d.ts
+│   │       │   │   ├── index.d.ts
+│   │       │   │   ├── methods
+│   │       │   │   │   ├── chat-session-helpers.d.ts
+│   │       │   │   │   ├── chat-session.d.ts
+│   │       │   │   │   ├── count-tokens.d.ts
+│   │       │   │   │   ├── embed-content.d.ts
+│   │       │   │   │   └── generate-content.d.ts
+│   │       │   │   ├── models
+│   │       │   │   │   └── generative-model.d.ts
+│   │       │   │   ├── requests
+│   │       │   │   │   ├── request-helpers.d.ts
+│   │       │   │   │   ├── request.d.ts
+│   │       │   │   │   ├── response-helpers.d.ts
+│   │       │   │   │   └── stream-reader.d.ts
+│   │       │   │   └── server
+│   │       │   │       ├── cache-manager.d.ts
+│   │       │   │       ├── constants.d.ts
+│   │       │   │       ├── file-manager.d.ts
+│   │       │   │       ├── index.d.ts
+│   │       │   │       └── request.d.ts
+│   │       │   ├── tsdoc-metadata.json
+│   │       │   └── types
+│   │       │       ├── content.d.ts
+│   │       │       ├── enums.d.ts
+│   │       │       ├── function-calling.d.ts
+│   │       │       ├── index.d.ts
+│   │       │       ├── requests.d.ts
+│   │       │       ├── responses.d.ts
+│   │       │       ├── search-grounding.d.ts
+│   │       │       └── server
+│   │       │           ├── caching.d.ts
+│   │       │           ├── files.d.ts
+│   │       │           ├── index.d.ts
+│   │       │           └── shared.d.ts
+│   │       ├── package.json
+│   │       └── server
+│   │           └── package.json
+│   ├── @stablelib
+│   │   └── base64
+│   │       ├── LICENSE
+│   │       ├── base64.bench.ts
+│   │       ├── base64.test.ts
+│   │       ├── base64.ts
+│   │       ├── lib
+│   │       │   ├── base64.bench.d.ts
+│   │       │   ├── base64.bench.js
+│   │       │   ├── base64.bench.js.map
+│   │       │   ├── base64.d.ts
+│   │       │   ├── base64.js
+│   │       │   ├── base64.js.map
+│   │       │   ├── base64.test.d.ts
+│   │       │   ├── base64.test.js
+│   │       │   └── base64.test.js.map
+│   │       ├── package.json
+│   │       └── tsconfig.json
+│   ├── argparse
+│   │   ├── CHANGELOG.md
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── argparse.js
+│   │   ├── lib
+│   │   │   ├── sub.js
+│   │   │   └── textwrap.js
+│   │   └── package.json
+│   ├── dotenv
+│   │   ├── CHANGELOG.md
+│   │   ├── LICENSE
+│   │   ├── README-es.md
+│   │   ├── README.md
+│   │   ├── SECURITY.md
+│   │   ├── config.d.ts
+│   │   ├── config.js
+│   │   ├── lib
+│   │   │   ├── cli-options.js
+│   │   │   ├── env-options.js
+│   │   │   ├── main.d.ts
+│   │   │   └── main.js
+│   │   ├── package.json
+│   │   └── skills
+│   │       ├── dotenv
+│   │       │   └── SKILL.md
+│   │       └── dotenvx
+│   │           └── SKILL.md
+│   ├── fast-sha256
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── package.json
+│   │   ├── sha256.d.ts
+│   │   ├── sha256.js
+│   │   └── sha256.min.js
+│   ├── fsevents
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── fsevents.d.ts
+│   │   ├── fsevents.js
+│   │   ├── fsevents.node
+│   │   └── package.json
+│   ├── js-yaml
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── bin
+│   │   │   └── js-yaml.js
+│   │   ├── dist
+│   │   │   ├── js-yaml.js
+│   │   │   ├── js-yaml.min.js
+│   │   │   └── js-yaml.mjs
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── common.js
+│   │   │   ├── dumper.js
+│   │   │   ├── exception.js
+│   │   │   ├── loader.js
+│   │   │   ├── schema
+│   │   │   │   ├── core.js
+│   │   │   │   ├── default.js
+│   │   │   │   ├── failsafe.js
+│   │   │   │   └── json.js
+│   │   │   ├── schema.js
+│   │   │   ├── snippet.js
+│   │   │   ├── type
+│   │   │   │   ├── binary.js
+│   │   │   │   ├── bool.js
+│   │   │   │   ├── float.js
+│   │   │   │   ├── int.js
+│   │   │   │   ├── map.js
+│   │   │   │   ├── merge.js
+│   │   │   │   ├── null.js
+│   │   │   │   ├── omap.js
+│   │   │   │   ├── pairs.js
+│   │   │   │   ├── seq.js
+│   │   │   │   ├── set.js
+│   │   │   │   ├── str.js
+│   │   │   │   └── timestamp.js
+│   │   │   └── type.js
+│   │   └── package.json
+│   ├── json-schema-to-ts
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── lib
+│   │   │   ├── cjs
+│   │   │   │   ├── definitions
+│   │   │   │   │   ├── deserializationPattern.js
+│   │   │   │   │   ├── deserializationPattern.js.map
+│   │   │   │   │   ├── extendedJsonSchema.js
+│   │   │   │   │   ├── extendedJsonSchema.js.map
+│   │   │   │   │   ├── fromSchemaOptions.js
+│   │   │   │   │   ├── fromSchemaOptions.js.map
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── jsonSchema.js
+│   │   │   │   │   └── jsonSchema.js.map
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.js.map
+│   │   │   │   ├── parse-options.js
+│   │   │   │   ├── parse-options.js.map
+│   │   │   │   ├── parse-schema
+│   │   │   │   │   ├── allOf.js
+│   │   │   │   │   ├── allOf.js.map
+│   │   │   │   │   ├── anyOf.js
+│   │   │   │   │   ├── anyOf.js.map
+│   │   │   │   │   ├── array.js
+│   │   │   │   │   ├── array.js.map
+│   │   │   │   │   ├── const.js
+│   │   │   │   │   ├── const.js.map
+│   │   │   │   │   ├── deserialize.js
+│   │   │   │   │   ├── deserialize.js.map
+│   │   │   │   │   ├── enum.js
+│   │   │   │   │   ├── enum.js.map
+│   │   │   │   │   ├── ifThenElse.js
+│   │   │   │   │   ├── ifThenElse.js.map
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── multipleTypes.js
+│   │   │   │   │   ├── multipleTypes.js.map
+│   │   │   │   │   ├── not.js
+│   │   │   │   │   ├── not.js.map
+│   │   │   │   │   ├── nullable.js
+│   │   │   │   │   ├── nullable.js.map
+│   │   │   │   │   ├── object.js
+│   │   │   │   │   ├── object.js.map
+│   │   │   │   │   ├── oneOf.js
+│   │   │   │   │   ├── oneOf.js.map
+│   │   │   │   │   ├── references
+│   │   │   │   │   │   ├── external.js
+│   │   │   │   │   │   ├── external.js.map
+│   │   │   │   │   │   ├── index.js
+│   │   │   │   │   │   ├── index.js.map
+│   │   │   │   │   │   ├── internal.js
+│   │   │   │   │   │   ├── internal.js.map
+│   │   │   │   │   │   ├── utils.js
+│   │   │   │   │   │   └── utils.js.map
+│   │   │   │   │   ├── singleType.js
+│   │   │   │   │   ├── singleType.js.map
+│   │   │   │   │   ├── utils.js
+│   │   │   │   │   └── utils.js.map
+│   │   │   │   ├── type-utils
+│   │   │   │   │   ├── and.js
+│   │   │   │   │   ├── and.js.map
+│   │   │   │   │   ├── extends.js
+│   │   │   │   │   ├── extends.js.map
+│   │   │   │   │   ├── get.js
+│   │   │   │   │   ├── get.js.map
+│   │   │   │   │   ├── if.js
+│   │   │   │   │   ├── if.js.map
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── join.js
+│   │   │   │   │   ├── join.js.map
+│   │   │   │   │   ├── key.js
+│   │   │   │   │   ├── key.js.map
+│   │   │   │   │   ├── narrow.js
+│   │   │   │   │   ├── narrow.js.map
+│   │   │   │   │   ├── not.js
+│   │   │   │   │   ├── not.js.map
+│   │   │   │   │   ├── pop.js
+│   │   │   │   │   ├── pop.js.map
+│   │   │   │   │   ├── split.js
+│   │   │   │   │   ├── split.js.map
+│   │   │   │   │   ├── tail.js
+│   │   │   │   │   ├── tail.js.map
+│   │   │   │   │   ├── writable.js
+│   │   │   │   │   └── writable.js.map
+│   │   │   │   └── utils
+│   │   │   │       ├── asConst.js
+│   │   │   │       ├── asConst.js.map
+│   │   │   │       ├── index.js
+│   │   │   │       ├── index.js.map
+│   │   │   │       └── type-guards
+│   │   │   │           ├── compiler.js
+│   │   │   │           ├── compiler.js.map
+│   │   │   │           ├── index.js
+│   │   │   │           ├── index.js.map
+│   │   │   │           ├── validator.js
+│   │   │   │           └── validator.js.map
+│   │   │   ├── esm
+│   │   │   │   ├── definitions
+│   │   │   │   │   ├── deserializationPattern.js
+│   │   │   │   │   ├── deserializationPattern.js.map
+│   │   │   │   │   ├── extendedJsonSchema.js
+│   │   │   │   │   ├── extendedJsonSchema.js.map
+│   │   │   │   │   ├── fromSchemaOptions.js
+│   │   │   │   │   ├── fromSchemaOptions.js.map
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── jsonSchema.js
+│   │   │   │   │   └── jsonSchema.js.map
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.js.map
+│   │   │   │   ├── parse-options.js
+│   │   │   │   ├── parse-options.js.map
+│   │   │   │   ├── parse-schema
+│   │   │   │   │   ├── allOf.js
+│   │   │   │   │   ├── allOf.js.map
+│   │   │   │   │   ├── anyOf.js
+│   │   │   │   │   ├── anyOf.js.map
+│   │   │   │   │   ├── array.js
+│   │   │   │   │   ├── array.js.map
+│   │   │   │   │   ├── const.js
+│   │   │   │   │   ├── const.js.map
+│   │   │   │   │   ├── deserialize.js
+│   │   │   │   │   ├── deserialize.js.map
+│   │   │   │   │   ├── enum.js
+│   │   │   │   │   ├── enum.js.map
+│   │   │   │   │   ├── ifThenElse.js
+│   │   │   │   │   ├── ifThenElse.js.map
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── multipleTypes.js
+│   │   │   │   │   ├── multipleTypes.js.map
+│   │   │   │   │   ├── not.js
+│   │   │   │   │   ├── not.js.map
+│   │   │   │   │   ├── nullable.js
+│   │   │   │   │   ├── nullable.js.map
+│   │   │   │   │   ├── object.js
+│   │   │   │   │   ├── object.js.map
+│   │   │   │   │   ├── oneOf.js
+│   │   │   │   │   ├── oneOf.js.map
+│   │   │   │   │   ├── references
+│   │   │   │   │   │   ├── external.js
+│   │   │   │   │   │   ├── external.js.map
+│   │   │   │   │   │   ├── index.js
+│   │   │   │   │   │   ├── index.js.map
+│   │   │   │   │   │   ├── internal.js
+│   │   │   │   │   │   ├── internal.js.map
+│   │   │   │   │   │   ├── utils.js
+│   │   │   │   │   │   └── utils.js.map
+│   │   │   │   │   ├── singleType.js
+│   │   │   │   │   ├── singleType.js.map
+│   │   │   │   │   ├── utils.js
+│   │   │   │   │   └── utils.js.map
+│   │   │   │   ├── type-utils
+│   │   │   │   │   ├── and.js
+│   │   │   │   │   ├── and.js.map
+│   │   │   │   │   ├── extends.js
+│   │   │   │   │   ├── extends.js.map
+│   │   │   │   │   ├── get.js
+│   │   │   │   │   ├── get.js.map
+│   │   │   │   │   ├── if.js
+│   │   │   │   │   ├── if.js.map
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── join.js
+│   │   │   │   │   ├── join.js.map
+│   │   │   │   │   ├── key.js
+│   │   │   │   │   ├── key.js.map
+│   │   │   │   │   ├── narrow.js
+│   │   │   │   │   ├── narrow.js.map
+│   │   │   │   │   ├── not.js
+│   │   │   │   │   ├── not.js.map
+│   │   │   │   │   ├── pop.js
+│   │   │   │   │   ├── pop.js.map
+│   │   │   │   │   ├── split.js
+│   │   │   │   │   ├── split.js.map
+│   │   │   │   │   ├── tail.js
+│   │   │   │   │   ├── tail.js.map
+│   │   │   │   │   ├── writable.js
+│   │   │   │   │   └── writable.js.map
+│   │   │   │   └── utils
+│   │   │   │       ├── asConst.js
+│   │   │   │       ├── asConst.js.map
+│   │   │   │       ├── index.js
+│   │   │   │       ├── index.js.map
+│   │   │   │       └── type-guards
+│   │   │   │           ├── compiler.js
+│   │   │   │           ├── compiler.js.map
+│   │   │   │           ├── index.js
+│   │   │   │           ├── index.js.map
+│   │   │   │           ├── validator.js
+│   │   │   │           └── validator.js.map
+│   │   │   └── types
+│   │   │       ├── definitions
+│   │   │       │   ├── deserializationPattern.d.ts
+│   │   │       │   ├── deserializationPattern.js
+│   │   │       │   ├── extendedJsonSchema.d.ts
+│   │   │       │   ├── extendedJsonSchema.js
+│   │   │       │   ├── fromSchemaOptions.d.ts
+│   │   │       │   ├── fromSchemaOptions.js
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── jsonSchema.d.ts
+│   │   │       │   └── jsonSchema.js
+│   │   │       ├── index.d.ts
+│   │   │       ├── index.js
+│   │   │       ├── parse-options.d.ts
+│   │   │       ├── parse-options.js
+│   │   │       ├── parse-schema
+│   │   │       │   ├── allOf.d.ts
+│   │   │       │   ├── allOf.js
+│   │   │       │   ├── anyOf.d.ts
+│   │   │       │   ├── anyOf.js
+│   │   │       │   ├── array.d.ts
+│   │   │       │   ├── array.js
+│   │   │       │   ├── const.d.ts
+│   │   │       │   ├── const.js
+│   │   │       │   ├── deserialize.d.ts
+│   │   │       │   ├── deserialize.js
+│   │   │       │   ├── enum.d.ts
+│   │   │       │   ├── enum.js
+│   │   │       │   ├── ifThenElse.d.ts
+│   │   │       │   ├── ifThenElse.js
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── multipleTypes.d.ts
+│   │   │       │   ├── multipleTypes.js
+│   │   │       │   ├── not.d.ts
+│   │   │       │   ├── not.js
+│   │   │       │   ├── nullable.d.ts
+│   │   │       │   ├── nullable.js
+│   │   │       │   ├── object.d.ts
+│   │   │       │   ├── object.js
+│   │   │       │   ├── oneOf.d.ts
+│   │   │       │   ├── oneOf.js
+│   │   │       │   ├── references
+│   │   │       │   │   ├── external.d.ts
+│   │   │       │   │   ├── external.js
+│   │   │       │   │   ├── index.d.ts
+│   │   │       │   │   ├── index.js
+│   │   │       │   │   ├── internal.d.ts
+│   │   │       │   │   ├── internal.js
+│   │   │       │   │   ├── utils.d.ts
+│   │   │       │   │   └── utils.js
+│   │   │       │   ├── singleType.d.ts
+│   │   │       │   ├── singleType.js
+│   │   │       │   ├── utils.d.ts
+│   │   │       │   └── utils.js
+│   │   │       ├── type-utils
+│   │   │       │   ├── and.d.ts
+│   │   │       │   ├── and.js
+│   │   │       │   ├── extends.d.ts
+│   │   │       │   ├── extends.js
+│   │   │       │   ├── get.d.ts
+│   │   │       │   ├── get.js
+│   │   │       │   ├── if.d.ts
+│   │   │       │   ├── if.js
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── join.d.ts
+│   │   │       │   ├── join.js
+│   │   │       │   ├── key.d.ts
+│   │   │       │   ├── key.js
+│   │   │       │   ├── narrow.d.ts
+│   │   │       │   ├── narrow.js
+│   │   │       │   ├── not.d.ts
+│   │   │       │   ├── not.js
+│   │   │       │   ├── pop.d.ts
+│   │   │       │   ├── pop.js
+│   │   │       │   ├── split.d.ts
+│   │   │       │   ├── split.js
+│   │   │       │   ├── tail.d.ts
+│   │   │       │   ├── tail.js
+│   │   │       │   ├── writable.d.ts
+│   │   │       │   └── writable.js
+│   │   │       └── utils
+│   │   │           ├── asConst.d.ts
+│   │   │           ├── asConst.js
+│   │   │           ├── index.d.ts
+│   │   │           ├── index.js
+│   │   │           └── type-guards
+│   │   │               ├── compiler.d.ts
+│   │   │               ├── compiler.js
+│   │   │               ├── index.d.ts
+│   │   │               ├── index.js
+│   │   │               ├── validator.d.ts
+│   │   │               └── validator.js
+│   │   └── package.json
+│   ├── playwright
+│   │   ├── LICENSE
+│   │   ├── NOTICE
+│   │   ├── README.md
+│   │   ├── ThirdPartyNotices.txt
+│   │   ├── cli.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── index.mjs
+│   │   ├── jsx-runtime.js
+│   │   ├── jsx-runtime.mjs
+│   │   ├── lib
+│   │   │   ├── agents
+│   │   │   │   ├── agentParser.js
+│   │   │   │   ├── copilot-setup-steps.yml
+│   │   │   │   ├── generateAgents.js
+│   │   │   │   ├── playwright-test-coverage.prompt.md
+│   │   │   │   ├── playwright-test-generate.prompt.md
+│   │   │   │   ├── playwright-test-generator.agent.md
+│   │   │   │   ├── playwright-test-heal.prompt.md
+│   │   │   │   ├── playwright-test-healer.agent.md
+│   │   │   │   ├── playwright-test-plan.prompt.md
+│   │   │   │   └── playwright-test-planner.agent.md
+│   │   │   ├── cli
+│   │   │   │   ├── reportActions.js
+│   │   │   │   └── testActions.js
+│   │   │   ├── common
+│   │   │   │   ├── index.js
+│   │   │   │   └── index.js.txt
+│   │   │   ├── errorContext.js
+│   │   │   ├── globals.js
+│   │   │   ├── index.js
+│   │   │   ├── isomorphic.js
+│   │   │   ├── isomorphic.js.txt
+│   │   │   ├── loader
+│   │   │   │   ├── loaderProcessEntry.js
+│   │   │   │   └── loaderProcessEntry.js.txt
+│   │   │   ├── matchers
+│   │   │   │   ├── expect.js
+│   │   │   │   ├── expect.js.LICENSE
+│   │   │   │   └── expect.js.txt
+│   │   │   ├── mcp
+│   │   │   │   └── test
+│   │   │   │       ├── browserBackend.js
+│   │   │   │       ├── generatorTools.js
+│   │   │   │       ├── plannerTools.js
+│   │   │   │       ├── seed.js
+│   │   │   │       ├── streams.js
+│   │   │   │       ├── testBackend.js
+│   │   │   │       ├── testContext.js
+│   │   │   │       ├── testTool.js
+│   │   │   │       └── testTools.js
+│   │   │   ├── package.js
+│   │   │   ├── program.js
+│   │   │   ├── runner
+│   │   │   │   ├── index.js
+│   │   │   │   └── index.js.txt
+│   │   │   ├── transform
+│   │   │   │   ├── babelBundle.js
+│   │   │   │   ├── babelBundle.js.LICENSE
+│   │   │   │   ├── babelBundle.js.txt
+│   │   │   │   ├── esmLoader.js
+│   │   │   │   ├── esmLoader.js.LICENSE
+│   │   │   │   └── esmLoader.js.txt
+│   │   │   ├── util.js
+│   │   │   └── worker
+│   │   │       ├── workerProcessEntry.js
+│   │   │       └── workerProcessEntry.js.txt
+│   │   ├── package.json
+│   │   ├── test.d.ts
+│   │   ├── test.js
+│   │   ├── test.mjs
+│   │   └── types
+│   │       ├── test.d.ts
+│   │       └── testReporter.d.ts
+│   ├── playwright-core
+│   │   ├── LICENSE
+│   │   ├── NOTICE
+│   │   ├── README.md
+│   │   ├── ThirdPartyNotices.txt
+│   │   ├── bin
+│   │   │   ├── install_media_pack.ps1
+│   │   │   ├── install_webkit_wsl.ps1
+│   │   │   ├── reinstall_chrome_beta_linux.sh
+│   │   │   ├── reinstall_chrome_beta_mac.sh
+│   │   │   ├── reinstall_chrome_beta_win.ps1
+│   │   │   ├── reinstall_chrome_stable_linux.sh
+│   │   │   ├── reinstall_chrome_stable_mac.sh
+│   │   │   ├── reinstall_chrome_stable_win.ps1
+│   │   │   ├── reinstall_msedge_beta_linux.sh
+│   │   │   ├── reinstall_msedge_beta_mac.sh
+│   │   │   ├── reinstall_msedge_beta_win.ps1
+│   │   │   ├── reinstall_msedge_dev_linux.sh
+│   │   │   ├── reinstall_msedge_dev_mac.sh
+│   │   │   ├── reinstall_msedge_dev_win.ps1
+│   │   │   ├── reinstall_msedge_stable_linux.sh
+│   │   │   ├── reinstall_msedge_stable_mac.sh
+│   │   │   └── reinstall_msedge_stable_win.ps1
+│   │   ├── browsers.json
+│   │   ├── cli.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── index.mjs
+│   │   ├── lib
+│   │   │   ├── bootstrap.js
+│   │   │   ├── coreBundle.js
+│   │   │   ├── entry
+│   │   │   │   ├── cliDaemon.js
+│   │   │   │   ├── dashboardApp.js
+│   │   │   │   ├── mcp.js
+│   │   │   │   └── oopBrowserDownload.js
+│   │   │   ├── package.js
+│   │   │   ├── server
+│   │   │   │   ├── chromium
+│   │   │   │   │   └── appIcon.png
+│   │   │   │   ├── deviceDescriptorsSource.json
+│   │   │   │   └── electron
+│   │   │   │       └── loader.js
+│   │   │   ├── serverRegistry.js
+│   │   │   ├── serverRegistry.js.LICENSE
+│   │   │   ├── tools
+│   │   │   │   ├── cli-client
+│   │   │   │   │   ├── channelSessions.js
+│   │   │   │   │   ├── cli.js
+│   │   │   │   │   ├── help.json
+│   │   │   │   │   ├── minimist.js
+│   │   │   │   │   ├── output.js
+│   │   │   │   │   ├── program.js
+│   │   │   │   │   ├── registry.js
+│   │   │   │   │   ├── session.js
+│   │   │   │   │   └── skill
+│   │   │   │   │       ├── SKILL.md
+│   │   │   │   │       └── references
+│   │   │   │   │           ├── element-attributes.md
+│   │   │   │   │           ├── playwright-tests.md
+│   │   │   │   │           ├── request-mocking.md
+│   │   │   │   │           ├── running-code.md
+│   │   │   │   │           ├── session-management.md
+│   │   │   │   │           ├── spec-driven-testing.md
+│   │   │   │   │           ├── storage-state.md
+│   │   │   │   │           ├── test-generation.md
+│   │   │   │   │           ├── tracing.md
+│   │   │   │   │           └── video-recording.md
+│   │   │   │   ├── dashboard
+│   │   │   │   │   └── appIcon.png
+│   │   │   │   ├── trace
+│   │   │   │   │   └── SKILL.md
+│   │   │   │   └── utils
+│   │   │   │       ├── extension.js
+│   │   │   │       └── socketConnection.js
+│   │   │   ├── utilsBundle.js
+│   │   │   ├── utilsBundle.js.LICENSE
+│   │   │   ├── vite
+│   │   │   │   ├── dashboard
+│   │   │   │   │   ├── assets
+│   │   │   │   │   │   ├── codicon-DCmgc-ay.ttf
+│   │   │   │   │   │   ├── firefox-1bWoP6pv.svg
+│   │   │   │   │   │   ├── firefox-beta-k3eOH_eK.svg
+│   │   │   │   │   │   ├── firefox-nightly-Cp5nfeDT.svg
+│   │   │   │   │   │   ├── index-BY2S1tHT.css
+│   │   │   │   │   │   ├── index-DpEq2p62.js
+│   │   │   │   │   │   └── safari-na3_-uQk.svg
+│   │   │   │   │   ├── index.html
+│   │   │   │   │   └── playwright-logo.svg
+│   │   │   │   ├── htmlReport
+│   │   │   │   │   ├── index.html
+│   │   │   │   │   ├── report.css
+│   │   │   │   │   └── report.js
+│   │   │   │   ├── recorder
+│   │   │   │   │   ├── assets
+│   │   │   │   │   │   ├── codeMirrorModule-BHYmBp6h.js
+│   │   │   │   │   │   ├── codeMirrorModule-DYBRYzYX.css
+│   │   │   │   │   │   ├── codicon-DCmgc-ay.ttf
+│   │   │   │   │   │   ├── index-4ZiSSCmn.css
+│   │   │   │   │   │   └── index-DA10QRaq.js
+│   │   │   │   │   ├── index.html
+│   │   │   │   │   └── playwright-logo.svg
+│   │   │   │   └── traceViewer
+│   │   │   │       ├── assets
+│   │   │   │       │   ├── codeMirrorModule-Ds_H_9Yq.js
+│   │   │   │       │   ├── defaultSettingsView-D31xz8zv.js
+│   │   │   │       │   ├── urlMatch-BYQrIQwR.js
+│   │   │   │       │   └── xtermModule-CsJ4vdCR.js
+│   │   │   │       ├── codeMirrorModule.DYBRYzYX.css
+│   │   │   │       ├── codicon.DCmgc-ay.ttf
+│   │   │   │       ├── defaultSettingsView.BDKsFU3c.css
+│   │   │   │       ├── index.BCnMPevh.js
+│   │   │   │       ├── index.CzXZzn5A.css
+│   │   │   │       ├── index.html
+│   │   │   │       ├── manifest.webmanifest
+│   │   │   │       ├── playwright-logo.svg
+│   │   │   │       ├── snapshot.html
+│   │   │   │       ├── snapshot.v8KI4P3m.js
+│   │   │   │       ├── sw.bundle.js
+│   │   │   │       ├── uiMode.Btcz36p_.css
+│   │   │   │       ├── uiMode.C2Efnu2P.js
+│   │   │   │       ├── uiMode.html
+│   │   │   │       └── xtermModule.DYP7pi_n.css
+│   │   │   └── xdg-open
+│   │   ├── package.json
+│   │   └── types
+│   │       ├── protocol.d.ts
+│   │       ├── structs.d.ts
+│   │       └── types.d.ts
+│   ├── standardwebhooks
+│   │   ├── README.md
+│   │   ├── dist
+│   │   │   ├── index.d.ts
+│   │   │   ├── index.js
+│   │   │   ├── index.js.map
+│   │   │   ├── timing_safe_equal.d.ts
+│   │   │   ├── timing_safe_equal.js
+│   │   │   └── timing_safe_equal.js.map
+│   │   └── package.json
+│   └── ts-algebra
+│       ├── LICENSE
+│       ├── README.md
+│       ├── lib
+│       │   ├── index.d.ts
+│       │   ├── index.js
+│       │   ├── meta-types
+│       │   │   ├── any.d.ts
+│       │   │   ├── any.js
+│       │   │   ├── array.d.ts
+│       │   │   ├── array.js
+│       │   │   ├── const.d.ts
+│       │   │   ├── const.js
+│       │   │   ├── enum.d.ts
+│       │   │   ├── enum.js
+│       │   │   ├── exclusion
+│       │   │   │   ├── any.d.ts
+│       │   │   │   ├── any.js
+│       │   │   │   ├── array.d.ts
+│       │   │   │   ├── array.js
+│       │   │   │   ├── const.d.ts
+│       │   │   │   ├── const.js
+│       │   │   │   ├── enum.d.ts
+│       │   │   │   ├── enum.js
+│       │   │   │   ├── index.d.ts
+│       │   │   │   ├── index.js
+│       │   │   │   ├── object.d.ts
+│       │   │   │   ├── object.js
+│       │   │   │   ├── primitive.d.ts
+│       │   │   │   ├── primitive.js
+│       │   │   │   ├── tuple.d.ts
+│       │   │   │   ├── tuple.js
+│       │   │   │   ├── union.d.ts
+│       │   │   │   ├── union.js
+│       │   │   │   ├── utils.d.ts
+│       │   │   │   └── utils.js
+│       │   │   ├── index.d.ts
+│       │   │   ├── index.js
+│       │   │   ├── intersection
+│       │   │   │   ├── any.d.ts
+│       │   │   │   ├── any.js
+│       │   │   │   ├── array.d.ts
+│       │   │   │   ├── array.js
+│       │   │   │   ├── const.d.ts
+│       │   │   │   ├── const.js
+│       │   │   │   ├── enum.d.ts
+│       │   │   │   ├── enum.js
+│       │   │   │   ├── index.d.ts
+│       │   │   │   ├── index.js
+│       │   │   │   ├── object.d.ts
+│       │   │   │   ├── object.js
+│       │   │   │   ├── primitive.d.ts
+│       │   │   │   ├── primitive.js
+│       │   │   │   ├── tuple.d.ts
+│       │   │   │   ├── tuple.js
+│       │   │   │   ├── union.d.ts
+│       │   │   │   ├── union.js
+│       │   │   │   ├── utils.d.ts
+│       │   │   │   └── utils.js
+│       │   │   ├── never.d.ts
+│       │   │   ├── never.js
+│       │   │   ├── object.d.ts
+│       │   │   ├── object.js
+│       │   │   ├── primitive.d.ts
+│       │   │   ├── primitive.js
+│       │   │   ├── resolve.d.ts
+│       │   │   ├── resolve.js
+│       │   │   ├── tuple.d.ts
+│       │   │   ├── tuple.js
+│       │   │   ├── type.d.ts
+│       │   │   ├── type.js
+│       │   │   ├── typeId.d.ts
+│       │   │   ├── typeId.js
+│       │   │   ├── union.d.ts
+│       │   │   ├── union.js
+│       │   │   ├── utils.d.ts
+│       │   │   └── utils.js
+│       │   └── utils
+│       │       ├── and.d.ts
+│       │       ├── and.js
+│       │       ├── extends.d.ts
+│       │       ├── extends.js
+│       │       ├── if.d.ts
+│       │       ├── if.js
+│       │       ├── index.d.ts
+│       │       ├── index.js
+│       │       ├── intersectUnion.d.ts
+│       │       ├── intersectUnion.js
+│       │       ├── isNever.d.ts
+│       │       ├── isNever.js
+│       │       ├── merge.d.ts
+│       │       ├── merge.js
+│       │       ├── not.d.ts
+│       │       ├── not.js
+│       │       ├── or.d.ts
+│       │       ├── or.js
+│       │       ├── prettify.d.ts
+│       │       ├── prettify.js
+│       │       ├── tail.d.ts
+│       │       ├── tail.js
+│       │       ├── unionLast.d.ts
+│       │       ├── unionLast.js
+│       │       ├── unionPop.d.ts
+│       │       └── unionPop.js
+│       └── package.json
+├── normalize-statuses.mjs
+├── output
+│   ├── cv-candidate-caravel-bpm-2026-06-10.pdf
+│   ├── cv-candidate-mednet-2026-06-10.pdf
+│   ├── cv-candidate-pilot-2026-06-10.pdf
+│   ├── cv-candidate-pilot.html
+│   ├── html
+│   └── pdf
+│       └── MorganEscott_Copywriter_VARITE_Resume.pdf
+├── package-lock.json
+├── package.json
+├── populate-batch.mjs
+├── portals.yml
+├── prepare-batch.mjs
+├── promote-screened.mjs
+├── providers
+│   ├── _guessing.mjs
+│   ├── _http.mjs
+│   ├── _recognition.mjs
+│   ├── _rss.mjs
+│   ├── _types.js
+│   ├── adzuna.mjs
+│   ├── ashby.mjs
+│   ├── authenticjobs.mjs
+│   ├── crunchboard.mjs
+│   ├── fourdayweek.mjs
+│   ├── greenhouse.mjs
+│   ├── greenhouse.mjs.bak
+│   ├── hackernews.mjs
+│   ├── himalayas.mjs
+│   ├── jobicy.mjs
+│   ├── jobspresso.mjs
+│   ├── lever.mjs
+│   ├── local-parser.mjs
+│   ├── nodesk.mjs
+│   ├── powertofly.mjs
+│   ├── realworkfromanywhere.mjs
+│   ├── recruitee.mjs
+│   ├── remoteok.mjs
+│   ├── remotive.mjs
+│   ├── smartrecruiters.mjs
+│   ├── themuse.mjs
+│   ├── usajobs.mjs
+│   ├── websearch.mjs
+│   ├── weworkremotely.mjs
+│   ├── workable.mjs
+│   ├── workday.mjs
+│   └── workingnomads.mjs
+├── rebuild-state.mjs
+├── release-please-config.json
+├── renovate.json
+├── reports
+│   ├── 025-brightwheel-2026-06-08.md
+│   ├── 026-eve-2026-06-08.md
+│   ├── 027-notion-2026-06-08.md
+│   ├── 028-openai-2026-06-08.md
+│   ├── 029-notion-ee-2026-06-08.md
+│   ├── 030-grow-therapy-2026-06-08.md
+│   ├── 031-activecampaign-2026-06-08.md
+│   ├── 032-gong-2026-06-08.md
+│   ├── 033-magicschool-ai-2026-06-08.md
+│   ├── 034-classdojo-onboarding-2026-06-08.md
+│   ├── 035-classdojo-technical-2026-06-08.md
+│   ├── 036-instructure-customer-marketing-2026-06-08.md
+│   ├── 037-instructure-csm-k12-2026-06-08.md
+│   ├── 038-literati-2026-06-08.md
+│   ├── 039-sweed-2026-06-08.md
+│   ├── 040-coda-superhuman-2026-06-08.md
+│   ├── 041-coda-superhuman-2026-06-08.md
+│   ├── 042-coda-superhuman-2026-06-08.md
+│   ├── 043-superhuman-partner-technical-enablement-manager-2025-05-14.md
+│   ├── 044-superhuman-customer-education-operations-manager-2025-05-14.md
+│   ├── 045-hims-hers-sr-lead-product-copywriter-2025-05-14.md
+│   ├── 046-superhuman-enterprise-csm-grammarly-edu-2025-05-14.md
+│   ├── 047-classdojo-product-marketing-lead-consumer-2025-05-14.md
+│   ├── 048-classdojo-b2b-content-thought-leadership-strategist-2025-05-14.md
+│   ├── 049-instructure-assessment-item-writer-editor-2025-05-14.md
+│   ├── 050-instructure-customer-success-representative-2025-05-14.md
+│   ├── 051-instructure-partner-success-manager-2025-05-14.md
+│   ├── 052-sweed-sr-brand-marketing-designer-2025-05-14.md
+│   ├── 053-superhuman-performance-marketing-lead-2025-05-14.md
+│   ├── 054-hims-hers-director-paid-social-2025-05-14.md
+│   ├── 055-hims-hers-director-product-comms-hims-2025-05-14.md
+│   ├── 056-hims-hers-director-product-comms-hers-2025-05-14.md
+│   ├── 057-classdojo-strategy-operations-lead-2025-05-14.md
+│   ├── 058-classdojo-district-partnerships-manager-2025-05-14.md
+│   ├── 059-classdojo-recruiting-coordinator-2025-05-14.md
+│   ├── 060-magicschool-sr-cs-revops-manager-2025-05-14.md
+│   ├── 061-fi-customer-experience-agent-2025-05-14.md
+│   ├── 062-rover-director-fpa-2025-05-14.md
+│   ├── 063-rover-director-global-provider-gtm-2025-05-14.md
+│   ├── 064-rover-director-provider-pmm-2025-05-14.md
+│   ├── 065-rover-sr-marketing-manager-2025-05-14.md
+│   ├── 066-ppfa-associate-director-strategic-comms-2025-05-14.md
+│   ├── 067-ppfa-sr-specialist-grants-compliance-2025-05-14.md
+│   ├── 068-ppfa-specialist-learning-leadership-dev-2025-05-14.md
+│   ├── 069-notion-2026-06-09.md
+│   ├── 070-livekit-2026-06-09.md
+│   ├── 071-pilot-2026-06-09.md
+│   ├── 072-mednet-2026-06-09.md
+│   ├── 073-sur-la-table-2026-06-09.md
+│   ├── 074-bpm-2026-06-09.md
+│   ├── 075-superhuman-platform-inc-grammarly-2026-06-09.md
+│   ├── 076-superhuman-platform-inc-2026-06-09.md
+│   ├── 077-hims-hers-2026-06-09.md
+│   ├── 078-openai-2026-06-09.md
+│   ├── 079-coalition-technologies-2026-06-09.md
+│   ├── 080-assort-health-2026-06-09.md
+│   ├── 081-magicschool-2026-06-09.md
+│   ├── 082-classdojo-2026-06-09.md
+│   ├── 083-sweed-2026-06-09.md
+│   ├── 084-rover-2026-06-09.md
+│   ├── 085-betterhelp-2026-06-09.md
+│   ├── 086-tanisha-ai-evaluator-2026-06-09.md
+│   ├── 087-varite-copywriter-2026-06-09.md
+│   ├── 088-spectraforce-sdr-2026-06-09.md
+│   ├── 093-company-2026-06-09.md
+│   ├── 105-company-classdojo-2026-06-09.md
+│   ├── 107-company-instrumentl-2026-06-09.md
+│   ├── 108-superhuman-platform-inc-2026-06-09.md
+│   ├── 109-company-openai-2026-06-09.md
+│   ├── 110-company-openai-2026-06-09.md
+│   ├── 111-company-instructure-inc-2026-06-09.md
+│   ├── 112-literati-2026-06-09.md
+│   ├── 113-company-superhuman-platform-inc-2026-06-09.md
+│   ├── 114-superhuman-2026-06-09.md
+│   ├── 115-superhuman-2026-06-09.md
+│   ├── 117-company-literati-2026-06-09.md
+│   ├── 118-pilot-2026-06-10.md
+│   ├── 119-mednet-2026-06-10.md
+│   ├── 120-csc-generation-2026-06-10.md
+│   ├── 121-caravel-bpm-2026-06-10.md
+│   ├── 122-notion-2026-06-10.md
+│   ├── 123-brightwheel-2026-06-10.md
+│   ├── 124-eve-legal-2026-06-10.md
+│   ├── 125-notion-2026-06-10.md
+│   ├── 126-openai-2026-06-10.md
+│   ├── 127-grow-therapy-2026-06-10.md
+│   ├── 128-activecampaign-2026-06-10.md
+│   ├── 129-gong-2026-06-10.md
+│   ├── 130-notion-2026-06-10.md
+│   ├── 131-livekit-2026-06-10.md
+│   ├── 132-instrumentl-2026-06-10.md
+│   ├── 133-pilot-2026-06-10.md
+│   ├── 134-mednet-2026-06-10.md
+│   ├── 135-sur-la-table-2026-06-10.md
+│   ├── 136-bpm-llp-caravel-division-2026-06-10.md
+│   ├── 137-superhuman-grammarly-for-education-2026-06-10.md
+│   ├── 138-superhuman-platform-inc-2026-06-10.md
+│   ├── 139-hims-hers-2026-06-10.md
+│   ├── 140-superhuman-grammarly-for-education-2026-06-10.md
+│   ├── 141-coalition-technologies-2026-06-10.md
+│   ├── 142-assort-health-2026-06-10.md
+│   ├── 143-magicschool-2026-06-10.md
+│   ├── 144-classdojo-2026-06-10.md
+│   ├── 145-classdojo-2026-06-10.md
+│   ├── 146-instructure-2026-06-10.md
+│   ├── 147-instructure-2026-06-10.md
+│   ├── 148-literati-2026-06-10.md
+│   ├── 149-sweed-2026-06-10.md
+│   ├── 150-superhuman-platform-inc-2026-06-10.md
+│   ├── 151-superhuman-platform-inc-2026-06-10.md
+│   ├── 152-superhuman-platform-inc-2026-06-10.md
+│   ├── 153-classdojo-2026-06-10.md
+│   ├── 154-classdojo-2026-06-10.md
+│   ├── 155-instructure-2026-06-10.md
+│   ├── 156-instructure-2026-06-10.md
+│   ├── 157-instructure-2026-06-10.md
+│   ├── 158-sweed-2026-06-10.md
+│   ├── 159-superhuman-platform-inc-2026-06-10.md
+│   ├── 160-hims-hers-2026-06-10.md
+│   ├── 161-hims-hers-2026-06-10.md
+│   ├── 162-hims-hers-2026-06-10.md
+│   ├── 163-classdojo-2026-06-10.md
+│   ├── 164-classdojo-2026-06-10.md
+│   ├── 165-classdojo-2026-06-10.md
+│   ├── 166-magicschool-2026-06-10.md
+│   ├── 167-fi-2026-06-10.md
+│   ├── 168-rover-2026-06-10.md
+│   ├── 169-rover-2026-06-10.md
+│   ├── 170-rover-2026-06-10.md
+│   ├── 171-rover-2026-06-10.md
+│   ├── 172-planned-parenthood-federation-of-america-ppfa-2026-06-10.md
+│   ├── 173-planned-parenthood-federation-of-america-ppfa-2026-06-10.md
+│   ├── 174-planned-parenthood-federation-of-america-ppfa-2026-06-10.md
+│   ├── 175-headspace-2026-06-10.md
+│   ├── 176-headspace-2026-06-10.md
+│   ├── 177-headspace-2026-06-10.md
+│   ├── 178-headspace-formerly-ginger-2026-06-10.md
+│   ├── 179-headspace-formerly-ginger-2026-06-10.md
+│   ├── 180-headspace-2026-06-10.md
+│   ├── 181-headspace-2026-06-10.md
+│   ├── 182-betterhelp-2026-06-10.md
+│   ├── 183-betterhelp-2026-06-10.md
+│   ├── 184-betterhelp-2026-06-10.md
+│   ├── 185-betterhelp-2026-06-10.md
+│   ├── 186-betterhelp-2026-06-10.md
+│   ├── 187-betterhelp-2026-06-10.md
+│   ├── 188-sondermind-2026-06-10.md
+│   ├── 189-rula-2026-06-10.md
+│   ├── 190-rula-2026-06-10.md
+│   ├── 191-rula-2026-06-10.md
+│   ├── 192-rula-2026-06-10.md
+│   ├── 193-rula-2026-06-10.md
+│   ├── 194-rula-2026-06-10.md
+│   ├── 195-rula-2026-06-10.md
+│   ├── 196-grow-therapy-2026-06-10.md
+│   ├── 197-grow-therapy-2026-06-10.md
+│   ├── 198-grow-therapy-2026-06-10.md
+│   ├── 199-grow-therapy-2026-06-10.md
+│   ├── 200-grow-therapy-2026-06-10.md
+│   ├── 201-dutchie-2026-06-10.md
+│   ├── 202-dutchie-2026-06-10.md
+│   ├── 203-activecampaign-2026-06-10.md
+│   ├── 204-activecampaign-2026-06-10.md
+│   ├── 205-activecampaign-2026-06-10.md
+│   ├── 206-activecampaign-2026-06-10.md
+│   ├── 207-active-campaign-2026-06-10.md
+│   ├── 208-nabis-2026-06-10.md
+│   ├── 209-nabis-2026-06-10.md
+│   ├── 210-nabis-2026-06-10.md
+│   ├── 211-nabis-2026-06-10.md
+│   ├── 212-nabis-2026-06-10.md
+│   ├── 213-nabis-2026-06-10.md
+│   ├── 214-nabis-2026-06-10.md
+│   ├── 215-nabis-2026-06-10.md
+│   ├── 216-nabis-2026-06-10.md
+│   ├── 217-gong-2026-06-10.md
+│   ├── 218-gong-2026-06-10.md
+│   ├── 219-gong-2026-06-10.md
+│   ├── 220-gong-2026-06-10.md
+│   ├── 221-gong-2026-06-10.md
+│   ├── 222-gong-2026-06-10.md
+│   ├── 223-gong-2026-06-10.md
+│   ├── 224-gong-io-2026-06-10.md
+│   ├── 225-gong-2026-06-10.md
+│   ├── 226-zapier-2026-06-10.md
+│   ├── 227-zapier-2026-06-10.md
+│   ├── 228-zapier-2026-06-10.md
+│   ├── 229-zapier-2026-06-10.md
+│   ├── 230-zapier-2026-06-10.md
+│   ├── 231-ipsy-personalized-beauty-discovery-inc-2026-06-10.md
+│   ├── 232-ipsy-2026-06-10.md
+│   ├── 233-ipsy-personalized-beauty-discovery-inc-2026-06-10.md
+│   ├── 234-ipsy-personalized-beauty-discovery-inc-2026-06-10.md
+│   ├── 235-ipsy-2026-06-10.md
+│   ├── 236-hims-hers-2026-06-10.md
+│   ├── 237-hims-hers-2026-06-10.md
+│   ├── 238-hims-hers-2026-06-10.md
+│   ├── 239-hims-hers-2026-06-10.md
+│   ├── 240-hims-hers-2026-06-10.md
+│   ├── 241-hims-hers-2026-06-10.md
+│   ├── 242-hims-hers-2026-06-10.md
+│   ├── 243-hims-and-hers-2026-06-10.md
+│   ├── 244-hims-hers-2026-06-10.md
+│   ├── 245-hims-hers-2026-06-10.md
+│   ├── 246-hims-hers-2026-06-10.md
+│   ├── 247-hims-hers-2026-06-10.md
+│   ├── 248-aveanna-healthcare-2026-06-10.md
+│   ├── 249-rocky-talkie-2026-06-10.md
+│   ├── 250-dossier-digital-competency-management-2026-06-10.md
+│   ├── 251-dreamscape-learn-2026-06-10.md
+│   ├── 252-saint-gobain-group-in-india-2026-06-10.md
+│   ├── 253-uppalcorp-2026-06-10.md
+│   ├── 254-ezcater-2026-06-10.md
+│   ├── 255-recruitlytic-hires-2026-06-10.md
+│   ├── 256-sondermind-2026-06-10.md
+│   ├── 257-nestl-health-science-2026-06-10.md
+│   ├── 258-acerto-2026-06-10.md
+│   ├── 259-smartbug-media-2026-06-10.md
+│   ├── 260-animalz-2026-06-10.md
+│   ├── 261-unable-to-determine-2026-06-10.md
+│   ├── 262-runway-2026-06-10.md
+│   ├── 263-adoreal-2026-06-10.md
+│   ├── 264-dinepalace-com-foodme-mobi-2026-06-10.md
+│   ├── 265-the-careside-2026-06-10.md
+│   ├── 266-forager-2026-06-10.md
+│   ├── 267-brightwheel-2026-06-11.md
+│   ├── 268-eve-2026-06-11.md
+│   ├── 269-grow-therapy-2026-06-11.md
+│   ├── 270-activecampaign-2026-06-11.md
+│   ├── 271-gong-2026-06-11.md
+│   ├── 272-livekit-2026-06-11.md
+│   ├── 273-instrumentl-2026-06-11.md
+│   ├── 274-pilot-2026-06-11.md
+│   ├── 275-mednet-2026-06-11.md
+│   ├── 276-sur-la-table-2026-06-11.md
+│   ├── 277-bpm-2026-06-11.md
+│   ├── 278-superhuman-platform-inc-2026-06-11.md
+│   ├── 279-superhuman-platform-inc-2026-06-11.md
+│   ├── 280-hims-hers-2026-06-11.md
+│   ├── 281-superhuman-platform-inc-2026-06-11.md
+│   ├── 282-coalition-technologies-2026-06-11.md
+│   ├── 283-assort-health-2026-06-11.md
+│   ├── 284-magicschool-2026-06-11.md
+│   ├── 285-classdojo-2026-06-11.md
+│   ├── 286-instructure-2026-06-11.md
+│   ├── 287-instructure-2026-06-11.md
+│   ├── 288-literati-2026-06-11.md
+│   ├── 289-classdojo-2026-06-11.md
+│   ├── 290-sweed-2026-06-11.md
+│   ├── 291-superhuman-platform-inc-2026-06-11.md
+│   ├── 292-classdojo-2026-06-11.md
+│   ├── 293-superhuman-platform-inc-2026-06-11.md
+│   ├── 294-instructure-2026-06-11.md
+│   ├── 295-superhuman-platform-inc-2026-06-11.md
+│   ├── 296-classdojo-2026-06-11.md
+│   ├── 297-instructure-2026-06-11.md
+│   ├── 298-instructure-2026-06-11.md
+│   ├── 299-sweed-2026-06-11.md
+│   ├── 300-superhuman-platform-inc-2026-06-11.md
+│   ├── 301-hims-hers-2026-06-11.md
+│   ├── 302-hims-hers-2026-06-11.md
+│   ├── 303-hims-hers-2026-06-11.md
+│   ├── 304-classdojo-2026-06-11.md
+│   ├── 305-classdojo-2026-06-11.md
+│   ├── 306-classdojo-2026-06-11.md
+│   ├── 307-magicschool-2026-06-11.md
+│   ├── 308-fi-2026-06-11.md
+│   ├── 309-rover-2026-06-11.md
+│   ├── 310-rover-2026-06-11.md
+│   ├── 311-rover-2026-06-11.md
+│   ├── 312-rover-2026-06-11.md
+│   ├── 313-planned-parenthood-federation-of-america-2026-06-11.md
+│   ├── 314-planned-parenthood-federation-of-america-2026-06-11.md
+│   ├── 315-planned-parenthood-federation-of-america-2026-06-11.md
+│   ├── 316-headspace-2026-06-11.md
+│   ├── 317-headspace-2026-06-11.md
+│   ├── 318-headspace-2026-06-11.md
+│   ├── 319-headspace-2026-06-11.md
+│   ├── 320-headspace-2026-06-11.md
+│   ├── 321-headspace-2026-06-11.md
+│   ├── 322-headspace-2026-06-11.md
+│   ├── 323-betterhelp-2026-06-11.md
+│   ├── 324-betterhelp-2026-06-11.md
+│   ├── 325-betterhelp-2026-06-11.md
+│   ├── 326-betterhelp-2026-06-11.md
+│   ├── 327-betterhelp-2026-06-11.md
+│   ├── 328-betterhelp-2026-06-11.md
+│   ├── 329-sondermind-2026-06-11.md
+│   ├── 330-rula-2026-06-11.md
+│   ├── 331-rula-2026-06-11.md
+│   ├── 332-rula-2026-06-11.md
+│   ├── 333-n-a-2026-06-11.md
+│   ├── 334-rula-2026-06-11.md
+│   ├── 335-rula-2026-06-11.md
+│   ├── 336-rula-2026-06-11.md
+│   ├── 337-grow-therapy-2026-06-11.md
+│   ├── 338-grow-therapy-2026-06-11.md
+│   ├── 339-grow-therapy-2026-06-11.md
+│   ├── 340-grow-therapy-2026-06-11.md
+│   ├── 341-grow-therapy-2026-06-11.md
+│   ├── 342-dutchie-2026-06-11.md
+│   ├── 343-dutchie-2026-06-11.md
+│   ├── 344-activecampaign-2026-06-11.md
+│   ├── 345-activecampaign-2026-06-11.md
+│   ├── 346-activecampaign-2026-06-11.md
+│   ├── 347-activecampaign-2026-06-11.md
+│   ├── 348-activecampaign-2026-06-11.md
+│   ├── 349-nabis-2026-06-11.md
+│   ├── 350-nabis-2026-06-11.md
+│   ├── 351-nabis-2026-06-11.md
+│   ├── 352-nabis-2026-06-11.md
+│   ├── 353-nabis-2026-06-11.md
+│   ├── 354-nabis-2026-06-11.md
+│   ├── 355-nabis-2026-06-11.md
+│   ├── 356-nabis-2026-06-11.md
+│   ├── 357-nabis-2026-06-11.md
+│   ├── 358-gong-2026-06-11.md
+│   ├── 359-gong-2026-06-11.md
+│   ├── 360-gong-2026-06-11.md
+│   ├── 361-gong-2026-06-11.md
+│   ├── 362-gong-2026-06-11.md
+│   ├── 363-gong-2026-06-11.md
+│   ├── 364-gong-2026-06-11.md
+│   ├── 365-gong-io-2026-06-11.md
+│   ├── 366-gong-2026-06-11.md
+│   ├── 367-zapier-2026-06-11.md
+│   ├── 368-zapier-2026-06-11.md
+│   ├── 369-zapier-2026-06-11.md
+│   ├── 370-zapier-2026-06-11.md
+│   ├── 371-zapier-2026-06-11.md
+│   ├── 372-ipsy-2026-06-11.md
+│   ├── 373-ipsy-2026-06-11.md
+│   ├── 374-ipsy-2026-06-11.md
+│   ├── 375-ipsy-2026-06-11.md
+│   ├── 376-ipsy-2026-06-11.md
+│   ├── 377-hims-hers-2026-06-11.md
+│   ├── 378-hims-hers-2026-06-11.md
+│   ├── 379-hims-hers-2026-06-11.md
+│   ├── 380-hims-hers-2026-06-11.md
+│   ├── 381-hims-hers-2026-06-11.md
+│   ├── 382-hims-hers-2026-06-11.md
+│   ├── 383-hims-hers-2026-06-11.md
+│   ├── 384-n-a-2026-06-11.md
+│   ├── 385-hims-hers-2026-06-11.md
+│   ├── 386-hims-hers-2026-06-11.md
+│   ├── 387-hims-hers-2026-06-11.md
+│   ├── 388-hims-hers-2026-06-11.md
+│   ├── 389-aveanna-healthcare-2026-06-11.md
+│   ├── 390-rocky-talkie-2026-06-11.md
+│   ├── 391-dossier-2026-06-11.md
+│   ├── 392-dreamscape-learn-2026-06-11.md
+│   ├── 393-saint-gobain-group-in-india-2026-06-11.md
+│   ├── 394-uppalcorp-2026-06-11.md
+│   ├── 395-ezcater-2026-06-11.md
+│   ├── 396-recruitlytic-hires-2026-06-11.md
+│   ├── 397-sondermind-2026-06-11.md
+│   ├── 398-nestl-health-science-2026-06-11.md
+│   ├── 399-acerto-2026-06-11.md
+│   ├── 400-smartbug-media-2026-06-11.md
+│   ├── 401-animalz-2026-06-12.md
+│   ├── 402-compass-business-solutions-2026-06-12.md
+│   ├── 403-runway-2026-06-12.md
+│   ├── 404-adoreal-2026-06-12.md
+│   ├── 405-dinepalace-com-foodme-mobi-2026-06-12.md
+│   ├── 406-the-careside-2026-06-12.md
+│   ├── 407-forager-2026-06-12.md
+│   ├── 408-iapwe-2026-06-12.md
+│   ├── 409-clerky-inc-2026-06-12.md
+│   ├── 410-workada-2026-06-12.md
+│   ├── 411-remote-2026-06-12.md
+│   ├── 412-evolent-2026-06-12.md
+│   ├── 413-jerry-2026-06-12.md
+│   ├── 414-evercommerce-2026-06-12.md
+│   ├── 415-coinmarketcap-2026-06-12.md
+│   ├── 416-supabase-2026-06-12.md
+│   ├── 417-winona-2026-06-12.md
+│   ├── 418-safetywing-2026-06-12.md
+│   ├── 419-winona-2026-06-12.md
+│   ├── 420-webfx-2026-06-12.md
+│   ├── 421-instrumentl-2026-06-12.md
+│   ├── 422-canonical-2026-06-12.md
+│   ├── 423-instrumentl-2026-06-12.md
+│   ├── 424-sourcegraph-2026-06-12.md
+│   ├── 425-clipboard-2026-06-12.md
+│   ├── 426-paragon-2026-06-12.md
+│   ├── 427-nuclear-regulatory-commission-2026-06-12.md
+│   ├── 428-department-of-defense-stars-stripes-2026-06-12.md
+│   ├── 429-department-of-the-air-force-2026-06-12.md
+│   ├── 430-department-of-the-air-force-2026-06-12.md
+│   ├── 431-department-of-the-army-2026-06-12.md
+│   ├── 432-department-of-the-army-2026-06-12.md
+│   ├── 433-department-of-agriculture-2026-06-12.md
+│   ├── 434-department-of-the-air-force-2026-06-12.md
+│   ├── 435-department-of-the-air-force-2026-06-12.md
+│   ├── 436-department-of-the-navy-u-s-marine-corps-mccs-2026-06-12.md
+│   ├── 437-department-of-veterans-affairs-2026-06-12.md
+│   ├── 438-department-of-the-army-2026-06-12.md
+│   ├── 439-department-of-veterans-affairs-2026-06-12.md
+│   ├── 440-department-of-veterans-affairs-2026-06-12.md
+│   ├── 441-versaterm-2026-06-12.md
+│   ├── 442-stackblitz-2026-06-12.md
+│   ├── 443-versaterm-2026-06-12.md
+│   ├── 444-diligent-corporation-2026-06-12.md
+│   ├── 445-mitratech-2026-06-12.md
+│   ├── 446-affinity-2026-06-12.md
+│   ├── 447-cipherhealth-2026-06-12.md
+│   ├── 448-omada-health-2026-06-12.md
+│   ├── 449-spring-health-2026-06-12.md
+│   ├── 450-tebra-2026-06-12.md
+│   ├── 451-sigma-computing-2026-06-12.md
+│   ├── 452-chainguard-2026-06-12.md
+│   ├── 453-justworks-2026-06-12.md
+│   ├── 454-mitratech-2026-06-12.md
+│   ├── 455-blytheco-2026-06-12.md
+│   ├── 456-fleetio-2026-06-12.md
+│   ├── 457-clear-2026-06-12.md
+│   ├── 458-blue-cube-services-2026-06-12.md
+│   ├── 459-alertmedia-2026-06-12.md
+│   ├── 460-twilio-2026-06-12.md
+│   ├── 461-orchard-2026-06-12.md
+│   ├── 462-ag1-2026-06-12.md
+│   ├── 463-jetson-2026-06-12.md
+│   ├── 464-accuweather-2026-06-12.md
+│   ├── 465-ians-research-2026-06-12.md
+│   ├── 466-regscale-2026-06-12.md
+│   ├── 467-zuora-2026-06-12.md
+│   ├── 468-greenhouse-2026-06-12.md
+│   ├── 469-steer-2026-06-12.md
+│   ├── 470-mixpanel-2026-06-12.md
+│   ├── 471-boundless-learning-2026-06-12.md
+│   ├── 472-haast-2026-06-12.md
+│   ├── 473-moment-2026-06-12.md
+│   ├── 474-quantum-2026-06-12.md
+│   ├── 475-finout-2026-06-12.md
+│   ├── 476-strava-2026-06-12.md
+│   ├── 477-assort-health-2026-06-12.md
+│   ├── 478-strava-2026-06-12.md
+│   ├── 479-lightspeed-2026-06-12.md
+│   ├── 480-axion-ray-2026-06-12.md
+│   ├── 481-thumbtack-2026-06-12.md
+│   ├── 482-howgood-2026-06-12.md
+│   ├── 483-sonatype-2026-06-12.md
+│   ├── 484-metaprise-2026-06-12.md
+│   ├── 485-culligan-quench-2026-06-12.md
+│   ├── 486-actian-2026-06-12.md
+│   ├── 487-loop-returns-2026-06-12.md
+│   ├── 488-tinder-2026-06-12.md
+│   ├── 489-manilalevelup-2026-06-12.md
+│   ├── 490-aera-technology-2026-06-12.md
+│   ├── 491-engen-2026-06-12.md
+│   ├── 492-volt-2026-06-12.md
+│   ├── 493-treering-2026-06-12.md
+│   ├── 494-teramind-2026-06-12.md
+│   ├── 495-availity-2026-06-12.md
+│   ├── 496-evercommerce-2026-06-12.md
+│   ├── 497-ixopay-2026-06-12.md
+│   ├── 498-unity-2026-06-12.md
+│   ├── 499-perfectserve-2026-06-12.md
+│   ├── 500-parsec-automation-llc-2026-06-12.md
+│   ├── 501-versaterm-2026-06-12.md
+│   ├── 502-levelpath-2026-06-12.md
+│   ├── 503-brightwheel-2026-06-12.md
+│   ├── 504-khan-academy-2026-06-12.md
+│   ├── 505-duolingo-2026-06-12.md
+│   ├── 506-duolingo-2026-06-12.md
+│   ├── 507-duolingo-2026-06-12.md
+│   ├── 508-renaissance-learning-2026-06-12.md
+│   ├── 509-aclu-2026-06-12.md
+│   ├── 510-aclu-2026-06-12.md
+│   ├── 511-aclu-2026-06-12.md
+│   ├── 512-aclu-2026-06-12.md
+│   ├── 513-aclu-2026-06-12.md
+│   ├── 514-wikimedia-foundation-2026-06-12.md
+│   ├── 515-mozilla-mzla-technologies-2026-06-12.md
+│   ├── 516-jane-2026-06-12.md
+│   ├── 517-jane-2026-06-12.md
+│   ├── 518-klaviyo-2026-06-12.md
+│   ├── 519-klaviyo-2026-06-12.md
+│   ├── 520-klaviyo-2026-06-12.md
+│   ├── 521-klaviyo-2026-06-12.md
+│   ├── 522-klaviyo-2026-06-12.md
+│   ├── 523-klaviyo-2026-06-12.md
+│   ├── 524-gitlab-2026-06-12.md
+│   ├── 525-remote-2026-06-12.md
+│   ├── 526-remote-2026-06-12.md
+│   ├── 527-remote-2026-06-12.md
+│   ├── 528-asana-2026-06-12.md
+│   ├── 529-asana-2026-06-12.md
+│   ├── 530-asana-2026-06-12.md
+│   ├── 531-asana-2026-06-12.md
+│   ├── 532-asana-2026-06-12.md
+│   ├── 533-septeo-2026-06-12.md
+│   ├── 534-air-apps-2026-06-12.md
+│   ├── 535-super-com-2026-06-12.md
+│   ├── 536-tabby-2026-06-12.md
+│   ├── 537-aspca-2026-06-12.md
+│   ├── 538-best-friends-animal-society-2026-06-12.md
+│   ├── 539-nature-2026-06-12.md
+│   ├── 540-accuweather-2026-06-12.md
+│   ├── 541-department-of-agriculture-2026-06-12.md
+│   ├── 542-small-business-administration-2026-06-12.md
+│   ├── 543-alertmedia-2026-06-12.md
+│   ├── 544-altruist-financial-llc-2026-06-12.md
+│   ├── 545-altruist-financial-llc-2026-06-12.md
+│   ├── 546-altruist-financial-llc-2026-06-12.md
+│   ├── 547-altruist-financial-llc-2026-06-12.md
+│   ├── 548-anthropic-2026-06-12.md
+│   ├── 549-anthropic-2026-06-12.md
+│   ├── 550-apartment-life-2026-06-12.md
+│   ├── 551-bitso-2026-06-12.md
+│   ├── 552-brex-2026-06-12.md
+│   ├── 553-brex-2026-06-12.md
+│   ├── 554-brex-2026-06-12.md
+│   ├── 555-brex-2026-06-12.md
+│   ├── 556-brex-2026-06-12.md
+│   ├── 557-brex-2026-06-12.md
+│   ├── 558-brex-2026-06-12.md
+│   ├── 559-block-2026-06-12.md
+│   ├── 560-block-2026-06-12.md
+│   ├── 561-block-2026-06-12.md
+│   ├── 562-block-2026-06-12.md
+│   ├── 563-block-square-2026-06-12.md
+│   ├── 564-block-2026-06-12.md
+│   ├── 565-block-square-2026-06-12.md
+│   ├── 566-block-square-2026-06-12.md
+│   ├── 567-circleci-2026-06-12.md
+│   ├── 568-charlie-health-2026-06-12.md
+│   ├── 569-charlie-health-2026-06-12.md
+│   ├── 570-charlie-health-2026-06-12.md
+│   ├── 571-charlie-health-2026-06-12.md
+│   ├── 572-charlie-health-2026-06-12.md
+│   ├── 573-charlie-health-2026-06-12.md
+│   ├── 574-charlie-health-2026-06-12.md
+│   ├── 575-charlie-health-2026-06-12.md
+│   ├── 576-charlie-health-2026-06-12.md
+│   ├── 577-charlie-health-2026-06-12.md
+│   ├── 578-duolingo-2026-06-12.md
+│   ├── 579-duolingo-2026-06-12.md
+│   ├── 580-duolingo-2026-06-12.md
+│   ├── 581-classdojo-2026-06-12.md
+│   ├── 582-renaissance-learning-2026-06-12.md
+│   ├── 583-renaissance-learning-2026-06-12.md
+│   ├── 584-renaissance-learning-2026-06-12.md
+│   ├── 585-aclu-2026-06-12.md
+│   ├── 586-aclu-2026-06-12.md
+│   ├── 587-aclu-2026-06-12.md
+│   ├── 588-aclu-2026-06-12.md
+│   ├── 589-rula-2026-06-12.md
+│   ├── 590-klaviyo-2026-06-12.md
+│   ├── 591-klaviyo-2026-06-12.md
+│   ├── 592-klaviyo-2026-06-12.md
+│   ├── 593-klaviyo-2026-06-12.md
+│   ├── 594-constant-contact-2026-06-12.md
+│   ├── 595-gitlab-2026-06-12.md
+│   ├── 596-gitlab-2026-06-12.md
+│   ├── 597-remote-2026-06-12.md
+│   ├── 598-remote-2026-06-12.md
+│   ├── 599-remote-2026-06-12.md
+│   ├── 600-remote-2026-06-12.md
+│   ├── 601-remote-2026-06-12.md
+│   ├── 602-asana-2026-06-12.md
+│   ├── 603-asana-2026-06-12.md
+│   ├── 604-asana-2026-06-12.md
+│   ├── 605-superhuman-2026-06-12.md
+│   ├── 606-soracom-2026-06-12.md
+│   ├── 607-shri-krishna-placement-2026-06-12.md
+│   ├── 608-improve-health-2026-06-12.md
+│   ├── 609-busplanner-2026-06-12.md
+│   ├── 610-nestl-health-science-2026-06-12.md
+│   ├── 611-curasenseai-2026-06-12.md
+│   ├── 612-sonova-international-2026-06-12.md
+│   ├── 613-aspca-2026-06-12.md
+│   ├── 614-audubon-2026-06-12.md
+│   ├── 615-nature-2026-06-12.md
+│   ├── 616-adaptive-biotechnologies-2026-06-12.md
+│   ├── 617-adaptive-biotechnologies-2026-06-12.md
+│   ├── 618-adaptive-biotechnologies-2026-06-12.md
+│   ├── 619-altruist-financial-llc-2026-06-12.md
+│   ├── 620-altruist-2026-06-12.md
+│   ├── 621-altruist-financial-llc-2026-06-12.md
+│   ├── 622-amend-consulting-2026-06-12.md
+│   ├── 623-american-institutes-for-research-2026-06-12.md
+│   ├── 624-american-institutes-for-research-2026-06-12.md
+│   ├── 625-anthropic-2026-06-12.md
+│   ├── 626-anthropic-2026-06-12.md
+│   ├── 627-anthropic-2026-06-12.md
+│   ├── 628-anthropic-2026-06-12.md
+│   ├── 629-anthropic-2026-06-12.md
+│   ├── 630-anthropic-2026-06-12.md
+│   ├── 631-anthropic-2026-06-12.md
+│   ├── 632-anthropic-2026-06-12.md
+│   ├── 633-anthropic-2026-06-12.md
+│   ├── 634-bitso-2026-06-12.md
+│   ├── 635-brex-2026-06-12.md
+│   ├── 636-brex-2026-06-12.md
+│   ├── 637-brex-2026-06-12.md
+│   ├── 638-brex-2026-06-12.md
+│   ├── 639-brex-2026-06-12.md
+│   ├── 640-brex-2026-06-12.md
+│   ├── 641-block-2026-06-12.md
+│   ├── 642-block-2026-06-12.md
+│   ├── 643-block-2026-06-12.md
+│   ├── 644-block-2026-06-12.md
+│   ├── 645-block-afterpay-2026-06-12.md
+│   ├── 646-block-cash-app-2026-06-12.md
+│   ├── 647-block-2026-06-12.md
+│   ├── 648-block-square-2026-06-12.md
+│   ├── 649-block-2026-06-12.md
+│   ├── 650-block-2026-06-12.md
+│   ├── 651-carta-2026-06-12.md
+│   ├── 652-charlie-health-2026-06-12.md
+│   ├── 653-charlie-health-2026-06-12.md
+│   ├── 654-charlie-health-2026-06-12.md
+│   ├── 655-charlie-health-2026-06-12.md
+│   ├── 656-charlie-health-2026-06-12.md
+│   ├── 657-charlie-health-2026-06-12.md
+│   ├── 658-charlie-health-2026-06-12.md
+│   ├── 659-charlie-health-2026-06-12.md
+│   ├── 660-charlie-health-2026-06-12.md
+│   ├── 661-charlie-health-2026-06-12.md
+│   ├── 662-charlie-health-2026-06-12.md
+│   ├── 663-charlie-health-2026-06-12.md
+│   ├── 664-charlie-health-2026-06-12.md
+│   ├── 665-charlie-health-2026-06-12.md
+│   ├── 666-charlie-health-2026-06-12.md
+│   ├── 667-charlie-health-2026-06-12.md
+│   ├── 668-charlie-health-2026-06-12.md
+│   ├── 669-charlie-health-2026-06-12.md
+│   ├── 670-charlie-health-2026-06-12.md
+│   ├── 671-charlie-health-2026-06-12.md
+│   ├── 672-clover-health-2026-06-12.md
+│   ├── 673-datadog-2026-06-12.md
+│   ├── 674-datadog-2026-06-12.md
+│   ├── 675-datadog-2026-06-12.md
+│   ├── 676-datadog-2026-06-12.md
+│   ├── 677-datadog-2026-06-12.md
+│   ├── 678-datadog-2026-06-12.md
+│   ├── 679-datadog-2026-06-12.md
+│   ├── 680-datadog-2026-06-12.md
+│   ├── 681-datadog-2026-06-12.md
+│   ├── 682-datadog-2026-06-12.md
+│   ├── 683-datadog-2026-06-12.md
+│   ├── 684-datadog-2026-06-12.md
+│   ├── 685-datadog-2026-06-12.md
+│   ├── 686-datadog-2026-06-12.md
+│   ├── 687-datadog-2026-06-12.md
+│   ├── 688-datadog-2026-06-12.md
+│   ├── 689-datadog-2026-06-12.md
+│   ├── 690-datadog-2026-06-12.md
+│   ├── 691-datadog-2026-06-12.md
+│   ├── 692-divergent-2026-06-12.md
+│   ├── 693-divergent-2026-06-12.md
+│   ├── 694-divergent-2026-06-12.md
+│   ├── 695-divergent-2026-06-12.md
+│   ├── 696-elastic-2026-06-12.md
+│   ├── 697-elastic-2026-06-12.md
+│   ├── 698-elastic-2026-06-12.md
+│   ├── 699-elastic-2026-06-12.md
+│   ├── 700-elastic-2026-06-12.md
+│   ├── 701-elastic-2026-06-12.md
+│   ├── 702-elastic-2026-06-12.md
+│   ├── 703-elastic-2026-06-12.md
+│   ├── 704-elastic-2026-06-12.md
+│   ├── 705-fastly-2026-06-12.md
+│   ├── 706-fastly-2026-06-12.md
+│   ├── 707-fetch-2026-06-12.md
+│   ├── 708-firsthand-2026-06-12.md
+│   ├── 709-firsthand-2026-06-12.md
+│   ├── 710-grove-collaborative-2026-06-12.md
+│   ├── 711-gusto-2026-06-12.md
+│   ├── 712-gusto-2026-06-12.md
+│   ├── 713-gusto-2026-06-12.md
+│   ├── 714-gusto-2026-06-12.md
+│   ├── 715-gusto-2026-06-12.md
+│   ├── 716-gusto-2026-06-12.md
+│   ├── 717-gusto-2026-06-12.md
+│   ├── 718-fin-2026-06-12.md
+│   ├── 719-fin-intercom-2026-06-12.md
+│   ├── 720-fin-intercom-2026-06-12.md
+│   ├── 721-fin-2026-06-12.md
+│   ├── 722-fin-intercom-2026-06-12.md
+│   ├── 723-fin-2026-06-12.md
+│   ├── 724-fin-formerly-intercom-2026-06-12.md
+│   ├── 725-intercom-fin-2026-06-12.md
+│   ├── 726-fin-2026-06-12.md
+│   ├── 727-instacart-2026-06-12.md
+│   ├── 728-instacart-2026-06-12.md
+│   ├── 729-instacart-2026-06-12.md
+│   ├── 730-instacart-2026-06-12.md
+│   ├── 731-instacart-2026-06-12.md
+│   ├── 732-instacart-2026-06-12.md
+│   ├── 733-justworks-2026-06-12.md
+│   ├── 734-justworks-2026-06-12.md
+│   ├── 735-justworks-2026-06-12.md
+│   ├── 736-justworks-2026-06-12.md
+│   ├── 737-justworks-2026-06-12.md
+│   ├── 738-justworks-2026-06-12.md
+│   ├── 739-justworks-2026-06-12.md
+│   ├── 740-justworks-2026-06-12.md
+│   ├── 741-justworks-2026-06-12.md
+│   ├── 742-justworks-2026-06-12.md
+│   ├── 743-databricks-2026-06-12.md
+│   ├── 744-databricks-2026-06-12.md
+│   ├── 745-databricks-2026-06-12.md
+│   ├── 746-databricks-2026-06-12.md
+│   ├── 747-databricks-2026-06-12.md
+│   ├── 748-databricks-2026-06-12.md
+│   ├── 749-databricks-2026-06-12.md
+│   ├── 750-databricks-2026-06-12.md
+│   ├── 751-databricks-2026-06-12.md
+│   ├── 752-databricks-2026-06-12.md
+│   ├── 753-databricks-2026-06-12.md
+│   ├── 754-databricks-2026-06-12.md
+│   ├── 755-databricks-2026-06-12.md
+│   ├── 756-databricks-2026-06-12.md
+│   ├── 757-databricks-2026-06-12.md
+│   ├── 758-databricks-2026-06-12.md
+│   ├── 759-databricks-2026-06-12.md
+│   ├── 760-databricks-2026-06-12.md
+│   ├── 761-databricks-2026-06-12.md
+│   ├── 762-databricks-2026-06-12.md
+│   ├── 763-databricks-2026-06-12.md
+│   ├── 764-databricks-2026-06-12.md
+│   ├── 765-databricks-2026-06-12.md
+│   ├── 766-databricks-2026-06-12.md
+│   ├── 767-databricks-2026-06-12.md
+│   ├── 768-databricks-2026-06-12.md
+│   ├── 769-lattice-2026-06-12.md
+│   ├── 770-lattice-2026-06-12.md
+│   ├── 771-lattice-2026-06-12.md
+│   ├── 772-lyft-flexdrive-2026-06-12.md
+│   ├── 773-lyft-2026-06-12.md
+│   ├── 774-lyft-flexdrive-2026-06-12.md
+│   ├── 775-lyft-flexdrive-2026-06-12.md
+│   ├── 776-lyft-2026-06-12.md
+│   ├── 777-lyft-2026-06-12.md
+│   ├── 778-lyft-flexdrive-2026-06-12.md
+│   ├── 779-lyft-2026-06-12.md
+│   ├── 780-lyft-2026-06-12.md
+│   ├── 781-lucid-motors-2026-06-12.md
+│   ├── 782-lucid-motors-2026-06-12.md
+│   ├── 783-lucid-motors-2026-06-12.md
+│   ├── 784-lucid-motors-2026-06-12.md
+│   ├── 785-navan-2026-06-12.md
+│   ├── 786-navan-2026-06-12.md
+│   ├── 787-navan-2026-06-12.md
+│   ├── 788-navan-2026-06-12.md
+│   ├── 789-navan-2026-06-12.md
+│   ├── 790-navan-2026-06-12.md
+│   ├── 791-navan-2026-06-12.md
+│   ├── 792-navan-2026-06-12.md
+│   ├── 793-navan-2026-06-12.md
+│   ├── 794-navan-2026-06-12.md
+│   ├── 795-navan-2026-06-12.md
+│   ├── 796-navan-2026-06-12.md
+│   ├── 797-navan-2026-06-12.md
+│   ├── 798-natera-2026-06-12.md
+│   ├── 799-natera-2026-06-12.md
+│   ├── 800-natera-2026-06-12.md
+│   ├── 801-iterable-2026-06-12.md
+│   ├── 802-iterable-2026-06-12.md
+│   ├── 803-omada-health-2026-06-12.md
+│   ├── 804-octave-2026-06-12.md
+│   ├── 805-octave-2026-06-12.md
+│   ├── 806-octave-2026-06-12.md
+│   ├── 807-octave-2026-06-12.md
+│   ├── 808-octave-2026-06-12.md
+│   ├── 809-octave-2026-06-12.md
+│   ├── 810-octave-2026-06-12.md
+│   ├── 811-okta-2026-06-12.md
+│   ├── 812-okta-2026-06-12.md
+│   ├── 813-okta-2026-06-12.md
+│   ├── 814-okta-2026-06-12.md
+│   ├── 815-okta-2026-06-12.md
+│   ├── 816-okta-2026-06-12.md
+│   ├── 817-okta-2026-06-12.md
+│   ├── 818-okta-2026-06-12.md
+│   ├── 819-okta-2026-06-12.md
+│   ├── 820-okta-2026-06-12.md
+│   ├── 821-okta-2026-06-12.md
+│   ├── 822-okta-2026-06-12.md
+│   ├── 823-okta-2026-06-12.md
+│   ├── 824-okta-2026-06-12.md
+│   ├── 825-okta-2026-06-12.md
+│   ├── 826-otter-ai-2026-06-12.md
+│   ├── 827-otter-ai-2026-06-12.md
+│   ├── 828-otter-ai-2026-06-12.md
+│   ├── 829-otter-ai-2026-06-12.md
+│   ├── 830-otter-ai-2026-06-12.md
+│   ├── 831-parachute-home-2026-06-12.md
+│   ├── 832-relativity-space-2026-06-12.md
+│   ├── 833-relativity-space-2026-06-12.md
+│   ├── 834-relativity-space-2026-06-12.md
+│   ├── 835-relativity-space-2026-06-12.md
+│   ├── 836-relativity-space-2026-06-12.md
+│   ├── 837-reformation-2026-06-12.md
+│   ├── 838-reformation-2026-06-12.md
+│   ├── 839-roofstock-2026-06-12.md
+│   ├── 840-rocket-lab-2026-06-12.md
+│   ├── 841-rocket-lab-2026-06-12.md
+│   ├── 842-rocket-lab-2026-06-12.md
+│   ├── 843-rocket-lab-2026-06-12.md
+│   ├── 844-strive-health-2026-06-12.md
+│   ├── 845-strive-health-2026-06-12.md
+│   ├── 846-stripe-2026-06-12.md
+│   ├── 847-stripe-2026-06-12.md
+│   ├── 848-stripe-2026-06-12.md
+│   ├── 849-stripe-2026-06-12.md
+│   ├── 850-stripe-2026-06-12.md
+│   ├── 851-stripe-2026-06-12.md
+│   ├── 852-stripe-2026-06-12.md
+│   ├── 853-bridge-stripe-2026-06-12.md
+│   ├── 854-stripe-2026-06-12.md
+│   ├── 855-stripe-2026-06-12.md
+│   ├── 856-stripe-2026-06-12.md
+│   ├── 857-stripe-2026-06-12.md
+│   ├── 858-stripe-2026-06-12.md
+│   ├── 859-stripe-2026-06-12.md
+│   ├── 860-stripe-2026-06-12.md
+│   ├── 861-stripe-2026-06-12.md
+│   ├── 862-stripe-2026-06-12.md
+│   ├── 863-stripe-2026-06-12.md
+│   ├── 864-stripe-2026-06-12.md
+│   ├── 865-stripe-2026-06-12.md
+│   ├── 866-stripe-2026-06-12.md
+│   ├── 867-stripe-2026-06-12.md
+│   ├── 868-stripe-2026-06-12.md
+│   ├── 869-stripe-2026-06-12.md
+│   ├── 870-stripe-2026-06-12.md
+│   ├── 871-stripe-2026-06-12.md
+│   ├── 872-stripe-2026-06-12.md
+│   ├── 873-stripe-2026-06-12.md
+│   ├── 874-stripe-2026-06-12.md
+│   ├── 875-stripe-2026-06-12.md
+│   ├── 876-stripe-2026-06-12.md
+│   ├── 877-stripe-2026-06-12.md
+│   ├── 878-stripe-2026-06-12.md
+│   ├── 879-stripe-2026-06-12.md
+│   ├── 880-stripe-2026-06-12.md
+│   ├── 881-stripe-2026-06-12.md
+│   ├── 882-stripe-2026-06-12.md
+│   ├── 883-stripe-2026-06-12.md
+│   ├── 884-stripe-2026-06-12.md
+│   ├── 885-stripe-2026-06-12.md
+│   ├── 886-stripe-2026-06-12.md
+│   ├── 887-stripe-2026-06-12.md
+│   ├── 888-stripe-2026-06-12.md
+│   ├── 889-stripe-2026-06-12.md
+│   ├── 890-stripe-2026-06-12.md
+│   ├── 891-stripe-2026-06-12.md
+│   ├── 892-textio-inc-2026-06-12.md
+│   ├── 893-tia-2026-06-12.md
+│   ├── 894-toast-2026-06-12.md
+│   ├── 895-transcarent-2026-06-12.md
+│   ├── 896-transcarent-2026-06-12.md
+│   ├── 897-transcarent-2026-06-12.md
+│   ├── 898-transcarent-2026-06-12.md
+│   ├── 899-transcarent-2026-06-12.md
+│   ├── 900-typeface-2026-06-12.md
+│   ├── 901-typeface-2026-06-12.md
+│   ├── 902-twitch-2026-06-12.md
+│   ├── 903-twilio-2026-06-12.md
+│   ├── 904-twilio-2026-06-12.md
+│   ├── 905-twilio-2026-06-12.md
+│   ├── 906-twilio-2026-06-12.md
+│   ├── 907-twilio-2026-06-12.md
+│   ├── 908-upstart-2026-06-12.md
+│   ├── 909-upstart-2026-06-12.md
+│   ├── 910-upstart-2026-06-12.md
+│   ├── 911-upstart-2026-06-12.md
+│   ├── 912-upstart-2026-06-12.md
+│   ├── 913-vast-2026-06-12.md
+│   ├── 914-vast-2026-06-12.md
+│   ├── 915-vast-2026-06-12.md
+│   ├── 916-vast-2026-06-12.md
+│   ├── 917-vast-2026-06-12.md
+│   ├── 918-vast-2026-06-12.md
+│   ├── 919-yotpo-2026-06-12.md
+│   ├── 920-yotpo-2026-06-12.md
+│   ├── 921-yotpo-2026-06-12.md
+│   ├── 922-within-2026-06-12.md
+│   ├── 923-within-2026-06-12.md
+│   ├── 924-within-2026-06-12.md
+│   ├── 925-within-2026-06-12.md
+│   ├── 926-zoominfo-2026-06-12.md
+│   ├── 927-zoominfo-2026-06-12.md
+│   ├── 928-zoominfo-2026-06-12.md
+│   ├── 929-zoominfo-2026-06-12.md
+│   ├── 930-zoominfo-2026-06-12.md
+│   ├── 931-zwift-2026-06-12.md
+│   ├── 932-pbs-2026-06-12.md
+│   └── 939-livekit-2026-06-13.md
+├── scan.mjs
+├── templates
+│   ├── README.md
+│   ├── coverletter-template.html
+│   ├── cv-template.html
+│   ├── cv-template.tex
+│   ├── portals.example.yml
+│   └── states.yml
+├── test-all.mjs
+├── tracker-links.mjs
+├── uncertain-titles.txt
+├── update-system.mjs
+├── verify-pipeline.mjs
+└── writing-samples
+    ├── Application Answers
+    │   ├── Application_Answers_Index.csv
+    │   ├── Application_Answers_Index.xlsx
+    │   └── Q&A Blurbs - May 2025.pdf
+    ├── BestCopySamples
+    │   ├── CallahanCreekcopysamples
+    │   │   ├── 48076_CACU_PPC_1_1_ME.docx
+    │   │   ├── 48497_Online_Banking_Flash_1_1_ME.docx
+    │   │   ├── 48644_Freestate6PackCopy_1_0_ME.docx
+    │   │   ├── 48950_Mar10BizCL3G_4GSierraOverdrive1_1_ME.docx
+    │   │   ├── 48969_GoodHousekeeping_MarchInsertCanine_1_0_ME.docx
+    │   │   ├── 49073_CACUBizServicesMailer_1_0_ME.docx
+    │   │   ├── 49073_CACUMatrixCopyLetterUpdates_1_1_ME.docx
+    │   │   ├── 49162_CACUFamilyMakeoverBios_1_1_ME.docx
+    │   │   ├── 49171_PetNutritionHandbookRetail_1_0_ME.docx
+    │   │   ├── 49174_PetSmartTVTag30Sec_1_1_ME.docx
+    │   │   ├── 49250HPETMobilityPetSmartMuzakRadio_2_2_ME.docx
+    │   │   ├── Insurance Pages Copy - CACU.docx
+    │   │   └── MortgageCopyUpdates_1_0_ME.docx
+    │   ├── Comcast Headlines (1).docx
+    │   ├── HumaneSocietyGreaterKC_NewsletterSamples.docx
+    │   ├── ITSequence_Master_V1.docx
+    │   ├── LinkToUpload
+    │   │   └── Insights2020to2021.pdf
+    │   ├── TRcopysamples
+    │   │   ├── 2019to2020_COVID Intro - Message 1 Changes.docx
+    │   │   ├── 2019to2020_Morgan Edit, Hot Zone PTA Reapproach.docx
+    │   │   ├── 2021to2022_Sequence_ Signed up, Didn_t Complete a Book (21-22.docx
+    │   │   ├── 2022to2023_Morgan_CC_ In Contract, Draft 2 with Thoughts!.docx
+    │   │   ├── 2023to2024_Copy of ES YBA YL 1st Touch.docx
+    │   │   ├── 2023to2024_DISTRICT_ 1st TOUCH - Morgan Copy.docx
+    │   │   ├── Batch1SequencesToSort_CC_ Sample Sent, No Demo V2.docx
+    │   │   ├── Batch2SequencesToSort_McKinney District Emails.docx
+    │   │   ├── Batch4SequencesToSort_Timing Brainstorm.docx
+    │   │   ├── Copy2020to2021_For Outreach, Sept 2019_ Time-Specific Follow-Up.docx
+    │   │   ├── Insights2020to2021_Email Customization Best Practices!.docx
+    │   │   ├── Insights2020to2021_Melanie + Anna + Morgan_ 4.28.22.docx
+    │   │   └── Private2018to2019__ 18-19 Private School Principals, 1st Touch.docx
+    │   ├── VMLcopysamples
+    │   │   ├── HughesNet_segmentLanding_070610 copy.pdf
+    │   │   ├── TeamDragonMobileChallengeFINAL.pdf
+    │   │   └── VML_Carlson_Keynote.pdf
+    │   └── hsgkc-volunteer-profiles.md
+    ├── LinkedIn Tone & Style Examples
+    │   ├── Screen Shot 2025-05-16 at 9.39.53 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.40.22 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.40.36 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.40.47 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.41.03 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.41.33 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.41.45 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.42.09 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.42.17 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.42.37 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.42.47 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.42.56 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.43.31 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.44.00 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.45.02 AM.png
+    │   ├── Screen Shot 2025-05-16 at 9.45.12 AM.png
+    │   └── Screen Shot 2025-05-23 at 11.22.00 PM.png
+    ├── Master Cover Letters
+    │   ├── AssociateCreativeStrategist_MorganEscott_CoverLetter.pdf
+    │   ├── ContentWriter_MorganEscott_CoverLetter.pdf
+    │   ├── EmailMarketing_MorganEscott_CoverLetter.pdf
+    │   ├── Form-Field Cover Letters 2025.pdf
+    │   ├── Ipsy_CRMAssociateMarketingManager_MorganEscott_CoverLetter.pdf
+    │   ├── MarketingSpecialist_MorganEscott_CoverLetter.pdf
+    │   ├── MorganEscottCoverLetter (1).pdf
+    │   ├── MorganEscottCoverLetter.pdf
+    │   ├── MorganEscottMarketingCoverLetter (1).pdf
+    │   ├── MorganEscottMarketingCoverLetter.pdf
+    │   ├── MorganEscott_AIMarketingContentSpecialist_CoverLetter.docx
+    │   ├── MorganEscott_BDR_Dutchie_CoverLetter.pdf
+    │   ├── MorganEscott_BuffaloSolar_CoverLetter.pdf
+    │   ├── MorganEscott_CRMAssociate_CoverLetter.pdf
+    │   ├── MorganEscott_CoreTrust_CoverLetter.docx
+    │   ├── MorganEscott_DigitalMarketingCoordinator_CoverLetter.pdf
+    │   ├── MorganEscott_Instacart_CoverLetter.docx
+    │   ├── MorganEscott_Leafly_B2BMarketing_CoverLetter.pdf
+    │   ├── MorganEscott_Leafly_BDR_CoverLetter.pdf
+    │   ├── MorganEscott_MagicSchoolAI_CoverLetter.docx
+    │   ├── MorganEscott_MarketDevelopment_Guild_CoverLetter.docx
+    │   ├── MorganEscott_MarketingCampaignOperations_CoverLetter.pdf
+    │   ├── MorganEscott_MarketingSpecialist_Outreach_CoverLetter.pdf
+    │   ├── MorganEscott_Mozilla_CoverLetter.pdf
+    │   ├── MorganEscott_MutinyReady_CoverLetter.docx
+    │   ├── MorganEscott_Ollie_CoverLetter.docx
+    │   ├── MorganEscott_PMM_KhanAcademy_CoverLetter.docx
+    │   ├── MorganEscott_SalesEnablement_CoverLetter.docx
+    │   ├── MorganEscott_SalesEnablement_CoverLetter.pdf
+    │   ├── MorganEscott_SolutionsConsultant_FindLaw_CoverLetter.docx
+    │   ├── MorganEscott_StudentLifecycleMarketing_CoverLetter.docx
+    │   ├── MorganEscott_Terrabis_CoverLetter.docx
+    │   ├── MorganEscott_WalzTetrick_CoverLetter.docx
+    │   ├── PastCoverLettersFYI.pdf
+    │   └── UnderArmour_AssociateCustomerMarketing_MorganEscott_CoverLetter.pdf
+    ├── MorganWritingStyleGuide.rtf
+    ├── README.md
+    └── Treering Sequences
+        ├── 18-19SequenceCopy
+        │   ├── 18-19 -- HZ Follow-Ups, 1st Touch(1).docx
+        │   ├── 18-19 -- HZ Follow-Ups, 1st Touch(2).docx
+        │   ├── 18-19 -- HZ Follow-Ups, 1st Touch(3).docx
+        │   ├── 18-19 -- HZ Follow-Ups, 1st Touch.docx
+        │   ├── 18-19 -- HZ Follow-Ups, Spring, Previously Con(1).docx
+        │   ├── 18-19 -- HZ Follow-Ups, Spring, Previously Con.docx
+        │   ├── 18-19 -- HZ Follow-Ups, Spring, Previously Contact(1).docx
+        │   ├── 18-19 -- HZ Follow-Ups, Spring, Previously Contact.docx
+        │   ├── 18-19 HZ Principals, 1st Touch(1).docx
+        │   ├── 18-19 HZ Principals, 1st Touch(2).docx
+        │   ├── 18-19 HZ Principals, 1st Touch.docx
+        │   ├── 18-19 HZ Principals, Previously Contacted(1).docx
+        │   ├── 18-19 HZ Principals, Previously Contacted(2).docx
+        │   ├── 18-19 HZ Principals, Previously Contacted.docx
+        │   ├── 18-19 Private Intro -- Elem_Lower, Confirmed, (1).docx
+        │   ├── 18-19 Private Intro -- Elem_Lower, Confirmed, (2).docx
+        │   ├── 18-19 Private Intro -- Elem_Lower, Confirmed, Mana(1)(1).docx
+        │   ├── 18-19 Private Intro -- Elem_Lower, Confirmed, Mana(1).docx
+        │   ├── 18-19 Private Intro -- Elem_Lower, Confirmed, Mana.docx
+        │   ├── 18-19 Private Intro -- Elem_Lower, Confirmed,_.docx
+        │   ├── 18-19 Private Intro -- Middle_High_Upper_K-12, Con.docx
+        │   ├── 18-19 Private Intro -- Middle_High_Upper_K-12,.docx
+        │   ├── 18-19 Private Intro -- Office, Can_t Confirm A.docx
+        │   ├── 18-19 Private Intro -- Office, Can_t Confirm Anyon(1).docx
+        │   ├── 18-19 Private Intro -- Office, Can_t Confirm Anyon.docx
+        │   ├── 18-19 Private Intro -- Parent Group, Not Sure_.docx
+        │   ├── Dem HS, Late Start(1).docx
+        │   ├── Dem HS, Late Start.docx
+        │   ├── _ 18-19 HZ Parent Group, Not Sure If Involved(1).docx
+        │   ├── _ 18-19 HZ Parent Group, Not Sure If Involved(2).docx
+        │   ├── _ 18-19 HZ Parent Group, Not Sure If Involved.docx
+        │   ├── _ 18-19 Private School Principals, 1st Touch(1).docx
+        │   ├── _ 18-19 Private School Principals, 1st Touch(2).docx
+        │   ├── _ 18-19 Private School Principals, 1st Touch(3).docx
+        │   └── _ 18-19 Private School Principals, 1st Touch.docx
+        ├── 19-20SequenceCopy
+        │   ├── COVID Intro - Message 1 Changes(1).docx
+        │   ├── COVID Intro - Message 1 Changes.docx
+        │   ├── Engaged, Misc. Clean-Up(1).docx
+        │   ├── Engaged, Misc. Clean-Up(2).docx
+        │   ├── Engaged, Misc. Clean-Up.docx
+        │   ├── Morgan Edit, Hot Zone PTA Reapproach - For Kristin.docx
+        │   ├── Morgan Edit, Hot Zone PTA Reapproach.docx
+        │   ├── Private Advisor, Referred.docx
+        │   ├── Task Clean-Up.docx
+        │   └── TreeRing and COVID Template.docx
+        ├── 20-21Insights
+        │   ├── 21-22 Suggested Collections.xlsx
+        │   ├── Content Committee.xlsx
+        │   ├── Email Customization Best Practices!(1).docx
+        │   ├── Email Customization Best Practices!.docx
+        │   ├── Fall Sequence TO DO.xlsx
+        │   ├── File-Screen Shot 2021-02-09 at 2.35.53 PM.png
+        │   ├── File-Screen Shot 2021-03-18 at 2.28.20 PM.png
+        │   ├── File-Screen Shot 2021-04-28 at 4.21.20 PM(1).png
+        │   ├── File-Screen Shot 2021-04-28 at 4.21.20 PM.png
+        │   ├── Formulas I used _).docx
+        │   ├── Melanie + Anna + Morgan_ 4.28.22.docx
+        │   ├── Outreach Code, Confirmed Working — Jan 2021.xlsx
+        │   ├── SDR Outreach Sequences - Master.xlsx
+        │   ├── Spring _23 Re-Approaches.xlsx
+        │   └── Summer _20 Sequences - Proofreading.xlsx
+        ├── 20-21SequenceCopy
+        │   ├── Advisor Year 2 - Done.docx
+        │   ├── Advisor Year 2 - Morgan Draft.docx
+        │   ├── Cold Walk-Up Sequence.docx
+        │   ├── Contract Email 4 Update.docx
+        │   ├── Done - In Contract.docx
+        │   ├── For Outreach, Sept 2019_ Time-Specific Follow-Up.docx
+        │   ├── Hot Zone YBA Reapproach.docx
+        │   ├── In Contract.docx
+        │   ├── Morgan Copy of covid ideas.docx
+        │   ├── PTA - Planting Trees.docx
+        │   ├── Principal Year 2 - Done.docx
+        │   ├── Principal Year 2 - Morgan Draft.docx
+        │   ├── Title 1 Advisor - Draft Complete.docx
+        │   ├── Title 1 Advisor.docx
+        │   ├── Title 1 Principal - Email 1 - Draft Done.docx
+        │   ├── Title 1 Principal - Email 1.docx
+        │   └── Week of July 19 One-on-Ones.docx
+        ├── 21-22Insights
+        │   ├── File-Screen Shot 2021-07-26 at 12.53.28 PM(1).png
+        │   ├── File-Screen Shot 2021-07-26 at 12.53.28 PM.png
+        │   ├── File-Screen Shot 2021-07-27 at 4.32.48 PM(1).png
+        │   ├── File-Screen Shot 2021-07-27 at 4.32.48 PM.png
+        │   ├── File-Screen Shot 2022-04-27 at 12.12.52 PM.png
+        │   └── File-Screen Shot 2022-06-28 at 12.49.59 PM.png
+        ├── 21-22SequenceCopy
+        │   ├── Content Feedback Survey_ May 2022.docx
+        │   ├── ERIKA_ ES - Parent_PTA (21-22) (1st Touch) (2nd Se.docx
+        │   ├── ERIKA_ ES - Principal (21-22) (1st Touch) (2nd Sem.docx
+        │   ├── ERIKA_ ES - Teacher (21-22) (1st Touch) (2nd Semes.docx
+        │   ├── ERIKA_ General Support Staff (21-22) (1st Touch) (.docx
+        │   ├── ERIKA_ MS_HS - Principal (21-22) (1st Touch) (2nd_.docx
+        │   ├── ERIKA_ MS_HS - Teacher (21-22) (1st Touch) (2nd Se.docx
+        │   ├── Morgan + CC Deliverables.docx
+        │   ├── Outreach Sequence List.docx
+        │   ├── SDR_ Links and PDFs for Prospects, 21-22.docx
+        │   ├── Sequence_ Signed up, Didn_t Complete a Book (21-22.docx
+        │   ├── Spring Sequence Feedback - Tickler and Pods.docx
+        │   └── TRL Event - Sequence Notes.docx
+        ├── 22-23SequenceCopy
+        │   ├── Archive Copy_ 1st Draft CC Edit, In Contract.docx
+        │   ├── CC Edit_ Sequence Update, In Contract.docx
+        │   ├── Morgan_CC_ In Contract, Draft 2 with Thoughts!.docx
+        │   ├── SDR NURTURE SEQUENCE_ Spring 22-23.docx
+        │   └── Sequence Review_ In Contract (Starts w_ Reply).docx
+        ├── 23-24SequenceCopy
+        │   ├── Copy of DISTRICT_ 1st TOUCH - Morgan Copy(1).docx
+        │   ├── Copy of DISTRICT_ 1st TOUCH - Morgan Copy.docx
+        │   ├── Copy of ES Principal Spring 22-23.docx
+        │   ├── Copy of ES YBA YL 1st Touch.docx
+        │   ├── Copy of HS Principal Spring 22-23.docx
+        │   ├── Copy of MS Principal Spring 22-23.docx
+        │   ├── Copy of MS YL 1st Touch 22-23.docx
+        │   ├── Copy of PTA YL 1st Touch.docx
+        │   ├── Copy of PTA YL 1st Touch_ Morgan(1).docx
+        │   ├── Copy of PTA YL 1st Touch_ Morgan.docx
+        │   ├── Copy of Support Staff Spring 22-23.docx
+        │   ├── DISTRICT_ 1st TOUCH - Morgan Copy(1).docx
+        │   ├── DISTRICT_ 1st TOUCH - Morgan Copy.docx
+        │   ├── PTA YL 1st Touch_ Morgan(1).docx
+        │   └── PTA YL 1st Touch_ Morgan.docx
+        ├── 2nd Semester Sequences_ CC (2021-2022)
+        │   ├── 2nd Semester Sequence Review, 21-22.xlsx
+        │   └── Erika Archive
+        │       ├── ERIKA_ ES - Parent_PTA (21-22) (1st Touch) (2nd Se.docx
+        │       ├── ERIKA_ ES - Principal (21-22) (1st Touch) (2nd Sem.docx
+        │       ├── ERIKA_ ES - Teacher (21-22) (1st Touch) (2nd Semes.docx
+        │       ├── ERIKA_ General Support Staff (21-22) (1st Touch) (.docx
+        │       ├── ERIKA_ MS_HS - Principal (21-22) (1st Touch) (2nd_(1).docx
+        │       ├── ERIKA_ MS_HS - Principal (21-22) (1st Touch) (2nd_.docx
+        │       └── ERIKA_ MS_HS - Teacher (21-22) (1st Touch) (2nd Se.docx
+        └── SequencesToSort
+            ├── 17-18 HZ Follow Up.docx
+            ├── 2016 Campaigns - By Ray(1).docx
+            ├── 2016 Campaigns - By Ray.docx
+            ├── 2018 Basic Intro Campaign(1).docx
+            ├── 2018 Basic Intro Campaign.docx
+            ├── 2nd Semester_ Re-Approach Cloning Changes.docx
+            ├── Button Test code.docx
+            ├── CC HOLIDAYS.docx
+            ├── CC_ Sample Sent, No Demo (WORKING)-comments.docx
+            ├── CC_ Sample Sent, No Demo (WORKING).docx
+            ├── CC_ Sample Sent, No Demo V2.docx
+            ├── Collections Brainstorm, Snippets + Sequences.docx
+            ├── Contract Email Updates.docx
+            ├── Copy of CC Tickle File 1.22.docx
+            ├── Copy of Notes for Sequence Review Meeting, Sept 10 2021.docx
+            ├── Copy of TreeRing and COVID Template - April 9, 11_(1)(1).docx
+            ├── Copy of TreeRing and COVID Template - April 9, 11_(1)(2).docx
+            ├── Copy of TreeRing and COVID Template - April 9, 11_(1).docx
+            ├── Copy of TreeRing and COVID Template - April 9, 11_.docx
+            ├── DISTRICT_ 1st TOUCH - Morgan Copy-comments.docx
+            ├── ES PTA, 1st Touch-comments.docx
+            ├── ES PTA, 1st Touch.docx
+            ├── Email Draft for Previous_Unresponsive IST Leads.docx
+            ├── Email Drafts from Forever Ago(1).docx
+            ├── Email Drafts from Forever Ago.docx
+            ├── Engaged, Asked for Specific Follow-Up Time.docx
+            ├── Fall Sequence To Do(1).docx
+            ├── Fall Sequence To Do.docx
+            ├── Final Summer Email Draft(1).docx
+            ├── Final Summer Email Draft.docx
+            ├── Follow-Up Email for Kristie _3.docx
+            ├── Formulas I used _).docx
+            ├── HZ Intro emails(1).docx
+            ├── HZ Intro emails.docx
+            ├── Intro Email_Follow-Up(1).docx
+            ├── Intro Email_Follow-Up.docx
+            ├── Local Schools -- Office.docx
+            ├── Local Schools -- Parent Org, Handles YB(1).docx
+            ├── Local Schools -- Parent Org, Handles YB.docx
+            ├── Local Schools -- Parent Org, Not sure if handles Y.docx
+            ├── Local Schools -- Principals (Assistant Principals_.docx
+            ├── Local Schools -- Yearbook Advisors.docx
+            ├── McKinney District Emails.docx
+            ├── Morgan_CC_ In Contract, Draft 2 with Thoughts!-com.docx
+            ├── Notes for Sequence Review Meeting, Sept 10 2021.docx
+            ├── Outreach Sequence List-comments.docx
+            ├── PTA Emails 21-22.xlsx
+            ├── Principal Quote, Call Script(1).docx
+            ├── Principal Quote, Call Script.docx
+            ├── Principal Survey.docx
+            ├── Private Administrators - Year 1.docx
+            ├── Private Administrators - Year 2.docx
+            ├── Private Advisor, Year 2.docx
+            ├── Private Office Staff.docx
+            ├── SEQUENCE TRAINING FOR NEW HIRES.docx
+            ├── Sales Dev_ Outreach Prospect Tag List-comments.docx
+            ├── Sample Follow-Up(1).docx
+            ├── Sample Follow-Up.docx
+            ├── SchoolDigger - Principals.docx
+            ├── Sent Sample.docx
+            ├── Sequence Email Dates, Draft.docx
+            ├── Sequence Training 2.docx
+            ├── Sequence_ Signed up, Didn_t Complete a Book (21-22.docx
+            ├── Soapbox Video Test.docx
+            ├── Spring 2022 Outbound Content Data Review (2022.docx
+            ├── Summer _20 - Sequence List.xlsx
+            ├── Task Clean-Up.docx
+            ├── Template Idea-comments.docx
+            ├── Template Idea.docx
+            ├── Timing Brainstorm.docx
+            ├── Title 1 - Principals.docx
+            ├── Unresponsive Sample Leads.docx
+            ├── Wake County PTA -- May 2019 -- ES, Did not see TJ.docx
+            ├── White Flag, Intro Templates-comments.docx
+            └── White Flag, Intro Templates.docx
+
+221 directories, 4332 files
