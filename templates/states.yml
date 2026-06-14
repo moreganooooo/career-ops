@@ -33,7 +33,7 @@ states:
 
   - id: offer
     label: Offer
-    aliases: [oferta]
+    aliases: [offer]
     description: Offer received
     dashboard_group: offer
 

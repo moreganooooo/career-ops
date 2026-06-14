@@ -139,7 +139,7 @@ try {
 
   const cloudflareChallenge = classifyLiveness({
     status: 403,
-    finalUrl: 'https://www.pracuj.pl/praca/sap-consultant,oferta,1004870954',
+    finalUrl: 'https://www.pracuj.pl/praca/sap-consultant,offer,1004870954',
     bodyText: 'www.pracuj.pl\nJust a moment...\nPerforming security verification\nThis website uses a security service to protect against malicious bots.\nRay ID: a06489bab8bc4cd7\nPerformance and Security by Cloudflare',
     applyControls: [],
   });
@@ -151,7 +151,7 @@ try {
 
   const blocked403 = classifyLiveness({
     status: 403,
-    finalUrl: 'https://www.pracuj.pl/praca/sap-consultant,oferta,1004870954',
+    finalUrl: 'https://www.pracuj.pl/praca/sap-consultant,offer,1004870954',
     bodyText: 'Access denied',
     applyControls: [],
   });
@@ -163,7 +163,7 @@ try {
 
   const activePolishPosting = classifyLiveness({
     status: 200,
-    finalUrl: 'https://www.pracuj.pl/praca/administrator-sap-utilities-warszawa,oferta,1004870954',
+    finalUrl: 'https://www.pracuj.pl/praca/administrator-sap-utilities-warszawa,offer,1004870954',
     bodyText: 'Administrator SAP Utilities. Connectis_. Siedziba firmy: Chmielna 71, Warszawa. '.repeat(6),
     applyControls: ['Aplikuj Aplikuj na ogłoszenie'],
   });
@@ -201,7 +201,7 @@ try {
       async evaluate() { evalCall += 1; return evalCall === 1 ? bodyText : applyControls; },
     };
   };
-  const URL = 'https://www.pracuj.pl/praca/sap-consultant,oferta,1004870954';
+  const URL = 'https://www.pracuj.pl/praca/sap-consultant,offer,1004870954';
   const challengePage = () => fakePage({
     status: 403,
     finalUrl: URL,
@@ -284,7 +284,7 @@ console.log('\n5. Data contract validation');
 const systemFiles = [
   'CLAUDE.md', 'VERSION', 'DATA_CONTRACT.md',
   'modes/_shared.md', 'modes/_profile.template.md',
-  'modes/oferta.md', 'modes/pdf.md', 'modes/scan.md',
+  'modes/offer.md', 'modes/pdf.md', 'modes/scan.md',
   'templates/states.yml', 'templates/cv-template.html',
   '.claude/skills/career-ops/SKILL.md',
 ];
@@ -386,9 +386,9 @@ if (!absPathResult) {
 console.log('\n8. Mode file integrity');
 
 const expectedModes = [
-  '_shared.md', '_profile.template.md', 'oferta.md', 'pdf.md', 'scan.md',
+  '_shared.md', '_profile.template.md', 'offer.md', 'pdf.md', 'scan.md',
   'batch.md', 'apply.md', 'auto-pipeline.md', 'contacto.md', 'deep.md',
-  'ofertas.md', 'pipeline.md', 'project.md', 'tracker.md', 'training.md',
+  'offers.md', 'pipeline.md', 'project.md', 'tracker.md', 'training.md',
 ];
 
 for (const mode of expectedModes) {

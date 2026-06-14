@@ -31,7 +31,7 @@ const RELEASES_API = 'https://api.github.com/repos/santifer/career-ops/releases/
 const SYSTEM_PATHS = [
   'modes/_shared.md',
   'modes/_profile.template.md',
-  'modes/oferta.md',
+  'modes/offer.md',
   'modes/pdf.md',
   'modes/scan.md',
   'modes/batch.md',
@@ -39,7 +39,7 @@ const SYSTEM_PATHS = [
   'modes/auto-pipeline.md',
   'modes/contacto.md',
   'modes/deep.md',
-  'modes/ofertas.md',
+  'modes/offers.md',
   'modes/pipeline.md',
   'modes/project.md',
   'modes/tracker.md',

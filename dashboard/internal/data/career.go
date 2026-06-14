@@ -512,7 +512,7 @@ func NormalizeStatus(raw string) string {
 		return "skip"
 	case strings.Contains(s, "interview") || strings.Contains(s, "entrevista"):
 		return "interview"
-	case s == "offer" || strings.Contains(s, "oferta"):
+	case s == "offer" || strings.Contains(s, "offer"):
 		return "offer"
 	case strings.Contains(s, "responded") || strings.Contains(s, "respondido"):
 		return "responded"

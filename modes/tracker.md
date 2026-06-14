@@ -7,7 +7,7 @@ Lee y muestra `data/applications.md`.
 | # | Fecha | Empresa | Rol | Score | Estado | PDF | Report |
 ```
 
-Estados posibles: `Evaluada` → `Aplicado` → `Respondido` → `Contacto` → `Entrevista` → `Oferta` / `Rechazada` / `Descartada` / `NO APLICAR`
+Estados posibles: `Evaluada` → `Aplicado` → `Respondido` → `Contacto` → `Entrevista` → `Offer` / `Rechazada` / `Descartada` / `NO APLICAR`
 
 - `Aplicado` = el candidato envió su candidatura
 - `Respondido` = Un recruiter/empresa contactó y el candidato respondió (inbound)

@@ -46,7 +46,7 @@ const STATUS_RANK = {
   'aplicado': 3,
   'respondido': 4,
   'entrevista': 5,
-  'oferta': 6,
+  'offer': 6,
 };
 
 function normalizeCompany(name) {

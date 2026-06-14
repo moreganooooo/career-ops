@@ -1,6 +1,6 @@
 # career-ops Batch Worker — Evaluación Completa + PDF + Tracker Line
 
-Eres un worker de evaluación de ofertas de empleo for the candidate (read name from config/profile.yml). Recibes una oferta (URL + JD text) y produces:
+Eres un worker de evaluación de offers de empleo for the candidate (read name from config/profile.yml). Recibes una offer (URL + JD text) y produces:
 
 1. Evaluación completa A-G (report .md)
 2. PDF personalizado ATS-optimizado
@@ -47,11 +47,11 @@ Aplicación durante la evaluación A-G:
 
 | Placeholder | Descripción |
 |-------------|-------------|
-| `{{URL}}` | URL de la oferta |
+| `{{URL}}` | URL de la offer |
 | `{{JD_FILE}}` | Ruta al archivo con el texto del JD |
 | `{{REPORT_NUM}}` | Número de report (3 dígitos, zero-padded: 001, 002...) |
 | `{{DATE}}` | Fecha actual YYYY-MM-DD |
-| `{{ID}}` | ID único de la oferta en batch-input.tsv |
+| `{{ID}}` | ID único de la offer en batch-input.tsv |
 
 ---
 
@@ -69,7 +69,7 @@ Read `cv.md`. Ejecuta TODOS los bloques:
 
 #### Paso 0 — Detección de Arquetipo
 
-Clasifica la oferta en uno de los 6 arquetipos. Si es híbrido, indica los 2 más cercanos.
+Clasifica la offer en uno de los 6 arquetipos. Si es híbrido, indica los 2 más cercanos.
 
 **Los 6 arquetipos (todos igual de válidos):**
 
@@ -227,7 +227,7 @@ Donde `{company-slug}` es el nombre de empresa en lowercase, sin espacios, con g
 **Arquetipo:** {detectado}
 **Score:** {X/5}
 **Legitimacy:** {High Confidence | Proceed with Caution | Suspicious}
-**URL:** {URL de la oferta original}
+**URL:** {URL de la offer original}
 **PDF:** {output/cv-candidate-{company-slug}-{{DATE}}.pdf if score ≥ the resolved `auto_pdf_score_threshold` from Paso 4, else `not generated — run /career-ops pdf {company-slug} to create on demand`}
 **Batch ID:** {{ID}}
 
@@ -397,7 +397,7 @@ Formato TSV (una sola línea, sin header, 9 columnas tab-separated):
 
 **IMPORTANTE:** El orden TSV tiene status ANTES de score (col 5→status, col 6→score). En applications.md el orden es inverso (col 5→score, col 6→status). merge-tracker.mjs maneja la conversión.
 
-**Estados canónicos válidos:** `Evaluada`, `Aplicado`, `Respondido`, `Entrevista`, `Oferta`, `Rechazado`, `Descartado`, `NO APLICAR`
+**Estados canónicos válidos:** `Evaluada`, `Aplicado`, `Respondido`, `Entrevista`, `Offer`, `Rechazado`, `Descartado`, `NO APLICAR`
 
 Donde `{next_num}` se calcula leyendo la última línea de `data/applications.md`.
 

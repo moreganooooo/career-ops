@@ -261,7 +261,7 @@ ${strengthsSection}
 
 ---
 
-*Lightweight Haiku screen — run \`/career-ops oferta\` for full A–F evaluation.*
+*Lightweight Haiku screen — run \`/career-ops offer\` for full A–F evaluation.*
 
 ## Machine Summary
 \`\`\`yaml
