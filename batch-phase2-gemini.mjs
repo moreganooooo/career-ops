@@ -3,6 +3,10 @@
  * batch-phase2-gemini.mjs — Full evaluation batch runner for Phase 2
  * Wraps gemini-eval.mjs in a loop over batch-input-promoted.tsv
  * Fetches JD content via URL, saves to temp file, passes to gemini-eval.mjs
+ *
+ * Post-processing (runs automatically after all evaluations):
+ *   1. fix-evaluated-statuses.mjs — flips SKIP→Evaluated for score>=4.0, fixes garbled scores
+ *   2. merge-tracker.mjs          — x-marks completed entries in pipeline.md
  */
 
 import { readFileSync, existsSync, writeFileSync, appendFileSync } from 'fs';
@@ -27,6 +31,7 @@ const inputFile = getArgValue('--input', join(ROOT, 'batch', 'batch-input-promot
 const stateFile = getArgValue('--state', join(ROOT, 'batch', 'batch-state-phase2.tsv'));
 const delayMs = parseInt(getArgValue('--delay', String(DEFAULT_DELAY_MS)), 10);
 const startFrom = parseInt(getArgValue('--start-from', '0'), 10);
+const skipPostProcess = args.includes('--no-post-process');
 
 if (!existsSync(inputFile)) {
   console.error(`❌ Input file not found: ${inputFile}`);
@@ -160,4 +165,40 @@ for (let i = 0; i < rows.length; i++) {
 }
 
 await browser.close();
-console.log('\n✅ Phase 2 complete! Run: node merge-tracker.mjs');
+console.log('\n✅ Phase 2 evaluations complete.');
+
+// ── Post-processing ───────────────────────────────────────────────────────────────────────────
+
+if (skipPostProcess) {
+  console.log('\n(--no-post-process flag set — skipping cleanup steps)');
+  console.log('Run manually if needed:');
+  console.log('  node fix-evaluated-statuses.mjs');
+  console.log('  node merge-tracker.mjs');
+  process.exit(0);
+}
+
+console.log('\n🔧 Running post-processing cleanup...');
+
+// Step 1: Fix SKIP→Evaluated mismatches and garbled scores
+try {
+  console.log('\n  [1/2] fix-evaluated-statuses.mjs');
+  execFileSync(process.execPath, [join(ROOT, 'fix-evaluated-statuses.mjs')], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+} catch (err) {
+  console.error('  ⚠️  fix-evaluated-statuses.mjs failed — run manually: node fix-evaluated-statuses.mjs');
+}
+
+// Step 2: x-mark completed entries in pipeline.md
+try {
+  console.log('\n  [2/2] merge-tracker.mjs');
+  execFileSync(process.execPath, [join(ROOT, 'merge-tracker.mjs')], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+} catch (err) {
+  console.error('  ⚠️  merge-tracker.mjs failed — run manually: node merge-tracker.mjs');
+}
+
+console.log('\n🎉 Phase 2 + cleanup complete!');
