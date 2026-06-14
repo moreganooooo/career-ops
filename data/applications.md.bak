@@ -2,65 +2,707 @@
 
 | # | Date | Company | Role | Score | Status | PDF | Report | Notes |
 |---|------|---------|------|-------|--------|-----|--------|-------|
-| 136 | 2026-06-10 | BPM LLP (Caravel Division) | Sales Enablement & Marketing Specialist | 3.5/5 | SKIP | ❌ | [136](../reports/136-bpm-llp-caravel-division-2026-06-10.md) | Score 3.5 — consider |
+| 1003 | 2026-06-14 | Coalition Technologies | Copywriter | 3.2/5 | Evaluated | ❌ | [990](../reports/990-coalition-technologies-2026-06-14.md) | Gemini evaluation |
+| 1002 | 2026-06-14 | Stripe | Payments Performance Strategist, Network Cost | 2.1/5 | Evaluated | ❌ | [985](../reports/985-stripe-2026-06-14.md) | Gemini evaluation |
+| 1001 | 2026-06-14 | Caravel (BPM) | Sales Enablement & Marketing Specialist | 4.6/5 | Evaluated | ❌ | [970](../reports/970-caravel-bpm-2026-06-14.md) | Gemini evaluation | rescored from 4.5/5 to 4.6/5 on 2026-06-14 |
+| 1000 | 2026-06-14 | Air Apps - CRM Specialist | unknown | N/A | Evaluated | ❌ | [967](../reports/967-air-apps-crm-specialist-2026-06-14.md) | Gemini evaluation |
+| 999 | 2026-06-14 | Superhuman | Senior Account Based Marketing Manager | 4.2/5 | Evaluated | ❌ | [954](../reports/954-superhuman-2026-06-14.md) | Gemini evaluation | rescored 3.6/5 on 2026-06-14; kept existing 4.2/5 |
+| 998 | 2026-06-14 | Air Apps - CRM Specialist | No Job Description Provided | N/A/5 | Evaluated | ❌ | [949](../reports/949-air-apps-crm-specialist-2026-06-14.md) | Gemini evaluation |
+| 997 | 2026-06-14 | Brightwheel | unknown | N/A | Evaluated | ❌ | [940](../reports/940-brightwheel-2026-06-14.md) | Gemini evaluation |
+| 504 | 2026-06-14 | Khan Academy | B2B Customer Lifecycle Marketing Manager | 4.9/5 | Evaluated | ❌ | [948](../reports/948-khan-academy-2026-06-14.md) | Re-eval 2026-06-14 (4.8→4.9). Gemini evaluation | rescored 4.7/5 on 2026-06-14; kept existing 4.9/5 |
+| 505 | 2026-06-12 | Duolingo | Country Marketing Manager, Turkey | 1.5/5 | SKIP | ❌ | [505](../reports/505-duolingo-2026-06-12.md) | Skip |
+| 578 | 2026-06-12 | Duolingo | Manager, Strategy and Business Operations | 0.5/5 | SKIP | ❌ | [578](../reports/578-duolingo-2026-06-12.md) | Skip |
+| 579 | 2026-06-12 | Duolingo | Performance Marketing Lead | 0.5/5 | SKIP | ❌ | [506](../reports/506-duolingo-2026-06-12.md) | Skip |
+| 580 | 2026-06-12 | Duolingo | Product Marketing Manager, Duolingo Math | 0.5/5 | SKIP | ❌ | [507](../reports/507-duolingo-2026-06-12.md) | Skip |
+| 581 | 2026-06-12 | Duolingo | Senior Community Manager | 0.5/5 | SKIP | ❌ | [579](../reports/579-duolingo-2026-06-12.md) | Skip |
+| 582 | 2026-06-12 | Duolingo | Senior Manager, Scaling Operations | 0.5/5 | SKIP | ❌ | [580](../reports/580-duolingo-2026-06-12.md) | Skip |
+| 583 | 2026-06-12 | ClassDojo | Growth Product Lead, Kids | 1.5/5 | SKIP | ❌ | [581](../reports/581-classdojo-2026-06-12.md) | Skip |
+| 584 | 2026-06-12 | Renaissance Learning | District Consultant - Hillsborough County | 0.5/5 | SKIP | ❌ | [582](../reports/582-renaissance-learning-2026-06-12.md) | Skip |
+| 585 | 2026-06-12 | Renaissance Learning | District Consultant - Part Time - Atlanta | 0.5/5 | SKIP | ❌ | [583](../reports/583-renaissance-learning-2026-06-12.md) | Skip |
+| 586 | 2026-06-12 | Renaissance Learning | Part-Time Customer Education Consultant | 1.5/5 | SKIP | ❌ | [508](../reports/508-renaissance-learning-2026-06-12.md) | Skip |
+| 587 | 2026-06-12 | Renaissance Learning | Part-Time District Consultant | 0.5/5 | SKIP | ❌ | [584](../reports/584-renaissance-learning-2026-06-12.md) | Skip |
+| 588 | 2026-06-12 | ACLU | Associate, Digital Marketing & Production | 0.5/5 | SKIP | ❌ | [509](../reports/509-aclu-2026-06-12.md) | Skip |
+| 589 | 2026-06-12 | ACLU | Earned Media Strategist (Term-Limited) | 0.5/5 | SKIP | ❌ | [510](../reports/510-aclu-2026-06-12.md) | Skip |
+| 590 | 2026-06-12 | ACLU | Fall 2027 Marvin M. Karpatkin Fellowship, Racial Justice Program | 0.5/5 | SKIP | ❌ | [585](../reports/585-aclu-2026-06-12.md) | Skip |
+| 591 | 2026-06-12 | ACLU | Nationwide Shared Services Program Manager | 1.5/5 | SKIP | ❌ | [586](../reports/586-aclu-2026-06-12.md) | Skip |
+| 592 | 2026-06-12 | ACLU | Organizing Strategist | 1.5/5 | SKIP | ❌ | [587](../reports/587-aclu-2026-06-12.md) | Skip |
+| 593 | 2026-06-12 | ACLU | Regional Campaign Strategist [Term-Limited] | 1.5/5 | SKIP | ❌ | [511](../reports/511-aclu-2026-06-12.md) | Skip |
+| 594 | 2026-06-12 | ACLU | Senior Advisor, Affiliate Strategic Planning | 0.5/5 | SKIP | ❌ | [588](../reports/588-aclu-2026-06-12.md) | Skip |
+| 595 | 2026-06-12 | ACLU | Senior Campaign Lead, Democracy | 0.5/5 | SKIP | ❌ | [512](../reports/512-aclu-2026-06-12.md) | Skip |
+| 596 | 2026-06-12 | ACLU | Senior Content Strategist (Term-Limited) | 0.5/5 | SKIP | ❌ | [513](../reports/513-aclu-2026-06-12.md) | Skip |
+| 597 | 2026-06-12 | Wikimedia Foundation | Manager, Community Partnerships | 0.5/5 | SKIP | ❌ | [514](../reports/514-wikimedia-foundation-2026-06-12.md) | Skip |
+| 598 | 2026-06-12 | Mozilla (MZLA Technologies) | Technical Content Marketing Specialist | 3.5/5 | SKIP | ❌ | [515](../reports/515-mozilla-mzla-technologies-2026-06-12.md) | Consider |
+| 599 | 2026-06-12 | Rula | Analytics Manager, Partner Insights | 1.5/5 | SKIP | ❌ | [589](../reports/589-rula-2026-06-12.md) | Skip |
+| 600 | 2026-06-12 | Jane | Senior Product Marketing Manager, Platform | 3.5/5 | SKIP | ❌ | [516](../reports/516-jane-2026-06-12.md) | Consider |
+| 601 | 2026-06-12 | Jane | Senior Product Marketing Manager, Payments | 2.5/5 | SKIP | ❌ | [517](../reports/517-jane-2026-06-12.md) | Skip |
+| 602 | 2026-06-12 | Klaviyo | General Careers Page (No specific role identified) | 1.0/5 | SKIP | ❌ | [518](../reports/518-klaviyo-2026-06-12.md) | Skip |
+| 603 | 2026-06-12 | Klaviyo | General Careers Page (No specific role identified) | 1.0/5 | SKIP | ❌ | [590](../reports/590-klaviyo-2026-06-12.md) | Skip |
+| 604 | 2026-06-12 | Klaviyo | Not specified (General Career Page) | 0.5/5 | SKIP | ❌ | [519](../reports/519-klaviyo-2026-06-12.md) | Skip |
+| 605 | 2026-06-12 | Klaviyo | N/A (General Careers Page) | 0.5/5 | SKIP | ❌ | [520](../reports/520-klaviyo-2026-06-12.md) | Skip |
+| 606 | 2026-06-12 | Klaviyo | General Careers Page (No specific role identified) | 0.5/5 | SKIP | ❌ | [521](../reports/521-klaviyo-2026-06-12.md) | Skip |
+| 607 | 2026-06-12 | Klaviyo | General Careers Page (No specific role identified) | 1.0/5 | SKIP | ❌ | [591](../reports/591-klaviyo-2026-06-12.md) | Skip |
+| 608 | 2026-06-12 | Klaviyo | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [522](../reports/522-klaviyo-2026-06-12.md) | Skip |
+| 609 | 2026-06-12 | Klaviyo | General Careers Page (No specific role identified) | 0.5/5 | SKIP | ❌ | [592](../reports/592-klaviyo-2026-06-12.md) | Skip |
+| 610 | 2026-06-12 | Klaviyo | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [593](../reports/593-klaviyo-2026-06-12.md) | Skip |
+| 611 | 2026-06-12 | Klaviyo | General Careers Page (No specific role identified) | 0.5/5 | SKIP | ❌ | [523](../reports/523-klaviyo-2026-06-12.md) | Skip |
+| 612 | 2026-06-12 | Constant Contact | Senior Revenue Analyst, Customer Success | 0.5/5 | SKIP | ❌ | [594](../reports/594-constant-contact-2026-06-12.md) | Skip |
+| 613 | 2026-06-12 | GitLab | AI Transformation Owner, Marketing | 2.5/5 | SKIP | ❌ | [595](../reports/595-gitlab-2026-06-12.md) | Skip |
+| 614 | 2026-06-12 | GitLab | Lead Global Marketing Campaigns Manager | 2.5/5 | SKIP | ❌ | [524](../reports/524-gitlab-2026-06-12.md) | Skip |
+| 615 | 2026-06-12 | GitLab | Sr. Manager, Customer Experience Operations | 1.5/5 | SKIP | ❌ | [596](../reports/596-gitlab-2026-06-12.md) | Skip |
+| 616 | 2026-06-12 | Remote | Mobility Specialist - AMER | 1.5/5 | SKIP | ❌ | [597](../reports/597-remote-2026-06-12.md) | Skip |
+| 617 | 2026-06-12 | Remote | Product-Led Growth Manager | 2.5/5 | SKIP | ❌ | [598](../reports/598-remote-2026-06-12.md) | Skip |
+| 618 | 2026-06-12 | Remote | Senior Partner Solutions Architect | 1.5/5 | SKIP | ❌ | [599](../reports/599-remote-2026-06-12.md) | Skip |
+| 619 | 2026-06-12 | Remote | Senior Strategic Partnerships Manager | 2.5/5 | SKIP | ❌ | [526](../reports/526-remote-2026-06-12.md) | Skip |
+| 620 | 2026-06-12 | Remote | Senior Total Rewards Partner | 1.5/5 | SKIP | ❌ | [600](../reports/600-remote-2026-06-12.md) | Skip |
+| 621 | 2026-06-12 | Remote | Senior Workday Implementation Specialist | 1.5/5 | SKIP | ❌ | [527](../reports/527-remote-2026-06-12.md) | Skip |
+| 622 | 2026-06-12 | Remote | N/A - No specific role selected | 0.5/5 | SKIP | ❌ | [601](../reports/601-remote-2026-06-12.md) | Skip |
+| 623 | 2026-06-12 | Asana | Enterprise Sales Manager, Education & Public Sector | 0.5/5 | SKIP | ❌ | [602](../reports/602-asana-2026-06-12.md) | Skip |
+| 624 | 2026-06-12 | Asana | Marketing Operations Manager, Lead Funnel | 0.5/5 | SKIP | ❌ | [528](../reports/528-asana-2026-06-12.md) | Skip |
+| 625 | 2026-06-12 | Asana | Marketing Operations Manager, Strategy | 0.5/5 | SKIP | ❌ | [529](../reports/529-asana-2026-06-12.md) | Skip |
+| 626 | 2026-06-12 | Asana | Product Owner, GTM AI | 0.5/5 | SKIP | ❌ | [603](../reports/603-asana-2026-06-12.md) | Skip |
+| 627 | 2026-06-12 | Asana | Senior Marketing Operations Manager, Growth Ops | 0.5/5 | SKIP | ❌ | [530](../reports/530-asana-2026-06-12.md) | Skip |
+| 628 | 2026-06-12 | Asana | Senior Product Marketing Manager, Asana Service Management | 0.5/5 | SKIP | ❌ | [531](../reports/531-asana-2026-06-12.md) | Skip |
+| 629 | 2026-06-12 | Asana | Senior Product Marketing Manager, Command by Asana | 0.5/5 | SKIP | ❌ | [532](../reports/532-asana-2026-06-12.md) | Skip |
+| 630 | 2026-06-12 | Asana | Workplace Coordinator | 0.5/5 | SKIP | ❌ | [604](../reports/604-asana-2026-06-12.md) | Skip |
+| 631 | 2026-06-12 | SORACOM | Remote Customer Service Specialist | 2.5/5 | SKIP | ❌ | [606](../reports/606-soracom-2026-06-12.md) | Skip |
+| 632 | 2026-06-12 | SHRI KRISHNA PLACEMENT | Remote Specialist (eBay Specialist) | 1.5/5 | SKIP | ❌ | [607](../reports/607-shri-krishna-placement-2026-06-12.md) | Skip |
+| 633 | 2026-06-12 | iMPROve Health | PROJECT SPECIALIST HEALTHCARE | 1.5/5 | SKIP | ❌ | [608](../reports/608-improve-health-2026-06-12.md) | Skip |
+| 634 | 2026-06-12 | BusPlanner | Events Coordinator | 3.0/5 | SKIP | ❌ | [609](../reports/609-busplanner-2026-06-12.md) | Consider |
+| 635 | 2026-06-12 | Nestlé Health Science | Associate Brand Manager Innovation | 1.5/5 | SKIP | ❌ | [610](../reports/610-nestl-health-science-2026-06-12.md) | Skip |
+| 636 | 2026-06-12 | CuraSenseAI | Remote Public Health Communications Professional | 1.5/5 | SKIP | ❌ | [611](../reports/611-curasenseai-2026-06-12.md) | Skip |
+| 637 | 2026-06-12 | Septeo | Product Marketing Manager | 0.5/5 | SKIP | ❌ | [533](../reports/533-septeo-2026-06-12.md) | Skip |
+| 638 | 2026-06-12 | Air Apps | CRM Specialist | 4.8/5 | Evaluated | ❌ | [534](../reports/534-air-apps-2026-06-12.md) | Apply if score >= 4.0, Consider if 3.0-3.9, Skip if below 3.0 |
+| 639 | 2026-06-12 | Sonova International | Business CRM Analyst | 2.5/5 | SKIP | ❌ | [612](../reports/612-sonova-international-2026-06-12.md) | Skip |
+| 640 | 2026-06-12 | Super.com | Product Marketing Manager | 3.5/5 | SKIP | ❌ | [535](../reports/535-super-com-2026-06-12.md) | Consider if 3.0-3.9 |
+| 641 | 2026-06-12 | Tabby | Senior Marketing Analyst | 1.5/5 | SKIP | ❌ | [536](../reports/536-tabby-2026-06-12.md) | Skip |
+| 642 | 2026-06-12 | ASPCA | Farm & Industry Engagement Coordinator | 0.5/5 | SKIP | ❌ | [537](../reports/537-aspca-2026-06-12.md) | Skip |
+| 643 | 2026-06-12 | ASPCA | Admissions and Placement Specialist | 0.5/5 | SKIP | ❌ | [613](../reports/613-aspca-2026-06-12.md) | Skip |
+| 644 | 2026-06-12 | Best Friends Animal Society | Coordinator, Shelter Partnerships | 0.5/5 | SKIP | ❌ | [538](../reports/538-best-friends-animal-society-2026-06-12.md) | Skip |
+| 645 | 2026-06-12 | Audubon | Coordinator, Land & Conservation | 0.5/5 | SKIP | ❌ | [614](../reports/614-audubon-2026-06-12.md) | Skip |
+| 646 | 2026-06-12 | Nature | Communications Manager - Internal Communications | 0.5/5 | SKIP | ❌ | [615](../reports/615-nature-2026-06-12.md) | Skip |
+| 647 | 2026-06-12 | Nature | Donor Engagement & Events Coordinator | 0.5/5 | SKIP | ❌ | [539](../reports/539-nature-2026-06-12.md) | Skip |
+| 648 | 2026-06-12 | AccuWeather | Manager, Government Affairs and Weather Enterprise Partnerships | 1.5/5 | SKIP | ❌ | [540](../reports/540-accuweather-2026-06-12.md) | Skip |
+| 649 | 2026-06-12 | Department of Agriculture | Fruit and Vegetable Marketing Specialist | 1.5/5 | SKIP | ❌ | [541](../reports/541-department-of-agriculture-2026-06-12.md) | Skip |
+| 650 | 2026-06-12 | Small Business Administration | Outreach & Marketing Specialist | 1.5/5 | SKIP | ❌ | [542](../reports/542-small-business-administration-2026-06-12.md) | Skip |
+| 651 | 2026-06-12 | Adaptive Biotechnologies | N/A | 0.5/5 | SKIP | ❌ | [616](../reports/616-adaptive-biotechnologies-2026-06-12.md) | Skip |
+| 652 | 2026-06-12 | Adaptive Biotechnologies | Not specified (Career portal landing page) | 0.5/5 | SKIP | ❌ | [617](../reports/617-adaptive-biotechnologies-2026-06-12.md) | Skip |
+| 653 | 2026-06-12 | Adaptive Biotechnologies | Not specified (Career portal landing page) | 0.5/5 | SKIP | ❌ | [618](../reports/618-adaptive-biotechnologies-2026-06-12.md) | Skip |
+| 654 | 2026-06-12 | Altruist Financial LLC | N/A (Job link leads to general careers page with no specific role description) | 0.5/5 | SKIP | ❌ | [619](../reports/619-altruist-financial-llc-2026-06-12.md) | Skip |
+| 655 | 2026-06-12 | Altruist Financial LLC | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [544](../reports/544-altruist-financial-llc-2026-06-12.md) | Skip |
+| 656 | 2026-06-12 | Altruist | Not specified (Career page landing page) | 0.5/5 | SKIP | ❌ | [620](../reports/620-altruist-2026-06-12.md) | Skip |
+| 657 | 2026-06-12 | Altruist Financial LLC | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [545](../reports/545-altruist-financial-llc-2026-06-12.md) | Skip |
+| 658 | 2026-06-12 | Altruist Financial LLC | N/A (Career Page/General Inquiry) | 0.5/5 | SKIP | ❌ | [546](../reports/546-altruist-financial-llc-2026-06-12.md) | Skip |
+| 659 | 2026-06-12 | Altruist Financial LLC | Not specified (Incomplete Job Posting) | 0.5/5 | SKIP | ❌ | [621](../reports/621-altruist-financial-llc-2026-06-12.md) | Skip |
+| 660 | 2026-06-12 | Altruist Financial LLC | N/A (No specific job description provided) | 0.5/5 | SKIP | ❌ | [547](../reports/547-altruist-financial-llc-2026-06-12.md) | Skip |
+| 661 | 2026-06-12 | AMEND Consulting | Senior Consultant | Program Management | 0.5/5 | SKIP | ❌ | [622](../reports/622-amend-consulting-2026-06-12.md) | Skip |
+| 662 | 2026-06-12 | American Institutes for Research | Communications Assistant (Part-time) | 3.5/5 | SKIP | ❌ | [623](../reports/623-american-institutes-for-research-2026-06-12.md) | Consider if 3.0-3.9 |
+| 663 | 2026-06-12 | American Institutes for Research | TA Consultant, Continuous Improvement Coaching | 1.5/5 | SKIP | ❌ | [624](../reports/624-american-institutes-for-research-2026-06-12.md) | Skip |
+| 664 | 2026-06-12 | Anthropic | Communications Lead, Enterprise | 0.5/5 | SKIP | ❌ | [625](../reports/625-anthropic-2026-06-12.md) | Skip |
+| 665 | 2026-06-12 | Anthropic | Field Marketing Manager, Startups | 0.5/5 | SKIP | ❌ | [548](../reports/548-anthropic-2026-06-12.md) | Skip |
+| 666 | 2026-06-12 | Anthropic | Implementation Specialist | 0.5/5 | SKIP | ❌ | [549](../reports/549-anthropic-2026-06-12.md) | Skip |
+| 667 | 2026-06-12 | Anthropic | Marketing Events Content Manager | 0.5/5 | SKIP | ❌ | [626](../reports/626-anthropic-2026-06-12.md) | Skip |
+| 668 | 2026-06-12 | Anthropic | Marketing Events Lead, Brand | 0.5/5 | SKIP | ❌ | [627](../reports/627-anthropic-2026-06-12.md) | Skip |
+| 669 | 2026-06-12 | Anthropic | Marketing Events Producer | 0.5/5 | SKIP | ❌ | [628](../reports/628-anthropic-2026-06-12.md) | Skip |
+| 670 | 2026-06-12 | Anthropic | Program Manager, Communications | 0.5/5 | SKIP | ❌ | [629](../reports/629-anthropic-2026-06-12.md) | Skip |
+| 671 | 2026-06-12 | Anthropic | Research Lead, Training Insights | 0.5/5 | SKIP | ❌ | [630](../reports/630-anthropic-2026-06-12.md) | Skip |
+| 672 | 2026-06-12 | Anthropic | Research Operations, External Artifacts | 0.5/5 | SKIP | ❌ | [631](../reports/631-anthropic-2026-06-12.md) | Skip |
+| 673 | 2026-06-12 | Anthropic | Strategy & Operations Lead, Marketing | 0.5/5 | SKIP | ❌ | [632](../reports/632-anthropic-2026-06-12.md) | Skip |
+| 674 | 2026-06-12 | Anthropic | Technical Specialist, Claude Code | 0.5/5 | SKIP | ❌ | [633](../reports/633-anthropic-2026-06-12.md) | Skip |
+| 675 | 2026-06-12 | Apartment Life | Strategic Partnerships Operational Specialist | 2.5/5 | SKIP | ❌ | [550](../reports/550-apartment-life-2026-06-12.md) | Skip |
+| 676 | 2026-06-12 | Bitso | N/A | 0.5/5 | SKIP | ❌ | [551](../reports/551-bitso-2026-06-12.md) | Skip |
+| 677 | 2026-06-12 | Bitso | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [634](../reports/634-bitso-2026-06-12.md) | Skip |
+| 678 | 2026-06-12 | Brex | Banking Relationship Manager | 0.5/5 | SKIP | ❌ | [635](../reports/635-brex-2026-06-12.md) | Skip |
+| 679 | 2026-06-12 | Brex | Brex Rotational Program | 0.5/5 | SKIP | ❌ | [636](../reports/636-brex-2026-06-12.md) | Skip |
+| 680 | 2026-06-12 | Brex | Customer Marketing Manager | 0.5/5 | SKIP | ❌ | [552](../reports/552-brex-2026-06-12.md) | Skip |
+| 681 | 2026-06-12 | Brex | Enterprise Implementation Consultant | 0.5/5 | SKIP | ❌ | [637](../reports/637-brex-2026-06-12.md) | Skip |
+| 682 | 2026-06-12 | Brex | Manager, Banking Operations | 0.5/5 | SKIP | ❌ | [638](../reports/638-brex-2026-06-12.md) | Skip |
+| 683 | 2026-06-12 | Brex | Relationship Manager | 0.5/5 | SKIP | ❌ | [639](../reports/639-brex-2026-06-12.md) | Skip |
+| 684 | 2026-06-12 | Brex | Sales Enablement Lead | 0.5/5 | SKIP | ❌ | [553](../reports/553-brex-2026-06-12.md) | Skip |
+| 685 | 2026-06-12 | Brex | Sales Enablement Specialist | 0.5/5 | SKIP | ❌ | [554](../reports/554-brex-2026-06-12.md) | Skip |
+| 686 | 2026-06-12 | Brex | Senior Manager, Small Business Partnerships | 0.5/5 | SKIP | ❌ | [555](../reports/555-brex-2026-06-12.md) | Skip |
+| 687 | 2026-06-12 | Brex | Senior Marketing Operations Manager, B2B Sales | 0.5/5 | SKIP | ❌ | [556](../reports/556-brex-2026-06-12.md) | Skip |
+| 688 | 2026-06-12 | Brex | Senior Marketing Operations Manager, Product-Led Growth | 0.5/5 | SKIP | ❌ | [557](../reports/557-brex-2026-06-12.md) | Skip |
+| 689 | 2026-06-12 | Brex | Senior Partner Marketing Manager | 0.5/5 | SKIP | ❌ | [558](../reports/558-brex-2026-06-12.md) | Skip |
+| 690 | 2026-06-12 | Brex | Technical Consultant I | 0.5/5 | SKIP | ❌ | [640](../reports/640-brex-2026-06-12.md) | Skip |
+| 691 | 2026-06-12 | Block | Engagement Marketing Manager - Activation & Habituation | 4.5/5 | Evaluated | ❌ | [641](../reports/641-block-2026-06-12.md) | Apply if score >= 4.0 | rescored 4.4/5 on 2026-06-14; kept existing 4.5/5 | Gemini evaluation |
+| 692 | 2026-06-12 | Block | Channel Sales Support Agent | 2.5/5 | SKIP | ❌ | [642](../reports/642-block-2026-06-12.md) | Skip |
+| 693 | 2026-06-12 | Block | Channel Sales Support Agent (Reseller) | 3.5/5 | SKIP | ❌ | [643](../reports/643-block-2026-06-12.md) | Consider if 3.0-3.9 |
+| 694 | 2026-06-12 | Block | CRM Product Owner, GTM | 1.5/5 | SKIP | ❌ | [644](../reports/644-block-2026-06-12.md) | Skip |
+| 695 | 2026-06-12 | Block | Engagement Marketing Manager - Activation & Habituation | 3.5/5 | SKIP | ❌ | [559](../reports/559-block-2026-06-12.md) | Consider if 3.0-3.9 |
+| 696 | 2026-06-12 | Block | Engagement Marketing Manager - Banking & Loyalty | 3.5/5 | SKIP | ❌ | [560](../reports/560-block-2026-06-12.md) | Consider if 3.0-3.9 |
+| 697 | 2026-06-12 | Block (Afterpay) | Enterprise Partner Marketer | 3.5/5 | SKIP | ❌ | [645](../reports/645-block-afterpay-2026-06-12.md) | Consider |
+| 698 | 2026-06-12 | Block | Enterprise Seller Onboarding (ESO) Technical Project Manager | 1.5/5 | SKIP | ❌ | [561](../reports/561-block-2026-06-12.md) | Skip |
+| 699 | 2026-06-12 | Block (Cash App) | Front Office Brokerage Operations Lead | 1.0/5 | SKIP | ❌ | [646](../reports/646-block-cash-app-2026-06-12.md) | Skip |
+| 700 | 2026-06-12 | Block | Global B2B Growth Marketing Lead | 2.0/5 | SKIP | ❌ | [562](../reports/562-block-2026-06-12.md) | Skip |
+| 701 | 2026-06-12 | Block | Partner Development Lead, Commerce: Afterpay & Cash App | 1.5/5 | SKIP | ❌ | [647](../reports/647-block-2026-06-12.md) | Skip |
+| 702 | 2026-06-12 | Block (Square) | Reseller & Channel Partnerships Manager | 1.5/5 | SKIP | ❌ | [648](../reports/648-block-square-2026-06-12.md) | Skip |
+| 703 | 2026-06-12 | Block | Policy + External Affairs Communications Lead | 2.5/5 | SKIP | ❌ | [649](../reports/649-block-2026-06-12.md) | Skip |
+| 704 | 2026-06-12 | Block (Square) | Product Partnerships Manager | 1.5/5 | SKIP | ❌ | [563](../reports/563-block-square-2026-06-12.md) | Skip |
+| 705 | 2026-06-12 | Block | Program Manager, Bank Partnerships Marketing | 3.5/5 | SKIP | ❌ | [564](../reports/564-block-2026-06-12.md) | Consider if 3.0-3.9 |
+| 706 | 2026-06-12 | Block | Program Manager, Issuing Bank Programs | 1.5/5 | SKIP | ❌ | [650](../reports/650-block-2026-06-12.md) | Skip |
+| 707 | 2026-06-12 | Block (Square) | Senior Manager, GTM Strategy | 2.5/5 | SKIP | ❌ | [565](../reports/565-block-square-2026-06-12.md) | Skip |
+| 708 | 2026-06-12 | Block (Square) | Senior Partnerships Manager, Australia | 1.5/5 | SKIP | ❌ | [566](../reports/566-block-square-2026-06-12.md) | Skip |
+| 709 | 2026-06-12 | Carta | Alliances Marketing Manager | 0.5/5 | SKIP | ❌ | [651](../reports/651-carta-2026-06-12.md) | Skip |
+| 710 | 2026-06-12 | CircleCI | Marketing Manager | 2.5/5 | SKIP | ❌ | [567](../reports/567-circleci-2026-06-12.md) | Skip |
+| 711 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [652](../reports/652-charlie-health-2026-06-12.md) | Skip |
+| 712 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 1.0/5 | SKIP | ❌ | [653](../reports/653-charlie-health-2026-06-12.md) | Skip |
+| 713 | 2026-06-12 | Charlie Health | N/A - No specific role identified | 1.5/5 | SKIP | ❌ | [654](../reports/654-charlie-health-2026-06-12.md) | Skip |
+| 714 | 2026-06-12 | Charlie Health | Not specified (Career portal landing page) | 1.5/5 | SKIP | ❌ | [655](../reports/655-charlie-health-2026-06-12.md) | Skip |
+| 715 | 2026-06-12 | Charlie Health | Not Specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [568](../reports/568-charlie-health-2026-06-12.md) | Skip |
+| 716 | 2026-06-12 | Charlie Health | Not specified (Career portal landing page) | 1.0/5 | SKIP | ❌ | [656](../reports/656-charlie-health-2026-06-12.md) | Skip |
+| 717 | 2026-06-12 | Charlie Health | Not specified (Job board landing page) | 1.5/5 | SKIP | ❌ | [657](../reports/657-charlie-health-2026-06-12.md) | Skip |
+| 718 | 2026-06-12 | Charlie Health | Not specified (Career page landing) | 1.0/5 | SKIP | ❌ | [569](../reports/569-charlie-health-2026-06-12.md) | Skip |
+| 719 | 2026-06-12 | Charlie Health | Not Specified | 1.0/5 | SKIP | ❌ | [658](../reports/658-charlie-health-2026-06-12.md) | Skip |
+| 720 | 2026-06-12 | Charlie Health | N/A - No specific job title provided | 1.0/5 | SKIP | ❌ | [659](../reports/659-charlie-health-2026-06-12.md) | Skip |
+| 721 | 2026-06-12 | Charlie Health | N/A - Career Portal Page | 0.5/5 | SKIP | ❌ | [660](../reports/660-charlie-health-2026-06-12.md) | Skip |
+| 722 | 2026-06-12 | Charlie Health | Not specified (Career page landing) | 1.0/5 | SKIP | ❌ | [570](../reports/570-charlie-health-2026-06-12.md) | Skip |
+| 723 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [661](../reports/661-charlie-health-2026-06-12.md) | Skip |
+| 724 | 2026-06-12 | Charlie Health | Not Specified | 1.5/5 | SKIP | ❌ | [662](../reports/662-charlie-health-2026-06-12.md) | Skip |
+| 725 | 2026-06-12 | Charlie Health | Not Specified | 0.5/5 | SKIP | ❌ | [663](../reports/663-charlie-health-2026-06-12.md) | Skip |
+| 726 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 1.0/5 | SKIP | ❌ | [571](../reports/571-charlie-health-2026-06-12.md) | Skip |
+| 727 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [572](../reports/572-charlie-health-2026-06-12.md) | Skip |
+| 728 | 2026-06-12 | Charlie Health | Not Specified | 1.0/5 | SKIP | ❌ | [664](../reports/664-charlie-health-2026-06-12.md) | Skip |
+| 729 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [665](../reports/665-charlie-health-2026-06-12.md) | Skip |
+| 730 | 2026-06-12 | Charlie Health | N/A (General Careers Page) | 0.5/5 | SKIP | ❌ | [666](../reports/666-charlie-health-2026-06-12.md) | Skip |
+| 731 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [667](../reports/667-charlie-health-2026-06-12.md) | Skip |
+| 732 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [668](../reports/668-charlie-health-2026-06-12.md) | Skip |
+| 733 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 0.5/5 | SKIP | ❌ | [669](../reports/669-charlie-health-2026-06-12.md) | Skip |
+| 734 | 2026-06-12 | Charlie Health | Not specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [670](../reports/670-charlie-health-2026-06-12.md) | Skip |
+| 735 | 2026-06-12 | Charlie Health | Not specified (Career portal landing page) | 0.5/5 | SKIP | ❌ | [671](../reports/671-charlie-health-2026-06-12.md) | Skip |
+| 736 | 2026-06-12 | Clover Health | Customer Experience Lead | 0.5/5 | SKIP | ❌ | [672](../reports/672-clover-health-2026-06-12.md) | Skip |
+| 737 | 2026-06-12 | Datadog | Associate Event Marketing Manager (Sponsorship) | 0.5/5 | SKIP | ❌ | [673](../reports/673-datadog-2026-06-12.md) | Skip |
+| 738 | 2026-06-12 | Datadog | Associate Field Marketing Manager (West/Central) | 0.5/5 | SKIP | ❌ | [674](../reports/674-datadog-2026-06-12.md) | Skip |
+| 739 | 2026-06-12 | Datadog | Customer Success Associate | 0.5/5 | SKIP | ❌ | [675](../reports/675-datadog-2026-06-12.md) | Skip |
+| 740 | 2026-06-12 | Datadog | Customer Success Associate - Commercial Accounts | 0.5/5 | SKIP | ❌ | [676](../reports/676-datadog-2026-06-12.md) | Skip |
+| 741 | 2026-06-12 | Datadog | Customer Success Associate | 0.5/5 | SKIP | ❌ | [677](../reports/677-datadog-2026-06-12.md) | Skip |
+| 742 | 2026-06-12 | Datadog | Inclusion Program Manager | 0.5/5 | SKIP | ❌ | [678](../reports/678-datadog-2026-06-12.md) | Skip |
+| 743 | 2026-06-12 | Datadog | Lead Creative Operations Manager | 0.5/5 | SKIP | ❌ | [679](../reports/679-datadog-2026-06-12.md) | Skip |
+| 744 | 2026-06-12 | Datadog | Manager, GTM Strategy/Operations | 0.5/5 | SKIP | ❌ | [680](../reports/680-datadog-2026-06-12.md) | Skip |
+| 745 | 2026-06-12 | Datadog | Manager, Sales Enablement Program Management | 0.5/5 | SKIP | ❌ | [681](../reports/681-datadog-2026-06-12.md) | Skip |
+| 746 | 2026-06-12 | Datadog | Partner Enablement Manager | 0.5/5 | SKIP | ❌ | [682](../reports/682-datadog-2026-06-12.md) | Skip |
+| 747 | 2026-06-12 | Datadog | Partner Manager - Channels | 1.5/5 | SKIP | ❌ | [683](../reports/683-datadog-2026-06-12.md) | Skip |
+| 748 | 2026-06-12 | Datadog | Partner Solutions Architect (ANZ) | 0.5/5 | SKIP | ❌ | [684](../reports/684-datadog-2026-06-12.md) | Skip |
+| 749 | 2026-06-12 | Datadog | Principal Partner Manager - Channels (GSI) | 0.5/5 | SKIP | ❌ | [685](../reports/685-datadog-2026-06-12.md) | Skip |
+| 750 | 2026-06-12 | Datadog | Principal Partner Solutions Architect (Public Sector - Fed) | 0.5/5 | SKIP | ❌ | [686](../reports/686-datadog-2026-06-12.md) | Skip |
+| 751 | 2026-06-12 | Datadog | Product Marketing Manager | 0.5/5 | SKIP | ❌ | [687](../reports/687-datadog-2026-06-12.md) | Skip |
+| 752 | 2026-06-12 | Datadog | Product Marketing Manager - Log Management | 0.5/5 | SKIP | ❌ | [688](../reports/688-datadog-2026-06-12.md) | Skip |
+| 753 | 2026-06-12 | Datadog | Product Operations Manager | 0.5/5 | SKIP | ❌ | [689](../reports/689-datadog-2026-06-12.md) | Skip |
+| 754 | 2026-06-12 | Datadog | Senior Event Marketing Manager - Conferences & Global Events | 0.5/5 | SKIP | ❌ | [690](../reports/690-datadog-2026-06-12.md) | Skip |
+| 755 | 2026-06-12 | Datadog | Senior Partner Manager - Alliances (Chile) | 0.5/5 | SKIP | ❌ | [691](../reports/691-datadog-2026-06-12.md) | Skip |
+| 756 | 2026-06-12 | Divergent | Enterprise Platform Application Specialist (Microsoft 365) | 0.5/5 | SKIP | ❌ | [692](../reports/692-divergent-2026-06-12.md) | Skip |
+| 757 | 2026-06-12 | Divergent | Operations Analyst | 0.5/5 | SKIP | ❌ | [693](../reports/693-divergent-2026-06-12.md) | Skip |
+| 758 | 2026-06-12 | Divergent | Senior Program Manager, Aerospace and Defense | 1.0/5 | SKIP | ❌ | [694](../reports/694-divergent-2026-06-12.md) | Skip |
+| 759 | 2026-06-12 | Divergent | Video Specialist | 0.5/5 | SKIP | ❌ | [695](../reports/695-divergent-2026-06-12.md) | Skip |
+| 760 | 2026-06-12 | Elastic | Account Coordinator | 1.5/5 | SKIP | ❌ | [696](../reports/696-elastic-2026-06-12.md) | Skip |
+| 761 | 2026-06-12 | Elastic | Federal Civilian Program Manager | 1.5/5 | SKIP | ❌ | [697](../reports/697-elastic-2026-06-12.md) | Skip |
+| 762 | 2026-06-12 | Elastic | Principal Competitive Intelligence - Search - Product Marketing | 1.5/5 | SKIP | ❌ | [698](../reports/698-elastic-2026-06-12.md) | Skip |
+| 763 | 2026-06-12 | Elastic | Principal Product Marketing Manager - Observability | 1.5/5 | SKIP | ❌ | [699](../reports/699-elastic-2026-06-12.md) | Skip |
+| 764 | 2026-06-12 | Elastic | Principal Product Marketing Manager - Platform | 2.5/5 | SKIP | ❌ | [700](../reports/700-elastic-2026-06-12.md) | Skip |
+| 765 | 2026-06-12 | Elastic | Program Manager, Strategic Projects | 0.5/5 | SKIP | ❌ | [701](../reports/701-elastic-2026-06-12.md) | Skip |
+| 766 | 2026-06-12 | Elastic | Senior Product Marketing Manager - Portfolio | 3.5/5 | SKIP | ❌ | [702](../reports/702-elastic-2026-06-12.md) | Consider if 3.0-3.9 |
+| 767 | 2026-06-12 | Elastic | Senior Product Marketing Manager - Serverless | 2.5/5 | SKIP | ❌ | [703](../reports/703-elastic-2026-06-12.md) | Skip |
+| 768 | 2026-06-12 | Elastic | Sr. Analyst, PubSec Revenue Strategy & Operations | 1.5/5 | SKIP | ❌ | [704](../reports/704-elastic-2026-06-12.md) | Skip |
+| 769 | 2026-06-12 | Fastly | N/A | 0.5/5 | SKIP | ❌ | [705](../reports/705-fastly-2026-06-12.md) | Skip |
+| 770 | 2026-06-12 | Fastly | Unknown/Not Provided | 0.5/5 | SKIP | ❌ | [706](../reports/706-fastly-2026-06-12.md) | Skip |
+| 771 | 2026-06-12 | Fetch | Member Experience Agent | 1.5/5 | SKIP | ❌ | [707](../reports/707-fetch-2026-06-12.md) | Skip |
+| 772 | 2026-06-12 | firsthand | Manager, Community Operations | 0.5/5 | SKIP | ❌ | [708](../reports/708-firsthand-2026-06-12.md) | Skip |
+| 773 | 2026-06-12 | firsthand | Manager, Community Operations | 0.5/5 | SKIP | ❌ | [709](../reports/709-firsthand-2026-06-12.md) | Skip |
+| 774 | 2026-06-12 | Grove Collaborative | Senior Manager of Growth Marketing (Temp - Parental Leave Coverage) | 1.5/5 | SKIP | ❌ | [710](../reports/710-grove-collaborative-2026-06-12.md) | Skip |
+| 775 | 2026-06-12 | Gusto | Corporate Development & Partnerships Deal Lead | 0.5/5 | SKIP | ❌ | [711](../reports/711-gusto-2026-06-12.md) | Skip |
+| 776 | 2026-06-12 | Gusto | Executive Operations - R&D | 0.5/5 | SKIP | ❌ | [712](../reports/712-gusto-2026-06-12.md) | Skip |
+| 777 | 2026-06-12 | Gusto | Growth Marketing Lead | 0.5/5 | SKIP | ❌ | [713](../reports/713-gusto-2026-06-12.md) | Skip |
+| 778 | 2026-06-12 | Gusto | Jr. Onboarding Associate | 0.5/5 | SKIP | ❌ | [714](../reports/714-gusto-2026-06-12.md) | Skip |
+| 779 | 2026-06-12 | Gusto | Principal Product Operations Manager, Benefits | 0.5/5 | SKIP | ❌ | [715](../reports/715-gusto-2026-06-12.md) | Skip |
+| 780 | 2026-06-12 | Gusto | Revenue Operations Analyst | 0.5/5 | SKIP | ❌ | [716](../reports/716-gusto-2026-06-12.md) | Skip |
+| 781 | 2026-06-12 | Gusto | Strategic Operations Lead | 0.5/5 | SKIP | ❌ | [717](../reports/717-gusto-2026-06-12.md) | Skip |
+| 782 | 2026-06-12 | Fin | Manager, Relationship Managers (MidMarket) | 0.5/5 | SKIP | ❌ | [718](../reports/718-fin-2026-06-12.md) | Skip |
+| 783 | 2026-06-12 | Fin (Intercom) | Manager, Relationship Managers (SMB) | 0.5/5 | SKIP | ❌ | [719](../reports/719-fin-intercom-2026-06-12.md) | Skip |
+| 784 | 2026-06-12 | Fin (Intercom) | Principal Program Manager | 0.5/5 | SKIP | ❌ | [720](../reports/720-fin-intercom-2026-06-12.md) | Skip |
+| 785 | 2026-06-12 | Fin | Relationship Manager, MidMarket | 0.5/5 | SKIP | ❌ | [721](../reports/721-fin-2026-06-12.md) | Skip |
+| 786 | 2026-06-12 | Fin (Intercom) | Senior Customer Success Enablement Manager | 0.5/5 | SKIP | ❌ | [722](../reports/722-fin-intercom-2026-06-12.md) | Skip |
+| 787 | 2026-06-12 | Fin | Senior Field Marketing Manager - Brand Activations | 0.5/5 | SKIP | ❌ | [723](../reports/723-fin-2026-06-12.md) | Skip |
+| 788 | 2026-06-12 | Fin (formerly Intercom) | Senior Field Marketing Manager - Regional Events | 0.5/5 | SKIP | ❌ | [724](../reports/724-fin-formerly-intercom-2026-06-12.md) | Skip |
+| 789 | 2026-06-12 | Intercom (Fin) | Senior GTM Enablement Manager, Operations | 0.5/5 | SKIP | ❌ | [725](../reports/725-intercom-fin-2026-06-12.md) | Skip |
+| 790 | 2026-06-12 | Fin | Staff Creative Copywriter | 0.5/5 | SKIP | ❌ | [726](../reports/726-fin-2026-06-12.md) | Skip |
+| 791 | 2026-06-12 | Instacart | AI Field Consultant | 0.5/5 | SKIP | ❌ | [727](../reports/727-instacart-2026-06-12.md) | Skip |
+| 792 | 2026-06-12 | Instacart | Catalog Operations Analyst II | 0.5/5 | SKIP | ❌ | [728](../reports/728-instacart-2026-06-12.md) | Skip |
+| 793 | 2026-06-12 | Instacart | Integration & Automation Tech Lead | 0.5/5 | SKIP | ❌ | [729](../reports/729-instacart-2026-06-12.md) | Skip |
+| 794 | 2026-06-12 | Instacart | Knowledge Strategist Team Lead | 0.5/5 | SKIP | ❌ | [730](../reports/730-instacart-2026-06-12.md) | Skip |
+| 795 | 2026-06-12 | Instacart | Knowledge Strategist Team Lead, Governance | 0.5/5 | SKIP | ❌ | [731](../reports/731-instacart-2026-06-12.md) | Skip |
+| 796 | 2026-06-12 | Instacart | Program Manager II | 0.5/5 | SKIP | ❌ | [732](../reports/732-instacart-2026-06-12.md) | Skip |
+| 797 | 2026-06-12 | Justworks | Experience Design Manager, Internal Experiences | 0.5/5 | SKIP | ❌ | [733](../reports/733-justworks-2026-06-12.md) | Skip |
+| 798 | 2026-06-12 | Justworks | GTM Revenue Enablement Manager | 0.5/5 | SKIP | ❌ | [734](../reports/734-justworks-2026-06-12.md) | Skip |
+| 799 | 2026-06-12 | Justworks | Product Operations Manager, AI & Systems | 0.5/5 | SKIP | ❌ | [735](../reports/735-justworks-2026-06-12.md) | Skip |
+| 800 | 2026-06-12 | Justworks | Program Manager, Product | 0.5/5 | SKIP | ❌ | [736](../reports/736-justworks-2026-06-12.md) | Skip |
+| 801 | 2026-06-12 | Justworks | Project Manager, Partner Experience | 0.5/5 | SKIP | ❌ | [737](../reports/737-justworks-2026-06-12.md) | Skip |
+| 802 | 2026-06-12 | Justworks | Research Operations Lead (Fixed Term) | 0.5/5 | SKIP | ❌ | [738](../reports/738-justworks-2026-06-12.md) | Skip |
+| 803 | 2026-06-12 | Justworks | Senior Manager, Community Marketing | 0.5/5 | SKIP | ❌ | [739](../reports/739-justworks-2026-06-12.md) | Skip |
+| 804 | 2026-06-12 | Justworks | Senior Product Marketing Manager, Growth | 0.5/5 | SKIP | ❌ | [740](../reports/740-justworks-2026-06-12.md) | Skip |
+| 805 | 2026-06-12 | Justworks | Senior Product Marketing Manager, International | 0.5/5 | SKIP | ❌ | [741](../reports/741-justworks-2026-06-12.md) | Skip |
+| 806 | 2026-06-12 | Justworks | Senior Program Manager, Product | 0.5/5 | SKIP | ❌ | [742](../reports/742-justworks-2026-06-12.md) | Skip |
+| 807 | 2026-06-12 | Databricks | Customer Enablement Specialist | 0.5/5 | SKIP | ❌ | [743](../reports/743-databricks-2026-06-12.md) | Skip |
+| 808 | 2026-06-12 | Databricks | Strategy & Execution Manager, GTM | 3.5/5 | SKIP | ❌ | [744](../reports/744-databricks-2026-06-12.md) | Consider |
+| 809 | 2026-06-12 | Databricks | Deployment Strategist | 0.5/5 | SKIP | ❌ | [745](../reports/745-databricks-2026-06-12.md) | Skip |
+| 810 | 2026-06-12 | Databricks | Digital Native Go-to-Market (GTM) Leader | 1.0/5 | SKIP | ❌ | [746](../reports/746-databricks-2026-06-12.md) | Skip |
+| 811 | 2026-06-12 | Databricks | GTM Digital Natives Program Leader | 1.5/5 | SKIP | ❌ | [747](../reports/747-databricks-2026-06-12.md) | Skip |
+| 812 | 2026-06-12 | Databricks | Lakebase Sales Specialist | 1.5/5 | SKIP | ❌ | [748](../reports/748-databricks-2026-06-12.md) | Skip |
+| 813 | 2026-06-12 | Databricks | Lakebase Sales Specialist (Central) | 1.0/5 | SKIP | ❌ | [749](../reports/749-databricks-2026-06-12.md) | Skip |
+| 814 | 2026-06-12 | Databricks | Lakebase Sales Specialist, Healthcare & Life Sciences | 1.5/5 | SKIP | ❌ | [750](../reports/750-databricks-2026-06-12.md) | Skip |
+| 815 | 2026-06-12 | Databricks | Lakebase Sales Specialist - Retail | 1.5/5 | SKIP | ❌ | [751](../reports/751-databricks-2026-06-12.md) | Skip |
+| 816 | 2026-06-12 | Databricks | Lakebase Sales Specialist Account Executive | 1.0/5 | SKIP | ❌ | [752](../reports/752-databricks-2026-06-12.md) | Skip |
+| 817 | 2026-06-12 | Databricks | Lead GTM Enablement & Scale Architect, Lakebase | 1.5/5 | SKIP | ❌ | [753](../reports/753-databricks-2026-06-12.md) | Skip |
+| 818 | 2026-06-12 | Databricks | Resident Solutions Architect - Communications, Media, Entertainment & Games | 0.5/5 | SKIP | ❌ | [754](../reports/754-databricks-2026-06-12.md) | Skip |
+| 819 | 2026-06-12 | Databricks | Senior Customer Enablement Architect | 3.5/5 | SKIP | ❌ | [755](../reports/755-databricks-2026-06-12.md) | Consider if 3.0-3.9 |
+| 820 | 2026-06-12 | Databricks | Senior Manager GTM Strategy & Operations (Partners) | 1.5/5 | SKIP | ❌ | [756](../reports/756-databricks-2026-06-12.md) | Skip |
+| 821 | 2026-06-12 | Databricks | Specialist Solutions Architect - AI/ML | 0.5/5 | SKIP | ❌ | [757](../reports/757-databricks-2026-06-12.md) | Skip |
+| 822 | 2026-06-12 | Databricks | Sr. ISV & Partner Solutions Architect | 0.5/5 | SKIP | ❌ | [758](../reports/758-databricks-2026-06-12.md) | Skip |
+| 823 | 2026-06-12 | Databricks | Sr. Manager, Customer Enablement (APJ) | 0.5/5 | SKIP | ❌ | [759](../reports/759-databricks-2026-06-12.md) | Skip |
+| 824 | 2026-06-12 | Databricks | Sr. Partner Marketing Manager - Consulting & System Integrators | 2.5/5 | SKIP | ❌ | [760](../reports/760-databricks-2026-06-12.md) | Skip |
+| 825 | 2026-06-12 | Databricks | Sr. Product Marketing Manager, Lakebase | 1.5/5 | SKIP | ❌ | [761](../reports/761-databricks-2026-06-12.md) | Skip |
+| 826 | 2026-06-12 | Databricks | Sr. Program Manager, Data for Good | 1.5/5 | SKIP | ❌ | [762](../reports/762-databricks-2026-06-12.md) | Skip |
+| 827 | 2026-06-12 | Databricks | Sr. Solutions Architect - Global Telecommunications | 0.5/5 | SKIP | ❌ | [763](../reports/763-databricks-2026-06-12.md) | Skip |
+| 828 | 2026-06-12 | Databricks | Sr Staff Product Operations Manager | 1.5/5 | SKIP | ❌ | [764](../reports/764-databricks-2026-06-12.md) | Skip |
+| 829 | 2026-06-12 | Databricks | Strategy & Execution Manager, GTM | 1.5/5 | SKIP | ❌ | [765](../reports/765-databricks-2026-06-12.md) | Skip |
+| 830 | 2026-06-12 | Databricks | Strategic Customer Advisor | 1.5/5 | SKIP | ❌ | [766](../reports/766-databricks-2026-06-12.md) | Skip |
+| 831 | 2026-06-12 | Databricks | Strategy & Execution AI Specialist | 1.0/5 | SKIP | ❌ | [767](../reports/767-databricks-2026-06-12.md) | Skip |
+| 832 | 2026-06-12 | Databricks | Strategy and Execution Manager, GTM | 1.0/5 | SKIP | ❌ | [768](../reports/768-databricks-2026-06-12.md) | Skip |
+| 833 | 2026-06-12 | Lattice | Not specified (Career page landing) | 0.5/5 | SKIP | ❌ | [769](../reports/769-lattice-2026-06-12.md) | Skip |
+| 834 | 2026-06-12 | Lattice | Not specified (Career page landing) | 1.5/5 | SKIP | ❌ | [770](../reports/770-lattice-2026-06-12.md) | Skip |
+| 835 | 2026-06-12 | Lattice | Not specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [771](../reports/771-lattice-2026-06-12.md) | Skip |
+| 836 | 2026-06-12 | Lyft (Flexdrive) | Business Operations Manager | 0.5/5 | SKIP | ❌ | [772](../reports/772-lyft-flexdrive-2026-06-12.md) | Skip |
+| 837 | 2026-06-12 | Lyft | Executive Social and Communications Manager | 0.5/5 | SKIP | ❌ | [773](../reports/773-lyft-2026-06-12.md) | Skip |
+| 838 | 2026-06-12 | Lyft (Flexdrive) | Operations Associate, Flexdrive | 0.5/5 | SKIP | ❌ | [774](../reports/774-lyft-flexdrive-2026-06-12.md) | Skip |
+| 839 | 2026-06-12 | Lyft (Flexdrive) | Operations Lead | 0.5/5 | SKIP | ❌ | [775](../reports/775-lyft-flexdrive-2026-06-12.md) | Skip |
+| 840 | 2026-06-12 | Lyft | Operations Manager, Citi Bike | 0.5/5 | SKIP | ❌ | [776](../reports/776-lyft-2026-06-12.md) | Skip |
+| 841 | 2026-06-12 | Lyft | Program Manager, AV Technical Operations | 0.5/5 | SKIP | ❌ | [777](../reports/777-lyft-2026-06-12.md) | Skip |
+| 842 | 2026-06-12 | Lyft (Flexdrive) | Program Manager, Process Excellence & Standards | 0.5/5 | SKIP | ❌ | [778](../reports/778-lyft-flexdrive-2026-06-12.md) | Skip |
+| 843 | 2026-06-12 | Lyft | Senior Design Program Manager, Design Foundations & AI Transformation | 0.5/5 | SKIP | ❌ | [779](../reports/779-lyft-2026-06-12.md) | Skip |
+| 844 | 2026-06-12 | Lyft | Senior Marketing Operations Manager | 0.5/5 | SKIP | ❌ | [780](../reports/780-lyft-2026-06-12.md) | Skip |
+| 845 | 2026-06-12 | Lucid Motors | Sales Specialist | 0.5/5 | SKIP | ❌ | [781](../reports/781-lucid-motors-2026-06-12.md) | Skip |
+| 846 | 2026-06-12 | Lucid Motors | Sales Specialist, Century City | 0.5/5 | SKIP | ❌ | [782](../reports/782-lucid-motors-2026-06-12.md) | Skip |
+| 847 | 2026-06-12 | Lucid Motors | Sr. Manager, Global Launch Process & Strategy | 1.0/5 | SKIP | ❌ | [783](../reports/783-lucid-motors-2026-06-12.md) | Skip |
+| 848 | 2026-06-12 | Lucid Motors | Sr. Program Manager UIUX Design | 1.5/5 | SKIP | ❌ | [784](../reports/784-lucid-motors-2026-06-12.md) | Skip |
+| 849 | 2026-06-12 | Navan | Brand Copywriter | 0.5/5 | SKIP | ❌ | [785](../reports/785-navan-2026-06-12.md) | Skip |
+| 850 | 2026-06-12 | Navan | Enterprise Launch Manager | 0.5/5 | SKIP | ❌ | [786](../reports/786-navan-2026-06-12.md) | Skip |
+| 851 | 2026-06-12 | Navan | Enterprise Solutions Consultant | 0.5/5 | SKIP | ❌ | [787](../reports/787-navan-2026-06-12.md) | Skip |
+| 852 | 2026-06-12 | Navan | Global Mobility Program Manager | 0.5/5 | SKIP | ❌ | [788](../reports/788-navan-2026-06-12.md) | Skip |
+| 853 | 2026-06-12 | Navan | GTM Enablement Senior Specialist, Onboarding | 0.5/5 | SKIP | ❌ | [789](../reports/789-navan-2026-06-12.md) | Skip |
+| 854 | 2026-06-12 | Navan | GTM Strategy & Operations Manager | 0.5/5 | SKIP | ❌ | [790](../reports/790-navan-2026-06-12.md) | Skip |
+| 855 | 2026-06-12 | Navan | GTM Strategy & Operations Senior Analyst | 0.5/5 | SKIP | ❌ | [791](../reports/791-navan-2026-06-12.md) | Skip |
+| 856 | 2026-06-12 | Navan | Manager Communications | 0.5/5 | SKIP | ❌ | [792](../reports/792-navan-2026-06-12.md) | Skip |
+| 857 | 2026-06-12 | Navan | Manager, Revenue Operations - SDR | 0.5/5 | SKIP | ❌ | [793](../reports/793-navan-2026-06-12.md) | Skip |
+| 858 | 2026-06-12 | Navan | Mid-Market Solutions Consultant - Expense | 0.5/5 | SKIP | ❌ | [794](../reports/794-navan-2026-06-12.md) | Skip |
+| 859 | 2026-06-12 | Navan | Senior Commercial Solutions Consultant | 0.5/5 | SKIP | ❌ | [795](../reports/795-navan-2026-06-12.md) | Skip |
+| 860 | 2026-06-12 | Navan | Senior Marketing Operations Manager | 0.5/5 | SKIP | ❌ | [796](../reports/796-navan-2026-06-12.md) | Skip |
+| 861 | 2026-06-12 | Navan | Senior Revenue Operations Analyst, Data Quality | 0.5/5 | SKIP | ❌ | [797](../reports/797-navan-2026-06-12.md) | Skip |
+| 862 | 2026-06-12 | Natera | Sales Application Specialist | 0.5/5 | SKIP | ❌ | [798](../reports/798-natera-2026-06-12.md) | Skip |
+| 863 | 2026-06-12 | Natera | Senior Manager, Network Operations | 0.5/5 | SKIP | ❌ | [799](../reports/799-natera-2026-06-12.md) | Skip |
+| 864 | 2026-06-12 | Natera | Supervisor, Test Coordinator | 1.0/5 | SKIP | ❌ | [800](../reports/800-natera-2026-06-12.md) | Skip |
+| 865 | 2026-06-12 | Iterable | Senior Implementation Project Manager | 3.5/5 | SKIP | ❌ | [801](../reports/801-iterable-2026-06-12.md) | Consider if 3.0-3.9 |
+| 866 | 2026-06-12 | Iterable | Solutions Consultant | 2.5/5 | SKIP | ❌ | [802](../reports/802-iterable-2026-06-12.md) | Skip |
+| 867 | 2026-06-12 | Omada Health | Staff AI Transformation Program Manager | 1.5/5 | SKIP | ❌ | [803](../reports/803-omada-health-2026-06-12.md) | Skip |
+| 868 | 2026-06-12 | Octave | Group Practice Partnership | 1.5/5 | SKIP | ❌ | [804](../reports/804-octave-2026-06-12.md) | Skip |
+| 869 | 2026-06-12 | Octave | Group Practice Partnership | 0.5/5 | SKIP | ❌ | [805](../reports/805-octave-2026-06-12.md) | Skip |
+| 870 | 2026-06-12 | Octave | Group Practice Partnership - Illinois | 0.5/5 | SKIP | ❌ | [806](../reports/806-octave-2026-06-12.md) | Skip |
+| 871 | 2026-06-12 | Octave | Security verification / Bot detection page | 0.5/5 | SKIP | ❌ | [807](../reports/807-octave-2026-06-12.md) | Skip |
+| 872 | 2026-06-12 | Octave | Group Practice Partnership | 0.5/5 | SKIP | ❌ | [808](../reports/808-octave-2026-06-12.md) | Skip |
+| 873 | 2026-06-12 | Octave | N/A | 0.0/5 | SKIP | ❌ | [809](../reports/809-octave-2026-06-12.md) | Skip |
+| 874 | 2026-06-12 | Octave | N/A | 0.5/5 | SKIP | ❌ | [810](../reports/810-octave-2026-06-12.md) | Skip |
+| 875 | 2026-06-12 | Okta | Category Manager, Marketing | 0.5/5 | SKIP | ❌ | [811](../reports/811-okta-2026-06-12.md) | Skip |
+| 876 | 2026-06-12 | Okta | CEO Communications Manager | 0.5/5 | SKIP | ❌ | [812](../reports/812-okta-2026-06-12.md) | Skip |
+| 877 | 2026-06-12 | Okta | Customer Success Executive, DoD/IC/FSI | 0.5/5 | SKIP | ❌ | [813](../reports/813-okta-2026-06-12.md) | Skip |
+| 878 | 2026-06-12 | Okta | Customer Success Executive, SLED | 0.5/5 | SKIP | ❌ | [814](../reports/814-okta-2026-06-12.md) | Skip |
+| 879 | 2026-06-12 | Okta | Distinguished Strategic Advisor (Fed Focused) | 1.5/5 | SKIP | ❌ | [815](../reports/815-okta-2026-06-12.md) | Skip |
+| 880 | 2026-06-12 | Okta | GTM Process & Productivity Tools Manager | 0.5/5 | SKIP | ❌ | [816](../reports/816-okta-2026-06-12.md) | Skip |
+| 881 | 2026-06-12 | Okta | Pricing Operations Manager | 0.5/5 | SKIP | ❌ | [817](../reports/817-okta-2026-06-12.md) | Skip |
+| 882 | 2026-06-12 | Okta | Revenue Operations Manager | 0.5/5 | SKIP | ❌ | [818](../reports/818-okta-2026-06-12.md) | Skip |
+| 883 | 2026-06-12 | Okta | Senior Analyst, Sales Strategy & Operations | 0.5/5 | SKIP | ❌ | [819](../reports/819-okta-2026-06-12.md) | Skip |
+| 884 | 2026-06-12 | Okta | Solutions Engineering Senior Identity Specialist (Field CTO) | 1.0/5 | SKIP | ❌ | [820](../reports/820-okta-2026-06-12.md) | Skip |
+| 885 | 2026-06-12 | Okta | Senior Manager, M&A Integration & Strategic Programs | 0.5/5 | SKIP | ❌ | [821](../reports/821-okta-2026-06-12.md) | Skip |
+| 886 | 2026-06-12 | Okta | Senior Product Marketing Specialist, Public Sector | 0.5/5 | SKIP | ❌ | [822](../reports/822-okta-2026-06-12.md) | Skip |
+| 887 | 2026-06-12 | Okta | Sr. Social Content Manager | 0.5/5 | SKIP | ❌ | [823](../reports/823-okta-2026-06-12.md) | Skip |
+| 888 | 2026-06-12 | Okta | Staff Product Marketing Manager, Public Sector | 0.5/5 | SKIP | ❌ | [824](../reports/824-okta-2026-06-12.md) | Skip |
+| 889 | 2026-06-12 | Okta | Technical Consultant, Auth0 | 1.0/5 | SKIP | ❌ | [825](../reports/825-okta-2026-06-12.md) | Skip |
+| 890 | 2026-06-12 | Otter.ai | Senior Manager, Sales Enablement | 0.5/5 | SKIP | ❌ | [826](../reports/826-otter-ai-2026-06-12.md) | Skip |
+| 891 | 2026-06-12 | Otter.ai | Senior Manager, Sales Enablement | 0.5/5 | SKIP | ❌ | [827](../reports/827-otter-ai-2026-06-12.md) | Skip |
+| 892 | 2026-06-12 | Otter.ai | Multiple Roles (General Career Page) | 0.5/5 | SKIP | ❌ | [828](../reports/828-otter-ai-2026-06-12.md) | Skip |
+| 893 | 2026-06-12 | Otter.ai | Multiple Roles (General Career Page) | 0.5/5 | SKIP | ❌ | [829](../reports/829-otter-ai-2026-06-12.md) | Skip |
+| 894 | 2026-06-12 | Otter.ai | Senior Manager, Sales Enablement | 0.5/5 | SKIP | ❌ | [830](../reports/830-otter-ai-2026-06-12.md) | Skip |
+| 895 | 2026-06-12 | Parachute Home | Senior CRM Manager | 0.5/5 | SKIP | ❌ | [831](../reports/831-parachute-home-2026-06-12.md) | Skip |
+| 896 | 2026-06-12 | Relativity Space | Lead, Business Operations | 1.0/5 | SKIP | ❌ | [832](../reports/832-relativity-space-2026-06-12.md) | Skip |
+| 897 | 2026-06-12 | Relativity Space | Production Coordinator II, Second Shift | 1.0/5 | SKIP | ❌ | [833](../reports/833-relativity-space-2026-06-12.md) | Skip |
+| 898 | 2026-06-12 | Relativity Space | Senior Associate, Business Operations | 1.5/5 | SKIP | ❌ | [834](../reports/834-relativity-space-2026-06-12.md) | Skip |
+| 899 | 2026-06-12 | Relativity Space | Senior Communications Manager | 0.5/5 | SKIP | ❌ | [835](../reports/835-relativity-space-2026-06-12.md) | Skip |
+| 900 | 2026-06-12 | Relativity Space | Tool Builder Specialist II | 0.5/5 | SKIP | ❌ | [836](../reports/836-relativity-space-2026-06-12.md) | Skip |
+| 901 | 2026-06-12 | Reformation | Assistant Store Manager, Operations | 0.5/5 | SKIP | ❌ | [837](../reports/837-reformation-2026-06-12.md) | Skip |
+| 902 | 2026-06-12 | Reformation | Operations Associate, Part Time - Broadway Plaza | 0.5/5 | SKIP | ❌ | [838](../reports/838-reformation-2026-06-12.md) | Skip |
+| 903 | 2026-06-12 | Roofstock | Back of House Coordinator | 0.5/5 | SKIP | ❌ | [839](../reports/839-roofstock-2026-06-12.md) | Skip |
+| 904 | 2026-06-12 | Rocket Lab | Events & Merchandise Coordinator | 0.5/5 | SKIP | ❌ | [840](../reports/840-rocket-lab-2026-06-12.md) | Skip |
+| 905 | 2026-06-12 | Rocket Lab | Production Coordinator II | 0.5/5 | SKIP | ❌ | [841](../reports/841-rocket-lab-2026-06-12.md) | Skip |
+| 906 | 2026-06-12 | Rocket Lab | Senior Program Manager I | 0.5/5 | SKIP | ❌ | [842](../reports/842-rocket-lab-2026-06-12.md) | Skip |
+| 907 | 2026-06-12 | Rocket Lab | Senior Program Manager I/II | 0.5/5 | SKIP | ❌ | [843](../reports/843-rocket-lab-2026-06-12.md) | Skip |
+| 908 | 2026-06-12 | Strive Health | Sr. Manager, Partner Success | 0.5/5 | SKIP | ❌ | [844](../reports/844-strive-health-2026-06-12.md) | Skip |
+| 909 | 2026-06-12 | Strive Health | Sr. Network Engagement Partner | 0.5/5 | SKIP | ❌ | [845](../reports/845-strive-health-2026-06-12.md) | Skip |
+| 910 | 2026-06-12 | Stripe | AEO and GEO Marketing Manager | 1.5/5 | SKIP | ❌ | [846](../reports/846-stripe-2026-06-12.md) | Skip |
+| 911 | 2026-06-12 | Stripe | AV Builds and Operations | 0.5/5 | SKIP | ❌ | [847](../reports/847-stripe-2026-06-12.md) | Skip |
+| 912 | 2026-06-12 | Stripe | Brand Partnerships & Strategy Lead | 1.5/5 | SKIP | ❌ | [848](../reports/848-stripe-2026-06-12.md) | Skip |
+| 913 | 2026-06-12 | Stripe | Campaign Operations Manager | 2.0/5 | SKIP | ❌ | [849](../reports/849-stripe-2026-06-12.md) | Skip |
+| 914 | 2026-06-12 | Stripe | Commercial Solutions Program Manager | 2.5/5 | SKIP | ❌ | [850](../reports/850-stripe-2026-06-12.md) | Skip |
+| 915 | 2026-06-12 | Stripe | Consumer Brand Marketing Lead, Link | 2.0/5 | SKIP | ❌ | [851](../reports/851-stripe-2026-06-12.md) | Skip |
+| 916 | 2026-06-12 | Stripe | Consumer Product Marketing Lead, Link | 1.5/5 | SKIP | ❌ | [852](../reports/852-stripe-2026-06-12.md) | Skip |
+| 917 | 2026-06-12 | Bridge (Stripe) | Content Marketing Lead, Bridge | 1.5/5 | SKIP | ❌ | [853](../reports/853-bridge-stripe-2026-06-12.md) | Skip |
+| 918 | 2026-06-12 | Stripe | Corporate Communications | 1.5/5 | SKIP | ❌ | [854](../reports/854-stripe-2026-06-12.md) | Skip |
+| 919 | 2026-06-12 | Stripe | Design Manager, Digital Experiences | 1.0/5 | SKIP | ❌ | [855](../reports/855-stripe-2026-06-12.md) | Skip |
+| 920 | 2026-06-12 | Stripe | Design Program Manager, AI | 1.5/5 | SKIP | ❌ | [856](../reports/856-stripe-2026-06-12.md) | Skip |
+| 921 | 2026-06-12 | Stripe | Forward Deployed AI Accelerator, Marketing | 0.5/5 | SKIP | ❌ | [857](../reports/857-stripe-2026-06-12.md) | Skip |
+| 922 | 2026-06-12 | Stripe | Integrated Campaigns Manager, Startups and AI | 3.5/5 | SKIP | ❌ | [858](../reports/858-stripe-2026-06-12.md) | Consider if 3.0-3.9 |
+| 923 | 2026-06-12 | Stripe | Manager, Customer Success | 0.5/5 | SKIP | ❌ | [859](../reports/859-stripe-2026-06-12.md) | Skip |
+| 924 | 2026-06-12 | Stripe | Marketing Operations Manager | 0.5/5 | SKIP | ❌ | [860](../reports/860-stripe-2026-06-12.md) | Skip |
+| 925 | 2026-06-12 | Stripe | Marketing Operations Program Manager, Sold Funnel | 2.5/5 | SKIP | ❌ | [861](../reports/861-stripe-2026-06-12.md) | Skip |
+| 926 | 2026-06-12 | Stripe | Network Solution Specialist | 0.5/5 | SKIP | ❌ | [862](../reports/862-stripe-2026-06-12.md) | Skip |
+| 927 | 2026-06-12 | Stripe | Operations Program Manager, Managed Operations | 0.5/5 | SKIP | ❌ | [863](../reports/863-stripe-2026-06-12.md) | Skip |
+| 928 | 2026-06-12 | Stripe | Paid Digital Marketing Manager | 1.5/5 | SKIP | ❌ | [864](../reports/864-stripe-2026-06-12.md) | Skip |
+| 929 | 2026-06-12 | Stripe | Partner Development Manager, Global Networks | 1.5/5 | SKIP | ❌ | [865](../reports/865-stripe-2026-06-12.md) | Skip |
+| 930 | 2026-06-12 | Stripe | Partner Development Manager, Strategic Partnerships | 1.5/5 | SKIP | ❌ | [866](../reports/866-stripe-2026-06-12.md) | Skip |
+| 931 | 2026-06-12 | Stripe | Partner Solutions Architect - Consulting Partners | 0.5/5 | SKIP | ❌ | [867](../reports/867-stripe-2026-06-12.md) | Skip |
+| 932 | 2026-06-12 | Stripe | Partner Solutions Architect, Technology Partnerships | 1.0/5 | SKIP | ❌ | [868](../reports/868-stripe-2026-06-12.md) | Skip |
+| 933 | 2026-06-12 | Stripe | AEO and GEO Marketing Manager | 4.5/5 | Evaluated | ❌ | [869](../reports/869-stripe-2026-06-12.md) | Apply |
+| 934 | 2026-06-12 | Stripe | Portfolio Pricing Strategist | 2.5/5 | SKIP | ❌ | [870](../reports/870-stripe-2026-06-12.md) | Skip |
+| 935 | 2026-06-12 | Stripe | Product Lead, Support Experience | 0.5/5 | SKIP | ❌ | [871](../reports/871-stripe-2026-06-12.md) | Skip |
+| 936 | 2026-06-14 | Stripe | Product Marketing Manager | 4.2/5 | SKIP | ❌ | [872](../reports/872-stripe-2026-06-12.md) | Skip | Gemini evaluation | rescored from 2.5/5 to 4.2/5 on 2026-06-14 |
+| 937 | 2026-06-12 | Stripe | Product Marketing Manager, Apps and Ecosystem | 3.5/5 | SKIP | ❌ | [873](../reports/873-stripe-2026-06-12.md) | Consider |
+| 938 | 2026-06-12 | Stripe | Product Marketing Manager, Checkout | 0.5/5 | SKIP | ❌ | [874](../reports/874-stripe-2026-06-12.md) | Skip |
+| 939 | 2026-06-12 | Stripe | Product Marketing Manager, Growth | 4.5/5 | Evaluated | ❌ | [875](../reports/875-stripe-2026-06-12.md) | Apply if score >= 4.0 |
+| 940 | 2026-06-12 | Stripe | Product Marketing Manager, Portfolio Pricing | 1.5/5 | SKIP | ❌ | [876](../reports/876-stripe-2026-06-12.md) | Skip |
+| 941 | 2026-06-12 | Stripe | Product Marketing Manager, Pricing | 2.5/5 | SKIP | ❌ | [877](../reports/877-stripe-2026-06-12.md) | Skip |
+| 942 | 2026-06-12 | Stripe | Program Manager | 0.5/5 | SKIP | ❌ | [878](../reports/878-stripe-2026-06-12.md) | Skip |
+| 943 | 2026-06-12 | Stripe | Program Manager, Enterprise Servicing | 3.5/5 | SKIP | ❌ | [879](../reports/879-stripe-2026-06-12.md) | Consider |
+| 944 | 2026-06-12 | Stripe | Program Manager, Go To Market | 0.5/5 | SKIP | ❌ | [880](../reports/880-stripe-2026-06-12.md) | Skip |
+| 945 | 2026-06-12 | Stripe | Program Manager, GTM Planning | 0.5/5 | SKIP | ❌ | [881](../reports/881-stripe-2026-06-12.md) | Skip |
+| 946 | 2026-06-12 | Stripe | Program Manager, Solutions Architecture (GTM Transformation) | 3.5/5 | SKIP | ❌ | [882](../reports/882-stripe-2026-06-12.md) | Consider |
+| 947 | 2026-06-12 | Stripe | Sales Development Change Management Specialist | 0.5/5 | SKIP | ❌ | [883](../reports/883-stripe-2026-06-12.md) | Skip |
+| 948 | 2026-06-12 | Stripe | Sales Enablement & Training Specialist | 0.5/5 | SKIP | ❌ | [884](../reports/884-stripe-2026-06-12.md) | Skip |
+| 949 | 2026-06-12 | Stripe | Sales Strategy & Operations Business Partner | 1.5/5 | SKIP | ❌ | [885](../reports/885-stripe-2026-06-12.md) | Skip |
+| 950 | 2026-06-12 | Stripe | Short-form Video & Social, Community Comms | 0.5/5 | SKIP | ❌ | [886](../reports/886-stripe-2026-06-12.md) | Skip |
+| 951 | 2026-06-12 | Stripe | Specialist Solutions Architect, Money Management | 1.0/5 | SKIP | ❌ | [887](../reports/887-stripe-2026-06-12.md) | Skip |
+| 952 | 2026-06-12 | Stripe | Specialist Solutions Architect, Payments | 0.5/5 | SKIP | ❌ | [888](../reports/888-stripe-2026-06-12.md) | Skip |
+| 953 | 2026-06-12 | Stripe | Technical Enablement Business Partner | 0.5/5 | SKIP | ❌ | [889](../reports/889-stripe-2026-06-12.md) | Skip |
+| 954 | 2026-06-12 | Stripe | Technical Partner Manager, AMER Banks | 1.5/5 | SKIP | ❌ | [890](../reports/890-stripe-2026-06-12.md) | Skip |
+| 955 | 2026-06-12 | Stripe | Writer, Content Marketing | 4.5/5 | Evaluated | ❌ | [891](../reports/891-stripe-2026-06-12.md) | Apply if score >= 4.0, Consider if 3.0-3.9, Skip if below 3.0 | rescored 4.4/5 on 2026-06-14; kept existing 4.5/5 | Gemini evaluation |
+| 956 | 2026-06-12 | Textio, Inc. | Growth Marketing Manager | 0.5/5 | SKIP | ❌ | [892](../reports/892-textio-inc-2026-06-12.md) | Skip |
+| 957 | 2026-06-12 | Tia | Care Coordinator I | 1.0/5 | SKIP | ❌ | [893](../reports/893-tia-2026-06-12.md) | Skip |
+| 958 | 2026-06-12 | Toast | GTM Engineer for Data Infrastructure & AI Intelligence | 0.5/5 | SKIP | ❌ | [894](../reports/894-toast-2026-06-12.md) | Skip |
+| 959 | 2026-06-12 | Transcarent | Manager, Partnership Success- Health Plan | 2.5/5 | SKIP | ❌ | [895](../reports/895-transcarent-2026-06-12.md) | Skip |
+| 960 | 2026-06-12 | Transcarent | Manager, Strategic Account Management- Client Success | 1.5/5 | SKIP | ❌ | [896](../reports/896-transcarent-2026-06-12.md) | Skip |
+| 961 | 2026-06-12 | Transcarent | Remote Outreach Specialist | 0.5/5 | SKIP | ❌ | [897](../reports/897-transcarent-2026-06-12.md) | Skip |
+| 962 | 2026-06-12 | Transcarent | Senior Manager, AI and Leadership Enablement | 2.5/5 | SKIP | ❌ | [898](../reports/898-transcarent-2026-06-12.md) | Skip |
+| 963 | 2026-06-12 | Transcarent | Sr. Specialist, Customer Success | 1.5/5 | SKIP | ❌ | [899](../reports/899-transcarent-2026-06-12.md) | Skip |
+| 964 | 2026-06-12 | Typeface | Senior Content Marketing Manager | 2.5/5 | SKIP | ❌ | [900](../reports/900-typeface-2026-06-12.md) | Skip |
+| 965 | 2026-06-12 | Typeface | Senior Product Marketing Manager | 0.5/5 | SKIP | ❌ | [901](../reports/901-typeface-2026-06-12.md) | Skip |
+| 966 | 2026-06-12 | Twitch | Strategic Partner Manager | 1.5/5 | SKIP | ❌ | [902](../reports/902-twitch-2026-06-12.md) | Skip |
+| 967 | 2026-06-12 | Twilio | Principal, Marketing Architecture & Strategy | 2.5/5 | SKIP | ❌ | [903](../reports/903-twilio-2026-06-12.md) | Skip |
+| 968 | 2026-06-12 | Twilio | Senior Principal, Technical Program Management (Research & Development) | 1.0/5 | SKIP | ❌ | [904](../reports/904-twilio-2026-06-12.md) | Skip |
+| 969 | 2026-06-12 | Twilio | Senior Product Marketing Manager, Data | 2.5/5 | SKIP | ❌ | [905](../reports/905-twilio-2026-06-12.md) | Skip |
+| 970 | 2026-06-12 | Twilio | Staff Solutions Architect, Contract LifeCycle Management | 1.0/5 | SKIP | ❌ | [906](../reports/906-twilio-2026-06-12.md) | Skip |
+| 971 | 2026-06-12 | Twilio | Staff Solutions Architect, Opportunity LifeCycle Management | 1.0/5 | SKIP | ❌ | [907](../reports/907-twilio-2026-06-12.md) | Skip |
+| 972 | 2026-06-12 | Upstart | Operations Manager, Auto Loan Processing | 0.5/5 | SKIP | ❌ | [908](../reports/908-upstart-2026-06-12.md) | Skip |
+| 973 | 2026-06-12 | Upstart | Principal Analyst, Growth Marketing | 1.5/5 | SKIP | ❌ | [909](../reports/909-upstart-2026-06-12.md) | Skip |
+| 974 | 2026-06-12 | Upstart | Senior Customer Contact Specialist | 0.5/5 | SKIP | ❌ | [910](../reports/910-upstart-2026-06-12.md) | Skip |
+| 975 | 2026-06-12 | Upstart | Senior Lifecycle Manager, Emerging Markets (contract) | 4.8/5 | Evaluated | ❌ | [911](../reports/911-upstart-2026-06-12.md) | Apply | rescored 4.7/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
+| 976 | 2026-06-12 | Upstart | Senior Performance Marketing Manager, Direct Mail and Offline Growth | 2.5/5 | SKIP | ❌ | [912](../reports/912-upstart-2026-06-12.md) | Skip |
+| 977 | 2026-06-12 | Vast | Events Coordinator | 0.5/5 | SKIP | ❌ | [913](../reports/913-vast-2026-06-12.md) | Skip |
+| 978 | 2026-06-12 | Vast | Operations & Production Specialist, Experiences | 0.5/5 | SKIP | ❌ | [914](../reports/914-vast-2026-06-12.md) | Skip |
+| 979 | 2026-06-12 | Vast | Quality Inspection Specialist | 0.5/5 | SKIP | ❌ | [915](../reports/915-vast-2026-06-12.md) | Skip |
+| 980 | 2026-06-12 | Vast | Senior Integration Specialist, E-2 | 0.5/5 | SKIP | ❌ | [916](../reports/916-vast-2026-06-12.md) | Skip |
+| 981 | 2026-06-12 | Vast | Sourcing Coordinator, Indirect | 0.5/5 | SKIP | ❌ | [917](../reports/917-vast-2026-06-12.md) | Skip |
+| 982 | 2026-06-12 | Vast | Training Operations Coordinator | 0.5/5 | SKIP | ❌ | [918](../reports/918-vast-2026-06-12.md) | Skip |
+| 983 | 2026-06-12 | Yotpo | N/A | 0.5/5 | SKIP | ❌ | [919](../reports/919-yotpo-2026-06-12.md) | Skip |
+| 984 | 2026-06-12 | Yotpo | Security Check / Bot Detection | 0.5/5 | SKIP | ❌ | [920](../reports/920-yotpo-2026-06-12.md) | Skip |
+| 985 | 2026-06-12 | Yotpo | N/A | 0.5/5 | SKIP | ❌ | [921](../reports/921-yotpo-2026-06-12.md) | Skip |
+| 986 | 2026-06-12 | WITHIN | AI Creative Specialist - CO | 0.5/5 | SKIP | ❌ | [922](../reports/922-within-2026-06-12.md) | Skip |
+| 987 | 2026-06-12 | WITHIN | Digital Media Strategist | 0.5/5 | SKIP | ❌ | [923](../reports/923-within-2026-06-12.md) | Skip |
+| 988 | 2026-06-12 | WITHIN | Digital Media Strategist - CO | 0.5/5 | SKIP | ❌ | [924](../reports/924-within-2026-06-12.md) | Skip |
+| 989 | 2026-06-12 | WITHIN | Revenue Enablement Manager | 0.5/5 | SKIP | ❌ | [925](../reports/925-within-2026-06-12.md) | Skip |
+| 990 | 2026-06-12 | ZoomInfo | N/A | 0.5/5 | SKIP | ❌ | [926](../reports/926-zoominfo-2026-06-12.md) | Skip |
+| 991 | 2026-06-12 | ZoomInfo | N/A (Bot/Human Verification Page) | 0.5/5 | SKIP | ❌ | [927](../reports/927-zoominfo-2026-06-12.md) | Skip |
+| 992 | 2026-06-12 | ZoomInfo | N/A | 0.5/5 | SKIP | ❌ | [928](../reports/928-zoominfo-2026-06-12.md) | Skip |
+| 993 | 2026-06-12 | ZoomInfo | N/A | 0.5/5 | SKIP | ❌ | [929](../reports/929-zoominfo-2026-06-12.md) | Skip |
+| 994 | 2026-06-12 | ZoomInfo | N/A | 0.5/5 | SKIP | ❌ | [930](../reports/930-zoominfo-2026-06-12.md) | Skip |
+| 995 | 2026-06-12 | Zwift | N/A | 0.5/5 | SKIP | ❌ | [931](../reports/931-zwift-2026-06-12.md) | Skip |
+| 996 | 2026-06-12 | PBS | Sr. Manager, Local Content and Presence | 0.5/5 | SKIP | ❌ | [932](../reports/932-pbs-2026-06-12.md) | Skip |
+| 503 | 2026-06-12 | Brightwheel | Senior Analyst, GTM Intelligence | 1.5/5 | SKIP | ❌ | [503](../reports/503-brightwheel-2026-06-12.md) | Skip |
+| 320 | 2026-06-11 | Headspace | Part Time Therapist | 0.5/5 | SKIP | ❌ | [320](../reports/320-headspace-2026-06-11.md) | Skip |
+| 321 | 2026-06-11 | Headspace | N/A (No relevant roles available) | 0.5/5 | SKIP | ❌ | [321](../reports/321-headspace-2026-06-11.md) | Skip |
+| 333 | 2026-06-11 | N/A | N/A | 0.0/5 | SKIP | ❌ | [333](../reports/333-n-a-2026-06-11.md) | Skip |
+| 348 | 2026-06-11 | ActiveCampaign | N/A | 0.0/5 | SKIP | ❌ | [348](../reports/348-activecampaign-2026-06-11.md) | Skip |
+| 352 | 2026-06-11 | Nabis | N/A | 0.5/5 | SKIP | ❌ | [352](../reports/352-nabis-2026-06-11.md) | Skip |
+| 364 | 2026-06-11 | Gong | Senior IT Services Specialist I | 0.5/5 | SKIP | ❌ | [364](../reports/364-gong-2026-06-11.md) | Skip |
+| 365 | 2026-06-11 | Gong.io | Sr. Email Marketing Manager | 0.5/5 | SKIP | ❌ | [365](../reports/365-gong-io-2026-06-11.md) | Skip |
+| 367 | 2026-06-11 | Zapier | Talent Community Form (General Application) | 1.5/5 | SKIP | ❌ | [367](../reports/367-zapier-2026-06-11.md) | Skip |
+| 372 | 2026-06-11 | IPSY | Brand Partnership Coordinator | 0.5/5 | SKIP | ❌ | [372](../reports/372-ipsy-2026-06-11.md) | Skip |
+| 374 | 2026-06-11 | IPSY | Director, E-Commerce Growth and Marketplace Partnerships | 1.5/5 | SKIP | ❌ | [374](../reports/374-ipsy-2026-06-11.md) | Skip |
+| 375 | 2026-06-11 | IPSY | Shipping Operations Business Analyst | 1.5/5 | SKIP | ❌ | [375](../reports/375-ipsy-2026-06-11.md) | Skip |
+| 384 | 2026-06-11 | N/A | N/A | 0.0/5 | SKIP | ❌ | [384](../reports/384-n-a-2026-06-11.md) | Skip |
+| 391 | 2026-06-11 | Dossier | Remote Implementation Specialist | 3.5/5 | SKIP | ❌ | [391](../reports/391-dossier-2026-06-11.md) | Consider |
+| 400 | 2026-06-11 | SmartBug Media | Point Success (Globalia) CRM Strategist | 4.2/5 | Evaluated | ❌ | [400](../reports/400-smartbug-media-2026-06-11.md) | Apply |
+| 402 | 2026-06-12 | Compass Business Solutions | Marketing Specialist | 1.5/5 | SKIP | ❌ | [402](../reports/402-compass-business-solutions-2026-06-12.md) | Skip |
+| 407 | 2026-06-12 | Forager | Growth Lead | 1.5/5 | SKIP | ❌ | [407](../reports/407-forager-2026-06-12.md) | Skip |
+| 408 | 2026-06-12 | IAPWE | Freelance Writer | 2.5/5 | SKIP | ❌ | [408](../reports/408-iapwe-2026-06-12.md) | Skip |
+| 409 | 2026-06-12 | Clerky, Inc. | Customer Operations & Writing Specialist | 0.5/5 | SKIP | ❌ | [409](../reports/409-clerky-inc-2026-06-12.md) | Skip |
+| 410 | 2026-06-12 | Workada | Data Labeling Specialists | 0.5/5 | SKIP | ❌ | [410](../reports/410-workada-2026-06-12.md) | Skip |
+| 411 | 2026-06-12 | Remote | Principal, Marketing Analytics | 1.0/5 | SKIP | ❌ | [411](../reports/411-remote-2026-06-12.md) | Skip |
+| 412 | 2026-06-12 | Evolent | Sr. Analyst, Growth | 1.5/5 | SKIP | ❌ | [412](../reports/412-evolent-2026-06-12.md) | Skip |
+| 413 | 2026-06-12 | Jerry | Associate Director, Growth Marketing (Innovative Channels) | 2.5/5 | SKIP | ❌ | [413](../reports/413-jerry-2026-06-12.md) | Skip |
+| 414 | 2026-06-12 | EverCommerce | Senior Growth Marketing Manager | 4.2/5 | Evaluated | ❌ | [414](../reports/414-evercommerce-2026-06-12.md) | Apply if score >= 4.0 |
+| 415 | 2026-06-12 | CoinMarketCap | AI Operations Specialist | 1.5/5 | SKIP | ❌ | [415](../reports/415-coinmarketcap-2026-06-12.md) | Skip |
+| 416 | 2026-06-12 | Supabase | GSI Partnership Lead | 1.5/5 | SKIP | ❌ | [416](../reports/416-supabase-2026-06-12.md) | Skip |
+| 417 | 2026-06-12 | Winona | Lifecycle Marketing Strategist | 4.8/5 | Evaluated | ❌ | [417](../reports/417-winona-2026-06-12.md) | Apply if score >= 4.0 |
+| 418 | 2026-06-12 | SafetyWing | Partnerships Manager | 2.5/5 | SKIP | ❌ | [418](../reports/418-safetywing-2026-06-12.md) | Skip |
+| 419 | 2026-06-12 | Winona | Social Media Intern | 0.5/5 | SKIP | ❌ | [419](../reports/419-winona-2026-06-12.md) | Skip |
+| 420 | 2026-06-12 | WebFX | Expert Advisor: Commercial Print Technology Expert | 1.5/5 | SKIP | ❌ | [420](../reports/420-webfx-2026-06-12.md) | Skip |
+| 421 | 2026-06-14 | Instrumentl | Senior Enablement Manager | 4.6/5 | Evaluated | ❌ | [421](../reports/421-instrumentl-2026-06-12.md) | Apply | Gemini evaluation | rescored from 4.5/5 to 4.6/5 on 2026-06-14 |
+| 422 | 2026-06-12 | Canonical | Channel Partner Sales Executive | 1.5/5 | SKIP | ❌ | [422](../reports/422-canonical-2026-06-12.md) | Skip |
+| 423 | 2026-06-12 | Instrumentl | Customer Success Manager | 1.5/5 | SKIP | ❌ | [423](../reports/423-instrumentl-2026-06-12.md) | Skip |
+| 424 | 2026-06-12 | Sourcegraph | Senior Customer Success Manager - US East [IC3] | 1.5/5 | SKIP | ❌ | [424](../reports/424-sourcegraph-2026-06-12.md) | Skip |
+| 425 | 2026-06-12 | Clipboard | Lead Generation Specialist | 0.5/5 | SKIP | ❌ | [425](../reports/425-clipboard-2026-06-12.md) | Skip |
+| 426 | 2026-06-12 | Paragon | Product Marketing Lead | 3.5/5 | SKIP | ❌ | [426](../reports/426-paragon-2026-06-12.md) | Consider |
+| 427 | 2026-06-12 | Nuclear Regulatory Commission | Senior IT Specialist (Data Identity Protection) | 1.0/5 | SKIP | ❌ | [427](../reports/427-nuclear-regulatory-commission-2026-06-12.md) | Skip |
+| 428 | 2026-06-12 | Department of Defense / Stars & Stripes | Marketing Coordinator NE-04 | 0.5/5 | SKIP | ❌ | [428](../reports/428-department-of-defense-stars-stripes-2026-06-12.md) | Skip |
+| 429 | 2026-06-12 | Department of the Air Force | Marketing and Sponsorship Assistant | 0.5/5 | SKIP | ❌ | [429](../reports/429-department-of-the-air-force-2026-06-12.md) | Skip |
+| 430 | 2026-06-12 | Department of the Air Force | Marketing Director | 0.5/5 | SKIP | ❌ | [430](../reports/430-department-of-the-air-force-2026-06-12.md) | Skip |
+| 431 | 2026-06-12 | Department of the Army | Marketing Assistant NF-03 | 0.5/5 | SKIP | ❌ | [431](../reports/431-department-of-the-army-2026-06-12.md) | Skip |
+| 432 | 2026-06-12 | Department of the Army | Marketing Specialist (E-Commerce) NF-03 | 0.5/5 | SKIP | ❌ | [432](../reports/432-department-of-the-army-2026-06-12.md) | Skip |
+| 433 | 2026-06-12 | Department of Agriculture | Industrial Specialist (Agriculture) (Scales and Weighing Specialist) | 1.0/5 | SKIP | ❌ | [433](../reports/433-department-of-agriculture-2026-06-12.md) | Skip |
+| 434 | 2026-06-12 | Department of the Air Force | Marketing and Digital Advertising Specialist | 0.5/5 | SKIP | ❌ | [434](../reports/434-department-of-the-air-force-2026-06-12.md) | Skip |
+| 435 | 2026-06-12 | Department of the Air Force | Marketing Specialist (MarTech Manager) | 0.5/5 | SKIP | ❌ | [435](../reports/435-department-of-the-air-force-2026-06-12.md) | Skip |
+| 436 | 2026-06-12 | Department of the Navy (U.S. Marine Corps MCCS) | MARKETING TECH/OUTREACH SPECIALIST NF3 | 0.5/5 | SKIP | ❌ | [436](../reports/436-department-of-the-navy-u-s-marine-corps-mccs-2026-06-12.md) | Skip |
+| 437 | 2026-06-12 | Department of Veterans Affairs | Communications & Marketing Assistant | 0.5/5 | SKIP | ❌ | [437](../reports/437-department-of-veterans-affairs-2026-06-12.md) | Skip |
+| 438 | 2026-06-12 | Department of the Army | Marketing Program Assistant NF-03 | 1.5/5 | SKIP | ❌ | [438](../reports/438-department-of-the-army-2026-06-12.md) | Skip |
+| 439 | 2026-06-12 | Department of Veterans Affairs | VCS Communications and Marketing Assistant | 0.5/5 | SKIP | ❌ | [439](../reports/439-department-of-veterans-affairs-2026-06-12.md) | Skip |
+| 440 | 2026-06-12 | Department of Veterans Affairs | Communications and Marketing Assistant | 0.5/5 | SKIP | ❌ | [440](../reports/440-department-of-veterans-affairs-2026-06-12.md) | Skip |
+| 441 | 2026-06-12 | Versaterm | Customer Success Advocate I | 1.5/5 | SKIP | ❌ | [441](../reports/441-versaterm-2026-06-12.md) | Skip |
+| 442 | 2026-06-12 | StackBlitz | Customer Enablement Lead | 3.5/5 | SKIP | ❌ | [442](../reports/442-stackblitz-2026-06-12.md) | Consider |
+| 443 | 2026-06-12 | Versaterm | Customer Success Advocate I | 1.5/5 | SKIP | ❌ | [443](../reports/443-versaterm-2026-06-12.md) | Skip |
+| 444 | 2026-06-12 | Diligent Corporation | Client Implementation Manager – GRC | 0.5/5 | SKIP | ❌ | [444](../reports/444-diligent-corporation-2026-06-12.md) | Skip |
+| 445 | 2026-06-12 | Mitratech | Professional Services Consultant | 0.5/5 | SKIP | ❌ | [445](../reports/445-mitratech-2026-06-12.md) | Skip |
+| 446 | 2026-06-12 | Affinity | Customer Success Operations Analyst | 3.5/5 | SKIP | ❌ | [446](../reports/446-affinity-2026-06-12.md) | Consider if 3.0-3.9 |
+| 447 | 2026-06-12 | CipherHealth | Customer Success Manager | 1.5/5 | SKIP | ❌ | [447](../reports/447-cipherhealth-2026-06-12.md) | Skip |
+| 448 | 2026-06-12 | Omada Health | Customer Success Associate - SMB | 3.5/5 | SKIP | ❌ | [448](../reports/448-omada-health-2026-06-12.md) | Consider |
+| 449 | 2026-06-12 | Spring Health | Strategic Customer Success Manager | 1.5/5 | SKIP | ❌ | [449](../reports/449-spring-health-2026-06-12.md) | Skip |
+| 450 | 2026-06-12 | Tebra | Director, Customer Success Operations | 1.5/5 | SKIP | ❌ | [450](../reports/450-tebra-2026-06-12.md) | Skip |
+| 451 | 2026-06-12 | Sigma Computing | N/A | 0.5/5 | SKIP | ❌ | [451](../reports/451-sigma-computing-2026-06-12.md) | Skip |
+| 452 | 2026-06-12 | Chainguard | Staff Customer Success Manager, Majors (Financial Services) | 1.5/5 | SKIP | ❌ | [452](../reports/452-chainguard-2026-06-12.md) | Skip |
+| 453 | 2026-06-12 | Justworks | Customer Success Performance Insight Analyst | 0.5/5 | SKIP | ❌ | [453](../reports/453-justworks-2026-06-12.md) | Skip |
+| 454 | 2026-06-12 | Mitratech | Professional Service Consultant II | 1.5/5 | SKIP | ❌ | [454](../reports/454-mitratech-2026-06-12.md) | Skip |
+| 455 | 2026-06-12 | Blytheco | Marketing Campaign Manager | 4.8/5 | Evaluated | ❌ | [455](../reports/455-blytheco-2026-06-12.md) | Apply if score >= 4.0, Consider if 3.0-3.9, Skip if below 3.0 |
+| 456 | 2026-06-12 | Fleetio | N/A | 0.5/5 | SKIP | ❌ | [456](../reports/456-fleetio-2026-06-12.md) | Skip |
+| 457 | 2026-06-12 | CLEAR | N/A (Job no longer open) | 0.5/5 | SKIP | ❌ | [457](../reports/457-clear-2026-06-12.md) | Skip |
+| 458 | 2026-06-12 | Blue Cube Services | Wealth & Lending Marketing Specialist | 0.5/5 | SKIP | ❌ | [458](../reports/458-blue-cube-services-2026-06-12.md) | Skip |
+| 459 | 2026-06-12 | AlertMedia | Product Marketing Manager | 0.5/5 | SKIP | ❌ | [459](../reports/459-alertmedia-2026-06-12.md) | Skip |
+| 460 | 2026-06-12 | Twilio | Marketing Analyst, PLG & Self-Serve Analytics | 1.5/5 | SKIP | ❌ | [460](../reports/460-twilio-2026-06-12.md) | Skip |
+| 461 | 2026-06-12 | Orchard | Growth Marketing Manager, Paid Social | 0.5/5 | SKIP | ❌ | [461](../reports/461-orchard-2026-06-12.md) | Skip |
+| 462 | 2026-06-12 | AG1 | Senior Manager, Shopper Marketing | 2.5/5 | SKIP | ❌ | [462](../reports/462-ag1-2026-06-12.md) | Skip |
+| 463 | 2026-06-12 | Jetson | Marketing Growth Analyst (Engineer) | 0.5/5 | SKIP | ❌ | [463](../reports/463-jetson-2026-06-12.md) | Skip |
+| 464 | 2026-06-12 | AccuWeather | Revenue Operations Analyst (CRM & Data Systems) | 3.5/5 | SKIP | ❌ | [464](../reports/464-accuweather-2026-06-12.md) | Consider if 3.0-3.9 |
+| 465 | 2026-06-12 | IANS Research | Marketing Operations Analyst | 0.5/5 | SKIP | ❌ | [465](../reports/465-ians-research-2026-06-12.md) | Skip |
+| 466 | 2026-06-12 | RegScale | Marketing Operations Manager | 3.5/5 | SKIP | ❌ | [466](../reports/466-regscale-2026-06-12.md) | Consider if 3.0-3.9 |
+| 467 | 2026-06-12 | Zuora | Not specified (General Careers Page) | 1.5/5 | SKIP | ❌ | [467](../reports/467-zuora-2026-06-12.md) | Skip |
+| 468 | 2026-06-12 | Greenhouse | Principal Marketing Analytics Manager | 1.5/5 | SKIP | ❌ | [468](../reports/468-greenhouse-2026-06-12.md) | Skip |
+| 469 | 2026-06-12 | Steer | Manager of Scaled Customer Success | 2.5/5 | SKIP | ❌ | [469](../reports/469-steer-2026-06-12.md) | Skip if below 3.0 |
+| 470 | 2026-06-12 | Mixpanel | Senior Customer Strategy & Operations Manager | 0.5/5 | SKIP | ❌ | [470](../reports/470-mixpanel-2026-06-12.md) | Skip |
+| 471 | 2026-06-12 | Boundless Learning | Quality Assurance Analyst | 0.5/5 | SKIP | ❌ | [471](../reports/471-boundless-learning-2026-06-12.md) | Skip |
+| 472 | 2026-06-12 | Haast | Field Marketing Manager | 0.5/5 | SKIP | ❌ | [472](../reports/472-haast-2026-06-12.md) | Skip |
+| 473 | 2026-06-12 | Moment | Marketing Leader | 0.5/5 | SKIP | ❌ | [473](../reports/473-moment-2026-06-12.md) | Skip |
+| 474 | 2026-06-12 | Quantum | Performance Marketing Specialist | 0.5/5 | SKIP | ❌ | [474](../reports/474-quantum-2026-06-12.md) | Skip |
+| 475 | 2026-06-12 | Finout | Marketing AI - Content Manager | 0.5/5 | SKIP | ❌ | [475](../reports/475-finout-2026-06-12.md) | Skip |
+| 476 | 2026-06-12 | Strava | Lead Marketing Analyst | 0.5/5 | SKIP | ❌ | [476](../reports/476-strava-2026-06-12.md) | Skip |
+| 477 | 2026-06-12 | Assort Health | Senior Event Marketing Manager | 0.5/5 | SKIP | ❌ | [477](../reports/477-assort-health-2026-06-12.md) | Skip |
+| 478 | 2026-06-12 | Strava | Partner Marketing Sciences Lead | 0.5/5 | SKIP | ❌ | [478](../reports/478-strava-2026-06-12.md) | Skip |
+| 479 | 2026-06-12 | Lightspeed | Marketing Automation Specialist | 0.5/5 | SKIP | ❌ | [479](../reports/479-lightspeed-2026-06-12.md) | Skip |
+| 480 | 2026-06-12 | Axion Ray | Senior Director, Customer Success | 0.5/5 | SKIP | ❌ | [480](../reports/480-axion-ray-2026-06-12.md) | Skip |
+| 481 | 2026-06-12 | Thumbtack | Applied Scientist, Pro Growth | 0.5/5 | SKIP | ❌ | [481](../reports/481-thumbtack-2026-06-12.md) | Skip |
+| 482 | 2026-06-12 | HowGood | Growth Marketing Manager, Reduction Network | 3.5/5 | SKIP | ❌ | [482](../reports/482-howgood-2026-06-12.md) | Consider |
+| 483 | 2026-06-12 | Sonatype | Marketing Growth Manager, Global Programs | 4.2/5 | Evaluated | ❌ | [483](../reports/483-sonatype-2026-06-12.md) | Apply if score >= 4.0, Consider if 3.0-3.9, Skip if below 3.0 |
+| 484 | 2026-06-12 | Metaprise | Product Marketing | 0.5/5 | SKIP | ❌ | [484](../reports/484-metaprise-2026-06-12.md) | Skip |
+| 485 | 2026-06-12 | Culligan Quench | Marketing Brand & Campaign Manager | 0.5/5 | SKIP | ❌ | [485](../reports/485-culligan-quench-2026-06-12.md) | Skip |
+| 486 | 2026-06-12 | Actian | Senior Revenue Enablement Program Manager | 0.5/5 | SKIP | ❌ | [486](../reports/486-actian-2026-06-12.md) | Skip |
+| 487 | 2026-06-12 | Loop Returns | Partner Marketing Manager | 4.2/5 | Evaluated | ❌ | [487](../reports/487-loop-returns-2026-06-12.md) | Apply if score >= 4.0 |
+| 488 | 2026-06-12 | Tinder | Product Marketing Lead, Growth | 0.5/5 | SKIP | ❌ | [488](../reports/488-tinder-2026-06-12.md) | Skip |
+| 489 | 2026-06-12 | ManilaLevelUp | Marketing Executive | 2.5/5 | SKIP | ❌ | [489](../reports/489-manilalevelup-2026-06-12.md) | Skip |
+| 490 | 2026-06-12 | Aera Technology | N/A | 0.0/5 | SKIP | ❌ | [490](../reports/490-aera-technology-2026-06-12.md) | Skip |
+| 491 | 2026-06-12 | EnGen | Senior Customer Success Manager, Strategic Accounts | 1.5/5 | SKIP | ❌ | [491](../reports/491-engen-2026-06-12.md) | Skip |
+| 492 | 2026-06-12 | VOLT | Associate Customer Success Manager | 0.5/5 | SKIP | ❌ | [492](../reports/492-volt-2026-06-12.md) | Skip |
+| 493 | 2026-06-12 | Treering | Customer Success Manager (Customer Relations) | 1.5/5 | SKIP | ❌ | [493](../reports/493-treering-2026-06-12.md) | Skip |
+| 494 | 2026-06-12 | Teramind | N/A | 0.0/5 | SKIP | ❌ | [494](../reports/494-teramind-2026-06-12.md) | Skip |
+| 495 | 2026-06-12 | Availity | Customer Success Manager | 1.5/5 | SKIP | ❌ | [495](../reports/495-availity-2026-06-12.md) | Skip |
+| 496 | 2026-06-12 | EverCommerce | EverPro - Customer Success Manager | 1.5/5 | SKIP | ❌ | [496](../reports/496-evercommerce-2026-06-12.md) | Skip |
+| 497 | 2026-06-12 | IXOPAY | Onboarding Manager (USA) | 0.5/5 | SKIP | ❌ | [497](../reports/497-ixopay-2026-06-12.md) | Skip |
+| 498 | 2026-06-12 | Unity | Access Denied / Unspecified | 0.5/5 | SKIP | ❌ | [498](../reports/498-unity-2026-06-12.md) | Skip |
+| 499 | 2026-06-12 | PerfectServe | Manager, Customer Success | 1.5/5 | SKIP | ❌ | [499](../reports/499-perfectserve-2026-06-12.md) | Skip |
+| 500 | 2026-06-12 | Parsec Automation, LLC | Customer Success Manager (EU) | 1.5/5 | SKIP | ❌ | [500](../reports/500-parsec-automation-llc-2026-06-12.md) | Skip |
+| 501 | 2026-06-12 | Versaterm | Director, Customer Success | 1.5/5 | SKIP | ❌ | [501](../reports/501-versaterm-2026-06-12.md) | Skip |
+| 502 | 2026-06-12 | Levelpath | Customer Engagement Specialist | 0.5/5 | SKIP | ❌ | [502](../reports/502-levelpath-2026-06-12.md) | Skip |
+| 319 | 2026-06-11 | Headspace | Online Mental Health Coach | 1.0/5 | SKIP | ❌ | [319](../reports/319-headspace-2026-06-11.md) | Skip |
+| 315 | 2026-06-11 | Planned Parenthood Federation of America | Specialist, Learning and Leadership Development | 0.5/5 | SKIP | ❌ | [315](../reports/315-planned-parenthood-federation-of-america-2026-06-11.md) | Skip |
+| 314 | 2026-06-11 | Planned Parenthood Federation of America | Senior Specialist, Grants and Compliance | 0.5/5 | SKIP | ❌ | [314](../reports/314-planned-parenthood-federation-of-america-2026-06-11.md) | Skip |
+| 313 | 2026-06-11 | Planned Parenthood Federation of America | Associate Director, Strategic Communications | 0.5/5 | SKIP | ❌ | [313](../reports/313-planned-parenthood-federation-of-america-2026-06-11.md) | Skip |
+| 282 | 2026-06-11 | Coalition Technologies | Copywriter | 3.5/5 | SKIP | ❌ | [282](../reports/282-coalition-technologies-2026-06-11.md) | Score 3.5 — consider |
+| 278 | 2026-06-11 | Superhuman Platform Inc | Enterprise Customer Success Manager, Grammarly for Education | 1.5/5 | SKIP | ❌ | [281](../reports/281-superhuman-platform-inc-2026-06-11.md) | Re-eval 2026-06-11 (0.5→1.5). Score 1.5 — consider |
+| 268 | 2026-06-14 | Eve | Lifecycle Marketing Operations Analyst | (Calculated at end)/5 | Evaluated | ❌ | [943](../reports/943-eve-2026-06-14.md) | Re-eval 2026-06-14 (4.8→5). Gemini evaluation | rescored 4.5/5 on 2026-06-14; kept existing (Calculated at end)/5 |
+| 217 | 2026-06-10 | Gong | Director, Content Marketing | 2.5/5 | SKIP | ❌ | [217](../reports/217-gong-2026-06-10.md) | Score 2.5 — skip |
+| 218 | 2026-06-11 | Gong | Enterprise Growth Revenue Architect | 2.5/5 | SKIP | ❌ | [359](../reports/359-gong-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2.5). Skip |
+| 219 | 2026-06-10 | Gong | GTM Data Architect | 1.5/5 | SKIP | ❌ | [219](../reports/219-gong-2026-06-10.md) | Score 1.5 — skip |
+| 220 | 2026-06-10 | Gong | Principal Product Marketing Manager | 1.5/5 | SKIP | ❌ | [220](../reports/220-gong-2026-06-10.md) | Score 1.5 — skip |
+| 221 | 2026-06-10 | Gong | RevOps Manager, Territory Strategy & Operations | 1.5/5 | SKIP | ❌ | [221](../reports/221-gong-2026-06-10.md) | Score 1.5 — skip |
+| 222 | 2026-06-10 | Gong | Senior GTM Automation & Systems Manager | 2.5/5 | SKIP | ❌ | [222](../reports/222-gong-2026-06-10.md) | Score 2.5 — skip |
+| 223 | 2026-06-10 | Gong | Senior IT Services Specialist I | 0.5/5 | SKIP | ❌ | [223](../reports/223-gong-2026-06-10.md) | Score 0.5 — skip |
+| 224 | 2026-06-10 | Gong.io | N/A — Job listing unavailable | 0.0/5 | SKIP | ❌ | [224](../reports/224-gong-io-2026-06-10.md) | Score 0.0 — skip |
+| 225 | 2026-06-10 | Gong | Sr. Marketing Analytics Manager | 1.5/5 | SKIP | ❌ | [225](../reports/225-gong-2026-06-10.md) | Score 1.5 — skip |
+| 226 | 2026-06-10 | Zapier | Talent Community Registration (Future Roles) | 1.0/5 | SKIP | ❌ | [226](../reports/226-zapier-2026-06-10.md) | Score 1.0 — skip |
+| 227 | 2026-06-11 | Zapier | Automation Strategist (Customer Success) | 3.5/5 | SKIP | ❌ | [368](../reports/368-zapier-2026-06-11.md) | Re-eval 2026-06-11 (2.5→3.5). Consider |
+| 228 | 2026-06-10 | Zapier | Director, Product Marketing | 1.5/5 | SKIP | ❌ | [228](../reports/228-zapier-2026-06-10.md) | Score 1.5 — skip |
+| 229 | 2026-06-11 | Zapier | Sr. Virtual Programs Specialist | 3.5/5 | SKIP | ❌ | [370](../reports/370-zapier-2026-06-11.md) | Re-eval 2026-06-11 (2.5→3.5). Consider if 3.0-3.9 |
+| 230 | 2026-06-11 | Zapier | Senior Manager, Marketing Operations | 2.5/5 | SKIP | ❌ | [371](../reports/371-zapier-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2.5). Skip |
+| 231 | 2026-06-10 | IPSY (Personalized Beauty Discovery Inc.) | Brand Partnership Coordinator | 1.0/5 | SKIP | ❌ | [231](../reports/231-ipsy-personalized-beauty-discovery-inc-2026-06-10.md) | Score 1.0 — skip |
+| 232 | 2026-06-10 | IPSY | Brand Partnerships Manager | 1.5/5 | SKIP | ❌ | [232](../reports/232-ipsy-2026-06-10.md) | Score 1.5 — skip |
+| 233 | 2026-06-10 | IPSY (Personalized Beauty Discovery Inc.) | Director, E-Commerce Growth and Marketplace Partnerships | 1.5/5 | SKIP | ❌ | [233](../reports/233-ipsy-personalized-beauty-discovery-inc-2026-06-10.md) | Score 1.5 — skip |
+| 234 | 2026-06-10 | IPSY (Personalized Beauty Discovery Inc.) | Shipping Operations Business Analyst | 1.5/5 | SKIP | ❌ | [234](../reports/234-ipsy-personalized-beauty-discovery-inc-2026-06-10.md) | Score 1.5 — skip |
+| 235 | 2026-06-10 | IPSY | Talent & Development Partner | 1.5/5 | SKIP | ❌ | [235](../reports/235-ipsy-2026-06-10.md) | Score 1.5 — skip |
+| 236 | 2026-06-10 | Hims & Hers | Specialist, Workplace Health & Safety (WHS) | 0.5/5 | SKIP | ❌ | [236](../reports/236-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 237 | 2026-06-10 | Hims & Hers | Inventory Control Specialist | 0.5/5 | SKIP | ❌ | [237](../reports/237-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 238 | 2026-06-10 | Hims & Hers | Environmental Monitoring (EM) Specialist (Nights) | 0.5/5 | SKIP | ❌ | [238](../reports/238-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 239 | 2026-06-10 | Hims & Hers | Operations Manager (Days) | 0.5/5 | SKIP | ❌ | [239](../reports/239-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 240 | 2026-06-10 | Hims & Hers | Operations Manager (Nights) | 0.5/5 | SKIP | ❌ | [240](../reports/240-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 241 | 2026-06-10 | Hims & Hers | Environmental Monitoring (EM) Specialist | 0.5/5 | SKIP | ❌ | [241](../reports/241-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 242 | 2026-06-10 | Hims & Hers | Sr. Technical Program Manager | 1.5/5 | SKIP | ❌ | [242](../reports/242-hims-hers-2026-06-10.md) | Score 1.5 — skip |
+| 243 | 2026-06-10 | Hims and Hers | Unknown — Job Not Found | 0.0/5 | SKIP | ❌ | [243](../reports/243-hims-and-hers-2026-06-10.md) | Score 0.0 — skip |
+| 244 | 2026-06-11 | Hims & Hers | Employer Brand Program Manager | 2.5/5 | SKIP | ❌ | [385](../reports/385-hims-hers-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2.5). Skip |
+| 245 | 2026-06-10 | Hims & Hers | Sr. Manager, Non-Sterile Compounding Operations | 0.5/5 | SKIP | ❌ | [245](../reports/245-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 246 | 2026-06-10 | Hims & Hers | Quality Control Specialist, Sterile (Night Shift) | 0.5/5 | SKIP | ❌ | [246](../reports/246-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 247 | 2026-06-10 | Hims & Hers | Quality Control Specialist (Night Shift) | 0.5/5 | SKIP | ❌ | [247](../reports/247-hims-hers-2026-06-10.md) | Score 0.5 — skip |
+| 248 | 2026-06-10 | Aveanna Healthcare | Remote Patient Intake Specialist | 1.5/5 | SKIP | ❌ | [248](../reports/248-aveanna-healthcare-2026-06-10.md) | Score 1.5 — skip |
+| 249 | 2026-06-11 | Rocky Talkie | Remote Marketing Coordinator | 4.5/5 | SKIP | ❌ | [390](../reports/390-rocky-talkie-2026-06-11.md) | Re-eval 2026-06-11 (3.5→4.5). Apply if score >= 4.0 | rescored 4.2/5 on 2026-06-14; kept existing 4.5/5 | Gemini evaluation |
+| 250 | 2026-06-10 | Dossier - Digital Competency Management | Implementation Specialist | 3.5/5 | SKIP | ❌ | [250](../reports/250-dossier-digital-competency-management-2026-06-10.md) | Score 3.5 — consider |
+| 251 | 2026-06-11 | Dreamscape Learn | Executive Director K12 Academic Partnerships | 1.5/5 | SKIP | ❌ | [392](../reports/392-dreamscape-learn-2026-06-11.md) | Re-eval 2026-06-11 (0.5→1.5). Skip |
+| 252 | 2026-06-10 | Saint-Gobain Group in India | Team Member Cold End | 0.5/5 | SKIP | ❌ | [252](../reports/252-saint-gobain-group-in-india-2026-06-10.md) | Score 0.5 — skip |
+| 253 | 2026-06-10 | UppalCorp | Remote Administrative Coordinator | 1.5/5 | SKIP | ❌ | [253](../reports/253-uppalcorp-2026-06-10.md) | Score 1.5 — skip |
+| 254 | 2026-06-11 | ezCater | Remote Onboarding Specialist | 3.5/5 | SKIP | ❌ | [395](../reports/395-ezcater-2026-06-11.md) | Re-eval 2026-06-11 (1.5→3.5). Consider |
+| 255 | 2026-06-10 | RecruitLytic Hires | Remote Data Entry Specialist - Assistant Administrator | 1.5/5 | SKIP | ❌ | [255](../reports/255-recruitlytic-hires-2026-06-10.md) | Score 1.5 — skip |
+| 256 | 2026-06-10 | SonderMind | Remote Care Coordinator | 1.5/5 | SKIP | ❌ | [256](../reports/256-sondermind-2026-06-10.md) | Score 1.5 — skip |
+| 257 | 2026-06-10 | Nestlé Health Science | Learning & Development Specialist | 1.5/5 | SKIP | ❌ | [257](../reports/257-nestl-health-science-2026-06-10.md) | Score 1.5 — skip |
+| 258 | 2026-06-10 | Acerto | Analista de CRM Pleno - Jornada | 4.2/5 | Evaluated | ❌ | [258](../reports/258-acerto-2026-06-10.md) | Score 4.2 — apply |
+| 259 | 2026-06-10 | SmartBug Media | CRM Strategist | 0.5/5 | SKIP | ❌ | [259](../reports/259-smartbug-media-2026-06-10.md) | Score 0.5 — skip |
+| 260 | 2026-06-12 | Animalz | Senior Content Marketer (SEO) | 3.5/5 | SKIP | ❌ | [401](../reports/401-animalz-2026-06-12.md) | Re-eval 2026-06-12 (1→3.5). Consider if 3.0-3.9 |
+| 261 | 2026-06-10 | Unable to determine | Unable to determine | 0.0/5 | SKIP | ❌ | [261](../reports/261-unable-to-determine-2026-06-10.md) | Score 0.0 — skip |
+| 262 | 2026-06-12 | Runway | B2B Marketing Director | 2.5/5 | SKIP | ❌ | [403](../reports/403-runway-2026-06-12.md) | Re-eval 2026-06-12 (0.5→2.5). Skip |
+| 263 | 2026-06-10 | Adoreal | Web Development Manager - Marketing Webflow | 1.0/5 | SKIP | ❌ | [263](../reports/263-adoreal-2026-06-10.md) | Score 1.0 — skip |
+| 264 | 2026-06-10 | DinePalace.com / FoodMe.mobi | Sales Manager - SaaS Social Media Marketing | 1.5/5 | SKIP | ❌ | [264](../reports/264-dinepalace-com-foodme-mobi-2026-06-10.md) | Score 1.5 — skip |
+| 265 | 2026-06-12 | The Careside | Performance Marketing Specialist | 3.5/5 | SKIP | ❌ | [406](../reports/406-the-careside-2026-06-12.md) | Re-eval 2026-06-12 (0.5→3.5). Consider if 3.0-3.9 |
+| 266 | 2026-06-10 | Forager | Growth Lead | 0.5/5 | SKIP | ❌ | [266](../reports/266-forager-2026-06-10.md) | Score 0.5 — skip |
+| 167 | 2026-06-10 | Fi | Customer Experience Agent, HQ | 1.5/5 | SKIP | ❌ | [167](../reports/167-fi-2026-06-10.md) | Score 1.5 — skip |
+| 168 | 2026-06-10 | Rover | Director, FP&A - Growth | 0.5/5 | SKIP | ❌ | [168](../reports/168-rover-2026-06-10.md) | Score 0.5 — skip |
+| 169 | 2026-06-10 | Rover | Director, Global Provider GTM | 1.5/5 | SKIP | ❌ | [169](../reports/169-rover-2026-06-10.md) | Score 1.5 — skip |
+| 170 | 2026-06-10 | Rover | Director, Provider Product Marketing | 1.5/5 | SKIP | ❌ | [170](../reports/170-rover-2026-06-10.md) | Score 1.5 — skip |
+| 171 | 2026-06-10 | Rover | Senior Marketing Manager | 1.5/5 | SKIP | ❌ | [171](../reports/171-rover-2026-06-10.md) | Score 1.5 — skip |
+| 172 | 2026-06-10 | Planned Parenthood Federation of America (PPFA) | Associate Director, Strategic Communications | 1.5/5 | SKIP | ❌ | [172](../reports/172-planned-parenthood-federation-of-america-ppfa-2026-06-10.md) | Score 1.5 — skip |
+| 173 | 2026-06-10 | Planned Parenthood Federation of America (PPFA) | Senior Specialist, Grants and Compliance | 1.5/5 | SKIP | ❌ | [173](../reports/173-planned-parenthood-federation-of-america-ppfa-2026-06-10.md) | Score 1.5 — skip |
+| 174 | 2026-06-10 | Planned Parenthood Federation of America (PPFA) | Specialist, Learning and Leadership Development | 1.5/5 | SKIP | ❌ | [174](../reports/174-planned-parenthood-federation-of-america-ppfa-2026-06-10.md) | Score 1.5 — skip |
+| 175 | 2026-06-10 | Headspace | Billing Specialist (Insurance A/R) | 0.5/5 | SKIP | ❌ | [175](../reports/175-headspace-2026-06-10.md) | Score 0.5 — skip |
+| 176 | 2026-06-10 | Headspace | Director, AI Enablement | 1.5/5 | SKIP | ❌ | [176](../reports/176-headspace-2026-06-10.md) | Score 1.5 — skip |
+| 177 | 2026-06-10 | Headspace | Director, B2B Product Marketing | 1.5/5 | SKIP | ❌ | [177](../reports/177-headspace-2026-06-10.md) | Score 1.5 — skip |
+| 178 | 2026-06-10 | Headspace (formerly Ginger) | Online Mental Health Coach (Part-Time) | 0.5/5 | SKIP | ❌ | [178](../reports/178-headspace-formerly-ginger-2026-06-10.md) | Score 0.5 — skip |
+| 179 | 2026-06-10 | Headspace (formerly Ginger) | Part Time Therapist | 0.5/5 | SKIP | ❌ | [179](../reports/179-headspace-formerly-ginger-2026-06-10.md) | Score 0.5 — skip |
+| 180 | 2026-06-10 | Headspace | Senior Member Marketing Manager | 2.5/5 | SKIP | ❌ | [180](../reports/180-headspace-2026-06-10.md) | Score 2.5 — skip |
+| 181 | 2026-06-10 | Headspace | Senior Product Scientist (Marketing Intelligence) | 1.5/5 | SKIP | ❌ | [181](../reports/181-headspace-2026-06-10.md) | Score 1.5 — skip |
+| 182 | 2026-06-11 | BetterHelp | Clinical Quality Assurance Specialist | 1.5/5 | SKIP | ❌ | [323](../reports/323-betterhelp-2026-06-11.md) | Re-eval 2026-06-11 (1→1.5). Skip |
+| 183 | 2026-06-10 | BetterHelp | Credentialing Specialist | 1.5/5 | SKIP | ❌ | [183](../reports/183-betterhelp-2026-06-10.md) | Score 1.5 — skip |
+| 184 | 2026-06-10 | BetterHelp | Director, International Marketing | 1.5/5 | SKIP | ❌ | [184](../reports/184-betterhelp-2026-06-10.md) | Score 1.5 — skip |
+| 185 | 2026-06-10 | BetterHelp | Provider Acquisition Specialist | 1.5/5 | SKIP | ❌ | [185](../reports/185-betterhelp-2026-06-10.md) | Score 1.5 — skip |
+| 186 | 2026-06-11 | BetterHelp | Senior Manager of Provider Brand and Integrated Marketing | 2.0/5 | SKIP | ❌ | [327](../reports/327-betterhelp-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2). Skip |
+| 188 | 2026-06-11 | SonderMind | Clinical Quality Specialist | 1.5/5 | SKIP | ❌ | [329](../reports/329-sondermind-2026-06-11.md) | Re-eval 2026-06-11 (0.5→1.5). Skip |
+| 189 | 2026-06-10 | Rula | Healthcare Partnerships Manager | 0.5/5 | SKIP | ❌ | [189](../reports/189-rula-2026-06-10.md) | Score 0.5 — skip |
+| 190 | 2026-06-11 | Rula | Revenue Operations Manager | 2.0/5 | SKIP | ❌ | [331](../reports/331-rula-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2). Skip |
+| 191 | 2026-06-10 | Rula | Sr. Operations Analytics Manager (Remote) | 1.5/5 | SKIP | ❌ | [191](../reports/191-rula-2026-06-10.md) | Score 1.5 — skip |
+| 192 | 2026-06-10 | Rula | Job not found | 0.0/5 | SKIP | ❌ | [192](../reports/192-rula-2026-06-10.md) | Score 0.0 — skip |
+| 193 | 2026-06-10 | Rula | Sr. Partnerships Manager - West Coast (Remote) | 1.5/5 | SKIP | ❌ | [193](../reports/193-rula-2026-06-10.md) | Score 1.5 — skip |
+| 194 | 2026-06-10 | Rula | Sales Advisor (Remote) | 1.5/5 | SKIP | ❌ | [194](../reports/194-rula-2026-06-10.md) | Score 1.5 — skip |
+| 195 | 2026-06-11 | Rula | Psychiatric Patient Programs Specialist | 1.0/5 | SKIP | ❌ | [336](../reports/336-rula-2026-06-11.md) | Re-eval 2026-06-11 (0.5→1). Skip |
+| 196 | 2026-06-10 | Grow Therapy | Program Manager, AI Operations Enablement | 1.5/5 | SKIP | ❌ | [196](../reports/196-grow-therapy-2026-06-10.md) | Score 1.5 — skip |
+| 197 | 2026-06-10 | Grow Therapy | Specialist III, Enrollment Operations | 1.5/5 | SKIP | ❌ | [197](../reports/197-grow-therapy-2026-06-10.md) | Score 1.5 — skip |
+| 198 | 2026-06-10 | Grow Therapy | Senior Technical Program Manager | 0.5/5 | SKIP | ❌ | [198](../reports/198-grow-therapy-2026-06-10.md) | Score 0.5 — skip |
+| 199 | 2026-06-10 | Grow Therapy | Senior Technical Program Manager - Internal Foundations | 0.5/5 | SKIP | ❌ | [199](../reports/199-grow-therapy-2026-06-10.md) | Score 0.5 — skip |
+| 200 | 2026-06-10 | Grow Therapy | Senior People Business Partner | 0.5/5 | SKIP | ❌ | [200](../reports/200-grow-therapy-2026-06-10.md) | Score 0.5 — skip |
+| 201 | 2026-06-10 | Dutchie | Enterprise Customer Success Manager | 1.5/5 | SKIP | ❌ | [201](../reports/201-dutchie-2026-06-10.md) | Score 1.5 — skip |
+| 202 | 2026-06-10 | Dutchie | Implementation Strategist | 4.2/5 | Evaluated | ❌ | [202](../reports/202-dutchie-2026-06-10.md) | Score 4.2 — apply | rescored 4.2/5 on 2026-06-14; unchanged | Gemini evaluation |
+| 203 | 2026-06-10 | ActiveCampaign | Customer Experience Specialist - English | 1.5/5 | SKIP | ❌ | [203](../reports/203-activecampaign-2026-06-10.md) | Score 1.5 — skip |
+| 204 | 2026-06-10 | ActiveCampaign | Customer Experience Specialist - German | 1.5/5 | SKIP | ❌ | [204](../reports/204-activecampaign-2026-06-10.md) | Score 1.5 — skip |
+| 205 | 2026-06-10 | ActiveCampaign | Customer Experience Specialist - Italian | 1.5/5 | SKIP | ❌ | [205](../reports/205-activecampaign-2026-06-10.md) | Score 1.5 — skip |
+| 206 | 2026-06-10 | ActiveCampaign | Customer Experience Specialist - Portuguese | 1.5/5 | SKIP | ❌ | [206](../reports/206-activecampaign-2026-06-10.md) | Score 1.5 — skip |
+| 207 | 2026-06-10 | Active Campaign | Unknown (404 - Job Posting Not Found) | 0.0/5 | SKIP | ❌ | [207](../reports/207-active-campaign-2026-06-10.md) | Score 0.0 — skip |
+| 208 | 2026-06-10 | Nabis | Customer Experience Associate | 1.5/5 | SKIP | ❌ | [208](../reports/208-nabis-2026-06-10.md) | Score 1.5 — skip |
+| 209 | 2026-06-10 | Nabis | Human Resources Business Partner | 0.5/5 | SKIP | ❌ | [209](../reports/209-nabis-2026-06-10.md) | Score 0.5 — skip |
+| 210 | 2026-06-10 | Nabis | Operations Manager | 1.0/5 | SKIP | ❌ | [210](../reports/210-nabis-2026-06-10.md) | Score 1.0 — skip |
+| 211 | 2026-06-10 | NABIS | Job posting no longer available | 0.0/5 | SKIP | ❌ | [211](../reports/211-nabis-2026-06-10.md) | Score 0.0 — skip |
+| 212 | 2026-06-10 | Nabis | Operations Manager - Bronx | 1.5/5 | SKIP | ❌ | [212](../reports/212-nabis-2026-06-10.md) | Score 1.5 — skip |
+| 213 | 2026-06-10 | Nabis | Operations Supervisor - Bronx | 0.5/5 | SKIP | ❌ | [213](../reports/213-nabis-2026-06-10.md) | Score 0.5 — skip |
+| 214 | 2026-06-10 | Nabis | Operations Supervisor- LA | 0.5/5 | SKIP | ❌ | [214](../reports/214-nabis-2026-06-10.md) | Score 0.5 — skip |
+| 215 | 2026-06-10 | Nabis | Senior Operations Manager | 1.5/5 | SKIP | ❌ | [215](../reports/215-nabis-2026-06-10.md) | Score 1.5 — skip |
+| 216 | 2026-06-10 | Nabis | Senior Operations Manager- Rochester | 1.5/5 | SKIP | ❌ | [216](../reports/216-nabis-2026-06-10.md) | Score 1.5 — skip |
+| 164 | 2026-06-10 | ClassDojo | District Partnerships Manager | 1.5/5 | SKIP | ❌ | [164](../reports/164-classdojo-2026-06-10.md) | Score 1.5 — skip |
+| 166 | 2026-06-11 | MagicSchool | Senior Customer Success Revenue Operations Manager | 2.5/5 | SKIP | ❌ | [307](../reports/307-magicschool-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2.5). Skip |
+| 147 | 2026-06-10 | Instructure | Customer Success Manager, K-12 | 1.5/5 | SKIP | ❌ | [147](../reports/147-instructure-2026-06-10.md) | Score 1.5 — skip |
+| 150 | 2026-06-10 | Superhuman Platform Inc | Senior Customer Success Manager | 1.5/5 | SKIP | ❌ | [150](../reports/150-superhuman-platform-inc-2026-06-10.md) | Score 1.5 — skip |
+| 151 | 2026-06-11 | Superhuman Platform Inc | Senior Account Based Marketing Manager | 4.5/5 | SKIP | ❌ | [293](../reports/293-superhuman-platform-inc-2026-06-11.md) | Re-eval 2026-06-11 (2.5→4.5). Consider |
+| 152 | 2026-06-10 | Superhuman Platform Inc | Partner Technical Enablement Manager | 3.5/5 | SKIP | ❌ | [152](../reports/152-superhuman-platform-inc-2026-06-10.md) | Score 3.5 — consider |
+| 156 | 2026-06-10 | Instructure | Customer Success Representative (Inbound) | 1.5/5 | SKIP | ❌ | [156](../reports/156-instructure-2026-06-10.md) | Score 1.5 — skip |
+| 157 | 2026-06-10 | Instructure | Partner Success Manager | 1.5/5 | SKIP | ❌ | [157](../reports/157-instructure-2026-06-10.md) | Score 1.5 — skip |
+| 159 | 2026-06-10 | Superhuman Platform Inc | Performance Marketing Lead, Paid Social, Display & Video | 1.5/5 | SKIP | ❌ | [159](../reports/159-superhuman-platform-inc-2026-06-10.md) | Score 1.5 — skip |
 | 137 | 2026-06-10 | Superhuman (Grammarly for Education) | Enterprise Customer Success Manager | 1.5/5 | SKIP | ❌ | [137](../reports/137-superhuman-grammarly-for-education-2026-06-10.md) | Score 1.5 — skip |
 | 124 | 2026-06-10 | Eve Legal | Lifecycle Marketing Operations Analyst | 4.3/5 | Evaluated | ❌ | [124](../reports/124-eve-legal-2026-06-10.md) | Score 4.3 — apply |
 | 125 | 2026-06-10 | Notion | Customer Success Enablement Program Manager | 3.2/5 | SKIP | ❌ | [125](../reports/125-notion-2026-06-10.md) | Score 3.2 — consider |
 | 126 | 2026-06-10 | OpenAI | Onboarding & Enablement Program Manager, FDE | 1.0/5 | SKIP | ❌ | [126](../reports/126-openai-2026-06-10.md) | Score 1.0 — skip |
 | 127 | 2026-06-10 | Grow Therapy | Lifecycle Marketing Manager, Retention | 2.0/5 | SKIP | ❌ | [127](../reports/127-grow-therapy-2026-06-10.md) | Score 2.0 — skip |
 | 129 | 2026-06-10 | Gong | Sr. Email Marketing Manager | 4.8/5 | Evaluated | ❌ | [129](../reports/129-gong-2026-06-10.md) | Score 4.8 — apply |
-| 132 | 2026-06-10 | Instrumentl | Senior Content Marketing Manager | 3.2/5 | SKIP | ❌ | [132](../reports/132-instrumentl-2026-06-10.md) | Score 3.2 — consider |
+| 132 | 2026-06-11 | Instrumentl | Senior Content Marketing Manager | 4.8/5 | SKIP | ❌ | [273](../reports/273-instrumentl-2026-06-11.md) | Re-eval 2026-06-11 (3.2→4.8). Score 4.8 — consider | rescored 4.5/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
 | 120 | 2026-06-10 | CSC Generation | Director, Lifecycle Marketing & CRM | 2.1/5 | SKIP | ❌ | [120](reports/120-csc-generation-2026-06-10.md) | Seniority/Industry mismatch: B2B IC vs Retail Director P&L owner. |
-| 77 | 2026-06-09 | company: Instrumentl | role: Senior Content Marketing Manager | 5.0/5 | Evaluated | ❌ | [107](reports/107-company-instrumentl-2026-06-09.md) | Fullstack Frontend, Backend, Software Development, Design, DevOps and Sysadmin, Management and Finance, Product, Customer Support, Sales and Marketing — Apply |
-| 78 | 2026-06-09 | company: OpenAI | role: Customer Marketing Manager, Enterprise and Digital Natives | 3.5/5 | Evaluated | ❌ | [109](reports/109-company-openai-2026-06-09.md) | Customer Marketing & Sales Enablement Specialist — Apply |
-| 79 | 2026-06-09 | company: OpenAI | role: Customer Marketing Manager, SMB | 4.5/5 | Evaluated | ❌ | [110](reports/110-company-openai-2026-06-09.md) | Customer Marketing Manager — Apply |
 | 74 | 2026-06-09 | SPECTRAFORCE Client | Strategic SDR | 1.5/5 | Evaluated | ❌ | [088](reports/088-spectraforce-sdr-2026-06-09.md) | Hard stop: 65+ calls/day phone-heavy outbound — automatic skip per profile deal-breakers |
 | 75 | 2026-06-09 | Tanisha Systems Client | AI Evaluator - Marketing SME | 3.1/5 | Evaluated | ❌ | [086](reports/086-tanisha-ai-evaluator-2026-06-09.md) | Bridge income candidate: 1099 freelance 3-4 months; strong domain match, no benefits, no FTE path — reply with rate quote to learn end client |
 | 76 | 2026-06-09 | VARITE Client (Investment Firm) | Copywriter | 4.0/5 | Evaluated | ✅ | [087](reports/087-varite-copywriter-2026-06-09.md) | $70-85/hr W2 with benefits, remote confirmed; CACU financial services copy (PPC, insurance, mortgage) + VML agency pedigree = strong match; Pursue |
-| 63 | 2026-06-09 | Pilot | Sr. Lifecycle Marketing Manager | 4.9/5 | Evaluated | ✅ | [071](reports/071-pilot-2026-06-09.md) | Excellent remote Senior IC lifecycle marketing role with strong pipeline ownership, writing, and CRM alignment; Marketo is the main platform gap. |
+| 63 | 2026-06-09 | Pilot | Sr. Lifecycle Marketing Manager | 4.9/5 | Evaluated | ✅ | [071](reports/071-pilot-2026-06-09.md) | Excellent remote Senior IC lifecycle marketing role with strong pipeline ownership, writing, and CRM alignment; Marketo is the main platform gap. | rescored 4.2/5 on 2026-06-14; kept existing 4.9/5 | Gemini evaluation |
 | 64 | 2026-06-10 | Mednet | Lifecycle Marketing Manager | 1.5/5 | Evaluated | ❌ | [119](reports/119-mednet-2026-06-10.md) | Re-eval 2026-06-10 (0→1.5). On-site NYC required; candidate is remote-only. |
-| 65 | 2026-06-09 | Sur La Table | Director, Lifecycle Marketing & CRM | 2.0/5 | Evaluated | ❌ | [073](reports/073-sur-la-table-2026-06-09.md) | Director-level people management and P&L accountability conflicts with IC role preference. |
-| 66 | 2026-06-09 | BPM | Sales Enablement & Marketing Specialist | 4.6/5 | Evaluated | ❌ | [074](reports/074-bpm-2026-06-09.md) | Excellent fit for Morgan's sales enablement, content strategy, and brand management skills; remote and salary are ideal. |
+| 65 | 2026-06-11 | Sur La Table | Director, Lifecycle Marketing & CRM | 4.5/5 | Evaluated | ❌ | [276](../reports/276-sur-la-table-2026-06-11.md) | Re-eval 2026-06-11 (2→4.5). Score 4.5 — consider | rescored 3.8/5 on 2026-06-14; kept existing 4.5/5 | Gemini evaluation |
+| 66 | 2026-06-14 | BPM | Sales Enablement & Marketing Specialist | 4.7/5 | Evaluated | ❌ | [952](../reports/952-bpm-2026-06-14.md) | Re-eval 2026-06-14 (4.6→4.7). Gemini evaluation |
 | 67 | 2026-06-09 | Superhuman Platform Inc. (Grammarly) | Enterprise Customer Success Manager, Grammarly for Education | 1.0/5 | Evaluated | ❌ | [075](../reports/075-superhuman-platform-inc-grammarly-2026-06-09.md) | Excellent functional fit for Customer Success and Enablement, but remote location in Poland and low compensation are hard stops. |
 | 68 | 2026-06-09 | Superhuman Platform Inc | Customer Education Operations Manager | 4.5/5 | Evaluated | ❌ | [076](reports/076-superhuman-platform-inc-2026-06-09.md) | Excellent fit for Morgan's systems, operations, and enablement strengths in a customer education context. |
 | 69 | 2026-06-09 | OpenAI | Customer Education Program Manager, New Products | 1.0/5 | Evaluated | ❌ | [078](reports/078-openai-2026-06-09.md) | Strong functional fit for customer education and program management, but hybrid location is a hard stop. |
 | 70 | 2026-06-09 | Coalition Technologies | Copywriter | 0.5/5 | Evaluated | ❌ | [079](reports/079-coalition-technologies-2026-06-09.md) | Compensation is significantly below candidate's minimum target, leading to a skip. |
-| 71 | 2026-06-09 | Assort Health | Senior Customer Marketing Manager | 0.5/5 | Evaluated | ❌ | [080](reports/080-assort-health-2026-06-09.md) | Strong functional fit for customer marketing and content systems, but hybrid location is a hard stop. |
-| 72 | 2026-06-09 | MagicSchool | Senior Customer Success Manager, Texas | 0.5/5 | Evaluated | ❌ | [081](reports/081-magicschool-2026-06-09.md) | Hard stop on location (must live in Texas) and 30% in-state travel. |
-| 73 | 2026-06-09 | BetterHelp | Senior Manager, US Spanish Growth | 0.5/5 | Evaluated | ❌ | [085](reports/085-betterhelp-2026-06-09.md) | Hard stop: Fluent Spanish (written & spoken) required, which candidate does not possess. |
+| 71 | 2026-06-10 | Assort Health | Senior Customer Marketing Manager | 1.5/5 | Evaluated | ❌ | [142](../reports/142-assort-health-2026-06-10.md) | Re-eval 2026-06-10 (0.5→1.5). Score 1.5 — skip |
+| 72 | 2026-06-10 | MagicSchool | Senior Customer Success Manager, Texas | 1.5/5 | Evaluated | ❌ | [143](../reports/143-magicschool-2026-06-10.md) | Re-eval 2026-06-10 (0.5→1.5). Score 1.5 — skip |
+| 73 | 2026-06-10 | BetterHelp | Senior Manager, US Spanish Growth | 1.5/5 | Evaluated | ❌ | [187](../reports/187-betterhelp-2026-06-10.md) | Re-eval 2026-06-10 (0.5→1.5). Score 1.5 — skip |
 | 61 | 2026-06-09 | Notion | Lifecycle Marketing Manager | 3.0/5 | Evaluated | ❌ | [069](reports/069-notion-2026-06-09.md) | Strong functional fit for lifecycle marketing, but hybrid location is a deal-breaker. |
-| 62 | 2026-06-09 | LiveKit | Content Marketing Manager | 4.8/5 | Evaluated | ❌ | [070](reports/070-livekit-2026-06-09.md) | Exceptional fit for Morgan's unique blend of technical content creation, sales enablement, and human-first messaging, with perfect remote alignment and strong salary. |
+| 62 | 2026-06-09 | LiveKit | Content Marketing Manager | 4.8/5 | Evaluated | ❌ | [070](reports/070-livekit-2026-06-09.md) | Exceptional fit for Morgan's unique blend of technical content creation, sales enablement, and human-first messaging, with perfect remote alignment and strong salary. | rescored 4.1/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
 | 43 | 2025-05-14 | Superhuman | Partner Technical Enablement Manager | 3.8/5 | Evaluated | ❌ | [043](reports/043-superhuman-partner-technical-enablement-manager-2025-05-14.md) | Strong enablement/onboarding fit; slight technical gap. |
 | 44 | 2025-05-14 | Superhuman | Customer Education Operations Manager | 4.0/5 | Evaluated | ❌ | [044](reports/044-superhuman-customer-education-operations-manager-2025-05-14.md) | Great operational/education fit; matches 'builder' archetype. |
 | 45 | 2025-05-14 | Hims & Hers | Sr. Lead Product Copywriter | 4.8/5 | Evaluated | ❌ | [045](reports/045-hims-hers-sr-lead-product-copywriter-2025-05-14.md) | Tier-1 copywriting fit; matches agency/creative background. |
 | 46 | 2025-05-14 | Superhuman | Enterprise CSM, Grammarly for Education | 3.5/5 | Evaluated | ❌ | [046](reports/046-superhuman-enterprise-csm-grammarly-edu-2025-05-14.md) | Good EdTech fit; but high quota/sales focus. |
-| 47 | 2025-05-14 | ClassDojo | Product Marketing Lead, Consumer | 4.2/5 | Evaluated | ❌ | [047](reports/047-classdojo-product-marketing-lead-consumer-2025-05-14.md) | Strong EdTech/Consumer fit; matches Treering experience. |
-| 48 | 2025-05-14 | ClassDojo | B2B Content & Thought Leadership Strategist | 4.9/5 | Evaluated | ❌ | [048](reports/048-classdojo-b2b-content-thought-leadership-strategist-2025-05-14.md) | Near-perfect fit; matches journalism roots and EdTech leadership. |
+| 47 | 2025-05-14 | ClassDojo | Product Marketing Lead, Consumer | 4.2/5 | Evaluated | ❌ | [047](reports/047-classdojo-product-marketing-lead-consumer-2025-05-14.md) | Strong EdTech/Consumer fit; matches Treering experience. | rescored 4.0/5 on 2026-06-14; kept existing 4.2/5 | Gemini evaluation |
+| 48 | 2025-05-14 | ClassDojo | B2B Content & Thought Leadership Strategist | 4.9/5 | Evaluated | ❌ | [048](reports/048-classdojo-b2b-content-thought-leadership-strategist-2025-05-14.md) | Near-perfect fit; matches journalism roots and EdTech leadership. | rescored 4.7/5 on 2026-06-14; kept existing 4.9/5 | Gemini evaluation |
 | 49 | 2025-05-14 | Instructure | Assessment Item Writer/Editor | 4.5/5 | Evaluated | ❌ | [049](reports/049-instructure-assessment-item-writer-editor-2025-05-14.md) | Strong writing/editing fit in EdTech; ideal contract bridge. |
 | 52 | 2025-05-14 | Sweed | Senior Brand & Marketing Designer | 2.8/5 | Evaluated | ❌ | [052](reports/052-sweed-sr-brand-marketing-designer-2025-05-14.md) | Full design role; outside current primary focus. |
 | 53 | 2025-05-14 | Superhuman | Performance Marketing Lead | 2.5/5 | Evaluated | ❌ | [053](reports/053-superhuman-performance-marketing-lead-2025-05-14.md) | Performance marketing focus; not a core strength. |
 | 54 | 2025-05-14 | Hims & Hers | Director, Paid Social Performance Marketing | 2.0/5 | Evaluated | ❌ | [054](reports/054-hims-hers-director-paid-social-2025-05-14.md) | Director level; performance marketing focus. |
 | 55 | 2025-05-14 | Hims & Hers | Director, Product Communications (Hims) | 3.5/5 | Evaluated | ❌ | [055](reports/055-hims-hers-director-product-comms-hims-2025-05-14.md) | Strong creative/comms fit; leans toward PR/Earned media. |
-| 56 | 2025-05-14 | Hims & Hers | Director, Product Communications (Hers) | 3.5/5 | Evaluated | ❌ | [056](reports/056-hims-hers-director-product-comms-hers-2025-05-14.md) | Strong creative/comms fit; leans toward PR/Earned media. |
 | 57 | 2025-05-14 | ClassDojo | Strategy and Operations Lead, Tutor | 3.2/5 | Evaluated | ❌ | [057](reports/057-classdojo-strategy-operations-lead-2025-05-14.md) | Good EdTech fit; but business strategy focus vs. marketing ops. |
 | 59 | 2025-05-14 | ClassDojo | Recruiting Coordinator (Contract) | 2.0/5 | Evaluated | ❌ | [059](reports/059-classdojo-recruiting-coordinator-2025-05-14.md) | Role is too junior and functionally mismatched. |
 | 60 | 2025-05-14 | MagicSchool AI | Senior CS Revenue Operations Manager | 3.8/5 | Evaluated | ❌ | [060](reports/060-magicschool-sr-cs-revops-manager-2025-05-14.md) | Excellent EdTech/Ops fit; matches systems-thinker strengths. |
 | 38 | 2026-06-08 | Literati | Social Media Manager | 2.8/5 | Evaluated | ❌ | [038](reports/038-literati-2026-06-08.md) | Discarded due to location (Hybrid Austin) and comp below target. |
 | 39 | 2026-06-08 | Sweed | Implementation Manager | 3.2/5 | Evaluated | ❌ | [039](reports/039-sweed-2026-06-08.md) | High travel requirement (3-4 trips/mo) likely a dealbreaker. |
-| 40 | 2026-06-08 | Coda (Superhuman) | Enterprise Customer Success Manager | 3.5/5 | Evaluated | ❌ | [040](reports/040-coda-superhuman-2026-06-08.md) | Strong EdTech/Education match, but appears to be a Poland-based requisition. |
 | 41 | 2026-06-08 | Coda (Superhuman) | Senior Customer Success Manager | 4.8/5 | Evaluated | ❌ | [041](reports/041-coda-superhuman-2026-06-08.md) | Exceptional match! High-salary, EdTech focus, remote. Top priority. |
 | 42 | 2026-06-08 | Coda (Superhuman) | Senior Account Based Marketing Manager | 4.5/5 | Evaluated | ❌ | [042](reports/042-coda-superhuman-2026-06-08.md) | Strong ABM match via 'Hot Zone' experience. High salary, remote. |
 | 33 | 2026-06-09 | Superhuman | Senior Customer Success Manager | 5.0/5 | Evaluated | ❌ | [114](reports/114-superhuman-2026-06-09.md) | Re-eval 2026-06-09 (2→5). Sales Enablement & Content, Onboarding/Implementation Specialist — Apply |
-| 34 | 2026-06-08 | ClassDojo | District Onboarding Manager (Contract) | 4.5/5 | Evaluated | ❌ | [034](reports/034-classdojo-onboarding-2026-06-08.md) | Exceptional fit for K-12 onboarding experience; high-priority remote contract. |
 | 35 | 2026-06-08 | ClassDojo | Technical Implementation Specialist (Contract) | 3.2/5 | Evaluated | ❌ | [035](reports/035-classdojo-technical-2026-06-08.md) | Relevant K-12 context but may lean too technical (API/SIS) for Morgan's core skillset. |
 | 36 | 2026-06-08 | Instructure | Manager Marketing, Customer Marketing NORAM K-12 | 4.9/5 | Evaluated | ❌ | [036](reports/036-instructure-customer-marketing-2026-06-08.md) | Elite fit: Market leader in K-12, direct archetype match, and mirrors Morgan's specific EdTech/Lifecycle track. |
-| 37 | 2026-06-08 | Instructure | Customer Success Manager, K-12 | 4.1/5 | Evaluated | ❌ | [037](reports/037-instructure-csm-k12-2026-06-08.md) | Strong K-12 alignment; functional account management experience is a direct match for this CSM scope. |
-| 1 | 2026-06-10 | Brightwheel | Lifecycle & Campaign Marketing Manager | 4.8/5 | Evaluated | ✅ | [123](../reports/123-brightwheel-2026-06-10.md) | Re-eval 2026-06-10 (4.4→4.8). Score 4.8 — apply |
-| 26 | 2026-06-09 | ClassDojo | District Onboarding Manager (Contract, Remote) | 4.8/5 | Evaluated | ✅ | [082](reports/082-classdojo-2026-06-09.md) | Re-eval 2026-06-09 (3.9→4.8). Exceptional fit for Morgan's EdTech, onboarding, and project management expertise; fully remote and good compensation. |
-| 27 | 2026-06-09 | company: ClassDojo | role: Technical Implementation Specialist (Contract, Remote) | 4.75/5 | Evaluated | ✅ | [105](reports/105-company-classdojo-2026-06-09.md) | Re-eval 2026-06-09 (2.5→4.75). Technical Implementation Specialist — Apply |
-| 28 | 2026-06-09 | company: | role: | 4.0/5 | Evaluated | ✅ | [093](reports/093-company-2026-06-09.md) | Re-eval 2026-06-09 (2.8→4). archetype: — final_decision: |
-| 29 | 2026-06-09 | company: Instructure, Inc. | role: Customer Success Manager, K-12 | 4.5/5 | Evaluated | ❌ | [111](reports/111-company-instructure-inc-2026-06-09.md) | Re-eval 2026-06-09 (2.2→4.5). Sales Enablement & Content — Apply |
-| 30 | 2026-06-09 | company: Literati | role: Social Media Manager | 4.5/5 | Evaluated | ✅ | [117](reports/117-company-literati-2026-06-09.md) | Re-eval 2026-06-09 (3.7→4.5). Sales Enablement Specialist / Manager — Apply if score >= 4.0, Consider if 3.0-3.9, Skip if below 3.0 |
+| 1 | 2026-06-11 | brightwheel | Lifecycle & Campaign Marketing Manager | 5.0/5 | Evaluated | ✅ | [267](../reports/267-brightwheel-2026-06-11.md) | Re-eval 2026-06-11 (4.8→5). Score 5.0 — consider | rescored 4.7/5 on 2026-06-14; kept existing 5.0/5 | Gemini evaluation |
+| 26 | 2026-06-09 | ClassDojo | District Onboarding Manager (Contract, Remote) | 4.8/5 | Evaluated | ✅ | [082](reports/082-classdojo-2026-06-09.md) | Re-eval 2026-06-09 (3.9→4.8). Exceptional fit for Morgan's EdTech, onboarding, and project management expertise; fully remote and good compensation. | rescored 4.7/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
 | 31 | 2026-06-08 | ActiveCampaign | Customer Onboarding Specialist | 3.1/5 | SKIP | ❌ | [031](reports/031-activecampaign-2026-06-08.md) | Hard stops: São Paulo hybrid required + native Spanish required + Brazil-based comp — unapplyable for US remote English-only candidate |
-| 32 | 2026-06-09 | company: Superhuman Platform Inc. | role: Enterprise Customer Success Manager, Grammarly for Education | 4.5/5 | SKIP | ❌ | [113](reports/113-company-superhuman-platform-inc-2026-06-09.md) | Re-eval 2026-06-09 (3.1→4.5). Enterprise Sales & Support — Apply |
 
