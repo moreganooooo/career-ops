@@ -59,7 +59,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {
   console.log(`
-╔══════════════════════════════════════════════════════════════════╗
+╬══════════════════════════════════════════════════════════════════╪
 ║           career-ops — Gemini Evaluator (free-tier)             ║
 ╚══════════════════════════════════════════════════════════════════╝
 
@@ -175,10 +175,19 @@ function tsvSafe(value) {
   return String(value ?? '').replace(/[\t\r\n]+/g, ' ').trim();
 }
 
-function normalizedTrackerScore(value) {
-  const clean = tsvSafe(value);
-  if (!clean || clean === '?') return 'N/A';
-  return /\/5$/i.test(clean) ? clean : `${clean}/5`;
+/**
+ * Formats a score for the tracker column.
+ * Returns a plain decimal string (e.g. "4.5") or "NA" for missing/invalid scores.
+ * Never appends "/5" — that caused garbled values like "N/A/5" in the tracker.
+ */
+function trackerScore(value) {
+  const raw = String(value ?? '').trim();
+  // Strip any existing /5 suffix before validating
+  const stripped = raw.replace(/\/5\s*$/i, '').trim();
+  if (!stripped || isMissing(stripped)) return 'NA';
+  const num = parseFloat(stripped);
+  if (isNaN(num) || num < 0 || num > 5) return 'NA';
+  return String(num);
 }
 
 function isMissing(value) {
@@ -189,6 +198,7 @@ function isMissing(value) {
   const missingPhrases = new Set([
     'unknown',
     'n/a',
+    'na',
     '?',
     'tbd',
     'not provided',
@@ -418,13 +428,17 @@ ${cleanEvaluationText}
     writeFileSync(reportPath, reportContent, 'utf-8');
     mkdirSync(PATHS.trackerAdditions, { recursive: true });
 
+    // Sanitize score for the tracker column:
+    // trackerScore() returns a plain decimal (e.g. "4.5") or "NA" — never "N/A/5" or similar.
+    const safeScore = trackerScore(score);
+
     const trackerFields = [
       String(parseInt(num, 10)),
       today,
       tsvSafe(company),
       tsvSafe(role),
       'Evaluated',
-      normalizedTrackerScore(score),
+      safeScore,
       '❌',
       `[${num}](reports/${filename})`,
       'Gemini evaluation',
