@@ -2,14 +2,15 @@
 
 | # | Date | Company | Role | Score | Status | PDF | Report | Notes |
 |---|------|---------|------|-------|--------|-----|--------|-------|
+| 1004 | 2026-06-15 | BPM (Caravel) | Sales Enablement & Marketing Specialist | 4.7 | Evaluated | ❌ | [1000](../reports/1000-bpm-caravel-2026-06-15.md) | Gemini evaluation | rescored 3.9 on 2026-06-15; kept existing 4.7 |
 | 1003 | 2026-06-14 | Coalition Technologies | Copywriter | 3.2/5 | Evaluated | ❌ | [990](../reports/990-coalition-technologies-2026-06-14.md) | Gemini evaluation |
 | 1002 | 2026-06-14 | Stripe | Payments Performance Strategist, Network Cost | 2.1/5 | Evaluated | ❌ | [985](../reports/985-stripe-2026-06-14.md) | Gemini evaluation |
 | 1001 | 2026-06-14 | Caravel (BPM) | Sales Enablement & Marketing Specialist | 4.6/5 | Evaluated | ❌ | [970](../reports/970-caravel-bpm-2026-06-14.md) | Gemini evaluation | rescored from 4.5/5 to 4.6/5 on 2026-06-14 |
-| 1000 | 2026-06-14 | Air Apps - CRM Specialist | unknown | N/A | Evaluated | ❌ | [967](../reports/967-air-apps-crm-specialist-2026-06-14.md) | Gemini evaluation |
+| 1000 | 2026-06-14 | Air Apps - CRM Specialist | unknown | NA | Evaluated | ❌ | [967](../reports/967-air-apps-crm-specialist-2026-06-14.md) | Gemini evaluation |
 | 999 | 2026-06-14 | Superhuman | Senior Account Based Marketing Manager | 4.2/5 | Evaluated | ❌ | [954](../reports/954-superhuman-2026-06-14.md) | Gemini evaluation | rescored 3.6/5 on 2026-06-14; kept existing 4.2/5 |
-| 998 | 2026-06-14 | Air Apps - CRM Specialist | No Job Description Provided | N/A/5 | Evaluated | ❌ | [949](../reports/949-air-apps-crm-specialist-2026-06-14.md) | Gemini evaluation |
-| 997 | 2026-06-14 | Brightwheel | unknown | N/A | Evaluated | ❌ | [940](../reports/940-brightwheel-2026-06-14.md) | Gemini evaluation |
-| 504 | 2026-06-14 | Khan Academy | B2B Customer Lifecycle Marketing Manager | 4.9/5 | Evaluated | ❌ | [948](../reports/948-khan-academy-2026-06-14.md) | Re-eval 2026-06-14 (4.8→4.9). Gemini evaluation | rescored 4.7/5 on 2026-06-14; kept existing 4.9/5 |
+| 998 | 2026-06-14 | Air Apps - CRM Specialist | No Job Description Provided | NA | Evaluated | ❌ | [949](../reports/949-air-apps-crm-specialist-2026-06-14.md) | Gemini evaluation |
+| 997 | 2026-06-14 | Brightwheel | unknown | NA | Evaluated | ❌ | [940](../reports/940-brightwheel-2026-06-14.md) | Gemini evaluation |
+| 504 | 2026-06-14 | Khan Academy | B2B Customer Lifecycle Marketing Manager | 4.9/5 | Evaluated | ❌ | [948](../reports/948-khan-academy-2026-06-14.md) | Re-eval 2026-06-14 (4.8→4.9). Gemini evaluation | rescored 4.7 on 2026-06-15; kept existing 4.9/5 |
 | 505 | 2026-06-12 | Duolingo | Country Marketing Manager, Turkey | 1.5/5 | SKIP | ❌ | [505](../reports/505-duolingo-2026-06-12.md) | Skip |
 | 578 | 2026-06-12 | Duolingo | Manager, Strategy and Business Operations | 0.5/5 | SKIP | ❌ | [578](../reports/578-duolingo-2026-06-12.md) | Skip |
 | 579 | 2026-06-12 | Duolingo | Performance Marketing Lead | 0.5/5 | SKIP | ❌ | [506](../reports/506-duolingo-2026-06-12.md) | Skip |
@@ -94,7 +95,7 @@
 | 658 | 2026-06-12 | Altruist Financial LLC | N/A (Career Page/General Inquiry) | 0.5/5 | SKIP | ❌ | [546](../reports/546-altruist-financial-llc-2026-06-12.md) | Skip |
 | 659 | 2026-06-12 | Altruist Financial LLC | Not specified (Incomplete Job Posting) | 0.5/5 | SKIP | ❌ | [621](../reports/621-altruist-financial-llc-2026-06-12.md) | Skip |
 | 660 | 2026-06-12 | Altruist Financial LLC | N/A (No specific job description provided) | 0.5/5 | SKIP | ❌ | [547](../reports/547-altruist-financial-llc-2026-06-12.md) | Skip |
-| 661 | 2026-06-12 | AMEND Consulting | Senior Consultant | Program Management | 0.5/5 | SKIP | ❌ | [622](../reports/622-amend-consulting-2026-06-12.md) | Skip |
+| 661 | 2026-06-12 | AMEND Consulting | Senior Consultant | NA | 0.5/5 | SKIP | ❌ | [622](../reports/622-amend-consulting-2026-06-12.md) | Skip |
 | 662 | 2026-06-12 | American Institutes for Research | Communications Assistant (Part-time) | 3.5/5 | SKIP | ❌ | [623](../reports/623-american-institutes-for-research-2026-06-12.md) | Consider if 3.0-3.9 |
 | 663 | 2026-06-12 | American Institutes for Research | TA Consultant, Continuous Improvement Coaching | 1.5/5 | SKIP | ❌ | [624](../reports/624-american-institutes-for-research-2026-06-12.md) | Skip |
 | 664 | 2026-06-12 | Anthropic | Communications Lead, Enterprise | 0.5/5 | SKIP | ❌ | [625](../reports/625-anthropic-2026-06-12.md) | Skip |
@@ -369,7 +370,7 @@
 | 933 | 2026-06-12 | Stripe | AEO and GEO Marketing Manager | 4.5/5 | Evaluated | ❌ | [869](../reports/869-stripe-2026-06-12.md) | Apply |
 | 934 | 2026-06-12 | Stripe | Portfolio Pricing Strategist | 2.5/5 | SKIP | ❌ | [870](../reports/870-stripe-2026-06-12.md) | Skip |
 | 935 | 2026-06-12 | Stripe | Product Lead, Support Experience | 0.5/5 | SKIP | ❌ | [871](../reports/871-stripe-2026-06-12.md) | Skip |
-| 936 | 2026-06-14 | Stripe | Product Marketing Manager | 4.2/5 | SKIP | ❌ | [872](../reports/872-stripe-2026-06-12.md) | Skip | Gemini evaluation | rescored from 2.5/5 to 4.2/5 on 2026-06-14 |
+| 936 | 2026-06-14 | Stripe | Product Marketing Manager | 4.2/5 | Evaluated | ❌ | [872](../reports/872-stripe-2026-06-12.md) | Skip | Gemini evaluation | rescored from 2.5/5 to 4.2/5 on 2026-06-14 |
 | 937 | 2026-06-12 | Stripe | Product Marketing Manager, Apps and Ecosystem | 3.5/5 | SKIP | ❌ | [873](../reports/873-stripe-2026-06-12.md) | Consider |
 | 938 | 2026-06-12 | Stripe | Product Marketing Manager, Checkout | 0.5/5 | SKIP | ❌ | [874](../reports/874-stripe-2026-06-12.md) | Skip |
 | 939 | 2026-06-12 | Stripe | Product Marketing Manager, Growth | 4.5/5 | Evaluated | ❌ | [875](../reports/875-stripe-2026-06-12.md) | Apply if score >= 4.0 |
@@ -408,7 +409,7 @@
 | 972 | 2026-06-12 | Upstart | Operations Manager, Auto Loan Processing | 0.5/5 | SKIP | ❌ | [908](../reports/908-upstart-2026-06-12.md) | Skip |
 | 973 | 2026-06-12 | Upstart | Principal Analyst, Growth Marketing | 1.5/5 | SKIP | ❌ | [909](../reports/909-upstart-2026-06-12.md) | Skip |
 | 974 | 2026-06-12 | Upstart | Senior Customer Contact Specialist | 0.5/5 | SKIP | ❌ | [910](../reports/910-upstart-2026-06-12.md) | Skip |
-| 975 | 2026-06-12 | Upstart | Senior Lifecycle Manager, Emerging Markets (contract) | 4.8/5 | Evaluated | ❌ | [911](../reports/911-upstart-2026-06-12.md) | Apply | rescored 4.7/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
+| 975 | 2026-06-12 | Upstart | Senior Lifecycle Manager, Emerging Markets (contract) | 4.8/5 | Evaluated | ❌ | [911](../reports/911-upstart-2026-06-12.md) | Apply | rescored 4.5 on 2026-06-15; kept existing 4.8/5 | Gemini evaluation |
 | 976 | 2026-06-12 | Upstart | Senior Performance Marketing Manager, Direct Mail and Offline Growth | 2.5/5 | SKIP | ❌ | [912](../reports/912-upstart-2026-06-12.md) | Skip |
 | 977 | 2026-06-12 | Vast | Events Coordinator | 0.5/5 | SKIP | ❌ | [913](../reports/913-vast-2026-06-12.md) | Skip |
 | 978 | 2026-06-12 | Vast | Operations & Production Specialist, Experiences | 0.5/5 | SKIP | ❌ | [914](../reports/914-vast-2026-06-12.md) | Skip |
@@ -548,7 +549,7 @@
 | 313 | 2026-06-11 | Planned Parenthood Federation of America | Associate Director, Strategic Communications | 0.5/5 | SKIP | ❌ | [313](../reports/313-planned-parenthood-federation-of-america-2026-06-11.md) | Skip |
 | 282 | 2026-06-11 | Coalition Technologies | Copywriter | 3.5/5 | SKIP | ❌ | [282](../reports/282-coalition-technologies-2026-06-11.md) | Score 3.5 — consider |
 | 278 | 2026-06-11 | Superhuman Platform Inc | Enterprise Customer Success Manager, Grammarly for Education | 1.5/5 | SKIP | ❌ | [281](../reports/281-superhuman-platform-inc-2026-06-11.md) | Re-eval 2026-06-11 (0.5→1.5). Score 1.5 — consider |
-| 268 | 2026-06-14 | Eve | Lifecycle Marketing Operations Analyst | (Calculated at end)/5 | Evaluated | ❌ | [943](../reports/943-eve-2026-06-14.md) | Re-eval 2026-06-14 (4.8→5). Gemini evaluation | rescored 4.5/5 on 2026-06-14; kept existing (Calculated at end)/5 |
+| 268 | 2026-06-15 | Eve | Lifecycle Marketing Operations Analyst | 4.57 | Evaluated | ❌ | [943](../reports/943-eve-2026-06-14.md) | Re-eval 2026-06-14 (4.8→5). Gemini evaluation | score repaired to 4.57 on 2026-06-15 |
 | 217 | 2026-06-10 | Gong | Director, Content Marketing | 2.5/5 | SKIP | ❌ | [217](../reports/217-gong-2026-06-10.md) | Score 2.5 — skip |
 | 218 | 2026-06-11 | Gong | Enterprise Growth Revenue Architect | 2.5/5 | SKIP | ❌ | [359](../reports/359-gong-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2.5). Skip |
 | 219 | 2026-06-10 | Gong | GTM Data Architect | 1.5/5 | SKIP | ❌ | [219](../reports/219-gong-2026-06-10.md) | Score 1.5 — skip |
@@ -581,7 +582,7 @@
 | 246 | 2026-06-10 | Hims & Hers | Quality Control Specialist, Sterile (Night Shift) | 0.5/5 | SKIP | ❌ | [246](../reports/246-hims-hers-2026-06-10.md) | Score 0.5 — skip |
 | 247 | 2026-06-10 | Hims & Hers | Quality Control Specialist (Night Shift) | 0.5/5 | SKIP | ❌ | [247](../reports/247-hims-hers-2026-06-10.md) | Score 0.5 — skip |
 | 248 | 2026-06-10 | Aveanna Healthcare | Remote Patient Intake Specialist | 1.5/5 | SKIP | ❌ | [248](../reports/248-aveanna-healthcare-2026-06-10.md) | Score 1.5 — skip |
-| 249 | 2026-06-11 | Rocky Talkie | Remote Marketing Coordinator | 4.5/5 | SKIP | ❌ | [390](../reports/390-rocky-talkie-2026-06-11.md) | Re-eval 2026-06-11 (3.5→4.5). Apply if score >= 4.0 | rescored 4.2/5 on 2026-06-14; kept existing 4.5/5 | Gemini evaluation |
+| 249 | 2026-06-11 | Rocky Talkie | Remote Marketing Coordinator | 4.5/5 | Evaluated | ❌ | [390](../reports/390-rocky-talkie-2026-06-11.md) | Re-eval 2026-06-11 (3.5→4.5). Apply if score >= 4.0 | rescored 4.2/5 on 2026-06-14; kept existing 4.5/5 | Gemini evaluation |
 | 250 | 2026-06-10 | Dossier - Digital Competency Management | Implementation Specialist | 3.5/5 | SKIP | ❌ | [250](../reports/250-dossier-digital-competency-management-2026-06-10.md) | Score 3.5 — consider |
 | 251 | 2026-06-11 | Dreamscape Learn | Executive Director K12 Academic Partnerships | 1.5/5 | SKIP | ❌ | [392](../reports/392-dreamscape-learn-2026-06-11.md) | Re-eval 2026-06-11 (0.5→1.5). Skip |
 | 252 | 2026-06-10 | Saint-Gobain Group in India | Team Member Cold End | 0.5/5 | SKIP | ❌ | [252](../reports/252-saint-gobain-group-in-india-2026-06-10.md) | Score 0.5 — skip |
@@ -652,7 +653,7 @@
 | 166 | 2026-06-11 | MagicSchool | Senior Customer Success Revenue Operations Manager | 2.5/5 | SKIP | ❌ | [307](../reports/307-magicschool-2026-06-11.md) | Re-eval 2026-06-11 (1.5→2.5). Skip |
 | 147 | 2026-06-10 | Instructure | Customer Success Manager, K-12 | 1.5/5 | SKIP | ❌ | [147](../reports/147-instructure-2026-06-10.md) | Score 1.5 — skip |
 | 150 | 2026-06-10 | Superhuman Platform Inc | Senior Customer Success Manager | 1.5/5 | SKIP | ❌ | [150](../reports/150-superhuman-platform-inc-2026-06-10.md) | Score 1.5 — skip |
-| 151 | 2026-06-11 | Superhuman Platform Inc | Senior Account Based Marketing Manager | 4.5/5 | SKIP | ❌ | [293](../reports/293-superhuman-platform-inc-2026-06-11.md) | Re-eval 2026-06-11 (2.5→4.5). Consider |
+| 151 | 2026-06-11 | Superhuman Platform Inc | Senior Account Based Marketing Manager | 4.5/5 | Evaluated | ❌ | [293](../reports/293-superhuman-platform-inc-2026-06-11.md) | Re-eval 2026-06-11 (2.5→4.5). Consider |
 | 152 | 2026-06-10 | Superhuman Platform Inc | Partner Technical Enablement Manager | 3.5/5 | SKIP | ❌ | [152](../reports/152-superhuman-platform-inc-2026-06-10.md) | Score 3.5 — consider |
 | 156 | 2026-06-10 | Instructure | Customer Success Representative (Inbound) | 1.5/5 | SKIP | ❌ | [156](../reports/156-instructure-2026-06-10.md) | Score 1.5 — skip |
 | 157 | 2026-06-10 | Instructure | Partner Success Manager | 1.5/5 | SKIP | ❌ | [157](../reports/157-instructure-2026-06-10.md) | Score 1.5 — skip |
@@ -663,14 +664,14 @@
 | 126 | 2026-06-10 | OpenAI | Onboarding & Enablement Program Manager, FDE | 1.0/5 | SKIP | ❌ | [126](../reports/126-openai-2026-06-10.md) | Score 1.0 — skip |
 | 127 | 2026-06-10 | Grow Therapy | Lifecycle Marketing Manager, Retention | 2.0/5 | SKIP | ❌ | [127](../reports/127-grow-therapy-2026-06-10.md) | Score 2.0 — skip |
 | 129 | 2026-06-10 | Gong | Sr. Email Marketing Manager | 4.8/5 | Evaluated | ❌ | [129](../reports/129-gong-2026-06-10.md) | Score 4.8 — apply |
-| 132 | 2026-06-11 | Instrumentl | Senior Content Marketing Manager | 4.8/5 | SKIP | ❌ | [273](../reports/273-instrumentl-2026-06-11.md) | Re-eval 2026-06-11 (3.2→4.8). Score 4.8 — consider | rescored 4.5/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
+| 132 | 2026-06-11 | Instrumentl | Senior Content Marketing Manager | 4.8/5 | Evaluated | ❌ | [273](../reports/273-instrumentl-2026-06-11.md) | Re-eval 2026-06-11 (3.2→4.8). Score 4.8 — consider | rescored 4.5 on 2026-06-15; kept existing 4.8/5 | Gemini evaluation |
 | 120 | 2026-06-10 | CSC Generation | Director, Lifecycle Marketing & CRM | 2.1/5 | SKIP | ❌ | [120](reports/120-csc-generation-2026-06-10.md) | Seniority/Industry mismatch: B2B IC vs Retail Director P&L owner. |
 | 74 | 2026-06-09 | SPECTRAFORCE Client | Strategic SDR | 1.5/5 | Evaluated | ❌ | [088](reports/088-spectraforce-sdr-2026-06-09.md) | Hard stop: 65+ calls/day phone-heavy outbound — automatic skip per profile deal-breakers |
 | 75 | 2026-06-09 | Tanisha Systems Client | AI Evaluator - Marketing SME | 3.1/5 | Evaluated | ❌ | [086](reports/086-tanisha-ai-evaluator-2026-06-09.md) | Bridge income candidate: 1099 freelance 3-4 months; strong domain match, no benefits, no FTE path — reply with rate quote to learn end client |
 | 76 | 2026-06-09 | VARITE Client (Investment Firm) | Copywriter | 4.0/5 | Evaluated | ✅ | [087](reports/087-varite-copywriter-2026-06-09.md) | $70-85/hr W2 with benefits, remote confirmed; CACU financial services copy (PPC, insurance, mortgage) + VML agency pedigree = strong match; Pursue |
-| 63 | 2026-06-09 | Pilot | Sr. Lifecycle Marketing Manager | 4.9/5 | Evaluated | ✅ | [071](reports/071-pilot-2026-06-09.md) | Excellent remote Senior IC lifecycle marketing role with strong pipeline ownership, writing, and CRM alignment; Marketo is the main platform gap. | rescored 4.2/5 on 2026-06-14; kept existing 4.9/5 | Gemini evaluation |
+| 63 | 2026-06-09 | Pilot | Sr. Lifecycle Marketing Manager | 4.9/5 | Evaluated | ✅ | [071](reports/071-pilot-2026-06-09.md) | Excellent remote Senior IC lifecycle marketing role with strong pipeline ownership, writing, and CRM alignment; Marketo is the main platform gap. | rescored 4.4 on 2026-06-15; kept existing 4.9/5 | Gemini evaluation |
 | 64 | 2026-06-10 | Mednet | Lifecycle Marketing Manager | 1.5/5 | Evaluated | ❌ | [119](reports/119-mednet-2026-06-10.md) | Re-eval 2026-06-10 (0→1.5). On-site NYC required; candidate is remote-only. |
-| 65 | 2026-06-11 | Sur La Table | Director, Lifecycle Marketing & CRM | 4.5/5 | Evaluated | ❌ | [276](../reports/276-sur-la-table-2026-06-11.md) | Re-eval 2026-06-11 (2→4.5). Score 4.5 — consider | rescored 3.8/5 on 2026-06-14; kept existing 4.5/5 | Gemini evaluation |
+| 65 | 2026-06-11 | Sur La Table | Director, Lifecycle Marketing & CRM | 4.5/5 | Evaluated | ❌ | [276](../reports/276-sur-la-table-2026-06-11.md) | Re-eval 2026-06-11 (2→4.5). Score 4.5 — consider | rescored 3.5 on 2026-06-15; kept existing 4.5/5 | Gemini evaluation |
 | 66 | 2026-06-14 | BPM | Sales Enablement & Marketing Specialist | 4.7/5 | Evaluated | ❌ | [952](../reports/952-bpm-2026-06-14.md) | Re-eval 2026-06-14 (4.6→4.7). Gemini evaluation |
 | 67 | 2026-06-09 | Superhuman Platform Inc. (Grammarly) | Enterprise Customer Success Manager, Grammarly for Education | 1.0/5 | Evaluated | ❌ | [075](../reports/075-superhuman-platform-inc-grammarly-2026-06-09.md) | Excellent functional fit for Customer Success and Enablement, but remote location in Poland and low compensation are hard stops. |
 | 68 | 2026-06-09 | Superhuman Platform Inc | Customer Education Operations Manager | 4.5/5 | Evaluated | ❌ | [076](reports/076-superhuman-platform-inc-2026-06-09.md) | Excellent fit for Morgan's systems, operations, and enablement strengths in a customer education context. |
@@ -680,13 +681,13 @@
 | 72 | 2026-06-10 | MagicSchool | Senior Customer Success Manager, Texas | 1.5/5 | Evaluated | ❌ | [143](../reports/143-magicschool-2026-06-10.md) | Re-eval 2026-06-10 (0.5→1.5). Score 1.5 — skip |
 | 73 | 2026-06-10 | BetterHelp | Senior Manager, US Spanish Growth | 1.5/5 | Evaluated | ❌ | [187](../reports/187-betterhelp-2026-06-10.md) | Re-eval 2026-06-10 (0.5→1.5). Score 1.5 — skip |
 | 61 | 2026-06-09 | Notion | Lifecycle Marketing Manager | 3.0/5 | Evaluated | ❌ | [069](reports/069-notion-2026-06-09.md) | Strong functional fit for lifecycle marketing, but hybrid location is a deal-breaker. |
-| 62 | 2026-06-09 | LiveKit | Content Marketing Manager | 4.8/5 | Evaluated | ❌ | [070](reports/070-livekit-2026-06-09.md) | Exceptional fit for Morgan's unique blend of technical content creation, sales enablement, and human-first messaging, with perfect remote alignment and strong salary. | rescored 4.1/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
+| 62 | 2026-06-09 | LiveKit | Content Marketing Manager | 4.8/5 | Evaluated | ❌ | [070](reports/070-livekit-2026-06-09.md) | Exceptional fit for Morgan's unique blend of technical content creation, sales enablement, and human-first messaging, with perfect remote alignment and strong salary. | rescored 4.16 on 2026-06-15; kept existing 4.8/5 | Gemini evaluation |
 | 43 | 2025-05-14 | Superhuman | Partner Technical Enablement Manager | 3.8/5 | Evaluated | ❌ | [043](reports/043-superhuman-partner-technical-enablement-manager-2025-05-14.md) | Strong enablement/onboarding fit; slight technical gap. |
 | 44 | 2025-05-14 | Superhuman | Customer Education Operations Manager | 4.0/5 | Evaluated | ❌ | [044](reports/044-superhuman-customer-education-operations-manager-2025-05-14.md) | Great operational/education fit; matches 'builder' archetype. |
 | 45 | 2025-05-14 | Hims & Hers | Sr. Lead Product Copywriter | 4.8/5 | Evaluated | ❌ | [045](reports/045-hims-hers-sr-lead-product-copywriter-2025-05-14.md) | Tier-1 copywriting fit; matches agency/creative background. |
 | 46 | 2025-05-14 | Superhuman | Enterprise CSM, Grammarly for Education | 3.5/5 | Evaluated | ❌ | [046](reports/046-superhuman-enterprise-csm-grammarly-edu-2025-05-14.md) | Good EdTech fit; but high quota/sales focus. |
 | 47 | 2025-05-14 | ClassDojo | Product Marketing Lead, Consumer | 4.2/5 | Evaluated | ❌ | [047](reports/047-classdojo-product-marketing-lead-consumer-2025-05-14.md) | Strong EdTech/Consumer fit; matches Treering experience. | rescored 4.0/5 on 2026-06-14; kept existing 4.2/5 | Gemini evaluation |
-| 48 | 2025-05-14 | ClassDojo | B2B Content & Thought Leadership Strategist | 4.9/5 | Evaluated | ❌ | [048](reports/048-classdojo-b2b-content-thought-leadership-strategist-2025-05-14.md) | Near-perfect fit; matches journalism roots and EdTech leadership. | rescored 4.7/5 on 2026-06-14; kept existing 4.9/5 | Gemini evaluation |
+| 48 | 2025-05-14 | ClassDojo | B2B Content & Thought Leadership Strategist | 4.9/5 | Evaluated | ❌ | [048](reports/048-classdojo-b2b-content-thought-leadership-strategist-2025-05-14.md) | Near-perfect fit; matches journalism roots and EdTech leadership. | rescored 4.6 on 2026-06-15; kept existing 4.9/5 | Gemini evaluation |
 | 49 | 2025-05-14 | Instructure | Assessment Item Writer/Editor | 4.5/5 | Evaluated | ❌ | [049](reports/049-instructure-assessment-item-writer-editor-2025-05-14.md) | Strong writing/editing fit in EdTech; ideal contract bridge. |
 | 52 | 2025-05-14 | Sweed | Senior Brand & Marketing Designer | 2.8/5 | Evaluated | ❌ | [052](reports/052-sweed-sr-brand-marketing-designer-2025-05-14.md) | Full design role; outside current primary focus. |
 | 53 | 2025-05-14 | Superhuman | Performance Marketing Lead | 2.5/5 | Evaluated | ❌ | [053](reports/053-superhuman-performance-marketing-lead-2025-05-14.md) | Performance marketing focus; not a core strength. |
@@ -702,7 +703,7 @@
 | 33 | 2026-06-09 | Superhuman | Senior Customer Success Manager | 5.0/5 | Evaluated | ❌ | [114](reports/114-superhuman-2026-06-09.md) | Re-eval 2026-06-09 (2→5). Sales Enablement & Content, Onboarding/Implementation Specialist — Apply |
 | 35 | 2026-06-08 | ClassDojo | Technical Implementation Specialist (Contract) | 3.2/5 | Evaluated | ❌ | [035](reports/035-classdojo-technical-2026-06-08.md) | Relevant K-12 context but may lean too technical (API/SIS) for Morgan's core skillset. |
 | 36 | 2026-06-08 | Instructure | Manager Marketing, Customer Marketing NORAM K-12 | 4.9/5 | Evaluated | ❌ | [036](reports/036-instructure-customer-marketing-2026-06-08.md) | Elite fit: Market leader in K-12, direct archetype match, and mirrors Morgan's specific EdTech/Lifecycle track. |
-| 1 | 2026-06-11 | brightwheel | Lifecycle & Campaign Marketing Manager | 5.0/5 | Evaluated | ✅ | [267](../reports/267-brightwheel-2026-06-11.md) | Re-eval 2026-06-11 (4.8→5). Score 5.0 — consider | rescored 4.7/5 on 2026-06-14; kept existing 5.0/5 | Gemini evaluation |
+| 1 | 2026-06-11 | brightwheel | Lifecycle & Campaign Marketing Manager | 5.0/5 | Evaluated | ✅ | [267](../reports/267-brightwheel-2026-06-11.md) | Re-eval 2026-06-11 (4.8→5). Score 5.0 — consider | rescored 4.75 on 2026-06-15; kept existing 5.0/5 | Gemini evaluation |
 | 26 | 2026-06-09 | ClassDojo | District Onboarding Manager (Contract, Remote) | 4.8/5 | Evaluated | ✅ | [082](reports/082-classdojo-2026-06-09.md) | Re-eval 2026-06-09 (3.9→4.8). Exceptional fit for Morgan's EdTech, onboarding, and project management expertise; fully remote and good compensation. | rescored 4.7/5 on 2026-06-14; kept existing 4.8/5 | Gemini evaluation |
 | 31 | 2026-06-08 | ActiveCampaign | Customer Onboarding Specialist | 3.1/5 | SKIP | ❌ | [031](reports/031-activecampaign-2026-06-08.md) | Hard stops: São Paulo hybrid required + native Spanish required + Brazil-based comp — unapplyable for US remote English-only candidate |
-
+| 295 | 2026-06-14 | EverCommerce | EverHealth Senior Growth Marketing Manager | SKIP | ❌ |  | Duplicate
