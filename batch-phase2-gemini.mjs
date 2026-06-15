@@ -15,6 +15,7 @@ import { tmpdir } from 'os';
 import { fileURLToPath } from 'url';
 import { execFileSync } from 'child_process';
 import { chromium } from 'playwright';
+import { classifyLiveness } from './liveness-core.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
@@ -75,6 +76,7 @@ const page = await context.newPage();
 for (let i = 0; i < rows.length; i++) {
   const { id, url, source, notes } = rows[i];
   const fallbackCompany = notes?.trim() || source?.trim() || '';
+  const startedAt = new Date().toISOString();
 
   console.log(`\n[${i + 1}/${rows.length}] #${id} — ${fallbackCompany || url}`);
 
@@ -98,6 +100,29 @@ for (let i = 0; i < rows.length; i++) {
   if (!jdText || jdText.length < 200) {
     console.error(`❌ Empty/too short content for #${id} — skipping`);
     continue;
+  }
+
+  // ── Liveness check (reuses already-loaded Playwright page) ──────────────
+  const finalUrl = page.url();
+  const applyControls = await page.$$eval(
+    'a, button', els => els.map(el => el.innerText?.trim()).filter(Boolean)
+  ).catch(() => []);
+  const liveness = classifyLiveness({
+    status: 200, // page.goto throws on nav failure; if we're here, page loaded
+    finalUrl,
+    bodyText: jdText,
+    applyControls,
+  });
+
+  if (liveness.result === 'expired') {
+    console.log(`💀 Dead listing (${liveness.code}: ${liveness.reason}) — skipping`);
+    const now = new Date().toISOString();
+    appendFileSync(stateFile, `${id}\t${url}\tcompleted\t${startedAt}\t${now}\t-\tNA\tdead: ${liveness.code}\t0\n`, 'utf-8');
+    continue;
+  }
+
+  if (liveness.result === 'uncertain') {
+    console.log(`⚠️  Liveness uncertain (${liveness.code}) — proceeding anyway`);
   }
 
   const tmpFile = join(tmpdir(), `career-ops-jd-${id}.txt`);
@@ -157,7 +182,7 @@ for (let i = 0; i < rows.length; i++) {
 
   // Mark this ID as completed in the state file so restarts skip it
   const now = new Date().toISOString();
-  appendFileSync(stateFile, `${id}\t${url}\tcompleted\t${now}\t${now}\t-\t-\t-\t0\n`, 'utf-8');
+  appendFileSync(stateFile, `${id}\t${url}\tcompleted\t${startedAt}\t${now}\t-\t-\t-\t0\n`, 'utf-8');
 
   if (i < rows.length - 1) {
     await sleep(delayMs);

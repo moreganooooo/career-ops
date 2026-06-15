@@ -180,6 +180,33 @@ for (const line of stateLines.slice(1)) {
   promoted.push({ id, url, score: isNaN(score) ? null : score, reportNum, status });
 }
 
+// ── URL cross-check: skip jobs already evaluated in a prior batch ─────────────
+
+const GEMINI_STATE = join(BATCH_DIR, 'batch-gemini-state.tsv');
+const evaluatedUrls = new Set();
+if (existsSync(GEMINI_STATE)) {
+  for (const line of readFileSync(GEMINI_STATE, 'utf-8').trim().split('\n').slice(1)) {
+    const [, url, status] = line.split('\t');
+    if (url && status === 'completed') evaluatedUrls.add(url.trim());
+  }
+}
+
+const urlDupes = [];
+const dedupedPromoted = promoted.filter(e => {
+  if (evaluatedUrls.has(e.url)) {
+    urlDupes.push(e);
+    return false;
+  }
+  return true;
+});
+
+if (urlDupes.length > 0) {
+  console.log(`\n⏭️  Skipped ${urlDupes.length} already-evaluated URL(s):`);
+  for (const e of urlDupes) console.log(`   #${e.id}  ${e.url}`);
+}
+promoted.length = 0;
+promoted.push(...dedupedPromoted);
+
 // ── Read batch-input.tsv for source/notes metadata ───────────────────────────
 
 const inputFile = join(BATCH_DIR, 'batch-input.tsv');

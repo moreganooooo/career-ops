@@ -24,6 +24,7 @@ import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { chromium } from 'playwright';
 import dotenv from 'dotenv';
+import { classifyLiveness } from './liveness-core.mjs';
 dotenv.config({ override: true });
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
@@ -229,6 +230,30 @@ Output ONLY the YAML block. No markdown. No preamble.
       console.log(`🌐 Fetching JD...`);
       let jdText = await fetchJD(page, offer.url);
       if (!jdText || jdText.length < 100) throw new Error('Page body empty');
+
+      // ── Liveness check (reuses already-loaded Playwright page) ────────────
+      const finalUrl = page.url();
+      const applyControls = await page.$$eval(
+        'a, button', els => els.map(el => el.innerText?.trim()).filter(Boolean)
+      ).catch(() => []);
+      const liveness = classifyLiveness({
+        status: 200, // fetchJD throws on nav failure; if we're here, page loaded
+        finalUrl,
+        bodyText: jdText,
+        applyControls,
+      });
+
+      if (liveness.result === 'expired') {
+        console.log(`💀 Dead listing (${liveness.code}: ${liveness.reason}) — skipping`);
+        const tsvLine = [offer.id, dateStr, 'Unknown', 'Unknown', 'Dead', 'NA', '❌', '', `Dead — ${liveness.reason}`].join('\t');
+        fs.writeFileSync(path.join(TRACKER_DIR, `${offer.id}.tsv`), tsvLine + '\n', 'utf-8');
+        updateState(offer.id, offer.url, 'completed', startedAt, new Date().toISOString(), '-', 'NA', `dead: ${liveness.code}`, retries);
+        continue;
+      }
+
+      if (liveness.result === 'uncertain') {
+        console.log(`⚠️  Liveness uncertain (${liveness.code}) — proceeding anyway`);
+      }
 
       // TRUNCATE to save tokens
       const MAX_JD_CHARS = 12000;
