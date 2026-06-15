@@ -291,7 +291,7 @@ if (startStep <= 6) {
   console.log('STEP 6 — ⚡  Phase 1 screening (Gemini)');
   console.log('─'.repeat(66));
 
-  run(join(BATCH_DIR, 'batch-runner-gemini.mjs'));
+  run('batch-runner-gemini.mjs');  // lives in root, not batch/
 
   const dist = scoreDistribution();
   if (dist) {
