@@ -77,14 +77,17 @@ while IFS=$'\t' read -r id url source notes; do
     continue
   fi
 
+  # Build check strings — check HARD_STOPS against notes AND url so role
+  # titles embedded in URLs (e.g. "jornada", "pleno") are also caught
   title=$(echo "$notes" | tr '[:upper:]' '[:lower:]')
   fullline=$(echo "$notes $url" | tr '[:upper:]' '[:lower:]')
 
   bucket="uncertain"
   echo "$title" | grep -qiE "$TARGETS" && bucket="pass"
 
-  # Pass 1: hard-stop or known in-office company
-  if echo "$title" | grep -qiE "$HARD_STOPS" || echo "$fullline" | grep -qiE "$INOFFICE_COMPANIES"; then
+  # Pass 1: hard-stop on BOTH title (notes) AND fullline (notes+url)
+  # This catches non-English role names embedded in the URL or notes field
+  if echo "$fullline" | grep -qiE "$HARD_STOPS" || echo "$fullline" | grep -qiE "$INOFFICE_COMPANIES"; then
     ((skip += 1))
     echo "SKIP       | $bucket | $notes" >> "$RESULTS_FILE"
     continue  # omit from filtered TSV
