@@ -454,7 +454,7 @@ Please retry in 4.964323489s. [{"@type":"type.googleapis.com/google.rpc.Help","l
 1025	https://job-boards.greenhouse.io/fetch/jobs/4074353009	completed	2026-06-12T19:14:43.214Z	2026-06-12T19:14:47.138Z	707	1.5	-	0
 1029	https://job-boards.greenhouse.io/firsthand/jobs/4226305009	completed	2026-06-12T19:15:07.142Z	2026-06-12T19:15:12.819Z	708	0.5	-	0
 1030	https://job-boards.greenhouse.io/firsthand/jobs/4279176009	completed	2026-06-12T19:15:32.840Z	2026-06-12T19:15:36.511Z	709	0.5	-	0
-1055	https://generatebiomedicines.com/open-positions?gh_jid=4676396006	failed	2026-06-12T21:21:01.302Z	2026-06-12T21:21:03.618Z	933	-	Page body empty	2
+1055	https://generatebiomedicines.com/open-positions?gh_jid=4676396006	failed	2026-06-15T03:11:55.512Z	2026-06-15T03:11:57.765Z	1000	-	Page body empty	4
 1057	https://job-boards.greenhouse.io/grovecollaborative/jobs/5238899008	completed	2026-06-12T19:15:58.810Z	2026-06-12T19:16:02.710Z	710	1.5	-	0
 1058	https://job-boards.greenhouse.io/gusto/jobs/6348898	completed	2026-06-12T19:16:22.713Z	2026-06-12T19:16:26.335Z	711	0.5	-	0
 1059	https://job-boards.greenhouse.io/gusto/jobs/7958363	completed	2026-06-12T19:16:46.341Z	2026-06-12T19:16:49.650Z	712	0.5	-	0
@@ -589,49 +589,91 @@ Please retry in 4.964323489s. [{"@type":"type.googleapis.com/google.rpc.Help","l
 1445	https://job-boards.greenhouse.io/rocketlab/jobs/7764717003	completed	2026-06-12T20:09:00.002Z	2026-06-12T20:09:04.007Z	841	0.5	-	0
 1447	https://job-boards.greenhouse.io/rocketlab/jobs/7675936003	completed	2026-06-12T20:09:24.013Z	2026-06-12T20:09:27.680Z	842	0.5	-	0
 1448	https://job-boards.greenhouse.io/rocketlab/jobs/7557406003	completed	2026-06-12T20:09:47.687Z	2026-06-12T20:09:51.801Z	843	0.5	-	0
-1450	https://careers.roblox.com/jobs/7701763?gh_jid=7701763	failed	2026-06-12T21:21:03.624Z	2026-06-12T21:21:03.783Z	933	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7701763?gh_jid=7701763
+1450	https://careers.roblox.com/jobs/7701763?gh_jid=7701763	failed	2026-06-15T03:11:57.774Z	2026-06-15T03:11:57.931Z	1000	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7701763?gh_jid=7701763
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7701763?gh_jid=7701763", waiting until "domcontentloaded"[22m
 	1
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7701763?gh_jid=7701763", waiting until "domcontentloaded"[22m
 	1
-1456	https://careers.roblox.com/jobs/7716688?gh_jid=7716688	failed	2026-06-12T21:21:03.785Z	2026-06-12T21:21:03.939Z	933	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7716688?gh_jid=7716688
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7701763?gh_jid=7701763", waiting until "domcontentloaded"[22m
+	1
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7701763?gh_jid=7701763", waiting until "domcontentloaded"[22m
+	1
+1456	https://careers.roblox.com/jobs/7716688?gh_jid=7716688	failed	2026-06-15T03:11:57.933Z	2026-06-15T03:11:58.050Z	1000	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7716688?gh_jid=7716688
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7716688?gh_jid=7716688", waiting until "domcontentloaded"[22m
 	1
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7716688?gh_jid=7716688", waiting until "domcontentloaded"[22m
 	1
-1457	https://careers.roblox.com/jobs/7813041?gh_jid=7813041	failed	2026-06-12T21:21:03.941Z	2026-06-12T21:21:04.008Z	933	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7813041?gh_jid=7813041
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7716688?gh_jid=7716688", waiting until "domcontentloaded"[22m
+	1
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7716688?gh_jid=7716688", waiting until "domcontentloaded"[22m
+	1
+1457	https://careers.roblox.com/jobs/7813041?gh_jid=7813041	failed	2026-06-15T03:11:58.051Z	2026-06-15T03:11:58.096Z	1000	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7813041?gh_jid=7813041
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7813041?gh_jid=7813041", waiting until "domcontentloaded"[22m
 	1
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7813041?gh_jid=7813041", waiting until "domcontentloaded"[22m
 	1
-1460	https://careers.roblox.com/jobs/7951971?gh_jid=7951971	failed	2026-06-12T21:21:04.011Z	2026-06-12T21:21:04.136Z	933	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7951971?gh_jid=7951971
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7813041?gh_jid=7813041", waiting until "domcontentloaded"[22m
+	1
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7813041?gh_jid=7813041", waiting until "domcontentloaded"[22m
+	1
+1460	https://careers.roblox.com/jobs/7951971?gh_jid=7951971	failed	2026-06-15T03:11:58.124Z	2026-06-15T03:11:58.180Z	1000	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7951971?gh_jid=7951971
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7951971?gh_jid=7951971", waiting until "domcontentloaded"[22m
 	1
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7951971?gh_jid=7951971", waiting until "domcontentloaded"[22m
 	1
-1461	https://careers.roblox.com/jobs/7950883?gh_jid=7950883	failed	2026-06-12T21:21:04.140Z	2026-06-12T21:21:04.181Z	933	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7950883?gh_jid=7950883
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7951971?gh_jid=7951971", waiting until "domcontentloaded"[22m
+	1
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7951971?gh_jid=7951971", waiting until "domcontentloaded"[22m
+	1
+1461	https://careers.roblox.com/jobs/7950883?gh_jid=7950883	failed	2026-06-15T03:11:58.182Z	2026-06-15T03:11:58.247Z	1000	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7950883?gh_jid=7950883
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7950883?gh_jid=7950883", waiting until "domcontentloaded"[22m
 	1
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7950883?gh_jid=7950883", waiting until "domcontentloaded"[22m
 	1
-1462	https://careers.roblox.com/jobs/7977893?gh_jid=7977893	failed	2026-06-12T21:21:04.183Z	2026-06-12T21:21:04.236Z	933	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7977893?gh_jid=7977893
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7950883?gh_jid=7950883", waiting until "domcontentloaded"[22m
+	1
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7950883?gh_jid=7950883", waiting until "domcontentloaded"[22m
+	1
+1462	https://careers.roblox.com/jobs/7977893?gh_jid=7977893	failed	2026-06-15T03:11:58.250Z	2026-06-15T03:11:58.387Z	1000	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7977893?gh_jid=7977893
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7977893?gh_jid=7977893", waiting until "domcontentloaded"[22m
 	1
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7977893?gh_jid=7977893", waiting until "domcontentloaded"[22m
 	1
-1463	https://careers.roblox.com/jobs/7655813?gh_jid=7655813	failed	2026-06-12T21:21:04.239Z	2026-06-12T21:21:04.282Z	933	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7655813?gh_jid=7655813
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7977893?gh_jid=7977893", waiting until "domcontentloaded"[22m
+	1
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7977893?gh_jid=7977893", waiting until "domcontentloaded"[22m
+	1
+1463	https://careers.roblox.com/jobs/7655813?gh_jid=7655813	failed	2026-06-15T03:11:58.388Z	2026-06-15T03:11:58.493Z	1000	-	Navigation failed: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://careers.roblox.com/jobs/7655813?gh_jid=7655813
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7655813?gh_jid=7655813", waiting until "domcontentloaded"[22m
+	1
+Call log:
+[2m  - navigating to "https://careers.roblox.com/jobs/7655813?gh_jid=7655813", waiting until "domcontentloaded"[22m
+	1
 Call log:
 [2m  - navigating to "https://careers.roblox.com/jobs/7655813?gh_jid=7655813", waiting until "domcontentloaded"[22m
 	1
@@ -689,7 +731,7 @@ Call log:
 1572	https://www.textio.com/careers/apply/?job=7576380003&gh_jid=7576380003	completed	2026-06-12T20:29:51.031Z	2026-06-12T20:29:55.294Z	892	0.5	-	0
 1578	https://job-boards.greenhouse.io/tia/jobs/7609216003	completed	2026-06-12T20:30:15.299Z	2026-06-12T20:30:19.255Z	893	1.0	-	0
 1588	https://careers.toasttab.com/jobs?gh_jid=7931361	completed	2026-06-12T20:30:39.258Z	2026-06-12T20:30:44.756Z	894	0.5	-	0
-1591	https://thrivemarketjobs.com/job_posting.html?id=4251450009&gh_jid=4251450009	failed	2026-06-12T21:21:04.285Z	2026-06-12T21:21:06.780Z	933	-	Page body empty	2
+1591	https://thrivemarketjobs.com/job_posting.html?id=4251450009&gh_jid=4251450009	failed	2026-06-15T03:11:58.495Z	2026-06-15T03:12:00.861Z	1000	-	Page body empty	4
 1598	https://boards.greenhouse.io/transcarent/jobs/5988475004?gh_jid=5988475004	completed	2026-06-12T20:31:06.971Z	2026-06-12T20:31:10.558Z	895	2.5	-	0
 1599	https://boards.greenhouse.io/transcarent/jobs/5743540004?gh_jid=5743540004	completed	2026-06-12T20:31:30.562Z	2026-06-12T20:31:34.212Z	896	1.5	-	0
 1600	https://boards.greenhouse.io/transcarent/jobs/5996924004?gh_jid=5996924004	completed	2026-06-12T20:31:54.217Z	2026-06-12T20:31:57.559Z	897	0.5	-	0

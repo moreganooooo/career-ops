@@ -48,7 +48,7 @@ if (!geminiKey) {
   process.exit(1);
 }
 
-const modelName = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
+const modelName = process.env.GEMINI_MODEL || 'gemma-4-26b-a4b-it';
 const genAI = new GoogleGenerativeAI(geminiKey);
 
 // ---------------------------------------------------------------------------
