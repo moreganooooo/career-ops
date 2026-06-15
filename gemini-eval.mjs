@@ -59,7 +59,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {
   console.log(`
-╬══════════════════════════════════════════════════════════════════╪
+╔══════════════════════════════════════════════════════════════════╗
 ║           career-ops — Gemini Evaluator (free-tier)             ║
 ╚══════════════════════════════════════════════════════════════════╝
 
@@ -182,7 +182,6 @@ function tsvSafe(value) {
  */
 function trackerScore(value) {
   const raw = String(value ?? '').trim();
-  // Strip any existing /5 suffix before validating
   const stripped = raw.replace(/\/5\s*$/i, '').trim();
   if (!stripped || isMissing(stripped)) return 'NA';
   const num = parseFloat(stripped);
@@ -385,7 +384,6 @@ score = normalizeScore(score);
 archetype = normalizeTextField(archetype, 'unknown');
 legitimacy = normalizeTextField(legitimacy, 'unknown');
 
-// Add before saving report/tracker in gemini-eval.mjs
 const invalidSummary =
   isMissing(score) &&
   isMissing(archetype) &&
@@ -432,6 +430,11 @@ ${cleanEvaluationText}
     // trackerScore() returns a plain decimal (e.g. "4.5") or "NA" — never "N/A/5" or similar.
     const safeScore = trackerScore(score);
 
+    // If score couldn't be resolved, flag the notes column so --retry-na can find this entry later.
+    const evalNotes = safeScore === 'NA'
+      ? 'NA — score extraction failed [retry-eligible]'
+      : 'Gemini evaluation';
+
     const trackerFields = [
       String(parseInt(num, 10)),
       today,
@@ -441,12 +444,17 @@ ${cleanEvaluationText}
       safeScore,
       '❌',
       `[${num}](reports/${filename})`,
-      'Gemini evaluation',
+      evalNotes,
     ];
 
     writeFileSync(trackerPath, `${trackerFields.join('\t')}\n`, 'utf-8');
     console.log(`\n✅  Report saved: reports/${filename}`);
     console.log(`📊  Tracker addition saved: batch/tracker-additions/${num}-${companySlug}.tsv`);
+
+    if (safeScore === 'NA') {
+      console.warn(`⚠️   Score could not be extracted — entry flagged as retry-eligible in tracker.`);
+      console.warn(`    Run: node promote-screened.mjs --retry-na to queue it for re-evaluation.`);
+    }
 
     const mergeOutput = execFileSync(process.execPath, [join(ROOT, 'merge-tracker.mjs')], {
       cwd: ROOT,

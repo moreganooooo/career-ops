@@ -11,6 +11,8 @@
  *   node promote-screened.mjs --min-score 3.5     # lower threshold
  *   node promote-screened.mjs --min-score 4.5     # higher threshold
  *   node promote-screened.mjs --include-failed    # also promote failed entries for retry
+ *   node promote-screened.mjs --retry-na          # re-queue NA-score entries from applications.md
+ *   node promote-screened.mjs --retry-na --max-age-days 14  # only retry entries scanned within N days
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
@@ -34,7 +36,9 @@ function argValue(flag) {
 
 const minScore      = parseFloat(argValue('--min-score') ?? '4.0');
 const includeFailed = args.includes('--include-failed');
-const outputFile    = argValue('--output') ?? join(BATCH_DIR, 'batch-input-promoted.tsv');
+const retryNa       = args.includes('--retry-na');
+const maxAgeDays    = parseInt(argValue('--max-age-days') ?? '0', 10);
+const outputFile    = argValue('--output') ?? join(BATCH_DIR, retryNa ? 'batch-input-retry-na.tsv' : 'batch-input-promoted.tsv');
 const stateOutFile  = join(BATCH_DIR, 'batch-state-phase2.tsv');
 
 if (isNaN(minScore) || minScore < 0 || minScore > 5) {
@@ -42,7 +46,111 @@ if (isNaN(minScore) || minScore < 0 || minScore > 5) {
   process.exit(1);
 }
 
-// ── Read Phase 1 state ────────────────────────────────────────────────────────
+// ── --retry-na mode: read applications.md directly ───────────────────────────
+
+if (retryNa) {
+  const trackerFile = join(ROOT, 'data', 'applications.md');
+  const pipelineFile = join(ROOT, 'pipeline.md');
+
+  if (!existsSync(trackerFile)) {
+    console.error('ERROR: data/applications.md not found.');
+    process.exit(1);
+  }
+
+  const cutoffDate = maxAgeDays > 0
+    ? new Date(Date.now() - maxAgeDays * 24 * 60 * 60 * 1000)
+    : null;
+
+  // Read pipeline.md to resolve URLs for each entry ID
+  const urlMap = new Map(); // id → url
+  if (existsSync(pipelineFile)) {
+    for (const line of readFileSync(pipelineFile, 'utf-8').split('\n')) {
+      // pipeline.md rows: `- [ ] #NNN | https://... | Company | Role`
+      // or x-marked:      `- [x] #NNN | https://... | Company | Role`
+      const m = line.match(/^-\s*\[.\]\s*#(\d+)\s*\|\s*(https?:\/\/\S+)/);
+      if (m) urlMap.set(m[1], m[2]);
+    }
+  }
+
+  const retryEntries = [];
+  const skippedStale = [];
+
+  for (const line of readFileSync(trackerFile, 'utf-8').split('\n')) {
+    if (!line.startsWith('|')) continue;
+    const parts = line.split('|').map(p => p.trim()).filter(Boolean);
+    if (parts.length < 6) continue;
+    const [numStr, date, company, role, status, scoreRaw, , , notes] = parts;
+    const num = parseInt(numStr, 10);
+    if (isNaN(num)) continue;
+
+    // Only target entries where score is NA and notes flag them as retry-eligible
+    const scoreIsNA = scoreRaw?.trim().toUpperCase() === 'NA';
+    const isRetryFlagged = notes?.includes('[retry-eligible]');
+    if (!scoreIsNA || !isRetryFlagged) continue;
+
+    // Age gate: skip entries older than --max-age-days
+    if (cutoffDate && date) {
+      const entryDate = new Date(date);
+      if (!isNaN(entryDate) && entryDate < cutoffDate) {
+        skippedStale.push({ num, date, company, role });
+        continue;
+      }
+    }
+
+    const url = urlMap.get(String(num)) || '';
+    retryEntries.push({ id: String(num), url, company, role, date });
+  }
+
+  // ── Write retry batch input ───────────────────────────────────────────────
+
+  if (retryEntries.length === 0) {
+    console.log('\n✅  No retry-eligible NA entries found in applications.md.');
+    if (skippedStale.length > 0) {
+      console.log(`   (${skippedStale.length} stale entries skipped — older than ${maxAgeDays} days)`);
+      console.log('   Re-run without --max-age-days to include them.');
+    }
+    process.exit(0);
+  }
+
+  const inputLines = ['id\turl\tsource\tnotes'];
+  for (const e of retryEntries) {
+    const label = e.company !== 'unknown' ? `${e.company} — ${e.role}` : e.url;
+    inputLines.push(`${e.id}\t${e.url}\tretry-na\tNA score retry: ${label}`);
+  }
+  writeFileSync(outputFile, inputLines.join('\n') + '\n', 'utf-8');
+
+  // Reset phase 2 state for these entries
+  writeFileSync(stateOutFile,
+    'id\turl\tstatus\tstarted_at\tcompleted_at\treport_num\tscore\terror\tretries\n',
+    'utf-8'
+  );
+
+  console.log('\n╔══════════════════════════════════════════════╗');
+  console.log('║     promote-screened — NA Retry Mode         ║');
+  console.log('╚══════════════════════════════════════════════╝\n');
+  console.log(`  Found     : ${retryEntries.length} retry-eligible NA entries`);
+  if (skippedStale.length > 0) console.log(`  Skipped   : ${skippedStale.length} stale (older than ${maxAgeDays} days)`);
+  console.log('');
+  console.log('  Entries queued for retry:');
+  for (const e of retryEntries) {
+    console.log(`    #${String(e.id).padEnd(5)}  ${e.date}  ${e.company} — ${e.role}`.slice(0, 80));
+  }
+  console.log('');
+  console.log('  Output files:');
+  console.log(`    ${outputFile}`);
+  console.log(`    ${stateOutFile}  (fresh state for Phase 2)`);
+  console.log('');
+  console.log('  Run Phase 2 to re-evaluate:');
+  console.log('');
+  console.log('    node batch-phase2-gemini.mjs');
+  console.log('');
+  console.log('  ⚠️  After a successful retry, the old NA row in applications.md');
+  console.log('      will be overwritten by merge-tracker.mjs automatically.');
+  console.log('');
+  process.exit(0);
+}
+
+// ── Standard mode: read Phase 1 state ────────────────────────────────────────
 
 const stateFile = join(BATCH_DIR, 'batch-state.tsv');
 if (!existsSync(stateFile)) {
