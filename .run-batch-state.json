@@ -1,8 +1,8 @@
 {
   "startedAt": "2026-06-15T02:18:09.668Z",
-  "completedAt": null,
-  "lastStep": 5,
-  "phase2Threshold": null,
-  "includeConsider": false,
-  "retryNa": false
+  "completedAt": "2026-06-15T03:39:27.800Z",
+  "lastStep": 8,
+  "phase2Threshold": "3.5",
+  "includeConsider": true,
+  "retryNa": true
 }
