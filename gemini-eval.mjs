@@ -97,6 +97,7 @@ let saveReport = true;
 let quiet = false;
 let fallbackCompany = '';
 let fallbackRole = '';
+let entryId = null; // optional --id flag for tracking purposes
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--file' && args[i + 1]) {
@@ -112,6 +113,8 @@ for (let i = 0; i < args.length; i++) {
     fallbackRole = args[++i].trim();
   } else if (args[i] === '--model' && args[i + 1]) {
     modelName = args[++i];
+  } else if (args[i] === '--id' && args[i + 1]) {
+    entryId = args[++i].trim();
   } else if (args[i] === '--quiet') {
     quiet = true;
   } else if (args[i] === '--no-save') {
@@ -243,6 +246,42 @@ function extractEvaluationHeader(text) {
   };
 }
 
+/**
+ * Writes a stub retry-eligible tracker row when Gemini fails to produce
+ * a usable evaluation. Ensures the entry is never silently lost and can
+ * be re-queued via: node promote-screened.mjs --retry-na
+ */
+function writeFailureStub(companyRaw, roleRaw, idOverride) {
+  try {
+    mkdirSync(PATHS.trackerAdditions, { recursive: true });
+    const today = new Date().toISOString().split('T')[0];
+    const companySlug = slugifyCompany(companyRaw || 'unknown');
+    // Use the provided ID override if available (e.g. from --id flag or batch context),
+    // otherwise allocate the next report number as a placeholder.
+    const num = idOverride ?? nextReportNumber();
+    const stubPath = join(PATHS.trackerAdditions, `${num}-${companySlug}-failed.tsv`);
+    const fields = [
+      String(num),
+      today,
+      tsvSafe(companyRaw || 'unknown'),
+      tsvSafe(roleRaw || 'unknown'),
+      'NA',           // status: not evaluated
+      'NA',           // score
+      '❌',
+      '',             // no report
+      'NA — Gemini extraction failed [retry-eligible]',
+    ];
+    writeFileSync(stubPath, `${fields.join('\t')}\n`, 'utf-8');
+    // Merge stub into applications.md immediately
+    execFileSync(process.execPath, [join(ROOT, 'merge-tracker.mjs')], {
+      cwd: ROOT, stdio: 'ignore',
+    });
+    console.warn(`⚠️   Stub row written to tracker — retry with: node promote-screened.mjs --retry-na`);
+  } catch (stubErr) {
+    console.warn(`⚠️   Could not write failure stub: ${stubErr.message}`);
+  }
+}
+
 console.log('\n📂  Loading context files...');
 
 const sharedContext = readFile(PATHS.shared, 'modes/_shared.md');
@@ -307,7 +346,7 @@ const model = genAI.getGenerativeModel({
   model: modelName,
   generationConfig: {
     temperature: 0.4,
-    maxOutputTokens: 8192,
+    maxOutputTokens: 16384,   // bumped from 8192 — gives Gemini room to always finish the summary block
   },
 });
 
@@ -326,6 +365,8 @@ try {
   } else if (sanitizedMsg.includes('quota') || sanitizedMsg.includes('rate')) {
     console.error('    You may have hit the free-tier rate limit. Wait 60s and retry.');
   }
+  // Write a stub so this entry isn’t silently lost
+  writeFailureStub(fallbackCompany, fallbackRole, entryId);
   process.exit(1);
 }
 
@@ -391,6 +432,8 @@ const invalidSummary =
 
 if (invalidSummary) {
   console.error('❌ Could not extract score/archetype/legitimacy from Gemini output.');
+  // Write a stub so this entry isn’t silently lost, then exit
+  writeFailureStub(company, role, entryId);
   process.exit(1);
 }
 
