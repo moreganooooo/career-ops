@@ -271,7 +271,7 @@ if (startStep <= 5) {
   console.log('STEP 5 — 🚫  Filter');
   console.log('─'.repeat(66));
 
-  run(join(BATCH_DIR, 'filter-batch.sh'));
+  run(join(ROOT, 'filter-batch.sh'));  // lives in root, not batch/
 
   const remaining = countBatchInput(join(BATCH_DIR, 'batch-input.tsv'));
   console.log(`\n  ℹ️  ${remaining} jobs remaining after filter`);
