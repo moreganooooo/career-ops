@@ -101,8 +101,9 @@ async function choose(message, defaultValue, validate) {
 
 function run(script, extraArgs = [], opts = {}) {
   const isShell = script.endsWith('.sh');
-  const cmd     = isShell ? script : process.execPath;
-  const cmdArgs = isShell ? extraArgs : [join(ROOT, script), ...extraArgs];
+  // Always invoke .sh scripts via bash — avoids chmod +x requirement
+  const cmd     = isShell ? 'bash' : process.execPath;
+  const cmdArgs = isShell ? [script, ...extraArgs] : [join(ROOT, script), ...extraArgs];
 
   const result = spawnSync(cmd, cmdArgs, {
     cwd: ROOT,
