@@ -10,11 +10,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const argv = process.argv.slice(2);
-const targetIdx = argv.indexOf('--target');
-const projectRoot =
-  targetIdx !== -1 && argv[targetIdx + 1] ? argv[targetIdx + 1] : __dirname;
-const JSON_OUT = argv.includes('--json');
+const projectRoot = __dirname;
 
 // ANSI colors (only on TTY)
 const isTTY = process.stdout.isTTY;
@@ -66,50 +62,47 @@ async function checkPlaywright() {
   }
 }
 
-// Single source of truth for the four user-layer prerequisites (the list
-// AGENTS.md "First Run" documents). BOTH the human checklist (`checkPrereq`)
-// and the machine-readable cold-start state (`onboardingState`) derive from
-// THIS array, so they cannot drift. Paths use "/" and are split for join().
-const USER_LAYER_PREREQS = [
-  {
-    path: 'cv.md',
+function checkCv() {
+  if (existsSync(join(projectRoot, 'cv.md'))) {
+    return { pass: true, label: 'cv.md found' };
+  }
+  return {
+    pass: false,
+    label: 'cv.md not found',
     fix: [
       'Create cv.md in the project root with your CV in markdown',
       'See examples/ for reference CVs',
     ],
-  },
-  {
-    path: 'config/profile.yml',
+  };
+}
+
+function checkProfile() {
+  if (existsSync(join(projectRoot, 'config', 'profile.yml'))) {
+    return { pass: true, label: 'config/profile.yml found' };
+  }
+  return {
+    pass: false,
+    label: 'config/profile.yml not found',
     fix: [
       'Run: cp config/profile.example.yml config/profile.yml',
       'Then edit it with your details',
     ],
-  },
-  {
-    path: 'modes/_profile.md',
-    fix: [
-      'Run: cp modes/_profile.template.md modes/_profile.md',
-      'Then customize your archetypes / targeting narrative',
-    ],
-  },
-  {
-    path: 'portals.yml',
-    fix: [
-      'Run: cp templates/portals.example.yml portals.yml',
-      'Then customize with your target companies',
-    ],
-  },
-];
-
-function prereqPresent(root, path) {
-  return existsSync(join(root, ...path.split('/')));
+  };
 }
 
-function checkPrereq({ path, fix }) {
-  if (prereqPresent(projectRoot, path)) {
-    return { pass: true, label: `${path} found` };
+function checkPortals() {
+  const portalsFile = process.env.CAREER_OPS_PORTALS || 'portals.yml';
+  if (existsSync(join(projectRoot, portalsFile))) {
+    return { pass: true, label: `${portalsFile} found` };
   }
-  return { pass: false, label: `${path} not found`, fix };
+  return {
+    pass: false,
+    label: `${portalsFile} not found`,
+    fix: [
+      `Create or point CAREER_OPS_PORTALS to your portal config`,
+      `Current default expects: ${portalsFile}`,
+    ],
+  };
 }
 
 function checkFonts() {
@@ -165,7 +158,9 @@ async function main() {
     checkNodeVersion(),
     checkDependencies(),
     await checkPlaywright(),
-    ...USER_LAYER_PREREQS.map(checkPrereq),
+    checkCv(),
+    checkProfile(),
+    checkPortals(),
     checkFonts(),
     checkAutoDir('data'),
     checkAutoDir('output'),
@@ -199,23 +194,7 @@ async function main() {
   }
 }
 
-// Single source of truth for the cold-start state: the same four user-layer
-// prerequisites that AGENTS.md "First Run" lists. `--json` turns the trigger into
-// a deterministic mechanism the agent runs (instead of re-deriving it from prose),
-// and `--target <dir>` lets the test suite point it at a simulated virgin env.
-function onboardingState(root) {
-  const missing = USER_LAYER_PREREQS
-    .filter(({ path }) => !prereqPresent(root, path))
-    .map(({ path }) => path);
-  return { onboardingNeeded: missing.length > 0, missing };
-}
-
-if (JSON_OUT) {
-  console.log(JSON.stringify(onboardingState(projectRoot)));
-  process.exit(0);
-} else {
-  main().catch((err) => {
-    console.error('doctor.mjs failed:', err.message);
-    process.exit(1);
-  });
-}
+main().catch((err) => {
+  console.error('doctor.mjs failed:', err.message);
+  process.exit(1);
+});

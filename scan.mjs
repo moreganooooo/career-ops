@@ -7,7 +7,7 @@
  * exports a default object with:
  *   - id: string — matched against `provider:` in portals.yml
  *   - detect(entry): {url}|null — optional auto-detection from careers_url
- *   - fetch(entry, ctx): [{title,url,company,location}] — required
+ *   - fetch(entry, ctx): [{title,url,company,location,posted_at?}] — required
  *
  * Files prefixed with _ are shared helpers (e.g. _http.mjs) and are never
  * loaded as providers. Adding a new HTTP/API source = drop a *.mjs into
@@ -20,14 +20,14 @@
  *
  * Zero Claude API tokens — pure HTTP + JSON.
  *
+ * Liveness verification runs by default via Playwright (headless Chromium).
+ * Use --no-verify to skip it (faster, but ghost listings may slip through).
+ *
  * Usage:
- *   node scan.mjs                  # scan all enabled companies
+ *   node scan.mjs                  # scan all companies (verify on by default)
+ *   node scan.mjs --no-verify      # skip Playwright liveness checks
  *   node scan.mjs --dry-run        # preview without writing files
  *   node scan.mjs --company Cohere # scan a single company
- *   node scan.mjs --verify         # Playwright-check each new URL; drop expired postings
- *   node scan.mjs --verify --headed-fallback  # retry anti-bot-blocked URLs in a headed browser (needs a display)
- *   node scan.mjs --verify --throttle          # jittered ~5-10s gap between checks (stay under rate limits)
- *   node scan.mjs --verify --throttle=8000     # custom base gap in ms (waits base..2*base)
  */
 
 import { readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
@@ -36,8 +36,11 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 import { makeHttpCtx } from './providers/_http.mjs';
+import { recognizeProvider } from './providers/_recognition.mjs';
+import { guessPortal } from './providers/_guessing.mjs';
 
 const parseYaml = yaml.load;
+const stringifyYaml = yaml.dump;
 
 // ── Config ──────────────────────────────────────────────────────────
 
@@ -120,17 +123,31 @@ function resolveProvider(entry, providers, { skipIds = [] } = {}) {
 }
 
 // ── Title filter ────────────────────────────────────────────────────
+// Returns { pass(title): boolean, negativeMatchCounts: Map<string, number> }
+// negativeMatchCounts tallies how many titles each negative keyword removed.
+// Only the first matching negative keyword is counted per title (same
+// semantics as the original — the title is rejected on first hit).
 
 function buildTitleFilter(titleFilter) {
   const positive = (titleFilter?.positive || []).map(k => k.toLowerCase());
   const negative = (titleFilter?.negative || []).map(k => k.toLowerCase());
+  const negativeMatchCounts = new Map(negative.map(k => [k, 0]));
+  let positiveRejectCount = 0;
 
-  return (title) => {
+  function pass(title) {
     const lower = title.toLowerCase();
     const hasPositive = positive.length === 0 || positive.some(k => lower.includes(k));
-    const hasNegative = negative.some(k => lower.includes(k));
-    return hasPositive && !hasNegative;
-  };
+    if (!hasPositive) { positiveRejectCount++; return false; }
+    for (const k of negative) {
+      if (lower.includes(k)) {
+        negativeMatchCounts.set(k, (negativeMatchCounts.get(k) || 0) + 1);
+        return false;
+      }
+    }
+    return true;
+  }
+
+  return { pass, negativeMatchCounts, getStats: () => ({ positiveRejectCount }) };
 }
 
 // ── Location filter ─────────────────────────────────────────────────
@@ -265,11 +282,11 @@ function appendToScanHistory(offers, date, status = 'added') {
   // can record verify outcomes (`skipped_expired`, etc.) without the legacy
   // `(expired)` suffix in `source`.
   if (!existsSync(SCAN_HISTORY_PATH)) {
-    writeFileSync(SCAN_HISTORY_PATH, 'url\tfirst_seen\tportal\ttitle\tcompany\tstatus\tlocation\n', 'utf-8');
+    writeFileSync(SCAN_HISTORY_PATH, 'url\tfirst_seen\tportal\ttitle\tcompany\tstatus\tlocation\tposted_at\n', 'utf-8');
   }
 
   const lines = offers.map(o =>
-    `${o.url}\t${date}\t${o.source}\t${o.title}\t${o.company}\t${status}\t${o.location || ''}`
+    `${o.url}\t${date}\t${o.source}\t${o.title}\t${o.company}\t${status}\t${o.location || ''}\t${o.posted_at || ''}`
   ).join('\n') + '\n';
 
   appendFileSync(SCAN_HISTORY_PATH, lines, 'utf-8');
@@ -295,21 +312,16 @@ async function parallelFetch(tasks, limit) {
 
 // ── Main ────────────────────────────────────────────────────────────
 
-async function verifyOffers(offers, { headedFallback = false, throttleBaseMs = 0 } = {}) {
+async function verifyOffers(offers) {
   // Dynamic imports keep the default zero-token path free of Playwright startup
   let chromium;
   let checkUrlLiveness;
-  let checkUrlLivenessWithFallback;
-  let createHeadedPageProvider;
-  let newLivenessPage;
-  let jitteredDelayMs;
-  let sleep;
   try {
     ({ chromium } = await import('playwright'));
-    ({ checkUrlLiveness, checkUrlLivenessWithFallback, createHeadedPageProvider, newLivenessPage, jitteredDelayMs, sleep } = await import('./liveness-browser.mjs'));
+    ({ checkUrlLiveness } = await import('./liveness-browser.mjs'));
   } catch (err) {
     throw new Error(
-      `--verify requires Playwright with Chromium (run "npx playwright install chromium"): ${err.message}`,
+      `liveness verification requires Playwright with Chromium (run "npx playwright install chromium"): ${err.message}`,
       { cause: err },
     );
   }
@@ -319,7 +331,7 @@ async function verifyOffers(offers, { headedFallback = false, throttleBaseMs = 0
     browser = await chromium.launch({ headless: true });
   } catch (err) {
     throw new Error(
-      `--verify could not launch Chromium (run "npx playwright install chromium" or re-run without --verify): ${err.message}`,
+      `could not launch Chromium (run "npx playwright install chromium" or use --no-verify): ${err.message}`,
       { cause: err },
     );
   }
@@ -328,85 +340,60 @@ async function verifyOffers(offers, { headedFallback = false, throttleBaseMs = 0
   //   verified  → active pages and transient nav errors (retry next scan)
   //   expired   → classifier-confirmed dead postings (HTTP 4xx, redirect markers,
   //               body patterns, listing pages, insufficient content)
-  //   dropped   → page loaded but classifier saw no Apply control. --verify is an
-  //               opt-in stricter filter; keeping these defeats the purpose.
+  //   dropped   → page loaded but classifier saw no Apply control. Default-on
+  //               verify means these are filtered out before pipeline.md.
   //   invalid   → up-front URL guard rejections (malformed / non-http / private)
   const verified = [];
   const expired = [];
   const dropped = [];
   const invalid = [];
 
-  const headed = headedFallback ? createHeadedPageProvider(chromium) : null;
-  const getHeadedPage = headed ? () => headed.get() : undefined;
-
   try {
-    const page = await newLivenessPage(browser);
+    const page = await browser.newPage();
     // Sequential — project rule: never Playwright in parallel
-    for (let i = 0; i < offers.length; i++) {
-      const offer = offers[i];
-      const { result, code, reason } = headed
-        ? await checkUrlLivenessWithFallback(page, offer.url, { getHeadedPage })
-        : await checkUrlLiveness(page, offer.url);
+    for (const offer of offers) {
+      const { result, code, reason } = await checkUrlLiveness(page, offer.url);
       if (result === 'expired') {
         expired.push({ ...offer, reason });
         console.log(`  ❌ expired   ${offer.company} | ${offer.title} (${reason})`);
       } else if (result === 'uncertain' && GUARD_CODES.has(code)) {
-        // Guard failures are permanent (not transient like a timeout) — record them
-        // separately so they don't end up in pipeline.md but DO appear in scan-history
-        // with a precise status, dedup-blocking them on subsequent scans.
         invalid.push({ ...offer, code, reason });
         console.log(`  ⛔ invalid   ${offer.company} | ${offer.title} (${reason})`);
-      } else if (result === 'uncertain' && code === 'no_apply_control') {
-        // Page loaded but classifier could not find an Apply control. Treat like
-        // expired for routing — drop from pipeline AND record in scan-history so
-        // we don't burn a verify cycle on the same URL next scan.
-        dropped.push({ ...offer, reason });
-        console.log(`  ⚠️ no-apply  ${offer.company} | ${offer.title} (${reason})`);
       } else {
-        // 'active' or 'uncertain' due to navigation_error (transient — retry next scan)
         verified.push(offer);
-        const icon = result === 'active' ? '✅' : '⚠️';
+        let icon = '✅';
+        if (result === 'likely_active') icon = '✨';
+        else if (result === 'uncertain') icon = '⚠️';
         console.log(`  ${icon} ${result.padEnd(9)} ${offer.company} | ${offer.title}`);
       }
-
-      const wait = i < offers.length - 1 ? jitteredDelayMs(throttleBaseMs) : 0;
-      if (wait) await sleep(wait);
     }
   } finally {
-    if (headed) await headed.close();
     await browser.close();
   }
 
   return { verified, expired, dropped, invalid };
 }
 
-// Stable codes from liveness-browser's up-front URL guard. Routing dispatches
-// on these codes (not on regex over reason strings) so wording can change
-// without breaking the pipeline.
+// Stable codes from liveness-browser's up-front URL guard.
 const GUARD_CODES = new Set(['invalid_url', 'unsupported_protocol', 'blocked_host']);
 
-// guardStatusFor maps a guard code to the canonical scan-history status string.
 function guardStatusFor(code) {
   if (code === 'blocked_host') return 'skipped_blocked_host';
-  // invalid_url and unsupported_protocol both surface as malformed input
   return 'skipped_invalid_url';
 }
 
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
-  const verify = args.includes('--verify');
-  // Opt-in: on an anti-bot challenge (e.g. pracuj.pl Cloudflare wall), retry the
-  // URL in a headed browser. Off by default — headed Chromium needs a display, so
-  // scheduled/unattended scans should not rely on it.
-  const headedFallback = args.includes('--headed-fallback');
-  // --throttle or --throttle=<ms>: jittered gap between --verify checks to stay
-  // under rate-based WAF limits (pracuj.pl flags the session after a few rapid
-  // hits). Default base 5000ms. Off by default — most ATS feeds don't need it.
-  const throttleArg = args.find((a) => a === '--throttle' || a.startsWith('--throttle='));
-  const throttleBaseMs = throttleArg ? (Number(throttleArg.split('=')[1]) || 5000) : 0;
+  // --verify is ON by default. Pass --no-verify to skip Playwright checks.
+  const noVerify = args.includes('--no-verify');
+  const verify = !noVerify;
   const companyFlag = args.indexOf('--company');
   const filterCompany = companyFlag !== -1 ? args[companyFlag + 1]?.toLowerCase() : null;
+  // Diagnostic flags — never write results when these are active
+  const noTitleFilter = args.includes('--no-title-filter');
+  const noLocationFilter = args.includes('--no-location-filter');
+  const debug = args.includes('--debug');
 
   // 1. Load providers
   const providers = await loadProviders(PROVIDERS_DIR);
@@ -423,14 +410,28 @@ async function main() {
 
   const config = parseYaml(readFileSync(PORTALS_PATH, 'utf-8'));
   const companies = config.tracked_companies || [];
-  const titleFilter = buildTitleFilter(config.title_filter);
-  const locationFilter = buildLocationFilter(config.location_filter);
+  const searchQueries = config.search_queries || [];
+  const { pass: titlePass, negativeMatchCounts, getStats: getTitleStats } = buildTitleFilter(config.title_filter);
+  const locationPass = buildLocationFilter(config.location_filter);
+  // Diagnostic bypass
+  const titleFilter = noTitleFilter ? () => true : titlePass;
+  const locationFilter = noLocationFilter ? () => true : locationPass;
+  if (noTitleFilter) console.log('⚠️  Title filter DISABLED (--no-title-filter). All titles will pass.');
+  if (noLocationFilter) console.log('⚠️  Location filter DISABLED (--no-location-filter). All locations will pass.');
 
-  // 3. Resolve a provider for each enabled company
+  // 3. Resolve a provider for each enabled target (Tiers 0-2)
   const targets = [];
   let skippedCount = 0;
+  const skippedNames = [];
   const resolveErrors = [];
-  const agentHandoff = [];
+  const promotedCompanies = [];
+
+  console.log('Resolving providers and discovering portals (Tiers 0-2)...');
+
+  // Resolve targets in parallel to keep things moving
+  const resolutionTasks = [];
+
+  // 3a. Tracked companies
   for (const company of companies) {
     if (!company || typeof company !== 'object') continue;
     if (company.enabled === false) continue;
@@ -439,24 +440,61 @@ async function main() {
       continue;
     }
     if (filterCompany && !company.name.toLowerCase().includes(filterCompany)) continue;
-    const resolved = resolveProvider(company, providers);
-    if (!resolved) {
-      skippedCount++;
-      if (company.scan_method === 'websearch') {
-        agentHandoff.push({
-          company: company.name,
-          method: 'websearch',
-          query: company.scan_query || company.search_query || company.careers_url || '',
-        });
+
+    resolutionTasks.push(async () => {
+      const resolved = resolveProvider(company, providers);
+      
+      // Tier 1: If it's a websearch company, try to guess the portal first
+      if (resolved?.provider?.id === 'websearch' && !filterCompany) {
+        const guess = await guessPortal(company.name, company.domain);
+        if (guess) {
+          const p = providers.get(guess.provider);
+          if (p) {
+            console.log(`  ✨ Promoted: ${company.name} (discovered ${guess.provider} via guessing)`);
+            promotedCompanies.push({ name: company.name, provider: guess.provider, careers_url: guess.url });
+            return { ...company, _provider: p, careers_url: guess.url, api: guess.url };
+          }
+        }
       }
-      continue;
-    }
-    if (resolved.error) { resolveErrors.push({ company: company.name, error: resolved.error }); continue; }
-    targets.push({ ...company, _provider: resolved.provider });
+
+      if (!resolved) { skippedCount++; skippedNames.push(company.name); return null; }
+      if (resolved.error) { resolveErrors.push({ company: company.name, error: resolved.error }); return null; }
+      return { ...company, _provider: resolved.provider };
+    });
   }
 
-  const localParserCount = targets.filter(t => t._provider.id === 'local-parser').length;
-  console.log(`Scanning ${targets.length} companies via providers (${localParserCount} local parser; ${skippedCount} skipped — no provider matched)`);
+  // 3b. Search queries (broad sweeps)
+  for (const q of searchQueries) {
+    if (!q || typeof q !== 'object') continue;
+    if (q.enabled === false) continue;
+    if (filterCompany) continue; 
+    
+    resolutionTasks.push(async () => {
+      const p = providers.get(q.provider || 'websearch');
+      if (!p) {
+        resolveErrors.push({ company: q.name, error: `unknown provider: ${q.provider || 'websearch'}` });
+        return null;
+      }
+      return {
+        ...q,
+        scan_query: q.query,
+        _provider: p,
+        _isSweep: true
+      };
+    });
+  }
+
+  const resolvedTargets = await parallelFetch(resolutionTasks, 10);
+  for (const t of resolvedTargets) {
+    if (t) targets.push(t);
+  }
+
+  const localParserCount = targets.filter(t => t._provider && t._provider.id === 'local-parser').length;
+  console.log(`Scanning ${targets.length} targets via providers (${localParserCount} local parser; ${skippedCount} skipped — no provider matched)`);
+  if (skippedNames.length > 0) {
+    console.log(`Skipped companies: ${skippedNames.join(', ')}`);
+  }
+  if (noVerify) console.log('⚠️  Liveness verification disabled (--no-verify). Ghost listings may slip through.');
   if (dryRun) console.log('(dry run — no files will be written)\n');
 
   // 4. Load dedup sets
@@ -471,11 +509,15 @@ async function main() {
   let totalDupes = 0;
   const newOffers = [];
   const errors = [...resolveErrors];
+  const sourceCounts = new Map();
+  const funnelLog = []; // per-company funnel for --debug
 
   const tasks = targets.map(company => async () => {
     let provider = company._provider;
     const ctx = makeHttpCtx();
     let sourceName = provider.id === 'local-parser' ? 'local-parser' : `${provider.id}-api`;
+    const tag = company.source_tag || sourceName;
+    const funnel = { name: company.name || company.scan_query || '?', raw: 0, title: 0, location: 0, dupes: 0, final: 0 };
     try {
       let jobs;
       try {
@@ -495,50 +537,60 @@ async function main() {
       if (!Array.isArray(jobs)) {
         throw new Error(`${provider.id}: fetch() did not return an array`);
       }
+      funnel.raw = jobs.length;
       totalFound += jobs.length;
+      sourceCounts.set(tag, (sourceCounts.get(tag) || 0) + jobs.length);
 
       for (const job of jobs) {
         if (!titleFilter(job.title)) {
           totalFilteredTitle++;
+          funnel.title++;
           continue;
         }
         if (!locationFilter(job.location)) {
           totalFilteredLocation++;
+          funnel.location++;
           continue;
         }
         if (seenUrls.has(job.url)) {
           totalDupes++;
+          funnel.dupes++;
           continue;
         }
         const key = `${job.company.toLowerCase()}::${job.title.toLowerCase()}`;
         if (seenCompanyRoles.has(key)) {
           totalDupes++;
+          funnel.dupes++;
           continue;
         }
         // Mark as seen to avoid intra-scan dupes
         seenUrls.add(job.url);
         seenCompanyRoles.add(key);
+        funnel.final++;
         newOffers.push({ ...job, source: sourceName });
       }
     } catch (err) {
       errors.push({ company: company.name, error: err.message });
     }
+    funnelLog.push(funnel);
   });
 
   await parallelFetch(tasks, CONCURRENCY);
 
-  // 5.5. Optional liveness verification — drop expired and guard-rejected postings
+  // 5.5. Liveness verification — on by default, skip with --no-verify
   let verifiedOffers = newOffers;
   let expiredOffers = [];
   let droppedOffers = [];
   let invalidOffers = [];
   if (verify && newOffers.length > 0) {
     console.log(`\nVerifying liveness of ${newOffers.length} new offer(s) with Playwright (sequential)...`);
-    const result = await verifyOffers(newOffers, { headedFallback, throttleBaseMs });
+    const result = await verifyOffers(newOffers);
     verifiedOffers = result.verified;
     expiredOffers = result.expired;
     droppedOffers = result.dropped;
     invalidOffers = result.invalid;
+  } else if (verify && newOffers.length === 0) {
+    // Nothing to verify — skip Playwright startup entirely
   }
 
   // 6. Write results
@@ -549,16 +601,10 @@ async function main() {
   if (!dryRun && expiredOffers.length > 0) {
     appendToScanHistory(expiredOffers, date, 'skipped_expired');
   }
-  // Pages that loaded but had no Apply control: record so we don't re-verify
-  // them next scan, but never let them reach pipeline.md.
   if (!dryRun && droppedOffers.length > 0) {
     appendToScanHistory(droppedOffers, date, 'skipped_no_apply_control');
   }
-  // Guard-rejected URLs (invalid / unsupported protocol / blocked host) are
-  // recorded with a precise status so subsequent scans dedup-skip them via
-  // loadSeenUrls, but they never reach pipeline.md.
   if (!dryRun && invalidOffers.length > 0) {
-    // Group by code so the TSV reflects the actual reason category.
     const byStatus = new Map();
     for (const o of invalidOffers) {
       const status = guardStatusFor(o.code);
@@ -576,24 +622,80 @@ async function main() {
   console.log(`${'━'.repeat(45)}`);
   console.log(`Companies scanned:     ${targets.length}`);
   console.log(`Total jobs found:      ${totalFound}`);
-  console.log(`Filtered by title:     ${totalFilteredTitle} removed`);
-  console.log(`Filtered by location:  ${totalFilteredLocation} removed`);
+  const { positiveRejectCount } = getTitleStats();
+  const negativeRejectCount = totalFilteredTitle - positiveRejectCount;
+  if (noTitleFilter) {
+    console.log(`Filtered by title:     DISABLED`);
+  } else {
+    console.log(`Filtered by title:     ${totalFilteredTitle} removed`);
+    console.log(`  ↳ no positive match: ${positiveRejectCount} (title lacked target keywords)`);
+    console.log(`  ↳ negative hit:      ${negativeRejectCount} (title contained excluded term)`);
+  }
+
+  // Top-10 negative blockers — shows what's actually driving the title removals
+  if (!noTitleFilter) {
+    const topNegative = [...negativeMatchCounts.entries()]
+      .filter(([, count]) => count > 0)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10);
+    if (topNegative.length > 0) {
+      console.log('  Top negative blockers:');
+      for (const [keyword, count] of topNegative) {
+        const bar = '█'.repeat(Math.min(Math.round(count / 20), 20));
+        console.log(`    ${keyword.padEnd(28)} ${String(count).padStart(4)}  ${bar}`);
+      }
+    }
+  }
+
+  if (noLocationFilter) {
+    console.log(`Filtered by location:  DISABLED`);
+  } else {
+    console.log(`Filtered by location:  ${totalFilteredLocation} removed`);
+  }
   console.log(`Duplicates:            ${totalDupes} skipped`);
   if (verify) {
     console.log(`Expired (verified):    ${expiredOffers.length} dropped`);
-    console.log(`No apply control:      ${droppedOffers.length} dropped`);
     console.log(`Invalid (guarded):     ${invalidOffers.length} dropped`);
   }
   console.log(`New offers added:      ${verifiedOffers.length}`);
 
-  if (agentHandoff.length > 0) {
-    console.log(`Agent/WebSearch handoff: ${agentHandoff.length} compan${agentHandoff.length === 1 ? 'y' : 'ies'} not handled by zero-token providers`);
-    for (const item of agentHandoff.slice(0, 25)) {
-      const hint = item.query ? ` — ${item.query}` : '';
-      console.log(`  • ${item.company} (${item.method})${hint}`);
+  // Provider Health Report
+  if (config.reporting?.track_source_counts && sourceCounts.size > 0) {
+    console.log(`\n${'━'.repeat(45)}`);
+    console.log('Provider Health Report');
+    console.log(`${'━'.repeat(45)}`);
+    const sortedSources = [...sourceCounts.entries()].sort((a, b) => b[1] - a[1]);
+    for (const [tag, count] of sortedSources) {
+      console.log(`  ${tag.padEnd(28)} ${String(count).padStart(4)} jobs found`);
     }
-    if (agentHandoff.length > 25) {
-      console.log(`  … ${agentHandoff.length - 25} more omitted; narrow with --company or inspect portals.yml`);
+
+    // Alerts
+    const alerts = config.reporting?.alert_on_zero_sources || [];
+    const triggered = alerts.filter(tag => (sourceCounts.get(tag) || 0) === 0);
+    if (triggered.length > 0) {
+      console.log(`\n🚨  CRITICAL: ZERO RESULTS FROM EXPECTED SOURCES:`);
+      for (const tag of triggered) {
+        console.log(`    - ${tag} (check if API is blocked or query is too narrow)`);
+      }
+    }
+  }
+
+  if (debug) {
+    console.log(`\n${'━'.repeat(70)}`);
+    console.log('Funnel Debug — per company (raw > 0, sorted by raw desc)');
+    console.log(`${'━'.repeat(70)}`);
+    const col = (s, w) => String(s).slice(0, w).padEnd(w);
+    const colR = (s, w) => String(s).slice(0, w).padStart(w);
+    console.log(col('Company', 35) + colR('Raw', 6) + colR('Title', 7) + colR('Loc', 5) + colR('Dup', 5) + colR('New', 5));
+    console.log('─'.repeat(63));
+    const sorted = funnelLog.filter(f => f.raw > 0).sort((a, b) => b.raw - a.raw);
+    for (const f of sorted) {
+      const flag = f.final > 0 ? ' ✓' : '';
+      console.log(col(f.name, 35) + colR(f.raw, 6) + colR(f.title, 7) + colR(f.location, 5) + colR(f.dupes, 5) + colR(f.final, 5) + flag);
+    }
+    const zeroRaw = funnelLog.filter(f => f.raw === 0);
+    if (zeroRaw.length > 0) {
+      console.log(`\n  ${zeroRaw.length} companies returned 0 raw jobs: ${zeroRaw.map(f => f.name).join(', ')}`);
     }
   }
 
@@ -618,6 +720,43 @@ async function main() {
 
   console.log(`\n→ Run /career-ops pipeline to evaluate new offers.`);
   console.log('→ Share results and get help: https://discord.gg/8pRpHETxa4');
+}
+
+function updatePortalsWithPromotions(promotions) {
+  try {
+    const raw = readFileSync(PORTALS_PATH, 'utf-8');
+    const config = parseYaml(raw);
+    const companies = config.tracked_companies || [];
+
+    for (const promo of promotions) {
+      const idx = companies.findIndex(c => c.name === promo.name);
+      if (idx !== -1) {
+        // Upgrade existing entry
+        companies[idx].provider = promo.provider;
+        companies[idx].careers_url = promo.careers_url;
+        if (promo.provider === 'greenhouse' || promo.provider === 'lever' || promo.provider === 'ashby') {
+          companies[idx].api = promo.careers_url; // simple API mapping for standard ATS
+        }
+        delete companies[idx].scan_method;
+        delete companies[idx].scan_query;
+        console.log(`    - Upgraded ${promo.name} to ${promo.provider}`);
+      } else {
+        // Add new company discovered via sweep
+        companies.push({
+          name: promo.name,
+          provider: promo.provider,
+          careers_url: promo.careers_url,
+          enabled: true
+        });
+        console.log(`    - Added new company ${promo.name} (${promo.provider})`);
+      }
+    }
+
+    config.tracked_companies = companies;
+    writeFileSync(PORTALS_PATH, stringifyYaml(config, { indent: 2, lineWidth: -1 }), 'utf-8');
+  } catch (err) {
+    console.error(`⚠️ Failed to update portals.yml: ${err.message}`);
+  }
 }
 
 // Only run main() when invoked directly (`node scan.mjs`), not when imported by tests.

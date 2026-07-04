@@ -70,20 +70,6 @@ function normalizeTextForATS(html) {
     t = t.replace(/\u2026/g, () => { bump('ellipsis', 1); return '...'; });
     t = t.replace(/[\u200B\u200C\u200D\u2060\uFEFF]/g, () => { bump('zero-width', 1); return ''; });
     t = t.replace(/\u00A0/g, () => { bump('nbsp', 1); return ' '; });
-    // Arrows often stripped by PDF text extractors \u2014 replace with ASCII for ATS safety.
-    // Consume surrounding whitespace to avoid double-spacing in output.
-    t = t.replace(/\s*\u2192\s*/g, () => { bump('right-arrow', 1); return ' to '; });
-    t = t.replace(/\s*\u2190\s*/g, () => { bump('left-arrow', 1); return ' from '; });
-    t = t.replace(/\s*[\u2191\u2193]\s*/g, () => { bump('vert-arrow', 1); return ' '; });
-    // Middle dot and bullet glyphs garble in some extractors \u2014 replace with pipe.
-    t = t.replace(/\s*\u00B7\s*/g, () => { bump('middot', 1); return ' | '; });
-    t = t.replace(/\s*\u2022\s*/g, () => { bump('bullet', 1); return ' | '; });
-    // Currency symbols sometimes stripped by font-subsetted PDFs \u2014 spell out
-    // the unambiguous ones. \u00A5 is intentionally NOT converted: it maps to both
-    // Japanese Yen (JPY) and Chinese Yuan (CNY), so any spelled-out code would be
-    // wrong for half of users \u2014 better to leave the glyph than emit bad data.
-    t = t.replace(/\u20AC/g, () => { bump('euro', 1); return 'EUR '; });
-    t = t.replace(/\u00A3/g, () => { bump('pound', 1); return 'GBP '; });
     return t;
   }
 }
@@ -137,6 +123,25 @@ async function generatePDF() {
     /file:\/\/([^'")]+)\.(woff2?|ttf|otf)['"]?\)/g,
     `file://$1.$2')`
   );
+
+  // Embed docs images as base64 data URIs (file:// img src is blocked by Chromium's null-origin policy when using setContent)
+  const docsDir = resolve(__dirname, 'docs');
+  const imgPattern = /src=['"]\.\/docs\/([^'"]+)['"]/g;
+  const imgMatches = [...html.matchAll(imgPattern)];
+  for (const match of imgMatches) {
+    const filename = match[1];
+    const ext = filename.split('.').pop().toLowerCase();
+    const mimeMap = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', svg: 'image/svg+xml', webp: 'image/webp' };
+    const mime = mimeMap[ext] || `image/${ext}`;
+    try {
+      const imgBuffer = await readFile(resolve(docsDir, filename));
+      const b64 = imgBuffer.toString('base64');
+      html = html.replace(match[0], `src='data:${mime};base64,${b64}'`);
+      console.log(`🖼️  Embedded ${filename} as base64 (${(imgBuffer.length / 1024).toFixed(1)} KB)`);
+    } catch (e) {
+      console.warn(`⚠️  Could not embed ${filename}: ${e.message}`);
+    }
+  }
 
   // Normalize text for ATS compatibility (issue #1)
   const normalized = normalizeTextForATS(html);
