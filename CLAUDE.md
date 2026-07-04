@@ -22,25 +22,21 @@ There are two layers. Read `DATA_CONTRACT.md` for the full list.
 
 **THE RULE: When the user asks to customize anything (archetypes, narrative, negotiation scripts, proof points, location policy, comp targets), ALWAYS write to `modes/_profile.md` or `config/profile.yml`. NEVER edit `modes/_shared.md` for user-specific content.** This ensures system updates don't overwrite their customizations.
 
-## Update Check
+## Update Check -- disabled (2026-07-04)
 
-On the first message of each session, run the update checker silently:
+**Do not run `node update-system.mjs check` automatically at session start
+anymore.** A June 2026 auto-update (v1.9.0) silently overwrote Morgan's
+personalization in several "System Layer" files despite the data contract
+above (full account: memory `project_career_ops_update_risk`), and the
+`upstream` git remote (`santifer/career-ops`) has since been removed --
+this fork is no longer tracking upstream. The plan is for `resume-builder`
+to eventually absorb career-ops's features directly rather than keep
+syncing this fork, so there's no more update to check for going forward.
 
-```bash
-node update-system.mjs check
-```
-
-Parse the JSON output:
-- `{"status": "update-available", "local": "1.0.0", "remote": "1.1.0", "changelog": "..."}` → tell the user:
-  > "career-ops update available (v{local} → v{remote}). Your data (CV, profile, tracker, reports) will NOT be touched. Want me to update?"
-  If yes → run `node update-system.mjs apply`. If no → run `node update-system.mjs dismiss`.
-- `{"status": "up-to-date"}` → say nothing
-- `{"status": "dismissed"}` → say nothing
-- `{"status": "offline"}` → say nothing
-- `{"status": "no-remote-version"}` → say nothing (checker reached GitHub but neither VERSION nor the latest release tag parsed as semver — treat as a silent non-failure, same as offline)
-
-The user can also say "check for updates" or "update career-ops" at any time to force a check.
-To rollback: `node update-system.mjs rollback`
+If Morgan explicitly asks to check for updates or run `update-system.mjs`
+manually, that's still fine -- just don't do it silently/automatically, and
+treat "update-available" as something to review file-by-file (per the
+2026-07-04 recovery approach) rather than applying wholesale.
 
 ## What is career-ops
 
